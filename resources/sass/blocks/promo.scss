@@ -1,0 +1,90 @@
+.promo {
+    background: url(/images/bg/promo-bg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+        max-width: 796px;
+        font-size: $font-size--h1;
+        line-height: 57px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    .form {
+        margin: 35px 0 45px;
+        background: inherit;
+        position: relative;
+        top: 0;
+        right: 250px;
+        overflow: hidden;
+
+        &:before {
+            content: "";
+            width: 450px;
+            height: 570px;
+            background: inherit;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: inset 0 0 0 230px rgba(0, 0, 0, 0.2);
+            filter: blur(7px);
+        }
+
+        &__fieldset {
+            position: relative;
+            display: flex;
+            max-width: 320px;
+            padding: 30px 29px 45px 29px;
+            background: transparent;
+
+        }
+
+        &__title {
+            font-size: $font-size--m;
+            line-height: normal;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: $third-color;
+        }
+
+        &__desc {
+            margin: 10px 0 39px;
+            font-size: $font-size--s;
+            line-height: normal;
+            color: #FFFFFF;
+        }
+
+        &__user-data {
+            flex-direction: column;
+            align-items: start;
+        }
+
+        &__text {
+            order: 0;
+            margin: 5px 0 35px;
+            color: #fff;
+        }
+
+        &__btn {
+            background: $third-color;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .field-text {
+            &__name {
+                color: #fff;
+            }
+
+            &__input {
+                margin-bottom: 29px;
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+}

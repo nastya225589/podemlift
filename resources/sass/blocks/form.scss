@@ -1,0 +1,61 @@
+.form {
+    margin-bottom: 105px;
+
+    &__fieldset {
+        padding: 51px 79px 65px 98px;
+        background: $main-color;
+        border: none;
+    }
+
+    &__desc {
+        margin: 12px 0 42px;
+        font-size: $font-size--s;
+        line-height: normal;
+        color: $text-color;
+    }
+
+    &__title  {
+        color: $third-color;
+    }
+
+    &__user-data {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__btn {
+        margin-left: 50px;
+        min-width: 220px;
+        height: 50px;
+        font-size: $font-size--s;
+        line-height: normal;
+    }
+
+    .field-text {
+        display: flex;
+        flex-direction: column;
+
+        &__name {
+            margin-bottom: 5px;
+            font-size: $font-size--xs;
+            line-height: normal;
+            color: $third-text-color;
+        }
+
+        &__input {
+            min-width: 320px;
+            height: 40px;
+            border: none;
+        }
+    }
+
+    &__text {
+        order: 1;
+        margin-top: 15px;
+        font-size: $font-size--xs;
+        line-height: normal;
+        color: $text-color;
+    }
+}

@@ -1,0 +1,43 @@
+.examples {
+    margin-bottom: 105px;
+
+    &__title {
+        margin-bottom: 25px;
+    }
+
+    &__list {
+        padding-left: 22px;
+        margin: 0 60px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__item {
+        width: 180px;
+        height: 300px;
+        position: relative;
+
+        &:hover {
+            .examples__desc {
+                display: block;
+                height: 100%;
+                width: 180px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 10px;
+                font-size: $font-size--s;
+                font-weight: bold;
+                line-height: normal;
+                color: #fff;
+                background: rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+
+    &__desc {
+        display: none;
+    }
+
+}
+

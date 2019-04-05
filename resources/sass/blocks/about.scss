@@ -1,0 +1,76 @@
+.about {
+    margin-top: 125px;
+
+    &__title {
+        margin-bottom: 63px;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        margin-bottom: 60px;
+        max-width: 350px;
+        position: relative;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &--work:before {
+            top: -30px;
+            width: 53px;
+            height: 49px;
+            background: url(../images/icon/work.png);
+        }
+
+        &--practice:before {
+            top: -43px;
+            width: 58px;
+            height: 67px;
+            background: url(../images/icon/practice.png);
+        }
+
+        &--time:before {
+            top: -30px;
+            width: 48px;
+            height: 55px;
+            background: url(../images/icon/time.png);
+        }
+
+        &--products:before {
+            top: -10px;
+            width: 58px;
+            height: 47px;
+            background: url(../images/icon/products.png);
+        }
+
+        &--production:before {
+            top: -36px;
+            width: 54px;
+            height: 58px;
+            background: url(../images/icon/production.png);
+        }
+
+        &--warranty:before {
+            top: -33px;
+            width: 48px;
+            height: 51px;
+            background: url(../images/icon/warranty.png);
+        }
+    }
+
+    &__name {
+        margin-bottom: 8px;
+        padding-left: 68px;
+        font-size: $font-size--m;
+        line-height: 19px;
+    }
+}

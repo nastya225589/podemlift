@@ -1,0 +1,85 @@
+.work {
+    margin-bottom: 104px;
+
+    &__title {
+        margin: 105px 0 57px;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        max-width: 205px;
+        position: relative;
+        font-size: $font-size--m;
+        line-height: normal;
+        font-weight: 600;
+        text-align: center;
+        color: #000000;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            border-bottom: 2px dotted #636b6f;
+            position: absolute;
+            top: 17px;
+            right: -82px;
+            width: 72px;
+        }
+
+        &:nth-child(5) {
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    &__number {
+        margin-bottom: 23px;
+        font-size: $font-size--h2 + 6;
+        line-height: normal;
+        letter-spacing: 0.03em;
+        color: $third-color;
+        position: relative;
+        right: 20px;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: -5px;
+            right: 0;
+            width: 50px;
+            height: 50px;
+        }
+
+        &--request:before {
+            background: url(../images/icon/request.svg);
+        }
+
+        &--project:before {
+            right: 30px;
+            background: url(../images/icon/project.svg);
+        }
+
+        &--contract:before {
+            right: 25px;
+            background: url(../images/icon/contract.svg);
+        }
+
+        &--production:before {
+            right: 35px;
+            background: url(../images/icon/production.svg);
+        }
+
+        &--install:before {
+            right: 30px;
+            background: url(../images/icon/install.svg);
+        }
+    }
+}

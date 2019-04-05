@@ -1,0 +1,55 @@
+.card {
+    padding: 10px;
+    margin-bottom: 40px;
+    background: $main-color;
+    display: inline-block;
+
+    &:hover {
+        background: $second-color;
+
+        .card__name {
+            color: $third-color;
+        }
+    }
+
+    &__name {
+        margin: 14px 0 3px;
+        font-size: $font-size--m;
+        line-height: normal;
+        color: $text-color;
+        text-transform: inherit;
+    }
+
+    &__list {
+        margin-bottom: 10px;
+    }
+
+    &__item {
+        font-size: $font-size--xs;
+        line-height: 17px;
+        color: $fourth-color;
+    }
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__buy {
+        font-size: $font-size--xs + 1;
+        line-height: normal;
+        color: $text-color;
+        font-weight: 600;
+
+        span {
+            font-size: $font-size--m;
+        }
+    }
+
+    &__btn {
+        min-width: 114px;
+        padding: 9px 0;
+    }
+
+}

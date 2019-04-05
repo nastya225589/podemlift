@@ -1,0 +1,43 @@
+.header-top {
+    background: $third-color;
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 23px 0;
+    }
+
+    &__buy {
+        padding-left: 48px;
+        max-width: 135px;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 38px;
+            height: 38px;
+        }
+
+        &--request:before {
+            background: url(../images/icon/header-request.svg);
+        }
+    }
+
+    &__order {
+        font-size: $font-size--xs - 1;
+        line-height: 10px;
+        color: #fff;
+
+        p {
+            margin-bottom: 7px;
+            font-size: $font-size--s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+}

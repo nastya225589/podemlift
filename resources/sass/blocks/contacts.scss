@@ -1,0 +1,46 @@
+.contacts {
+    &__list {
+        margin-left: 70px;
+        display: flex;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        margin-right: 45px;
+
+        span {
+            font-size: $font-size--xs - 1;
+            color: #fff;
+        }
+    }
+
+    &__link {
+        font-size: $font-size--s;
+        line-height: 16px;
+        font-weight: bold;
+        color: #fff;
+
+        &--line {
+            border-bottom: 2px solid #fff;
+        }
+    }
+
+    &__city {
+        position: relative;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 6px;
+            right: 39px;
+            width: 9px;
+            height: 6px;
+        }
+
+        &--arrow:before {
+            background: url(/images/icon/header-arrow.svg);
+        }
+    }
+}

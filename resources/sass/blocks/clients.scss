@@ -1,0 +1,33 @@
+.clients {
+    margin-bottom: 107px;
+
+    &__title {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    &__wrap {
+        margin-top: 20px;
+        background: #F1F1F1;
+    }
+
+    &__list {
+        padding: 20px 0 20px 22px;
+        margin: 0 60px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__icon {
+        padding: 10px 0;
+        filter: grayscale(100%);
+
+        &:hover {
+            filter: none;
+        }
+    }
+}

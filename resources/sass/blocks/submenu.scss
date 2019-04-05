@@ -1,0 +1,31 @@
+.submenu, .submenu2 {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 62px;
+    left: 0;
+
+    &__active {
+        display: block;
+    }
+
+    &__list {
+        background: $main-color;
+        padding: 10px 20px;
+    }
+
+    &__item {
+        padding: 10px 0;
+        width: 200px;
+    }
+
+    &__link {
+        font-size: $font-size--xs;
+        line-height: 17px;
+        color: $text-color;
+
+        &:hover {
+            color: $third-color;
+        }
+    }
+}

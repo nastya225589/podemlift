@@ -1,0 +1,48 @@
+.main-nav {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        padding:  20px 18px;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 46%;
+            right: 28px;
+            width: 12px;
+            height: 7px;
+        }
+
+        &--main {
+             background: $main-color;
+             padding: 20px 98px 20px 18px;
+        }
+
+        &--main:before {
+            background: url(../images/icon/menu-arrow.svg);
+        }
+
+        &--arrow:before {
+            right: 0;
+            background: url(../images/icon/menu-arrow.svg);
+        }
+
+        &--padding {
+            padding-left: 38px;
+        }
+
+    }
+
+    &__link {
+        font-size: $font-size--s;
+        line-height: normal;
+        font-weight: bold;
+        color: $text-color;
+    }
+
+}

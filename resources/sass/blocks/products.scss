@@ -1,0 +1,12 @@
+.products {
+    &__title {
+        margin: 18px 0 29px;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 70px;
+    }
+}

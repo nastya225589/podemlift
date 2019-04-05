@@ -1,0 +1,11 @@
+.footer {
+    padding: 69px 0 63px;
+    background: $second-bg;
+
+    &__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+

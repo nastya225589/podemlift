@@ -1,20 +1,24 @@
-
 // Body
-$body-bg: #f8fafc;
+$body-bg: #fff;
+$second-bg: #114B21;
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$font-family: "Arial", sans-serif;
+$font-size: 14px;
+$font-size--xs: 12px;
+$font-size--s: 16px;
+$font-size--m: 18px;
+$font-size--h1: 38px;
+$font-size--h2: 30px;
+$font-size--h3: 24px;
+$line-height: 1.6;
 
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$text-color: #1C1C1C;
+$second-text-color: #A6A6A6;
+$third-text-color: #A9A9A9;
+
+$main-color: #F1F1F1;
+$second-color: #D3D3D3;
+$third-color: #00922E;
+$fourth-color: #828282;

@@ -1,0 +1,49 @@
+.social {
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        margin-left: 10px;
+        width: 30px;
+        height: 28px;
+    }
+
+    &__link {
+        position: relative;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 28px;
+        }
+
+        &--vk:before {
+            background: url(/images/icon/vk.svg);
+        }
+
+        &--fb:before {
+            background: url(/images/icon/facebook.svg);
+        }
+
+        &--inst:before {
+            background: url(/images/icon/instagram.svg);
+        }
+
+        &--exclude:before {
+            background: url(/images/icon/exclude.svg);
+        }
+
+        &--viber:before {
+            background: url(/images/icon/viber.svg);
+        }
+
+        &--telegram:before {
+            background: url(/images/icon/telegram.svg);
+        }
+    }
+}

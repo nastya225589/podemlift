@@ -1,0 +1,53 @@
+.slick__slider {
+    position: absolute;
+    z-index: 120;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $third-color;
+    cursor: pointer;
+
+    &_prev {
+        left: -60px;
+    }
+
+    &_prev:after {
+        content: '';
+        display: block;
+        background: url(../images/icon/next.svg);
+        position: absolute;
+        top: 27%;
+        left: 33%;
+        width: 12px;
+        height: 21px;
+    }
+
+    &_next {
+        right: -60px;
+    }
+
+    &_next:after {
+        content: '';
+        display: block;
+        background: url(../images/icon/prev.svg);
+        position: absolute;
+        top: 26%;
+        left: 43%;
+        width: 12px;
+        height: 21px;
+    }
+}
+
+.examples .slick-slide {
+    width: 180px;
+    height: 300px;
+}
+
+.clients .slick-slide {
+    height: 150px;
+}
+
+.clients .slick__slider {
+    top: 40%;
+}
