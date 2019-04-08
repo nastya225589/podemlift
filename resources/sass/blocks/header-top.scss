@@ -6,6 +6,10 @@
         justify-content: space-between;
         align-items: center;
         padding: 23px 0;
+
+        @media (max-width: $screen-md) {
+           padding: 5px 0;
+        }
     }
 
     &__buy {

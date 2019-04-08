@@ -184,6 +184,11 @@ a {
   align-items: center;
   padding: 23px 0;
 }
+@media (max-width: 1000px) {
+  .header-top__wrap {
+    padding: 5px 0;
+  }
+}
 .header-top__buy {
   padding-left: 48px;
   max-width: 135px;
