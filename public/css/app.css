@@ -462,30 +462,30 @@ a {
   flex-wrap: wrap;
 }
 
-.submenu, .submenu2 {
+.submenu {
   display: none;
   z-index: 1;
   position: absolute;
   top: 62px;
   left: 0;
 }
-.submenu__active, .submenu2__active {
+.submenu__active {
   display: block;
 }
-.submenu__list, .submenu2__list {
+.submenu__list {
   background: #F1F1F1;
   padding: 10px 20px;
 }
-.submenu__item, .submenu2__item {
+.submenu__item {
   padding: 10px 0;
   width: 200px;
 }
-.submenu__link, .submenu2__link {
+.submenu__link {
   font-size: 12px;
   line-height: 17px;
   color: #1C1C1C;
 }
-.submenu__link:hover, .submenu2__link:hover {
+.submenu__link:hover {
   color: #00922E;
 }
 
@@ -1170,7 +1170,8 @@ a {
   color: #A9A9A9;
 }
 .form .field-text__input {
-  min-width: 320px;
+  padding: 0 10px;
+  min-width: 300px;
   height: 40px;
   border: none;
 }
