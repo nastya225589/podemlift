@@ -1,6 +1,10 @@
 .about {
     margin-top: 125px;
 
+    @media (max-width: $screen-lg) {
+        margin-top: 50px;
+    }
+
     &__title {
         margin-bottom: 63px;
     }
@@ -9,6 +13,10 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
+        @media (max-width: $screen-lg) {
+            justify-content: space-around;
+        }
     }
 
     &__item {

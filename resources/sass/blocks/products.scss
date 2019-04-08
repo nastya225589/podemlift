@@ -8,5 +8,13 @@
         flex-wrap: wrap;
         justify-content: space-between;
         margin-bottom: 70px;
+
+        @media (max-width: $screen-md) {
+            justify-content: space-around;
+        }
+
+        @media (max-width: $screen-sm) {
+            margin-bottom: 35px;
+        }
     }
 }

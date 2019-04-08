@@ -1,6 +1,14 @@
 .examples {
     margin-bottom: 105px;
 
+    @media (max-width: $screen-md) {
+        margin-bottom: 80px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin-bottom: 50px;
+    }
+
     &__title {
         margin-bottom: 25px;
     }
@@ -10,6 +18,10 @@
         margin: 0 60px;
         display: flex;
         justify-content: space-around;
+
+        @media (max-width: $screen-xs) {
+            padding-left: 0;
+        }
     }
 
     &__item {
@@ -38,6 +50,5 @@
     &__desc {
         display: none;
     }
-
 }
 

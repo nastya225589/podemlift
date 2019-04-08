@@ -2,8 +2,17 @@
     padding: 69px 0 63px;
     background: $second-bg;
 
+    @media (max-width: $screen-md) {
+        padding: 55px 0 53px;
+    }
+
+    @media (max-width: $screen-sm) {
+        padding: 35px 0 45px;
+    }
+
     &__wrap {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
     }

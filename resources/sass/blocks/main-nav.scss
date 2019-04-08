@@ -34,6 +34,10 @@
 
         &--padding {
             padding-left: 38px;
+
+            @media (max-width: 629px) {
+                padding-left: 20px;
+            }
         }
 
     }

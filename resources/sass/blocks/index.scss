@@ -24,6 +24,18 @@ body {
     max-width: 1180px;
     margin: 0 auto;
     padding: 0 10px;
+
+    @media (max-width: $screen-md) {
+        max-width: 980px;
+    }
+
+    @media (max-width: $screen-sm) {
+        max-width: 748px;
+    }
+
+    @media (max-width: $screen-xs) {
+        max-width: 460px;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,6 +49,10 @@ h2 {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: $text-color;
+
+    @media (max-width: $screen-sm) {
+        font-size: $font-size--h3;
+    }
 }
 
 ul, li {

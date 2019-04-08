@@ -1,6 +1,14 @@
 .clients {
     margin-bottom: 107px;
 
+    @media (max-width: $screen-md) {
+        margin-bottom: 80px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin-bottom: 50px;
+    }
+
     &__title {
         max-width: 1180px;
         margin: 0 auto;
@@ -23,6 +31,7 @@
     }
 
     &__icon {
+        margin: 0 auto;
         padding: 10px 0;
         filter: grayscale(100%);
 

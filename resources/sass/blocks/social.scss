@@ -1,4 +1,8 @@
 .social {
+    @media (max-width: $screen-sm) {
+        margin-top: 20px;
+    }
+
     &__list {
         display: flex;
     }
@@ -7,6 +11,11 @@
         margin-left: 10px;
         width: 30px;
         height: 28px;
+
+        @media (max-width: $screen-sm) {
+            margin-left: 0;
+            margin-right: 10px;
+        }
     }
 
     &__link {

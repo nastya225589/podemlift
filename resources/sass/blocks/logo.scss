@@ -3,11 +3,19 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: $screen-md) {
+        max-width: 190px;
+    }
+
     strong {
         padding-left: 7px;
         font-size: $font-size--m;
         font-weight: bold;
         line-height: normal;
         color: #fff;
+
+        @media (max-width: $screen-md) {
+            font-size: $font-size;
+        }
     }
 }

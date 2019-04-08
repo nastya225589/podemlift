@@ -19,6 +19,10 @@
         flex-direction: column;
         color: #fff;
 
+        @media (max-width: $screen-xs) {
+            padding-bottom: 10px;
+        }
+
         span {
             font-size: $font-size--xs - 1;
             line-height: 15px;

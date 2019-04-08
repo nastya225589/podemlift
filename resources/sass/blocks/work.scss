@@ -1,14 +1,34 @@
 .work {
     margin-bottom: 104px;
 
+    @media (max-width: $screen-md) {
+        margin-bottom: 80px;
+    }
+
+    @media (max-width: $screen-sm) {
+        margin-bottom: 40px;
+    }
+
     &__title {
         margin: 105px 0 57px;
+
+        @media (max-width: $screen-md) {
+            margin: 75px 0 45px;
+        }
+
+        @media (max-width: $screen-sm) {
+            margin: 50px 0 35px;
+        }
     }
 
     &__list {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
+        @media (max-width: $screen-sm) {
+            justify-content: space-around;
+        }
     }
 
     &__item {
@@ -22,6 +42,14 @@
         text-align: center;
         color: #000000;
 
+        @media (max-width: $screen-md) {
+            max-width: 150px;
+        }
+
+        @media (max-width: $screen-sm) {
+            margin-bottom: 30px;
+        }
+
         &:before {
             content: '';
             display: inline-block;
@@ -30,6 +58,20 @@
             top: 17px;
             right: -82px;
             width: 72px;
+
+            @media (max-width: $screen-lg) {
+                width: 50px;
+                right: -66px;
+            }
+
+            @media (max-width: $screen-md) {
+                width: 35px;
+                right: -20px;
+            }
+
+            @media (max-width: $screen-sm) {
+                display: none;
+            }
         }
 
         &:nth-child(5) {
@@ -48,6 +90,10 @@
         position: relative;
         right: 20px;
 
+        @media (max-width: $screen-md) {
+            right: 30px;
+        }
+
         &:before {
             content: '';
             display: inline-block;
@@ -65,21 +111,37 @@
         &--project:before {
             right: 30px;
             background: url(../images/icon/project.svg);
+
+            @media (max-width: $screen-md) {
+                right: 0;
+            }
         }
 
         &--contract:before {
             right: 25px;
             background: url(../images/icon/contract.svg);
+
+            @media (max-width: $screen-md) {
+                right: 0;
+            }
         }
 
         &--production:before {
             right: 35px;
             background: url(../images/icon/production.svg);
+
+            @media (max-width: $screen-md) {
+                right: 0;
+            }
         }
 
         &--install:before {
             right: 30px;
             background: url(../images/icon/install.svg);
+
+            @media (max-width: $screen-md) {
+                right: 0;
+            }
         }
     }
 }
