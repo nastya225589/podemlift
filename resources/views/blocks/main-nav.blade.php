@@ -3,7 +3,7 @@
         <ul class="main-nav__list">
             <li class="main-nav__item main-nav__item--main">
                 <a class="main-nav__link" href="/">Kаталог</a>
-                <div class="submenu-main">
+                <div class="submenu-main submenu">
                     <div class="submenu-main__wrap">
                         <ul class="submenu-main__list">
                             <li class="submenu-main__item submenu-main__item--head">
@@ -154,7 +154,7 @@
             </li>
             <li class="main-nav__item main-nav__item--arrow main-nav__item--padding main-nav__item--submenu2">
                 <a class="main-nav__link" href="/">Сферы применения</a>
-                <div class="submenu2">
+                <div class="submenu">
                     <ul class="submenu__list">
                         <li class="submenu__item">
                             <a href="" class="submenu__link">Банки</a>

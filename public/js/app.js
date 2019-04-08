@@ -13650,14 +13650,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var Menu = function Menu() {
   _classCallCheck(this, Menu);
 
-  $('.main-nav__item--main').on('click', function () {
-    $('.submenu-main').toggleClass('submenu-main__active');
+  var touch = $('.main-nav__item');
+  var menuWrapper = $('.main-nav__list');
+  var w = $(window).width();
+  $('html').click(function () {
+    menuWrapper.find('.submenu').slideUp(0);
   });
-  $('.main-nav__item--submenu').on('click', function () {
-    $('.submenu').toggleClass('submenu__active');
+  menuWrapper.click(function (e) {
+    e.stopPropagation();
   });
-  $('.main-nav__item--submenu2').on('click', function () {
-    $('.submenu2').toggleClass('submenu__active');
+  $(touch).on('click', function (e) {
+    e.preventDefault();
+    var menu = $(this).closest('li').find('.submenu');
+    var isClosed = menu.is(':hidden'); // закрыто ли подменю, по которому кликнули
+
+    menuWrapper.find('.submenu').slideUp(0); // закрываем все подменю
+    // если меню было закрыто, то открываем его
+
+    if (isClosed) {
+      menu.slideDown(0);
+    }
   });
 };
 
