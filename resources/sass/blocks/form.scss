@@ -10,6 +10,7 @@
     }
 
     &__fieldset {
+        margin: 0;
         padding: 51px 79px 65px 98px;
         background: $main-color;
         border: none;
@@ -56,14 +57,11 @@
     }
 
     &__btn {
+        margin-top: 20px;
         min-width: 220px;
         height: 50px;
         font-size: $font-size--s;
         line-height: normal;
-
-        @media (max-width: $screen-lg) {
-            margin: 20px 0 0;
-        }
     }
 
     .field-text {
@@ -100,12 +98,12 @@
 
         &__input {
             padding: 0 10px;
-            min-width: 300px;
+            width: 300px;
             height: 40px;
             border: none;
 
             @media (max-width: $screen-xs) {
-                min-width: 275px;
+                width: 260px;
             }
         }
     }

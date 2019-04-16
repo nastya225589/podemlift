@@ -14,14 +14,10 @@
     }
 
     &__list {
-        padding-left: 22px;
+        padding: 0 10px;
         margin: 0 60px;
         display: flex;
         justify-content: space-around;
-
-        @media (max-width: $screen-xs) {
-            padding-left: 0;
-        }
     }
 
     &__item {
@@ -31,12 +27,14 @@
 
         &:hover {
             .examples__desc {
+                margin: 0 auto;
                 display: block;
                 height: 100%;
                 width: 180px;
                 position: absolute;
                 top: 0;
                 left: 0;
+                right: 0;
                 padding: 10px;
                 font-size: $font-size--s;
                 font-weight: bold;
@@ -45,6 +43,10 @@
                 background: rgba(0, 0, 0, 0.5);
             }
         }
+    }
+
+    &__photo {
+        margin: 0 auto;
     }
 
     &__desc {
