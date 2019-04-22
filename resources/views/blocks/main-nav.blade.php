@@ -2,7 +2,7 @@
     <div class="container">
         <ul class="main-nav__list">
             <li class="main-nav__item main-nav__item--main">
-                <a class="main-nav__link" href="/">Kаталог</a>
+                <a class="main-nav__link main-nav__link--main" href="/">Kаталог</a>
                 <div class="submenu-main submenu">
                     <div class="submenu-main__wrap">
                         <ul class="submenu-main__list">
@@ -124,8 +124,8 @@
             <li class="main-nav__item">
                 <a class="main-nav__link" href="/">Услуги</a>
             </li>
-            <li class="main-nav__item main-nav__item--submenu main-nav__item--arrow">
-                <a class="main-nav__link" href="/">Полезные страницы</a>
+            <li class="main-nav__item main-nav__item--submenu">
+                <a class="main-nav__link main-nav__link--arrow" href="/">Полезные страницы</a>
                 <div class="submenu">
                     <ul class="submenu__list">
                         <li class="submenu__item">
@@ -152,9 +152,9 @@
                     </ul>
                 </div>
             </li>
-            <li class="main-nav__item main-nav__item--arrow main-nav__item--padding main-nav__item--submenu2">
-                <a class="main-nav__link" href="/">Сферы применения</a>
-                <div class="submenu">
+            <li class="main-nav__item main-nav__item--submenu-sphere">
+                <a class="main-nav__link main-nav__link--arrow" href="/">Сферы применения</a>
+                <div class="submenu submenu__sphere">
                     <ul class="submenu__list">
                         <li class="submenu__item">
                             <a href="" class="submenu__link">Банки</a>

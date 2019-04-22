@@ -9,37 +9,62 @@
         position: relative;
 
         &:before {
-            content: "";
+            content: none;
             display: inline-block;
             position: absolute;
-            top: 46%;
-            right: 28px;
-            width: 12px;
-            height: 7px;
+            top: 0;
+            left: 0;
+            background: #F1F1F1;
+            width: 119.5%;
+            height: 100%;
         }
 
         &--main {
              background: $main-color;
              padding: 20px 98px 20px 18px;
+
+            &:hover {
+                .submenu-main {
+                    display: block;
+                }
+            }
         }
 
-        &--main:before {
-            background: url(../images/icon/menu-arrow.svg);
+        &--submenu {
+            &:hover {
+                &:before {
+                    content: "";
+                }
+
+                .submenu {
+                    display: block;
+                }
+            }
         }
 
-        &--arrow:before {
-            right: 0;
-            background: url(../images/icon/menu-arrow.svg);
-        }
-
-        &--padding {
-            padding-left: 38px;
+        &--submenu-sphere {
+            position: relative;
+            padding-left: 39px;
 
             @media (max-width: 629px) {
                 padding-left: 20px;
             }
-        }
 
+            &:hover {
+                &:before {
+                    width: 110%;
+                    content: "";
+
+                    @media (max-width: 610px) {
+                        width: 120%;
+                    }
+                }
+
+                .submenu__sphere {
+                    display: block;
+                }
+            }
+        }
     }
 
     &__link {
@@ -47,5 +72,25 @@
         line-height: normal;
         font-weight: bold;
         color: $text-color;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 46%;
+            right: -65px;
+            width: 12px;
+            height: 7px;
+        }
+
+        &--main:before {
+            background: url(../images/icon/menu-arrow.svg);
+        }
+
+        &--arrow:before {
+            right: -18px;
+            background: url(../images/icon/menu-arrow.svg);
+        }
     }
 }
