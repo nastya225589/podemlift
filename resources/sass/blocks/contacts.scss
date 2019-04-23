@@ -12,6 +12,7 @@
         display: flex;
         flex-direction: column;
         margin-right: 45px;
+        position: relative;
 
         @media (max-width: $screen-md) {
             margin-right: 20px;
@@ -69,6 +70,42 @@
 
         &--arrow:before {
             background: url(/images/icon/header-arrow.svg);
+        }
+
+        &-list {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: -8px;
+            background: #F1F1F1;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        &:hover {
+            .contacts__city-list {
+                display: block;
+            }
+        }
+
+        &-item {
+            width: 137px;
+        }
+
+        &-link {
+            font-size: $font-size--xs - 1px;
+            line-height: 17px;
+            color: $text-color;
+
+            &:hover {
+                color: $third-color;
+            }
+
+            &:focus,
+            &:active,
+            &:checked {
+                color: $fourth-color;
+            }
         }
     }
 }
