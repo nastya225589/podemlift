@@ -11,6 +11,10 @@
                     мы рассчитаем ваш заказ по техническому заданию
                 </a>
             </div>
+
+            <button class="main-nav__toggal">
+                <span></span>
+            </button>
         </div>
     </div>
 </div>

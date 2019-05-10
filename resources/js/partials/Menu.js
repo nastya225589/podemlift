@@ -1,5 +1,8 @@
 export default class Menu {
     constructor() {
+        $('.main-nav__toggal').on('click', function() {
+            $('.main-nav, .main-nav__toggal').toggleClass('main-nav__open');
+        });
 
         // const touch = $('.main-nav__item');
         // const menuWrapper = $('.main-nav__list');

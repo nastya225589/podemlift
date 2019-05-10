@@ -7,6 +7,16 @@
         max-width: 190px;
     }
 
+    & img {
+        width: 75px;
+        height: 74px;
+
+        @media (max-width: $screen-xs) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
     strong {
         padding-left: 7px;
         font-size: $font-size--m;
@@ -16,6 +26,10 @@
 
         @media (max-width: $screen-md) {
             font-size: $font-size;
+        }
+
+        @media (max-width: $screen-xs) {
+            display: none;
         }
     }
 }
