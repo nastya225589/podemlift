@@ -166,6 +166,10 @@ return [
          * Package Service Providers...
          */
 
+        Admin\Providers\AdminServiceProvider::class,
+        Admin\Providers\EventServiceProvider::class,
+        Admin\Providers\BladeServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

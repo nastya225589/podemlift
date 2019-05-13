@@ -1,0 +1,110 @@
+<?php
+
+namespace Admin\Controllers;
+
+use Illuminate\Http\Request;
+
+class BaseAdminController extends \Illuminate\Routing\Controller
+{
+    public $name;
+    public $action;
+    public $model;
+    protected $redirectTo;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        if (!$this->name && !app()->runningInConsole()) {
+            $action = app('request')->route()->getAction();
+            $controller = class_basename($action['controller']);
+            [$controller, $this->action] = explode('@', $controller);
+            $this->name = snake_case(str_replace('Controller', '' , $controller));
+        }
+
+        if (!$this->model) {
+            $class = studly_case($this->name);
+            $this->model = file_exists(app_path("Models/$class.php")) ?
+                "\App\Models\\$class" : "\Admin\Models\\$class";
+        }
+
+        if (!$this->redirectTo && !app()->runningInConsole())
+            $this->redirectTo = route("{$this->name}.index");
+    }
+
+    public function index()
+    {
+        return view()->first(["admin.{$this->name}.index", "admin::{$this->name}.index", 'admin::base.index'], [
+            'name' => $this->name,
+            'action' => $this->action,
+            'models' => $this->model::orderBy('id')->paginate(50)
+        ]);
+    }
+
+    public function create()
+    {
+        return view()->first(["admin.{$this->name}.create", "admin::{$this->name}.create", 'admin::base.create'], [
+            'name' => $this->name,
+            'action' => $this->action,
+            'model' => new $this->model
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $this->model::create($request->all());
+        return redirect($this->redirectTo);
+    }
+
+    public function show($id = null)
+    {
+        return view()->first(["admin.{$this->name}.show", "admin::{$this->name}.show", 'admin::base.show'], [
+            'name' => $this->name,
+            'action' => $this->action,
+            'model' => $this->model::findOrFail($id)
+        ]);
+    }
+
+    public function edit($id = null)
+    {
+        return view()->first(["admin.{$this->name}.edit", "admin::{$this->name}.edit", 'admin::base.edit'], [
+            'name' => $this->name,
+            'action' => $this->action,
+            'model' => $this->model::findOrFail($id)
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->model::findOrFail($id)->fill($request->all())->save();
+        return redirect($this->redirectTo);
+    }
+
+    public function destroy($id)
+    {
+        $this->model::findOrFail($id)->delete();
+        return redirect($this->redirectTo);
+    }
+
+    public function copy($id)
+    {
+        $from = $this->model::findOrFail($id);
+        $to = $from->replicate();
+        $to->name .= ' - copy';
+        $to->save();
+        return redirect($this->redirectTo);
+    }
+
+    public function child($id)
+    {
+        $from = $this->model::findOrFail($id);
+        $to = new $this->model([
+            'name' => "Child",
+            'parent_id' => $from->id,
+            'published' => 0,
+            'slug' => 'child'
+        ]);
+        $to->save();
+        return redirect($this->redirectTo);
+    }
+}

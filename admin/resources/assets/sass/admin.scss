@@ -1,0 +1,255 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import './../js/components/Builder/css/Builder';
+
+body, input, select {
+  font-size: .875rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+
+  &-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    height: calc(100vh - 48px);
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+
+  .nav-link {
+    color: #333;
+
+    .fa, .fab, .fal, .far, .fas {
+      min-width: 20px;
+      text-align: center;
+    }
+
+    &:hover {
+    }
+
+    &.active {
+      color: #007bff;
+    }
+  }
+
+  &-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+}
+
+.control-buttons {
+  position: fixed;
+  right: 58px;
+  top: 21px;
+  text-align: center;
+}
+
+hr {
+  border-top: 1px solid #ccc;
+  height: 1px;
+  width: 100%;
+}
+
+/*
+ * Utilities
+ */
+
+tbody > tr:first-child > td {
+  border-top: 0;
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+*:focus {
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.delete-form {
+  display: inline;
+  margin: 0;
+  padding: 0;
+
+  .btn {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.upload-image-button {
+  cursor: pointer;
+}
+
+.upload-image-preview {
+  margin-right: 10px;
+
+  &:empty {
+    display: none;
+  }
+
+  img {
+    height: 19px;
+  }
+}
+
+.input-group > .input-group-append:first-child > .input-group-text {
+  border-radius: 0.25rem;
+}
+
+.dd-content.no-padding {
+  padding-left: 10px;
+}
+
+.eq-width > * {
+  flex-grow: 1;
+  flex-basis: 0;
+
+  &:last-child {
+    text-align: right;
+  }
+}
+
+// tree
+
+.dd {
+  max-width: none;
+
+  &-content {
+    display: block;
+    height: calc(2.19rem + 2px);
+    margin: 5px 0;
+    padding: 5px 10px 5px 40px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+    &:hover {
+      background: #fff;
+    }
+  }
+
+  &-dragel > &-item > &-content {
+    margin: 0;
+  }
+
+  &-item {
+    line-height: 25px;
+    & > button {
+      height: 27px;
+      margin-left: 30px;
+    }
+  }
+
+  &-handle {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    width: 30px;
+    height: calc(2.19rem + 2px);
+    text-indent: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #fff;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:before {
+      content: '≡';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 100%;
+      text-align: center;
+      text-indent: 0;
+      color: #000;
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+
+  button[data-action="expand"] {
+    &:after {
+      content: "+";
+      margin-left: -64px;
+    }
+  }
+
+  button[data-action="collapse"] {
+    &:after {
+      content: "-";
+      margin-left: -72px;
+    }
+  }
+}
+
+.multi-controls {
+  text-align: right;
+
+  .add, .delete {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #ccc;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 0.25rem;
+    color: #fff;
+    position: relative;
+  }
+
+  .add:after {
+    content: '+';
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: -1px;
+    font-size: 20px;
+  }
+
+  .delete:after {
+    content: '-';
+    display: inline-block;
+    position: absolute;
+    left: 11px;
+    top: -7px;
+    font-size: 27px;
+  }
+}
+
+input[type="file"] {
+  border: none;
+  padding: 0;
+}
