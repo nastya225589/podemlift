@@ -3,14 +3,12 @@
 namespace Admin\Models;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Validation\Rule;
 
 class User extends Authenticatable
 {
     use Notifiable;
-    use SoftDeletes;
 
     protected $fillable = [
         'name', 'email', 'password',

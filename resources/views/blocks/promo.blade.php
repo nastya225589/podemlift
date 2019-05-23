@@ -1,4 +1,4 @@
-<section class="promo">
+<section class="promo" style="background: url({{ $page->image('main_image')->size(1920, 600)->url }});">
     <div class="container">
         <h1 class="promo__title">{{ $page->main_image_text }}</h1>
     </div>

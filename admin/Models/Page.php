@@ -2,13 +2,10 @@
 
 namespace Admin\Models;
 
-
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    use SoftDeletes;
 
     protected $attributes = [
         'fields' => '{}'
@@ -76,7 +73,7 @@ class Page extends Model
                 [
                     'name' => 'fields[main_image]',
                     'type' => 'image',
-                    'label' => 'Основное изображение'
+                    'label' => 'Основное изображение (1920x600)'
                 ],
                 [
                     'name' => 'fields[main_image_text]',
@@ -160,6 +157,11 @@ class Page extends Model
         return $url;
     }
 
+    public function image($imageName)
+    {
+        return Image::findOrNew($this->$imageName);
+    }
+
     public function firstImage($default = '')
     {
         if (!empty($this->image))
@@ -169,6 +171,12 @@ class Page extends Model
             return $this->images->first()->image;
 
         return $default;
+    }
+
+    public function collection($fieldName)
+    {
+        $data = json_decode($this->$fieldName);
+        return collect($data);
     }
 
     public static function dropdown($not = null, $parentId = null, $parentName = null)

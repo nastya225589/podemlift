@@ -1059,61 +1059,16 @@ a {
   position: relative;
 }
 
-.about__item:before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.about__item--work:before {
-  top: -30px;
-  width: 54px;
-  height: 49px;
-  background: url(/images/work.svg?f458e06a72f5fe0f37fdad52fbdf060f);
-}
-
-.about__item--practice:before {
-  top: -43px;
-  width: 60px;
-  height: 60px;
-  background: url(/images/practice.svg?d873cb70cd36befcd3a1f4eb698b8840);
-}
-
-.about__item--time:before {
-  top: -30px;
-  width: 50px;
-  height: 50px;
-  background: url(/images/time.svg?aa664f52fd2ee7e12a75aee29153c97b);
-}
-
-.about__item--products:before {
-  top: -10px;
-  width: 48px;
-  height: 47px;
-  background: url(/images/products.svg?703efcf676d9deea70f673178ab01642);
-}
-
-.about__item--production:before {
-  top: -32px;
-  width: 60px;
-  height: 60px;
-  background: url(/images/production-about.svg?1377c0c27ee6acc8a690fbcff1b5044b);
-}
-
-.about__item--warranty:before {
-  top: -33px;
-  width: 53px;
-  height: 53px;
-  background: url(/images/warranty.svg?1f403c267a0a0948c7d89874484d886f);
-}
-
 .about__name {
   margin-bottom: 8px;
   padding-left: 68px;
+  height: 54px;
+  background-size: 54px !important;
+  background-position-y: center !important;
   font-size: 18px;
   line-height: 19px;
+  display: flex;
+  align-items: center;
 }
 
 .products__title {
