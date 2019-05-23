@@ -4,6 +4,7 @@ import MoveButton from "./MoveButton";
 import DeleteButton from "./DeleteButton";
 import UploadButton from "./UploadButton";
 import TextArea from "./TextArea";
+import Input from "./Input";
 
 export default class Gallery extends Component {
     constructor(props) {
@@ -22,7 +23,7 @@ export default class Gallery extends Component {
         this.setState(currentState => {
             let elements = currentState.elements;
             let id = elements.length ? _.maxBy(elements, 'id').id + 1 : 1;
-            elements.splice(index, 0, {id: id, url: '', text: ''});
+            elements.splice(index, 0, {id: id, url: '/images/default.png', intro: '', text: ''});
             return { elements: elements };
         });
     }
@@ -66,6 +67,16 @@ export default class Gallery extends Component {
             <div key={index} className="mt-4">
                 <div className="item">
                     <div className="texts">
+                        <div className="item mb-1">
+                            <div className="text">
+                                <Input
+                                    name='intro'
+                                    index={index}
+                                    value={element.intro}
+                                    onChange={this.textElementHandler}
+                                />
+                            </div>
+                        </div>
                         <div className="item">
                             <div className="text">
                                 <TextArea

@@ -3,28 +3,28 @@
 namespace Admin\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 
 class Image extends Model
 {
-//    use SoftDeletes;
 
     protected $fillable = [
         'parent_id', 'size', 'path', 'url', 'alt'
     ];
 
-    public static function storeImage($image, $alt = '')
+    public static function storeImage($image, $ext, $alt = '')
     {
-        $info = new \finfo(FILEINFO_MIME);
-        $mime = $info->buffer($image);
-        $ext = preg_match('~/(\w+);~', $mime, $m) ? $m[1] : 'jpg';
         $name = str_random(36) . '.' . $ext;
         $path = "images/{$name}";
 
-        $im = imagecreatefromstring($image);
-        $width = imagesx($im);
-        $height = imagesy($im);
+        if ($ext == 'svg') {
+            $size = "";
+        } else {
+            $im = imagecreatefromstring($image);
+            $width = imagesx($im);
+            $height = imagesy($im);
+            $size = "{$width}x{$height}";
+        }
 
         Storage::disk('public')->put($path, $image);
 
@@ -34,7 +34,7 @@ class Image extends Model
         $imageModel = new self([
             'url' => $url,
             'path' => $path,
-            'size' => "{$width}x{$height}",
+            'size' => $size,
             'alt' => $alt
         ]);
 

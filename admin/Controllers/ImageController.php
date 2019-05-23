@@ -19,7 +19,7 @@ class ImageController extends \Illuminate\Routing\Controller
         $alt = $request->file('image')->getClientOriginalName();
         $ext = $request->file('image')->getClientOriginalExtension();
         $alt = str_replace(".{$ext}", '', $alt);
-        $data = Image::storeImage($request->file('image')->get(), $alt);
+        $data = Image::storeImage($request->file('image')->get(), $ext, $alt);
         return Response::json($data);
     }
 }

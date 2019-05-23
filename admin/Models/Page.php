@@ -71,42 +71,26 @@ class Page extends Model
             ]
         ];
 
-        if ($this->behavior == 'demo')
+        if ($this->behavior == 'main')
             $fields = array_merge($fields, [
                 [
-                    'name' => 'fields[map]',
+                    'name' => 'fields[main_image]',
+                    'type' => 'image',
+                    'label' => 'Основное изображение'
+                ],
+                [
+                    'name' => 'fields[main_image_text]',
                     'type' => 'input',
-                    'label' => 'Карта'
+                    'label' => 'Текст основного изображения'
                 ],
                 [
-                    'name' => 'fields[image]',
-                    'type' => 'image',
-                    'label' => 'Картинка'
-                ],
-                [
-                    'name' => 'fields[slider][]',
-                    'type' => 'image',
-                    'multi' => true,
-                    'label' => 'Слайдер'
-                ]
-            ]);
-
-        if ($this->behavior == 'demo')
-            $fields = array_merge($fields, [
-                [
-                    'name' => 'fields[builder]',
-                    'type' => 'builder',
-                    'label' => 'Контент'
-                ],
-                [
-                    'name' => 'fields[gallery]',
+                    'name' => 'fields[about_company]',
                     'type' => 'gallery',
-                    'label' => 'Галерея'
-                ]
+                    'label' => 'О компании'
+                ],
             ]);
 
         $fields = array_merge($fields, [
-
             'meta_title',
             'meta_description',
             'meta_keywords',
