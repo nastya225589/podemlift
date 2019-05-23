@@ -24,7 +24,7 @@ Route::middleware(['web'])->group(function () {
 
         Route::resource('page', add_controller_ns('PageController'));
         Route::resource('user', add_controller_ns('UserController'));
-        Route::resource('menu', add_controller_ns('MenuController'));
+        Route::resource('product', add_controller_ns('ProductController'));
 
         Route::prefix('page')->group(function () {
             Route::get( 'copy/{id}',   add_controller_ns('PageController@copy'))->name("page.copy");

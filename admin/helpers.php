@@ -41,6 +41,9 @@ if (!function_exists('multi_name')) {
         if (preg_match('/\[(\w+)\]/', $name, $m))
             return $m[1];
 
+        if (preg_match('/(\w+)\[\]/', $name, $m))
+            return $m[1];
+
         return $name;
     }
 }

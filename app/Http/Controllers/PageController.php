@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use \Admin\Models\Page;
 use \Admin\Models\Redirect;
+use \App\Models\Product;
 
 class PageController extends Controller
 {
     public function index()
     {
         $page = Page::where('behavior', 'main')->first();
+        $products = Product::all();
 
         return view('page.index', [
-            'page' => $page
+            'page' => $page,
+            'products' => $products
         ]);
     }
 
