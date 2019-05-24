@@ -3,11 +3,13 @@
 namespace Admin\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BaseAdminController extends \Illuminate\Routing\Controller
 {
     public $name;
     public $action;
+    public $route;
     public $model;
     protected $redirectTo;
 
@@ -19,23 +21,26 @@ class BaseAdminController extends \Illuminate\Routing\Controller
             $action = app('request')->route()->getAction();
             $controller = class_basename($action['controller']);
             [$controller, $this->action] = explode('@', $controller);
-            $this->name = snake_case(str_replace('Controller', '' , $controller));
+            $this->name = Str::snake(str_replace('Controller', '' , $controller));
         }
 
         if (!$this->model) {
-            $class = studly_case($this->name);
+            $class = Str::studly($this->name);
             $this->model = file_exists(app_path("Models/$class.php")) ?
                 "\App\Models\\$class" : "\Admin\Models\\$class";
         }
 
+        $this->route = Str::slug($this->name);
+
         if (!$this->redirectTo && !app()->runningInConsole())
-            $this->redirectTo = route("{$this->name}.index");
+            $this->redirectTo = route("{$this->route}.index");
     }
 
     public function index()
     {
         return view()->first(["admin.{$this->name}.index", "admin::{$this->name}.index", 'admin::base.index'], [
             'name' => $this->name,
+            'route' => $this->route,
             'action' => $this->action,
             'models' => $this->model::orderBy('id')->paginate(50)
         ]);
@@ -45,6 +50,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
     {
         return view()->first(["admin.{$this->name}.create", "admin::{$this->name}.create", 'admin::base.create'], [
             'name' => $this->name,
+            'route' => $this->route,
             'action' => $this->action,
             'model' => new $this->model
         ]);
@@ -60,6 +66,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
     {
         return view()->first(["admin.{$this->name}.show", "admin::{$this->name}.show", 'admin::base.show'], [
             'name' => $this->name,
+            'route' => $this->route,
             'action' => $this->action,
             'model' => $this->model::findOrFail($id)
         ]);
@@ -69,6 +76,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
     {
         return view()->first(["admin.{$this->name}.edit", "admin::{$this->name}.edit", 'admin::base.edit'], [
             'name' => $this->name,
+            'route' => $this->route,
             'action' => $this->action,
             'model' => $this->model::findOrFail($id)
         ]);

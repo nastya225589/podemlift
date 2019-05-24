@@ -31,6 +31,7 @@ class SettingsController extends \Illuminate\Routing\Controller
 
             return view('admin::settings.index', [
                 'name' => 'settings',
+                'route' => 'settings',
                 'action' => 'index',
                 'groups' => $groups
             ]);

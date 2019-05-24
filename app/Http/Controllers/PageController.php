@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use \Admin\Models\Page;
 use \Admin\Models\Redirect;
 use \App\Models\Product;
+use \App\Models\Service;
 
 class PageController extends Controller
 {
@@ -12,10 +13,12 @@ class PageController extends Controller
     {
         $page = Page::where('behavior', 'main')->first();
         $products = Product::all();
+        $services = Service::inRandomOrder()->get();
 
         return view('page.index', [
             'page' => $page,
-            'products' => $products
+            'products' => $products,
+            'services' => $services
         ]);
     }
 

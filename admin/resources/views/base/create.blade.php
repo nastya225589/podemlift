@@ -1,6 +1,6 @@
 @extends('admin::layouts.admin_form')
 
-@section('action', route($name . '.store'))
+@section('action', route($route . '.store'))
 
 @section('controls')
     <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Сохранить</button>

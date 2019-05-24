@@ -2,7 +2,7 @@
 
 namespace Admin\Controllers;
 
-class PageController extends BaseAdminController
+class ServiceCategoryController extends BaseAdminController
 {
     public function index()
     {

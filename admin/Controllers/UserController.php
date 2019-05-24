@@ -17,6 +17,7 @@ class UserController extends BaseAdminController
         return view()->first(["admin.{$this->name}.edit", "admin::{$this->name}.edit", 'admin::base.edit'], [
             'name' => $this->name,
             'action' => $this->action,
+            'route' => $this->route,
             'model' => $model
         ]);
     }

@@ -1,10 +1,10 @@
 @component('admin::ui.list.row', ['id' => $model->id, 'nestable' => true])
     <div>{{ $model->name }}</div>
     <div>
-        <a href="{{ route($name . '.edit', ['id' => $model->id]) }}"><i class="far fa-edit"></i></a>
-        <a href="{{ route($name . '.copy', ['id' => $model->id]) }}" class="ml-3 mr-3"><i class="far fa-copy"></i></a>
-        <a href="{{ route($name . '.child', ['id' => $model->id]) }}"class="mr-3"><i class="fas fa-child"></i></a>
-        @component('admin::ui.form.delete', ['route' => route($name . '.destroy', ['id' => $model->id])])
+        <a href="{{ route($route . '.edit', ['id' => $model->id]) }}"><i class="far fa-edit"></i></a>
+        <a href="{{ route($route . '.copy', ['id' => $model->id]) }}" class="ml-3 mr-3"><i class="far fa-copy"></i></a>
+        <a href="{{ route($route . '.child', ['id' => $model->id]) }}"class="mr-3"><i class="fas fa-child"></i></a>
+        @component('admin::ui.form.delete', ['route' => route($route . '.destroy', ['id' => $model->id])])
         @endcomponent
     </div>
 

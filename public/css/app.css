@@ -1155,6 +1155,11 @@ a {
   background-position: center;
 }
 
+.services p {
+  color: #A6A6A6;
+  margin-bottom: 20px;
+}
+
 .services__title {
   padding: 61px 0 46px;
   color: #fff;

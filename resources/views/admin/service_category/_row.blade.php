@@ -10,8 +10,6 @@
         @endif
 
         <a href="{{ route($route . '.edit', ['id' => $model->id]) }}"><i class="far fa-edit"></i></a>
-        <a onclick="return confirm('Создать копию страницы?');" href="{{ route($route . '.copy', ['id' => $model->id]) }}" class="ml-3 mr-3"><i class="far fa-copy"></i></a>
-        <a onclick="return confirm('Создать дочернюю страницу?');" href="{{ route($route . '.child', ['id' => $model->id]) }}"class="mr-3"><i class="fas fa-child"></i></a>
 
         @component('admin::ui.form.delete', ['route' => route($route . '.destroy', ['id' => $model->id])])
         @endcomponent
