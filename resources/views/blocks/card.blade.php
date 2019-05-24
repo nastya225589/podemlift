@@ -1,5 +1,5 @@
 <article class="card">
-    <a class="card__inner" href="/">
+    <a class="card__inner" href="/"  onclick="alert('TODO'); return false;">
         <img class="card__img" src="{{ $product->firstImage()->size(260, 260)->url }}" width="260" height="260" alt="Грузовые лифты"/>
         <h2 class="card__name">{{ $product->name }}</h2>
         <ul class="card__list">
@@ -10,7 +10,7 @@
     </a>
     <div class="card__wrap">
         <p class="card__buy">От <span>{{ $product->price }}</span> руб.</p>
-        <a class="btn card__btn" onclick="alert('TODO'); return">
+        <a class="btn card__btn" onclick="alert('TODO'); return false;">
             <span>Подробнее</span>
         </a>
     </div>

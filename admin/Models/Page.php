@@ -61,11 +61,6 @@ class Page extends Model
                 'name' => 'slug',
                 'type' => 'input',
                 'label' => 'Url'
-            ],
-            [
-                'name' => 'content',
-                'type' => 'editor',
-                'label' => 'Текст'
             ]
         ];
 
@@ -86,9 +81,19 @@ class Page extends Model
                     'type' => 'gallery',
                     'label' => 'О компании'
                 ],
+                [
+                    'name' => 'fields[content_title]',
+                    'type' => 'input',
+                    'label' => 'Заголовок текста'
+                ],
             ]);
 
         $fields = array_merge($fields, [
+            [
+                'name' => 'content',
+                'type' => 'editor',
+                'label' => 'Текст'
+            ],
             'meta_title',
             'meta_description',
             'meta_keywords',
