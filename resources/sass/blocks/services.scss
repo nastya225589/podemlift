@@ -58,8 +58,9 @@
             .service__title a {
                 color: $third-color;
 
-                &:before {
+                .arrow {
                     background: url(../images/icon/green-arrow.svg);
+                    transform: translateY(1.5px);
                 }
             }
         }
@@ -84,14 +85,13 @@
             font-size: $font-size--m;
         }
 
-        &:before {
-            top: 37px;
-            right: -13px;
-
-            @media (max-width: $screen-sm) {
-                top: 26px;
-            }
+        .arrow {
+            transform: translateY(0);
         }
+    }
+
+    &__item--big:hover .arrow {
+        transform: translateY(0) !important;
     }
 
     &__title {
@@ -102,14 +102,12 @@
         color: #fff;
         position: relative;
 
-        &:before {
-            content: "";
-            position: absolute;
-            top: 4px;
-            right: -10px;
+        .arrow {
+            display: inline-block;
             background: url(../images/icon/service-arrow.svg);
             width: 8px;
             height: 12px;
+            transform: translateY(1px);
         }
     }
 
@@ -151,13 +149,10 @@
 
         span {
             position: relative;
-            right: 30px;
+            right: 0;
 
-            &:before {
-                content: "";
-                position: absolute;
-                top: 7px;
-                right: -57px;
+            .arrow {
+                display: inline-block;
                 background: url(../images/icon/btn-arrow.svg);
                 width: 50px;
                 height: 8px;

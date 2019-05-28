@@ -1223,8 +1223,10 @@ a {
   color: #00922E;
 }
 
-.services__item:hover .service__title a:before {
+.services__item:hover .service__title a .arrow {
   background: url(/images/green-arrow.svg?5da0b8ef6219f2a1d9cd6829b4297c0a);
+  -webkit-transform: translateY(1.5px);
+          transform: translateY(1.5px);
 }
 
 .service__item--big .service__title {
@@ -1249,15 +1251,14 @@ a {
   }
 }
 
-.service__item--big .service__title--big a:before {
-  top: 37px;
-  right: -13px;
+.service__item--big .service__title--big a .arrow {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-  .service__item--big .service__title--big a:before {
-    top: 26px;
-  }
+.service__item--big:hover .arrow {
+  -webkit-transform: translateY(0) !important;
+          transform: translateY(0) !important;
 }
 
 .service__title {
@@ -1269,14 +1270,13 @@ a {
   position: relative;
 }
 
-.service__title a:before {
-  content: "";
-  position: absolute;
-  top: 4px;
-  right: -10px;
+.service__title a .arrow {
+  display: inline-block;
   background: url(/images/service-arrow.svg?9fa84bbb275cf9edba963413a57e7226);
   width: 8px;
   height: 12px;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
 }
 
 .service__item--big .service__list {
@@ -1318,14 +1318,11 @@ a {
 
 .service__btn span {
   position: relative;
-  right: 30px;
+  right: 0;
 }
 
-.service__btn span:before {
-  content: "";
-  position: absolute;
-  top: 7px;
-  right: -57px;
+.service__btn span .arrow {
+  display: inline-block;
   background: url(/images/btn-arrow.svg?91019d1fc30900525888fd5eaa2533bb);
   width: 50px;
   height: 8px;
@@ -2223,5 +2220,9 @@ a {
 
 .social__link--telegram:before {
   background: url(/images/icon/telegram.svg);
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 

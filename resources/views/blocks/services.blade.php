@@ -4,14 +4,14 @@
         <div class="services__list">
             <div class="services__item service__item--big">
                 <h3 class="service__title service__title--big">
-                    <a href="/" >{{ $services->first()->name }}</a>
+                    <a href="/" >{!! last_word_with_arrow($services->first()->name) !!}</a>
                 </h3>
 
                 <p>{{ $services->first()->introtext }}</p>
 
-                <button class="btn service__btn">
-                    <span>Смотреть примеры работ</span>
-                </button>
+                <a href="#" class="btn service__btn">
+                    <span>Смотреть примеры работ <span class="arrow"></span></span>
+                </a>
             </div>
 
             @foreach($services->splice(1)->chunk(2) as $chunk)
@@ -19,7 +19,7 @@
                     @foreach($chunk as $service)
                         <div class="services__item">
                             <h3 class="service__title">
-                                <a href="/" >{{ $service->name }}</a>
+                                <a href="/" >{!! last_word_with_arrow($service->name) !!}</a>
                             </h3>
                             <p>{{ $service->introtext }}</p>
                         </div>
