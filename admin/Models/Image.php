@@ -5,6 +5,7 @@ namespace Admin\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image as Resizer;
+use Illuminate\Support\Str;
 
 class Image extends Model
 {
@@ -13,13 +14,15 @@ class Image extends Model
         'parent_id', 'size', 'path', 'url', 'alt'
     ];
 
-    public static function storeImage($image, $ext, $alt = '')
+    public static function storeImage($image, $ext, $alt = '', $width = null, $height = null)
     {
-        $name = str_random(36) . '.' . $ext;
+        $name = Str::random(36) . '.' . $ext;
         $path = "images/{$name}";
 
         if ($ext == 'svg') {
             $size = "";
+        } else if ($width || $height) {
+            $size = "{$width}x{$height}";
         } else {
             $im = imagecreatefromstring($image);
             $width = imagesx($im);
@@ -67,7 +70,7 @@ class Image extends Model
 
         $image = Storage::disk('public')->get($file);
         $image = $this->resize($image, $width, $height);
-        $attributes = self::storeImage($image, pathinfo($file, PATHINFO_EXTENSION));
+        $attributes = self::storeImage($image, pathinfo($file, PATHINFO_EXTENSION), '', $width, $height);
         self::where('id', $attributes['id'])->update(['parent_id' => $this->id]);
 
         return $this->variants()->where('size', $size)->first();

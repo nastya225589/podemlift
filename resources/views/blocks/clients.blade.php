@@ -3,34 +3,13 @@
     <div class="clients__wrap">
         <div class="container">
             <div class="clients__list">
-                <div class="clients__item">
-                    <img src="../images/brand-logo/logotip-prisma.png" alt="1" class="clients__icon">
-                    <img src="../images/brand-logo/bushe.png" alt="2" class="clients__icon">
-                </div>
-                <div class="clients__item">
-                    <img src="../images/brand-logo/bushe.png" alt="2" class="clients__icon">
-                    <img src="../images/brand-logo/logotip-prisma.png" alt="1" class="clients__icon">
-                </div>
-                <div class="clients__item">
-                    <img src="../images/brand-logo/logotip-prisma.png" alt="1" class="clients__icon">
-                    <img src="../images/brand-logo/bushe.png" alt="2" class="clients__icon">
-                </div>
-                <div class="clients__item">
-                    <img src="../images/brand-logo/bushe.png" alt="2" class="clients__icon">
-                    <img src="../images/brand-logo/logotip-prisma.png" alt="1" class="clients__icon">
-                </div>
-                <div class="clients__item">
-                    <img src="../images/brand-logo/logotip-prisma.png" alt="1" class="clients__icon">
-                    <img src="../images/brand-logo/bushe.png" alt="2" class="clients__icon">
-                </div>
-                <div class="clients__item">
-                    <img src="../images/brand-logo/bushe.png" alt="2" class="clients__icon">
-                    <img src="../images/brand-logo/logotip-prisma.png" alt="1" class="clients__icon">
-                </div>
-                <div class="clients__item">
-                    <img src="../images/brand-logo/logotip-prisma.png" alt="1" class="clients__icon">
-                    <img src="../images/brand-logo/bushe.png" alt="2" class="clients__icon">
-                </div>
+                @foreach($clients->chunk(2) as $chunk)
+                    <div class="clients__item">
+                        @foreach($chunk as $item)
+                            <img src="{{ $item->image->size(null, 70)->url }}" alt="" class="clients__icon">
+                        @endforeach
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
