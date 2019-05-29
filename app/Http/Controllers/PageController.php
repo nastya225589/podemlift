@@ -6,6 +6,7 @@ use \Admin\Models\Page;
 use \Admin\Models\Redirect;
 use \App\Models\Product;
 use \App\Models\Service;
+use \App\Models\Work;
 
 class PageController extends Controller
 {
@@ -13,12 +14,18 @@ class PageController extends Controller
     {
         $page = Page::where('behavior', 'main')->first();
         $products = Product::all();
-        $services = Service::inRandomOrder()->get();
+        $services = Service::inRandomOrder()->limit(4)->get();
+        $works = Work::inRandomOrder()->limit(10)->get();
+        while ($works->count() < 5) {
+            $more = Work::inRandomOrder()->limit(10)->get();
+            $works = collect(array_merge($works->all(), $more->all()));
+        }
 
         return view('page.index', [
             'page' => $page,
             'products' => $products,
-            'services' => $services
+            'services' => $services,
+            'works' => $works
         ]);
     }
 
