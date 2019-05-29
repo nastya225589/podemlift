@@ -82,12 +82,15 @@ class Image extends Model
     }
 
     public function resize($image, $width = null, $height = null) {
+        $quality = 90;
+        if ($width < 150 || $height < 150)
+            $quality = 100;
 
         if ($width && $height)
-            return Resizer::make($image)->fit($width, $height)->encode();
+            return Resizer::make($image)->fit($width, $height)->encode(null, $quality);
 
-        return Resizer::make($image)->resize($width, $height, function ($constraint) {
-            $constraint->aspectRatio();
+        return Resizer::make($image)->resize($width, $height, function ($constraint) use ($quality) {
+            $constraint->aspectRatio(null, $quality);
         })->encode();
     }
 }

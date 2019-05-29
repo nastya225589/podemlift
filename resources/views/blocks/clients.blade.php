@@ -6,7 +6,7 @@
                 @foreach($clients->chunk(2) as $chunk)
                     <div class="clients__item">
                         @foreach($chunk as $item)
-                            <img src="{{ $item->image->size(null, 70)->url }}" alt="" class="clients__icon">
+                            <img src="{{ $item->image->size(null, 60)->url }}" alt="" class="clients__icon">
                         @endforeach
                     </div>
                 @endforeach
