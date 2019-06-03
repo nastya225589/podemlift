@@ -87,6 +87,10 @@
             background: #fff;
             font-weight: bold;
             color: $text-color;
+
+            &:hover {
+                background: $fifth-color;
+            }
         }
 
         .field-text {

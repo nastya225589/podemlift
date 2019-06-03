@@ -22,13 +22,19 @@
             margin-right: 0;
         }
 
-        &:nth-child(2) {
+        &--city {
             @media (max-width: $screen-sm) {
                 display: none;
             }
         }
 
-        &:nth-child(3) {
+        &--mail {
+            @media (max-width: $screen-md) {
+                display: none;
+            }
+        }
+
+        &--contact {
             @media (max-width: $screen-xs) {
                 display: none;
             }

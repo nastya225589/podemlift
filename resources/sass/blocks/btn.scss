@@ -10,4 +10,13 @@
     color: #fff;
     background: $third-color;
     border: none;
+
+    &:hover {
+        background: $fifth-color;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
 }

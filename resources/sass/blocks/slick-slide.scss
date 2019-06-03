@@ -8,6 +8,10 @@
     background: $third-color;
     cursor: pointer;
 
+    &:hover {
+        background: $fifth-color;
+    }
+
     &_prev {
         left: -60px;
     }
@@ -17,8 +21,8 @@
         display: block;
         background: url(../images/icon/next.svg);
         position: absolute;
-        top: 27%;
-        left: 33%;
+        top: 23%;
+        left: 30%;
         width: 12px;
         height: 21px;
     }
@@ -32,8 +36,8 @@
         display: block;
         background: url(../images/icon/prev.svg);
         position: absolute;
-        top: 26%;
-        left: 43%;
+        top: 23%;
+        left: 40%;
         width: 12px;
         height: 21px;
     }
@@ -42,10 +46,6 @@
 .examples .slick-slide {
     width: 180px;
     height: 300px;
-}
-
-.clients .slick-slide {
-    height: 150px;
 }
 
 .clients .slick__slider {

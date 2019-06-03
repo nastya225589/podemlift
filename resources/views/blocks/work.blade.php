@@ -4,7 +4,7 @@
         <ul class="work__list">
             <li class="work__item">
                 <span class="work__number work__number--request">1</span>
-                Вы оставляете<br> заявку
+                Вы оставляете заявку
             </li>
             <li class="work__item">
                 <span class="work__number work__number--project">2</span>
@@ -12,7 +12,7 @@
             </li>
             <li class="work__item">
                 <span class="work__number work__number--contract">3</span>
-                Обсуждаем детали<br> и заключаем договор</li>
+                Обсуждаем детали и заключаем договор</li>
             <li class="work__item">
                 <span class="work__number work__number--production">4</span>
                 Изготавливаем подъемник

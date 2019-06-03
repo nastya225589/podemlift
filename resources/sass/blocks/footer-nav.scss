@@ -85,11 +85,15 @@
     }
 
     &__link {
-        font-family: 'Roboto', sans-serif;
+        font-family: $font-family;
         font-size: $font-size;
         line-height: normal;
         color: #fff;
         font-weight: 200;
+
+        &:hover {
+            color: $sixth-color;
+        }
 
         @media (max-width: $screen-xs) {
             font-size: $font-size--xs;

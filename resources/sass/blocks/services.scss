@@ -53,17 +53,6 @@
             padding: 10px 10px 3px;
             width: 290px;
         }
-
-        &:hover {
-            .service__title a {
-                color: $third-color;
-
-                .arrow {
-                    background: url(../images/icon/green-arrow.svg);
-                    transform: translateY(1.5px);
-                }
-            }
-        }
     }
 }
 
@@ -101,6 +90,15 @@
     &__title a {
         color: #fff;
         position: relative;
+
+        &:hover {
+            color: $third-color;
+
+            .arrow {
+                background: url(../images/icon/green-arrow.svg);
+                transform: translateY(1.5px);
+            }
+        }
 
         .arrow {
             display: inline-block;
