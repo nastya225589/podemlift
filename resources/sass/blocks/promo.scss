@@ -1,5 +1,5 @@
 .promo {
-    background: url(/images/bg/promo-bg.jpg);
+    //background: url(/images/bg/promo-bg.jpg);
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -107,7 +107,6 @@
 
         &__btn {
             margin: 0 auto;
-            background: $third-color;
             font-weight: bold;
             color: #fff;
         }

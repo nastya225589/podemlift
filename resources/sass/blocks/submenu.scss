@@ -63,7 +63,7 @@
     }
 
     &__list--bottom {
-        justify-content: start;
+        justify-content: flex-start;
         margin-top: 20px;
 
         @media (max-width: $screen-xs) {
