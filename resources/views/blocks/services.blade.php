@@ -7,7 +7,16 @@
                     <a href="/" >{!! last_word_with_arrow($services->first()->name) !!}</a>
                 </h3>
 
-                <p>{{ $services->first()->introtext }}</p>
+                <?php $texts = explode(PHP_EOL, $services->first()->text_on_main) ?>
+
+                @if(count($texts) > 1)
+                    @foreach($texts as $text)
+                        <div class="service__item">{{ $text }}</div>
+                    @endforeach
+                    <br>
+                @else
+                    <p>{{ $texts[0] }}</p>
+                @endif
 
                 <a href="#" class="btn service__btn">
                     <span>Смотреть примеры работ <span class="arrow"></span></span>
@@ -21,7 +30,18 @@
                             <h3 class="service__title">
                                 <a href="/" >{!! last_word_with_arrow($service->name) !!}</a>
                             </h3>
-                            <p>{{ $service->introtext }}</p>
+
+                            <?php $texts = explode(PHP_EOL, $service->text_on_main) ?>
+
+                            @if(count($texts) > 1)
+                                @foreach($texts as $text)
+                                    <div class="service__item">{{ $text }}</div>
+                                @endforeach
+                                <br>
+                            @else
+                                <p>{{ $texts[0] }}</p>
+                            @endif
+
                         </div>
                     @endforeach
                 </div>

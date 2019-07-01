@@ -15,7 +15,7 @@ class PageController extends Controller
     {
         $page = Page::where('behavior', 'main')->first();
         $products = Product::all();
-        $services = Service::inRandomOrder()->limit(4)->get();
+        $services = Service::where(['published' => true, 'on_main' => true])->orderBy('order_on_main')->limit(4)->get();
 
         $works = Work::inRandomOrder()->limit(10)->get();
         while ($works->count() < 5) {

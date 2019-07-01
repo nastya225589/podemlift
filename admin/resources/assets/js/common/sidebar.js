@@ -1,6 +1,10 @@
 require('jquery');
 
 $(function () {
-    let controller = _.take(location.pathname.split('/'), 3).join('/');
-    $(`.sidebar [href*="${controller}"]`).addClass('active');
+    $(`.sidebar a`).each(function (index, item) {
+        const controller = item.href.split('/')[4];
+        const active = location.href.match(controller + '/(.+)') || location.href.match(controller + '$');
+        if (active)
+            item.classList.add('active');
+    });
 });

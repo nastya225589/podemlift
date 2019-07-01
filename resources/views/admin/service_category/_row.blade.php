@@ -9,7 +9,7 @@
             <i class="fas fa-eye-slash" style="margin-right: 10px"></i>
         @endif
 
-        <a href="{{ route($route . '.edit', ['id' => $model->id]) }}"><i class="far fa-edit"></i></a>
+        <a href="{{ route($route . '.edit', ['id' => $model->id]) }}" class="mr-2"><i class="far fa-edit"></i></a>
 
         @component('admin::ui.form.delete', ['route' => route($route . '.destroy', ['id' => $model->id])])
         @endcomponent
