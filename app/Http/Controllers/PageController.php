@@ -49,6 +49,12 @@ class PageController extends Controller
         if (!$page)
             abort(404, 'Страница не найдена');
 
-        return view('page.show', ['page' => $page]);
+        $view = 'page.show';
+        if ($page->slug === 'catalog')
+            $view = 'page.catalog';
+        if ($page->parent && $page->parent->slug === 'catalog')
+            $view = 'page.catalog_item';
+
+        return view($view, ['page' => $page]);
     }
 }

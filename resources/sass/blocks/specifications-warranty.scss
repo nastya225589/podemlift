@@ -1,0 +1,103 @@
+.specifications, .warranty {
+    &__list {
+        margin-bottom: 65px;
+        max-width: 550px;
+
+        @media (max-width: $screen-sm) {
+            width: 90%;
+            padding: 0 20px;
+        }
+
+    }
+
+    &__item {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 31px;
+        padding-left: 43px;
+        font-size: $font-size--s;
+        line-height: 160%;
+        font-weight: 600;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 36px;
+            height: 36px;
+        }
+
+        &--weight-kg:before {
+            width: 30px;
+            height: 37px;
+            background: url(/images/icon/weight-kg.svg);
+        }
+
+        &--measure:before {
+            background: url(/images/icon/measure.svg);
+        }
+
+        &--stopwatch:before {
+            background: url(/images/icon/stopwatch.svg);
+        }
+
+        &--paint-palette:before {
+            width: 30px;
+            height: 30px;
+            background: url(/images/icon/paint-palette.svg);
+        }
+
+        &--lightning:before {
+            width: 29px;
+            height: 29px;
+            background: url(/images/icon/lightning.svg);
+        }
+
+        &--file:before {
+            width: 30px;
+            background: url(/images/icon/file.svg);
+        }
+
+        &--file2:before {
+            width: 29px;
+            height: 37px;
+            background: url(/images/icon/file2.svg);
+        }
+
+        span {
+            font-size: $font-size--xs;
+            line-height: 17px;
+            color: $fourth-color;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+    }
+
+    &__dots {
+        display: flex;
+        align-items: flex-end;
+        flex-grow: 1;
+    }
+
+    &__dot {
+        margin-bottom: 4px;
+        width: 100%;
+        border-bottom: 1px dotted $text-color;
+    }
+
+    &__text {
+        margin-top: 13px;
+        display: block;
+        max-width: 550px;
+        font-weight: 400;
+        font-size: $font-size--xs;
+        line-height: 14px;
+        color: $text-color;
+
+        @media (max-width: $screen-sm) {
+            width: 100%;
+        }
+    }
+}

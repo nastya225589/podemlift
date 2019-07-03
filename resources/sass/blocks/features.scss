@@ -1,0 +1,100 @@
+.features {
+    margin-bottom: 75px;
+
+    @media (max-width: $screen-sm) {
+        margin-bottom: 0;
+    }
+
+    &__wrapper {
+        margin: 0 0 30px;
+    }
+
+    &__title {
+        margin: 0 0 35px;
+        font-size: $font-size--h2;
+        line-height: 34px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+
+        @media (max-width: $screen-sm) {
+            margin: 0 0 19px;
+            font-size: $font-size--s;
+            line-height: 18px;
+        }
+    }
+
+    &__decs {
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: $screen-sm) {
+            flex-direction: column;
+        }
+    }
+
+    &__wrap {
+        padding-right: 50px;
+
+        @media (max-width: $screen-sm) {
+            padding-right: 0;
+        }
+    }
+
+    &__text {
+        margin: 0 0 30px;
+        font-size: $font-size;
+        line-height: 24px;
+    }
+
+    &__photo {
+        @media (max-width: $screen-sm) {
+            margin: 0 auto;
+        }
+    }
+
+    &__name {
+        margin: 0 0 30px;
+        padding-left: 60px;
+        display: flex;
+        align-items: center;
+        font-size: $font-size--m;
+        line-height: 21px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        height: 54px;
+        background-size: 54px !important;
+        background-position-y: center !important;
+        background: url(/images/warranty.svg) no-repeat;
+
+        @media (max-width: $screen-sm) {
+            margin: 0 0 19px;
+            font-size: $font-size--s;
+            line-height: 18px;
+            height: auto;
+            padding-left: 40px;
+            background-size: 35px !important;
+        }
+    }
+
+    &__list {
+        @media (max-width: $screen-sm) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__item {
+        padding-left: 10px;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: $third-color;
+        }
+    }
+}

@@ -1,0 +1,129 @@
+.catalog {
+    display: flex;
+    padding-top: 35px;
+    margin-bottom: 100px;
+
+    @media (max-width: $screen-sm) {
+       flex-direction: column;
+        padding-top: 26px;
+        margin-bottom: 42px;
+    }
+
+    &__title {
+        display: none;
+
+        @media (max-width: $screen-sm) {
+            display: block;
+            margin-bottom: 24px;
+            font-size: $font-size--h3 - 3;
+            line-height: 24px;
+            text-transform: uppercase;
+        }
+    }
+
+    &__name {
+        margin-bottom: 32px;
+        font-size: $font-size--h2;
+        line-height: 34px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+
+        @media (max-width: $screen-sm) {
+            display: none;
+        }
+    }
+
+    &__list {
+        margin-bottom: 6px;
+        position: relative;
+        padding-top: 20px;
+
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $second-color;
+
+            @media (max-width: $screen-sm) {
+                display: none;
+            }
+        }
+
+        &:before {
+            top: 0;
+        }
+
+        &:after {
+            bottom: 0;
+        }
+
+        .products__wrap {
+            margin-bottom: 0;
+
+            .card {
+                margin-bottom: 20px;
+
+                &:nth-child(4n+4) {
+                    margin-right: 20px;
+                }
+
+                &:nth-child(3n+3) {
+                    margin-right: 0;
+                }
+
+                @media (max-width: $screen-lg) {
+                    &:nth-child(3n+3) {
+                        margin-right: 20px;
+                    }
+                }
+
+                @media (max-width: 900px) {
+                    &:nth-child(n) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &__btn-dashed {
+        padding: 0 18px 0 0;
+        display: none;
+
+        @media (max-width: $screen-sm) {
+            display: block;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 45%;
+            right: 0;
+            width: 12px;
+            height: 7px;
+            background: url(/images/arrow-green.svg);
+        }
+
+        &_filter {
+            display: none;
+            margin-left: 28px;
+            margin-bottom: 25px;
+
+            @media (max-width: $screen-sm) {
+                display: block;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 3px;
+                left: -28px;
+                width: 21px;
+                height: 21px;
+                background: url(/images/icon/filter.svg);
+            }
+        }
+    }
+}

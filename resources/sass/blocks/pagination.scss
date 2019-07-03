@@ -1,0 +1,60 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $screen-sm) {
+        display: none;
+    }
+
+    &__item {
+        padding: 0 13px;
+        font-size: $font-size--s;
+        line-height: 17px;
+        text-align: center;
+        color: $text-color;
+
+        &--active {
+            color: #A6A6A6;
+        }
+    }
+
+    &__btn {
+        padding: 0;
+        font-size: $font-size--xs;
+        line-height: 13px;
+        border: none;
+        position: relative;
+        cursor: pointer;
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+        }
+
+        &--arrow-left {
+            padding-left: 23px;
+        }
+
+        &--arrow-left:before {
+            left: 0;
+            background: url(/images/icon/arrow-left.svg);
+        }
+
+        &--arrow-right {
+            padding-right: 23px;
+        }
+
+        &--arrow-right:before {
+            right: 0;
+            background: url(/images/icon/arrow-right.svg);
+        }
+    }
+}

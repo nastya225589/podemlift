@@ -1,0 +1,224 @@
+.product-card {
+    padding-bottom: 65px;
+
+    @media (max-width: $screen-sm) {
+        padding-bottom: 45px;
+    }
+
+    .container {
+        @media (max-width: $screen-sm) {
+            padding: 0;
+        }
+    }
+
+    &__title {
+        margin-bottom: 33px;
+        font-size: $font-size--h1;
+        line-height: 44px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+
+        @media (max-width: $screen-md) {
+            font-size: $font-size--h2;
+        }
+
+        @media (max-width: $screen-sm) {
+            padding: 25px 19px 16px 19px;
+            margin: 0;
+            font-size: $font-size--h3 - 3;
+            line-height: 24px;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background: $main-color;
+        padding: 10px;
+
+        @media (max-width: $screen-md) {
+            padding: 0;
+            align-items: flex-start;
+        }
+    }
+
+    &__slider {
+        padding: 10px 10px;
+        margin-right: 10px;
+        width: 48%;
+        background: #fff;
+
+        @media (max-width: $screen-md) {
+            padding: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+
+        @media (max-width: $screen-sm) {
+            font-size: $font-size--h3 - 3;
+            line-height: 24px;
+        }
+    }
+
+    &__img {
+
+        img {
+            width: 252px;
+            height: 326px;
+            margin: 0 auto;
+
+            @media (max-width: $screen-sm) {
+                width: 158px;
+                height: 204px;
+            }
+        }
+    }
+
+    .slick-active.slick-center &__img {
+        border: 3px solid $third-color;
+        padding: 4px 0 2px 0;
+    }
+
+    .slick-active.slick-center div {
+        margin: 0 14px 0 5px;
+    }
+
+    &__proto-nav {
+        margin: 48px 0 12px;
+
+        @media (max-width: $screen-sm) {
+            margin: 27px 0 45px;
+        }
+
+        img {
+            width: 56px;
+            height: 65px;
+
+            @media (max-width: $screen-sm) {
+                width: 31px;
+                height: 41px;
+            }
+        }
+    }
+
+    .slick-list {
+        margin: 0 130px;
+
+        @media (max-width: $screen-lg) {
+            margin: 0 100px;
+        }
+
+        @media (max-width: $screen-sm) {
+            margin: 0 55px;
+        }
+    }
+
+    .slick__slider_prev {
+        left: 15px;
+        top: -220px;
+
+        @media (max-width: $screen-sm) {
+            left: 19px;
+            top: -150px;
+        }
+    }
+
+    .slick__slider_next {
+        right: 15px;
+        top: -220px;
+
+        @media (max-width: $screen-sm) {
+            right: 20px;
+            top: -150px;
+        }
+    }
+
+    &__desc {
+        width: 46%;
+        margin-left: 38px;
+
+        @media (max-width: $screen-lg) {
+            margin-left: 10px;
+        }
+
+        @media (max-width: $screen-md) {
+            width: 100%;
+            margin: 0;
+            padding: 47px 19px 46px 19px;
+        }
+    }
+
+    &__price {
+        margin: 0 0 32px;
+        font-size: $font-size--h2;
+        line-height: 34px;
+        font-weight: bold;
+
+        @media (max-width: $screen-sm) {
+            margin: 0 0 28px;
+            font-size: $font-size--h3 - 2;
+            line-height: 22px;
+        }
+
+        span {
+            font-size: $font-size--h1 + 10px;
+
+            @media (max-width: $screen-sm) {
+                font-size: $font-size--h2 + 4;
+            }
+        }
+    }
+
+    &__text {
+        margin: 0 50px 28px 0;
+
+        @media (max-width: $screen-md) {
+            margin: 0 0 28px 0;
+        }
+
+        @media (max-width: $screen-sm) {
+            margin: 0 0 20px;
+            line-height: 21px;
+        }
+    }
+
+    &__btn {
+        margin-right: 16px;
+        width: 200px;
+        font-weight: bold;
+        padding: 9px 0;
+
+        @media (max-width: $screen-lg) {
+            width: 276px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: $screen-md) {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: $screen-sm) {
+            width: 282px;
+            margin: 11px 0 20px;
+        }
+
+        &-sheet {
+            width: 276px;
+            padding: 6px 0;
+            font-weight: bold;
+            color: $third-color;
+            border: 3px solid $third-color;
+            background: transparent;
+
+            @media (max-width: $screen-sm) {
+                margin: 11px 0 20px;
+                width: 282px;
+            }
+
+            @media (max-width: $screen-xs) {
+                margin: 0;
+            }
+        }
+    }
+}

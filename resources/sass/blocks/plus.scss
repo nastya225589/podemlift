@@ -1,0 +1,50 @@
+.plus {
+    margin-bottom: 35px;
+
+    @media (max-width: $screen-sm) {
+        margin-bottom: 19px;
+    }
+
+    .container {
+        @media (max-width: $screen-sm) {
+            padding: 0;
+        }
+    }
+
+    &__list {
+        padding: 32px 40px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border: 10px solid $main-color;
+        position: relative;
+
+        @media (max-width: $screen-sm) {
+            border-left: none;
+            border-right: none;
+            padding: 32px 20px 20px;
+        }
+    }
+
+    &__item {
+        padding-bottom: 18px;
+        width: 300px;
+        padding-left: 40px;
+        position: relative;
+
+        @media (max-width: $screen-sm) {
+            padding-left: 36px;
+            width: 100%;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            background: url(/images/icon/plus.svg);
+        }
+    }
+}
