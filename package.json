@@ -30,7 +30,9 @@
     "tinymce-i18n": "18.11.18"
   },
   "dependencies": {
+    "jquery-ui": "^1.12.1",
     "jquery.maskedinput": "^1.4.1",
+    "select2": "^4.0.7",
     "slick-carousel": "^1.8.1"
   }
 }

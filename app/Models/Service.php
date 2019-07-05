@@ -12,6 +12,9 @@ class Service extends Model
         'name',
         'published',
         'category_id',
+        'on_main',
+        'order_on_main',
+        'text_on_main',
         'slug',
         'introtext',
         'text',
@@ -59,6 +62,21 @@ class Service extends Model
                 'type' => 'select',
                 'label' => 'Категория',
                 'options' => ServiceCategory::pluck('name', 'id')
+            ],
+            [
+                'name' => 'on_main',
+                'type' => 'checkbox',
+                'label' => 'Выводить на главной'
+            ],
+            [
+                'name' => 'order_on_main',
+                'type' => 'input',
+                'label' => 'Сортировка на главной'
+            ],
+            [
+                'name' => 'text_on_main',
+                'type' => 'textarea',
+                'label' => 'Текст на главной'
             ],
             [
                 'name' => 'introtext',

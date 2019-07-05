@@ -13,6 +13,7 @@ require('./common/multi_field');
 require('./common/tinymce');
 require('./common/nestable');
 require('./common/sidebar');
+require('./common/select');
 require('./common/tooltip');
 require('./common/modal');
 
