@@ -1,8 +1,7 @@
 .catalog-menu {
     margin-right: 57px;
     background: $main-color;
-    min-height: 100%;
-    height: 100%;
+    display: inline-table;
 
     @media (max-width: $screen-sm) {
         margin-right: 0;
