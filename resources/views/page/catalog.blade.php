@@ -16,7 +16,7 @@
 
                 <div class="catalog__inner">
 
-                    <h4 class="catalog__name">Все трособлочные подъемники</h4>
+                    <div class="catalog__name">Все трособлочные подъемники</div>
                     @include('blocks.sorting-view')
 
                     <div class="catalog__list">

@@ -8,10 +8,6 @@
 
     &__title {
         margin-bottom: 27px;
-        font-size: $font-size--m;
-        line-height: 21px;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
 
         @media (max-width: $screen-sm) {
             margin-bottom: 28px;

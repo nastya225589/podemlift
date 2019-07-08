@@ -1,5 +1,5 @@
 <div class="equipment">
-    <h3 class="equipment__title">Для обеспечения безопасности, устройство оснащено:</h3>
+    <h3 class="equipment__title title-h3">Для обеспечения безопасности, устройство оснащено:</h3>
 
     <ul class="equipment__list">
         <li class="equipment__item equipment__item--weight">

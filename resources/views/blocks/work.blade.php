@@ -1,6 +1,6 @@
 <section class="work">
     <div class="container">
-        <h2 class="work__title">Как мы работаем</h2>
+        <div class="work__title title-h2">Как мы работаем</div>
         <ul class="work__list">
             <li class="work__item">
                 <span class="work__number work__number--request">1</span>
