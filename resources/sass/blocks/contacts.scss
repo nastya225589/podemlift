@@ -3,6 +3,10 @@
         margin-left: 70px;
         display: flex;
 
+        @media (max-width: $screen-lg) {
+            margin-left: 0;
+        }
+
         @media (max-width: $screen-md) {
             margin-left: 20px;
         }
@@ -13,6 +17,10 @@
         flex-direction: column;
         margin-right: 45px;
         position: relative;
+
+        @media (max-width: $screen-lg) {
+            margin-right: 20px;
+        }
 
         @media (max-width: $screen-md) {
             margin-right: 20px;
@@ -35,7 +43,7 @@
         }
 
         &--contact {
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-sm) {
                 display: none;
             }
         }
