@@ -1,6 +1,6 @@
 <section class="services">
     <div class="container">
-        <h2 class="services__title">Услуги</h2>
+        <div class="services__title title-h2">Услуги</div>
         @if($services->count())
             <div class="services__list">
                 <div class="services__item service__item--big">

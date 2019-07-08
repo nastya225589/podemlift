@@ -1,6 +1,6 @@
 <section class="about">
     <div class="container">
-        <h2 class="about__title">О компании</h2>
+        <div class="about__title title-h2">О компании</div>
         <ul class="about__list">
             @foreach($page->collection('about_company') as $item)
                 <li class="about__item">

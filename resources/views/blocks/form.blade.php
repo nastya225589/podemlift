@@ -1,6 +1,6 @@
 <form id="form" class="form">
     <fieldset class="form__fieldset">
-        <h2 class="form__title">Получить проект подъемника бесплатно</h2>
+        <div class="form__title title-h2">Получить проект подъемника бесплатно</div>
         <p class="form__desc">Оставьте заявку и мы перезвоним вам в течение 15 минут</p>
         <div class="form__user-data">
             <div class="field-text__wrap">

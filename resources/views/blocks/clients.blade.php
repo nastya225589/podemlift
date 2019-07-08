@@ -1,5 +1,5 @@
 <section class="clients">
-    <h2 class="clients__title">Заказчики</h2>
+    <div class="clients__title title-h2">Заказчики</div>
     <div class="clients__wrap">
         <div class="container">
             <div class="clients__list">

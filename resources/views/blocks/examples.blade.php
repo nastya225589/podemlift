@@ -1,6 +1,6 @@
 <section class="examples">
     <div class="container">
-        <h2 class="examples__title">Примеры работ</h2>
+        <div class="examples__title title-h2">Примеры работ</div>
         <div class="examples__list">
             @foreach($works as $work)
                 <div class="examples__item">
