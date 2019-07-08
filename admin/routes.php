@@ -24,11 +24,16 @@ Route::middleware(['web'])->group(function () {
 
         Route::resource('page', add_controller_ns('PageController'));
         Route::resource('user', add_controller_ns('UserController'));
+
         Route::resource('product', add_controller_ns('ProductController'));
-        Route::resource('service-category', add_controller_ns('ServiceCategoryController'));
+        Route::resource('product-category', add_controller_ns('ProductCategoryController'));
+
         Route::resource('service', add_controller_ns('ServiceController'));
-        Route::resource('work-category', add_controller_ns('WorkCategoryController'));
+        Route::resource('service-category', add_controller_ns('ServiceCategoryController'));
+
         Route::resource('work', add_controller_ns('WorkController'));
+        Route::resource('work-category', add_controller_ns('WorkCategoryController'));
+
         Route::resource('client', add_controller_ns('ClientController'));
 
         Route::prefix('page')->group(function () {
@@ -36,9 +41,9 @@ Route::middleware(['web'])->group(function () {
             Route::get( 'child/{id}',  add_controller_ns('PageController@child'))->name("page.child");
         });
 
-        Route::prefix('menu')->group(function () {
-            Route::get( 'copy/{id}',   add_controller_ns('MenuController@copy'))->name("menu.copy");
-            Route::get( 'child/{id}',  add_controller_ns('MenuController@child'))->name("menu.child");
+        Route::prefix('product-category')->group(function () {
+            Route::get( 'copy/{id}',   add_controller_ns('ProductCategoryController@copy'))->name("product-category.copy");
+            Route::get( 'child/{id}',  add_controller_ns('ProductCategoryController@child'))->name("product-category.child");
         });
     });
 });

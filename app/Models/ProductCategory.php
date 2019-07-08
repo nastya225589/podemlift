@@ -4,36 +4,33 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class ProductCategory extends Model
 {
     use \Admin\Models\Traits\Sluggable;
 
-    protected $attributes = [
-        'images' => '[]'
-    ];
-
     protected $fillable = [
+        'parent_id',
+        'sort',
         'name',
-        'published',
         'slug',
-        'price',
-        'images',
+        'published',
+        'content',
         'meta_title',
         'meta_description',
         'meta_keywords'
     ];
 
     protected $casts = [
-        'published' => 'boolean',
-        'images' => 'array'
+        'published' => 'boolean'
     ];
 
     public $logFields = [
+        'parent_id',
+        'sort',
         'name',
-        'published',
         'slug',
-        'price',
-        'images',
+        'published',
+        'content',
         'meta_title',
         'meta_description',
         'meta_keywords'
@@ -58,15 +55,9 @@ class Product extends Model
                 'label' => 'Url'
             ],
             [
-                'name' => 'price',
-                'type' => 'input',
-                'label' => 'Цена'
-            ],
-            [
-                'name' => 'images[]',
-                'type' => 'image',
-                'multi' => true,
-                'label' => 'Изображения'
+                'name' => 'content',
+                'type' => 'editor',
+                'label' => 'Текст'
             ],
             'meta_title',
             'meta_description',
@@ -76,22 +67,18 @@ class Product extends Model
         return $fields;
     }
 
-    public function firstImage()
+    public function products()
     {
-        $imagesIds = $this->images ?: [];
-        $imageId = array_shift($imagesIds);
-        return \Admin\Models\Image::find($imageId);
+        return $this->belongsToMany(Product::class, 'product_category_product');
     }
 
-    public function images()
+    public function parent()
     {
-        $imagesIds = $this->images ?: [];
-        $images = \Admin\Models\Image::find($imagesIds);
-        return $images ?: [(new \Admin\Models\Image(['url' => '/images/default.png']))];
+        return $this->belongsTo(self::class);
     }
 
-    public function categories()
+    public function childrens()
     {
-        return $this->belongsToMany(ProductCategory::class, 'product_category_product');
+        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('sort');
     }
 }

@@ -16,9 +16,9 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('service-category.index') }}">
-            <i class="fas fa-dolly"></i>
-            Категории услуг
+        <a class="nav-link" href="{{ route('product-category.index') }}">
+            <i class="fas fa-box-open"></i>
+            Категории продукции
         </a>
     </li>
     <li class="nav-item">
@@ -28,15 +28,21 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('work-category.index') }}">
-            <i class="fas fa-truck-loading"></i>
-            Категории работ
+        <a class="nav-link" href="{{ route('service-category.index') }}">
+            <i class="fas fa-dolly"></i>
+            Категории услуг
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('work.index') }}">
             <i class="fas fa-truck-loading"></i>
             Работы
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('work-category.index') }}">
+            <i class="fas fa-truck-loading"></i>
+            Категории работ
         </a>
     </li>
     <li class="nav-item">
