@@ -14,15 +14,5 @@ export default class SortingView
             $('.sorting-view__btn--grid').toggleClass('sorting-view__btn-view--active');
             $('.sorting-view__btn--line').removeClass('sorting-view__btn-view--active');
         });
-        //
-        // $(window).resize(function () {
-        //     if($(window).width() <= 768) {
-        //         $('.products__wrap').removeClass('products__sorting-view');
-        //         $('.card').removeClass('card__sorting-view');
-        //     } else if ($(window).width() > 768) {
-        //         $('.products__wrap').toggleClass('products__sorting-view');
-        //         $('.card').toggleClass('card__sorting-view');
-        //     }
-        // })
     }
 };

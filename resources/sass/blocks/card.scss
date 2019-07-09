@@ -74,11 +74,13 @@
     &__sorting-view  {
         margin-right: 0;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
 
         .card {
             &__inner {
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
             }
 
@@ -94,13 +96,18 @@
                 @media (max-width: $screen-md) {
                     margin-right: 10px;
                 }
+
+                @media (max-width: $screen-xs) {
+                    width: 260px;
+                    margin-right: 0;
+                }
             }
 
             &__wrap {
                 width: 45%;
 
                 @media (max-width: $screen-md) {
-                    width: 40%;
+                    width: 100%;
                 }
             }
 
