@@ -71,4 +71,58 @@
         padding: 9px 0;
     }
 
+    &__sorting-view  {
+        margin-right: 0;
+        display: flex;
+        justify-content: space-between;
+
+        .card {
+            &__inner {
+                display: flex;
+                align-items: center;
+            }
+
+            &__name {
+                margin: 7px 0 10px;
+            }
+
+            &__img {
+                width: 110px;
+                height: auto;
+                margin-right: 44px;
+
+                @media (max-width: $screen-md) {
+                    margin-right: 10px;
+                }
+            }
+
+            &__wrap {
+                width: 45%;
+
+                @media (max-width: $screen-md) {
+                    width: 40%;
+                }
+            }
+
+            &__buy {
+                span {
+                    font-size: $font-size--m + 2;
+                }
+            }
+
+            &__btn {
+                min-width: 160px;
+                margin-right: 40px;
+
+                @media (max-width: $screen-lg) {
+                    margin-right: 10px;
+                }
+
+                @media (max-width: $screen-md) {
+                    min-width: 115px;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
 }

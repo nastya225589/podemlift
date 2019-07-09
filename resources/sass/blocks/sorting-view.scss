@@ -99,9 +99,19 @@
                 }
             }
         }
+    }
 
-        &-view--active {
+    &__btn--line.sorting-view__btn-view--active {
+        span {
             background: $third-color;
+
+            &:before, &:after {
+                background: $third-color;
+            }
         }
+    }
+
+    &__btn--grid.sorting-view__btn-view--active {
+        background: $third-color;
     }
 }

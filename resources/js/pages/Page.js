@@ -6,6 +6,7 @@ import Form from '../partials/Form';
 import ProductCardSlider from '../partials/ProductCardSlider';
 import Tabs from '../partials/Tabs';
 import Filters from '../partials/Filters';
+import SortingView from '../partials/SortingView';
 
 export default class Page {
     constructor() {
@@ -17,5 +18,6 @@ export default class Page {
         new ProductCardSlider;
         new Tabs;
         new Filters;
+        new SortingView;
     }
 }
