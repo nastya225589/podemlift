@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="line"></div>
     <div class="container">
         <div class="catalog">
             <h1 class="catalog__title">Подъемник грузовой одномачтовый, грузоподъемность 250 кг</h1>
