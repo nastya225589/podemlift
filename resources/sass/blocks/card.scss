@@ -77,6 +77,10 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
+        @media (max-width: $screen-xs) {
+            width: 260px;
+        }
+
         .card {
             &__inner {
                 display: flex;
