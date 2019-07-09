@@ -44,6 +44,8 @@
     }
 
     &__item {
+        display: flex;
+        align-items: flex-end;
         font-size: $font-size--xs;
         line-height: 17px;
         color: $fourth-color;
@@ -64,6 +66,23 @@
         span {
             font-size: $font-size--m;
         }
+    }
+
+    &__dots {
+        display: flex;
+        align-items: flex-end;
+        flex-grow: 1;
+    }
+
+    &__dot {
+        margin: 0 2px 4px;
+        background: url(/images/icon/dotted.svg) left bottom repeat-x;
+        height: 2px;
+        flex-grow: 1;
+    }
+
+    &__value {
+        width: 125px;
     }
 
     &__btn {
@@ -96,6 +115,14 @@
 
             &__name {
                 margin: 7px 0 10px;
+            }
+
+            &__item {
+                width: 220px;
+            }
+
+            &__value {
+                width: 65px;
             }
 
             &__img {

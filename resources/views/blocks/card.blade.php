@@ -4,8 +4,20 @@
         <div>
             <h2 class="card__name">{{ $product->name }}</h2>
             <ul class="card__list">
-                <li class="card__item">Грузоподъемность ...... до <span>2000</span> кг</li>
-                <li class="card__item">Высота подъема ......... до <span>50</span> м</li>
+                <li class="card__item">
+                    <div>Грузоподъемность</div>
+                    <div class="card__dots">
+                        <div class="card__dot"></div>
+                        <div class="card__value">до 2000 кг</div>
+                    </div>
+                </li>
+                <li class="card__item">
+                    <div>Высота подъема</div>
+                    <div class="card__dots">
+                        <div class="card__dot"></div>
+                        <div class="card__value">до 50 м</div>
+                    </div>
+                </li>
             </ul>
         </div>
     </a>
