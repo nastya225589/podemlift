@@ -8,6 +8,8 @@ class Product extends Model
 {
     use \Admin\Models\Traits\Sluggable;
 
+    public $category_ids = [];
+
     protected $attributes = [
         'images' => '[]'
     ];
@@ -56,6 +58,13 @@ class Product extends Model
                 'name' => 'slug',
                 'type' => 'input',
                 'label' => 'Url'
+            ],
+            [
+                'name' => 'category_ids',
+                'type' => 'select',
+                'options' => ProductCategory::pluck('name', 'id'),
+                'multi' => true,
+                'label' => 'Категории'
             ],
             [
                 'name' => 'price',

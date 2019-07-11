@@ -59,10 +59,11 @@
         </div>
     @elseif($field['type'] == 'select')
         @select([
-            'class'    => 'chosen-select',
+            'class'    => 'select2',
             'label'    => field_label($field),
-            'name'     => $field['name'],
+            'name'     => multi_name($field['name']),
             'options'  => $field['options'],
+            'multiple' => isset($field['multi']) && $field['multi'] === true,
             'value'    => field_value($model, $field)
         ])
     @elseif($field['type'] == 'checkbox')

@@ -4,12 +4,12 @@
     @include('admin::ui.form.label')
 
     <select id="{{ $id ?? $name }}"
-            name="{{ $name }}"
+            name="{{ $multiple ? $name . '[]' : $name }}"
             class="form-control {{ $class ?? '' }}"
             data-placeholder="{{ $data_placeholder ?? '' }}"
-            {{ $multiple ? 'multiple' : '' }}
-            {!! $attributes ?? '' !!}
-            {{ isset($required) ? 'required' :  '' }}
+        {{ $multiple ? 'multiple' : '' }}
+        {!! $attributes ?? '' !!}
+        {{ isset($required) ? 'required' :  '' }}
     >
 
         @if (isset($placeholder))
@@ -27,10 +27,10 @@
                 <option value="{{ $key }}"
 
                 @if ($multiple)
-                    {{ in_array($key, $value) ? 'selected' : '' }}
-                        @else
+                    {{ in_array($key, $value ?? []) ? 'selected' : '' }}
+                    @else
                     {{ isset($value) && $value == $key ? 'selected' : '' }}
-                        @endif
+                    @endif
                 >
                     {{ $text }}
                 </option>
