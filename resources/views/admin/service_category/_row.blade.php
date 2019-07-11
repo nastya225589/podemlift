@@ -4,12 +4,14 @@
     </div>
     <div>
         @if($model->published)
-            <i class="fas fa-eye" style="margin-right: 10px"></i>
+            <i class="fas fa-eye mr-3" data-toggle="tooltip" title="Опубликован"></i>
         @else
-            <i class="fas fa-eye-slash" style="margin-right: 10px"></i>
+            <i class="fas fa-eye-slash mr-3" data-toggle="tooltip" title="Не опубликован"></i>
         @endif
 
-        <a href="{{ route($route . '.edit', ['id' => $model->id]) }}" class="mr-2"><i class="far fa-edit"></i></a>
+        <a data-toggle="tooltip" title="Редактировать" href="{{ route($route . '.edit', ['id' => $model->id]) }}"><i class="far fa-edit"></i></a>
+        <a data-toggle="tooltip" title="Создать копию страницы" onclick="return confirm('Создать копию страницы?');" href="{{ route($route . '.copy', ['id' => $model->id]) }}" class="ml-3 mr-3"><i class="far fa-copy"></i></a>
+        <a data-toggle="tooltip" title="Создать дочернюю страницу" onclick="return confirm('Создать дочернюю страницу?');" href="{{ route($route . '.child', ['id' => $model->id]) }}"class="mr-3"><i class="fas fa-stream"></i></a>
 
         @component('admin::ui.form.delete', ['route' => route($route . '.destroy', ['id' => $model->id])])
         @endcomponent

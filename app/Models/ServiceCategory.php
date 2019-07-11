@@ -2,24 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Admin\Models\Model;
 
 class ServiceCategory extends Model
 {
-    use \Admin\Models\Traits\Sluggable;
-
-    protected $fillable = [
-        'parent_id',
-        'name',
-        'slug',
-        'published',
-        'sort',
-    ];
-
-    protected $casts = [
-        'published' => 'boolean',
-    ];
-
     public $logFields = [
         'parent_id',
         'name',
@@ -49,10 +35,5 @@ class ServiceCategory extends Model
         ];
 
         return $fields;
-    }
-
-    public function childrens()
-    {
-        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('sort');
     }
 }

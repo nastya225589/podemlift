@@ -2,28 +2,10 @@
 
 namespace Admin\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Page extends Model
 {
-    use Traits\Sluggable;
-
     protected $attributes = [
         'fields' => '{}'
-    ];
-
-    protected $fillable = [
-        'name',
-        'published',
-        'behavior',
-        'parent_id',
-        'sort',
-        'slug',
-        'content',
-        'fields',
-        'meta_title',
-        'meta_description',
-        'meta_keywords'
     ];
 
     protected $casts = [
@@ -60,7 +42,17 @@ class Page extends Model
             [
                 'name' => 'slug',
                 'type' => 'input',
-                'label' => 'Url'
+                'label' => 'Url (если пусто, то сгенерируется автоматически)'
+            ],
+            [
+                'name' => 'in_menu',
+                'type' => 'checkbox',
+                'label' => 'Выводить в меню'
+            ],
+            [
+                'name' => 'name_in_menu',
+                'type' => 'input',
+                'label' => 'Название в меню (если не пусто, то соответствует названию)'
             ]
         ];
 
@@ -122,16 +114,6 @@ class Page extends Model
         ];
     }
 
-    public function parent()
-    {
-        return $this->belongsTo(self::class);
-    }
-
-    public function childrens()
-    {
-        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('sort');
-    }
-
     public function fullUrl()
     {
         $url = '/' . trim($this->slug, '/');
@@ -166,28 +148,6 @@ class Page extends Model
     {
         $data = json_decode($this->$fieldName);
         return collect($data);
-    }
-
-    public static function dropdown($not = null, $parentId = null, $parentName = null)
-    {
-        $in = [1];
-        if ($not)
-            $in[] = $not;
-
-        if ($parentId)
-            $out = [];
-        else
-            $out = ['' => ''];
-
-        $models = self::where(['parent_id' => $parentId])->get();
-        if ($models)
-            foreach ($models as $model) {
-                $out[$model->id] = $parentName ? $parentName . $model->name : $model->name;
-                if (count($model->childrens))
-                    $out += self::dropdown(null, $model->id, $parentName . $model->name . ' > ');
-            }
-
-        return $out;
     }
 
     public static function getUrl($id)

@@ -2,23 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Admin\Models\Image;
+use Admin\Models\Model;
 
 class Client extends Model
 {
-    use \Admin\Models\Traits\Sluggable;
-
-    protected $fillable = [
-        'name',
-        'published',
-        'image_id'
-    ];
-
-    protected $casts = [
-        'published' => 'boolean',
-    ];
-
     public $logFields = [
         'name',
         'published',

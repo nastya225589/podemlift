@@ -256,3 +256,17 @@ input[type="file"] {
   border: none;
   padding: 0;
 }
+
+.dd-handle:before {
+    content: "\f0b2";
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 14px;
+    top: 6px;
+    opacity: .6;
+}
+.dd-handle:hover:before {
+    opacity: 1;
+}

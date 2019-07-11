@@ -4,7 +4,6 @@ namespace Admin\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Admin\Models\Page;
-use Admin\Models\Menu;
 use Admin\Models\Settings;
 use Admin\Models\Form;
 use Admin\Models\Redirect;
@@ -35,10 +34,6 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         Page::saving(function($model) {
-            Log::model($model);
-        });
-
-        Menu::saving(function($model) {
             Log::model($model);
         });
 

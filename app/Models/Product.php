@@ -2,27 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Admin\Models\Model;
 
 class Product extends Model
 {
-    use \Admin\Models\Traits\Sluggable;
-
     public $category_ids = [];
 
     protected $attributes = [
         'images' => '[]'
-    ];
-
-    protected $fillable = [
-        'name',
-        'published',
-        'slug',
-        'price',
-        'images',
-        'meta_title',
-        'meta_description',
-        'meta_keywords'
     ];
 
     protected $casts = [

@@ -2,28 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Admin\Models\Model;
 use Admin\Models\Image;
 
 class Work extends Model
 {
-    use \Admin\Models\Traits\Sluggable;
-
     protected $attributes = [
         'images' => '[]'
-    ];
-
-    protected $fillable = [
-        'name',
-        'published',
-        'category_id',
-        'slug',
-        'introtext',
-        'text',
-        'images',
-        'meta_title',
-        'meta_description',
-        'meta_keywords'
     ];
 
     protected $casts = [

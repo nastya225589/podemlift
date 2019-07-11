@@ -2,31 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Admin\Models\Model;
 
 class Service extends Model
 {
-    use \Admin\Models\Traits\Sluggable;
-
-    protected $fillable = [
-        'name',
-        'published',
-        'category_id',
-        'on_main',
-        'order_on_main',
-        'text_on_main',
-        'slug',
-        'introtext',
-        'text',
-        'meta_title',
-        'meta_description',
-        'meta_keywords'
-    ];
-
-    protected $casts = [
-        'published' => 'boolean',
-    ];
-
     public $logFields = [
         'name',
         'published',

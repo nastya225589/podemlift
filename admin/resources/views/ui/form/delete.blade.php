@@ -2,6 +2,6 @@
     @method('DELETE')
     {{ csrf_field() }}
     @component('admin::ui.form.button', ['type' => 'submit', 'class' => 'btn btn-link'])
-        <i class="far fa-trash-alt"></i>
+        <i data-toggle="tooltip" title="Удалить" class="far fa-trash-alt"></i>
     @endcomponent
 </form>
