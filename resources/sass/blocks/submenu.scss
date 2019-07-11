@@ -18,28 +18,12 @@
     }
 
     @media (max-width: $screen-sm) {
-        width: 440px;
-    }
-
-    @media (max-width: $screen-xs) {
         padding: 0;
         margin-top: 20px;
         position: relative;
         top: 0;
-        left: -10px;
-        width: 104.4%;
-    }
-
-    @media (max-width: 440px) {
-        width: 104.7%;
-    }
-
-    @media (max-width: 400px) {
-        width: 106%;
-    }
-
-    @media (max-width: 330px) {
-        width: 106.5%;
+        left: 0;
+        width: 100%;
     }
 
     &__active {
@@ -51,13 +35,13 @@
         justify-content: space-between;
         flex-wrap: wrap;
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             flex-direction: column;
         }
     }
 
     &__list {
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             padding-left: 30px;
         }
     }
@@ -66,14 +50,14 @@
         justify-content: flex-start;
         margin-top: 20px;
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             margin-top: 0;
         }
 
        .submenu__item {
            padding-right: 35px;
 
-           @media (max-width: $screen-xs) {
+           @media (max-width: $screen-sm) {
                padding-right: 0;
            }
        }
@@ -83,20 +67,20 @@
         padding: 10px 0;
         width: 200px;
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             width: 100%;
         }
 
         &--arrow {
             position: relative;
 
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-sm) {
                 &:before {
                     content: "";
                     display: inline-block;
                     position: absolute;
                     top: 17px;
-                    right: 20px;
+                    right: 22px;
                     width: 12px;
                     height: 7px;
                 }
@@ -113,7 +97,7 @@
                     transform: rotate(180deg);
                 }
 
-                @media (max-width: $screen-xs) {
+                @media (max-width: $screen-sm) {
                     .submenu-lev2 {
                         display: block;
                     }
@@ -143,7 +127,7 @@
     &-lev2 {
         padding-top: 15px;
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             padding-top: 10px;
             display: none;
         }
@@ -152,7 +136,7 @@
             padding: 0;
         }
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             .submenu__list {
                 margin-top: 0;
                 padding: 0 20px;

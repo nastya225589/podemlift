@@ -100,3 +100,11 @@ a {
 .slick-slide {
     height: auto;
 }
+
+.line {
+    border-top: 1px solid $seventh-color;
+
+    @media (max-width: $screen-sm) {
+        display: none;
+    }
+}

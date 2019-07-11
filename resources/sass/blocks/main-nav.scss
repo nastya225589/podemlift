@@ -1,6 +1,13 @@
 .main-nav {
-    @media (max-width: $screen-xs) {
+    @media (max-width: $screen-sm) {
         display: none;
+    }
+
+    .container {
+        @media (max-width: $screen-sm) {
+            padding: 0;
+            max-width: 100%;
+        }
     }
 
     &__toggal {
@@ -16,7 +23,7 @@
             outline:none;
         }
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             display: block;
         }
 
@@ -45,7 +52,7 @@
                 top: -6px;
             }
 
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-sm) {
                 display: inline-block;
             }
         }
@@ -53,6 +60,7 @@
 
     &__open {
         display: block;
+        padding: 0;
 
         span {
             height: 0;
@@ -73,7 +81,7 @@
         display: flex;
         flex-wrap: wrap;
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             flex-direction: column;
             padding-bottom: 15px;
         }
@@ -83,7 +91,7 @@
         padding:  20px 18px;
         position: relative;
 
-        @media (max-width: $screen-xs) {
+        @media (max-width: $screen-sm) {
             padding:  10px 0;
         }
 
@@ -96,9 +104,9 @@
             width: 12px;
             height: 7px;
 
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-sm) {
                 top: 17px;
-                right: 10px;
+                right: 20px;
             }
         }
 
@@ -106,8 +114,8 @@
             right: 25px;
             background: url(../images/icon/menu-arrow.svg);
 
-            @media (max-width: $screen-xs) {
-                right: 10px;
+            @media (max-width: $screen-sm) {
+                right: 22px;
             }
         }
 
@@ -131,7 +139,7 @@
              background: $main-color;
              padding: 20px 98px 20px 18px;
 
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-sm) {
                 background: transparent;
                 padding: 10px 0;
             }
@@ -152,7 +160,7 @@
                 &:after {
                     content: "";
 
-                    @media (max-width: $screen-xs) {
+                    @media (max-width: $screen-sm) {
                         content: none;
                     }
                 }
@@ -166,13 +174,17 @@
                     display: block;
                     width: 200px;
 
-                    @media (max-width: $screen-xs) {
-                        width: 106.5%;
+                    @media (max-width: $screen-sm) {
+                        width: 100%;
                         padding: 0;
                     }
                 }
 
                 .submenu__item {
+                    @media (max-width: $screen-sm) {
+                        width: 100%;
+                    }
+
                     @media (max-width: $screen-xs) {
                         width: 200px;
                     }
@@ -188,7 +200,7 @@
                 padding-left: 20px;
             }
 
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-sm) {
                 padding-left: 0;
             }
 
@@ -201,7 +213,7 @@
                         width: 120%;
                     }
 
-                    @media (max-width: $screen-xs) {
+                    @media (max-width: $screen-sm) {
                         content: none;
                     }
                 }
@@ -215,14 +227,18 @@
                     display: block;
                     width: 200px;
 
-                    @media (max-width: $screen-xs) {
-                        width: 106.5%;
+                    @media (max-width: $screen-sm) {
+                        width: 100%;
                         padding: 0;
                     }
                 }
             }
 
             .submenu__item {
+                @media (max-width: $screen-sm) {
+                    width: 100%;
+                }
+
                 @media (max-width: $screen-xs) {
                     width: 200px;
                 }
@@ -235,5 +251,9 @@
         line-height: normal;
         font-weight: bold;
         color: $text-color;
+
+        @media (max-width: $screen-sm) {
+            padding: 0 20px;
+        }
     }
 }

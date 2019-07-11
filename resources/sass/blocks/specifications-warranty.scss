@@ -82,9 +82,10 @@
     }
 
     &__dot {
-        margin-bottom: 4px;
+        margin: 0 5px 4px;
+        background: url(/images/icon/dotted.svg) left bottom repeat-x;
+        height: 2px;
         width: 100%;
-        border-bottom: 1px dotted $text-color;
     }
 
     &__text {

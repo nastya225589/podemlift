@@ -3,6 +3,10 @@
         margin-left: 70px;
         display: flex;
 
+        @media (max-width: $screen-lg) {
+            margin-left: 0;
+        }
+
         @media (max-width: $screen-md) {
             margin-left: 20px;
         }
@@ -13,6 +17,10 @@
         flex-direction: column;
         margin-right: 45px;
         position: relative;
+
+        @media (max-width: $screen-lg) {
+            margin-right: 20px;
+        }
 
         @media (max-width: $screen-md) {
             margin-right: 20px;
@@ -35,7 +43,7 @@
         }
 
         &--contact {
-            @media (max-width: $screen-xs) {
+            @media (max-width: $screen-sm) {
                 display: none;
             }
         }
@@ -43,6 +51,12 @@
         span {
             font-size: $font-size--xs - 1;
             color: #fff;
+
+            &:hover {
+                .contacts__city-list {
+                    display: block;
+                }
+            }
         }
     }
 
@@ -69,9 +83,14 @@
             display: inline-block;
             position: absolute;
             top: 6px;
-            right: 39px;
+            right: -12px;
             width: 9px;
             height: 6px;
+        }
+
+        span {
+            position: absolute;
+            bottom: 0;
         }
 
         &--arrow:before {
@@ -81,21 +100,17 @@
         &-list {
             display: none;
             position: absolute;
-            top: 35px;
-            left: -8px;
+            top: 18px;
+            left: -9px;
             background: #F1F1F1;
-            padding: 10px;
+            padding: 0px 9px;
             z-index: 1;
         }
 
-        &:hover {
-            .contacts__city-list {
-                display: block;
-            }
-        }
 
         &-item {
             width: 137px;
+            padding: 3px 0;
         }
 
         &-link {
@@ -110,6 +125,10 @@
             &:focus,
             &:active,
             &:checked {
+                color: $fourth-color;
+            }
+
+            &--active {
                 color: $fourth-color;
             }
         }
