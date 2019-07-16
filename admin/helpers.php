@@ -50,7 +50,7 @@ if (!function_exists('multi_name')) {
 
 if (!function_exists('image')) {
     function image($id) {
-        return \Admin\Models\Image::findOrNew((int)$id);
+        return \App\Models\Image::findOrNew((int)$id);
     }
 }
 

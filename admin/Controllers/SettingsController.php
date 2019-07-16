@@ -2,7 +2,7 @@
 
 namespace Admin\Controllers;
 
-use Admin\Models\Settings;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 
 class SettingsController extends \Illuminate\Routing\Controller

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Admin\Models\Model;
+use App\Models\Model;
 
 class Client extends Model
 {
@@ -37,6 +37,6 @@ class Client extends Model
 
     public function image()
     {
-        return $this->hasOne(Image::class, 'id', 'image_id');
+        return $this->hasOne(\App\Models\Image::class, 'id', 'image_id');
     }
 }

@@ -34,9 +34,6 @@ class NestableController extends \Illuminate\Routing\Controller
     private function ns($resource)
     {
         $model = studly_case($resource);
-        if (file_exists(app_path("Models/{$model}.php")))
-            return '\App\Models\\' . $model;
-
-        return '\Admin\Models\\' . $model;
+        return '\App\Models\\' . $model;
     }
 }

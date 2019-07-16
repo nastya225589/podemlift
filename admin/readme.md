@@ -36,7 +36,7 @@ add to config/app.php
 
 change in config/auth.php
 
-`'model' => Admin\Models\User::class`
+`'model' => App\Models\User::class`
 
 change composer.json "autoload" to
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +27,7 @@ class Log extends Model
 
     public function user()
     {
-        return $this->belongsTo('Admin\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function getResourceName()

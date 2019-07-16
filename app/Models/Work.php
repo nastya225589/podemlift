@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Admin\Models\Model;
-use Admin\Models\Image;
+use App\Models\Model;
+use App\Models\Image;
 
 class Work extends Model
 {

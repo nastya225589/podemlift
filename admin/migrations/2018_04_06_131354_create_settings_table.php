@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Admin\Models\Settings;
+use App\Models\Settings;
 
 class CreateSettingsTable extends Migration
 {

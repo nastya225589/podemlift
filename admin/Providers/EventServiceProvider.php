@@ -3,11 +3,11 @@
 namespace Admin\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Admin\Models\Page;
-use Admin\Models\Settings;
-use Admin\Models\Form;
-use Admin\Models\Redirect;
-use Admin\Models\Log;
+use App\Models\Page;
+use App\Models\Settings;
+use App\Models\Form;
+use App\Models\Redirect;
+use App\Models\Log;
 use Admin\Mail\FormSended;
 use Illuminate\Support\Facades\Mail;
 

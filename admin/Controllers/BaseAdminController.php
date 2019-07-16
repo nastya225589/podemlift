@@ -26,8 +26,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
 
         if (!$this->model) {
             $class = Str::studly($this->name);
-            $this->model = file_exists(app_path("Models/$class.php")) ?
-                "\App\Models\\$class" : "\Admin\Models\\$class";
+            $this->model = "\App\Models\\$class";
         }
 
         $this->route = Str::slug($this->name);

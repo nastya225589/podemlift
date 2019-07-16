@@ -3,7 +3,7 @@
 namespace Admin\Controllers;
 
 use Illuminate\Http\Request;
-use Admin\Models\Log;
+use App\Models\Log;
 
 class LogController extends BaseAdminController
 {

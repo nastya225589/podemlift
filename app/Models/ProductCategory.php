@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Admin\Models\Model;
+use App\Models\Model;
 
 class ProductCategory extends Model
 {

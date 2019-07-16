@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Admin\Models\Model;
+use App\Models\Model;
 
 class Product extends Model
 {
@@ -76,14 +76,14 @@ class Product extends Model
     {
         $imagesIds = $this->images ?: [];
         $imageId = array_shift($imagesIds);
-        return \Admin\Models\Image::find($imageId);
+        return \App\Models\Image::find($imageId);
     }
 
     public function images()
     {
         $imagesIds = $this->images ?: [];
-        $images = \Admin\Models\Image::find($imagesIds);
-        return $images ?: [(new \Admin\Models\Image(['url' => '/images/default.png']))];
+        $images = \App\Models\Image::find($imagesIds);
+        return $images ?: [(new \App\Models\Image(['url' => '/images/default.png']))];
     }
 
     public function categories()

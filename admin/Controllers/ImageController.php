@@ -4,7 +4,7 @@ namespace Admin\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
-use Admin\Models\Image;
+use App\Models\Image;
 
 class ImageController extends \Illuminate\Routing\Controller
 {

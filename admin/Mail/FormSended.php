@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Admin\Models\Form;
+use App\Models\Form;
 
 class FormSended extends Mailable implements ShouldQueue
 {

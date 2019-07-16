@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,7 +29,7 @@ class Redirect extends Model
         /** @var $to Model */
         if ($to->model && $to->model_id) {
             /** @var $to Model */
-            $model = ('Admin\Models\\' . $to->model)::where(['id' => $to->model_id])->first();
+            $model = ('App\Models\\' . $to->model)::where(['id' => $to->model_id])->first();
             if ($model)
                 $target = [$model->url, $to->type];
         }

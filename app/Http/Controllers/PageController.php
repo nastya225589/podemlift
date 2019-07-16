@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use \Admin\Models\Page;
-use \Admin\Models\Redirect;
+use \App\Models\Page;
+use \App\Models\Redirect;
 use \App\Models\Product;
 use \App\Models\Service;
 use \App\Models\Work;
