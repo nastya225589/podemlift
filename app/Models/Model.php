@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Schema;
 
 class Model extends \Illuminate\Database\Eloquent\Model
 {
@@ -11,6 +12,23 @@ class Model extends \Illuminate\Database\Eloquent\Model
     protected $casts = [
         'published' => 'boolean',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($model) {
+            $columns = Schema::getColumnListing($model->getTable());
+            if (!in_array('sort', $columns))
+                return;
+
+            $max = static::when(in_array('parent_id', $columns), function ($q) use ($model) {
+                    return $q->where('parent_id', $model->parent_id);
+                })->max('sort');
+
+            $model->sort = $max === null ? 0 : $max + 1;
+        });
+    }
 
     public function scopePublished($query)
     {
