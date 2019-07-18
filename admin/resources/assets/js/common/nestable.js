@@ -1,20 +1,47 @@
 require('jquery');
 require('nestable');
 
-$(function () {
-    let resource = location.pathname.split('/')[2];
-    if ($('.nestable').length) {
-        $('.nestable').nestable();
-        $('.nestable').on('change', function() {
-            $.post('/admin/nestable/save', {
-                _token: $('meta[name="csrf-token"]').attr('content'),
-                resource: resource,
-                data: $(this).nestable('serialize')
-            });
-        });
+const resource = location.pathname.split('/')[2];
 
-        // setTimeout(function() {
-        //     $('button[data-action="collapse"]').click();
-        // }, 1000)
-    }
+const expand = (id) => {
+    let ids = JSON.parse(localStorage[resource + '-expanded'] || '[]');
+    ids[id] = id;
+    localStorage[resource + '-expanded'] = JSON.stringify(ids);
+};
+
+const expanded = () => {
+    return JSON.parse(localStorage[resource + '-expanded'] || '[]');
+};
+
+const collapse = (id) => {
+    let ids = JSON.parse(localStorage[resource + '-expanded'] || '[]');
+    ids.splice(ids.indexOf(id), 1);
+    localStorage[resource + '-expanded'] = JSON.stringify(ids);
+};
+
+$(function () {
+    if (!$('.nestable').length)
+        return;
+
+    $('.nestable').nestable().nestable('collapseAll');
+
+    expanded().forEach((id) => {
+        $(`.dd-item[data-id=${id}] > [data-action="expand"]`).click();
+    });
+
+    $('.dd-item > [data-action="expand"]').click(function() {
+        expand($(this).parent().data('id'))
+    });
+
+    $('.dd-item > [data-action="collapse"]').click(function() {
+        collapse($(this).parent().data('id'))
+    });
+
+    $('.nestable').on('change', function() {
+        $.post('/admin/nestable/save', {
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            resource: resource,
+            data: $(this).nestable('serialize')
+        });
+    });
 });
