@@ -4,8 +4,11 @@
     <div class="line"></div>
     <div class="container">
         <div class="catalog">
-            <h1 class="catalog__title">Подъемник грузовой одномачтовый, грузоподъемность 250 кг</h1>
+
+            <h1 class="catalog__title">{{ $page->name }}</h1>
+
             <button class="btn btn-dashed catalog__btn-dashed_filter">Фильтр</button>
+
             @include('blocks.catalog-menu')
 
             <div class="catalog__wrap">
@@ -16,8 +19,8 @@
                 @include('blocks.filter-sorter')
 
                 <div class="catalog__inner">
-
                     <div class="catalog__name">Все трособлочные подъемники</div>
+
                     @include('blocks.sorting-view')
 
                     <div class="catalog__list">
@@ -28,8 +31,11 @@
                             @endforeach
                         </div>
                     </div>
+
                     <button class="btn btn-dashed catalog__btn-dashed">Показать еще</button>
+
                     @include('blocks.pagination')
+
                 </div>
             </div>
 

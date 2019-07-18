@@ -1,6 +1,22 @@
+<?php
+
+$menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id', null)->get();
+
+?>
 <nav class="main-nav" id="nav">
     <div class="container">
         <ul class="main-nav__list">
+
+            @foreach($menu as $menuItem)
+                <li class="main-nav__item">
+                    <a class="main-nav__link" href="{{ $menuItem->url }}">
+                        {{ $menuItem->name_in_menu ?: $menuItem->name }}
+                    </a>
+                </li>
+            @endforeach
+
+            {{--
+
             <li class="main-nav__item main-nav__item--main">
                 <a class="main-nav__link main-nav__link--main" href="/">Kаталог</a>
                 <div class="submenu">
@@ -207,6 +223,9 @@
                     </ul>
                 </div>
             </li>
+
+            --}}
+
         </ul>
     </div>
 </nav>
