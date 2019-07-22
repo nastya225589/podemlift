@@ -1,6 +1,6 @@
 <div class="product-card">
     <div class="container">
-        <h1 class="product-card__title">Подъемник грузовой одномачтовый, грузоподъемность 250 кг</h1>
+        <h1 class="product-card__title title-h1">Подъемник грузовой одномачтовый, грузоподъемность 250 кг</h1>
         <div class="product-card__wrapper">
             <div class="product-card__slider">
                 <div class="product-card__proto">

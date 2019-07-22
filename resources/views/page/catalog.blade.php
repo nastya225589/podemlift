@@ -5,7 +5,7 @@
     <div class="container">
         <div class="catalog">
 
-            <h1 class="catalog__title">{{ $page->name }}</h1>
+            <div class="catalog__title title-h1">{{ $page->name }}</div>
 
             <button class="btn btn-dashed catalog__btn-dashed_filter">Фильтр</button>
 
@@ -19,7 +19,7 @@
                 @include('blocks.filter-sorter')
 
                 <div class="catalog__inner">
-                    <div class="catalog__name">Все трособлочные подъемники</div>
+                    <div class="catalog__name title-h2">Все трособлочные подъемники</div>
 
                     @include('blocks.sorting-view')
 

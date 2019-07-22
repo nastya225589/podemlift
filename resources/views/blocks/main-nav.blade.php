@@ -6,18 +6,18 @@ $menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id'
 <nav class="main-nav" id="nav">
     <div class="container">
         <ul class="main-nav__list">
-
-            @foreach($menu as $menuItem)
-                <li class="main-nav__item">
-                    <a class="main-nav__link" href="{{ $menuItem->url }}">
-                        {{ $menuItem->name_in_menu ?: $menuItem->name }}
-                    </a>
-                </li>
-            @endforeach
-
             {{--
+                        @foreach($menu as $menuItem)
+                            <li class="main-nav__item">
+                                <a class="main-nav__link" href="{{ $menuItem->url }}">
+                                    {{ $menuItem->name_in_menu ?: $menuItem->name }}
+                                </a>
+                            </li>
+                        @endforeach
 
-            <li class="main-nav__item main-nav__item--main">
+             --}}
+
+            <li class="main-nav__item">
                 <a class="main-nav__link main-nav__link--main" href="/">Kаталог</a>
                 <div class="submenu">
                     <div class="submenu__wrap">
@@ -155,7 +155,7 @@ $menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id'
             <li class="main-nav__item">
                 <a class="main-nav__link" href="/">Услуги</a>
             </li>
-            <li class="main-nav__item main-nav__item--submenu main-nav__item--arrow">
+            <li class="main-nav__item main-nav__item--submenu">
                 <a class="main-nav__link" href="/">Полезные страницы</a>
                 <div class="submenu">
                     <ul class="submenu__list">
@@ -183,7 +183,7 @@ $menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id'
                     </ul>
                 </div>
             </li>
-            <li class="main-nav__item main-nav__item--arrow main-nav__item--submenu-sphere">
+            <li class="main-nav__item main-nav__item--submenu">
                 <a class="main-nav__link" href="/">Сферы применения</a>
                 <div class="submenu submenu__sphere">
                     <ul class="submenu__list">
@@ -223,9 +223,6 @@ $menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id'
                     </ul>
                 </div>
             </li>
-
-            --}}
-
         </ul>
     </div>
 </nav>
