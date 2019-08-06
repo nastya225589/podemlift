@@ -8,10 +8,13 @@ $menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id'
         <ul class="main-nav__list">
 
             @foreach($menu as $menuItem)
-                <li class="main-nav__item">
+                <li class="main-nav__item main-nav__item--main">
                     <a class="main-nav__link" href="{{ $menuItem->url }}">
                         {{ $menuItem->name_in_menu ?: $menuItem->name }}
                     </a>
+                    @if($menuItem->behavior == 'catalog')
+                        @include('blocks.main-nav-catalog')
+                    @endif
                 </li>
             @endforeach
 
