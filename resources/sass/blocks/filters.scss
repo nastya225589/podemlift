@@ -174,7 +174,7 @@
         background: $seventh-color;
 
         @if $fill == 1 {
-            .js & {
+            & {
                 background: linear-gradient($third-color, $third-color)
                 0/ var(--sx) 100% no-repeat $seventh-color
             }
@@ -261,7 +261,7 @@
         ~ output {
             display: none;
 
-            .js & {
+            & {
                 display: block;
                 position: relative;
                 left: .5 * 1em;

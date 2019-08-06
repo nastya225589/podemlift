@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-
 class WorkCategory extends Model
 {
     public $logFields = [
@@ -35,5 +33,12 @@ class WorkCategory extends Model
         ];
 
         return $fields;
+    }
+
+    public function fullUrl()
+    {
+        $url = parent::fullUrl();
+        $page = Page::where('behavior', 'works')->first();
+        return $page->url . $url;
     }
 }

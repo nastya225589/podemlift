@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Schema;
 
 class Model extends \Illuminate\Database\Eloquent\Model
 {
+    public $columns;
+
     protected $guarded = ['created_at', 'updated_at'];
 
     protected $casts = [
@@ -17,16 +19,48 @@ class Model extends \Illuminate\Database\Eloquent\Model
     {
         parent::boot();
 
+        static::saving(function($model) {
+            Log::model($model);
+        });
+
         static::creating(function($model) {
-            $columns = Schema::getColumnListing($model->getTable());
-            if (!in_array('sort', $columns))
+            if (!in_array('sort', $model->columns()))
                 return;
 
-            $max = static::when(in_array('parent_id', $columns), function ($q) use ($model) {
-                    return $q->where('parent_id', $model->parent_id);
-                })->max('sort');
+            $max = static::when(in_array('parent_id', $model->columns()), function ($q) use ($model) {
+                return $q->where('parent_id', $model->parent_id);
+            })->max('sort');
 
             $model->sort = $max === null ? 0 : $max + 1;
+        });
+
+        static::saving(function($model)
+        {
+            if (array_diff(['url', 'slug', 'parent_id'], $model->columns()))
+                return;
+
+            $newUrl = $model->fullUrl();
+
+            if ($newUrl != $model->url) {
+                if ($model->id && $model->url)
+                    Redirect::firstOrCreate([
+                        'from' => $model->url,
+                        'model' => static::class,
+                        'model_id' => $model->id
+                    ]);
+
+                $model->url = $newUrl;
+            }
+        });
+
+        static::saved(function($model) {
+            if (array_diff(['url', 'slug', 'parent_id'], $model->columns()))
+                return;
+
+            if (count($model->childrens))
+                foreach ($model->childrens as $children)
+                    if ($children->url != $children->fullUrl())
+                        $children->save();
         });
     }
 
@@ -35,9 +69,9 @@ class Model extends \Illuminate\Database\Eloquent\Model
         return $query->where('published', true);
     }
 
-    public function scopeOrdered($query)
+    public function scopeSorted($query)
     {
-        return $query->orderBy('sort', 'acs');
+        return $query->orderBy('sort');
     }
 
     public function setSlugAttribute($value)
@@ -70,5 +104,29 @@ class Model extends \Illuminate\Database\Eloquent\Model
     public function childrens()
     {
         return $this->hasMany(static::class, 'parent_id', 'id')->orderBy('sort');
+    }
+
+    public function columns()
+    {
+        if ($this->columns)
+            return $this->columns;
+
+        $this->columns = Schema::getColumnListing($this->getTable());
+
+        return $this->columns;
+    }
+
+    public function fullUrl()
+    {
+        $url = '/' . trim($this->slug, '/');
+        $parent = $this->parent;
+        while ($parent) {
+            $slug = trim($parent->slug, '/');
+            if (!empty($slug))
+                $url = '/' . $slug . $url;
+            $parent = $parent->parent;
+        }
+
+        return $url;
     }
 }

@@ -7,8 +7,8 @@
                 <div class="field-weight__range" id="weight-range">
                     <div class="slider-item">
                         <div class="wrap" style="--min: 0;--max: 100;--val: 50;">
-                            <input id="days-css" class="slider"  type="range" value="50"/>
-                            <output for="days-css">53</output>
+                            <input id="range-input" class="slider"  type="range" value="50"/>
+                            <output for="range-input">53</output>
                         </div>
                     </div>
                 </div>

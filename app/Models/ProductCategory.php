@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-
 class ProductCategory extends Model
 {
     public $logFields = [
@@ -52,5 +50,12 @@ class ProductCategory extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class, 'product_category_product');
+    }
+
+    public function fullUrl()
+    {
+        $url = parent::fullUrl();
+        $page = Page::where('behavior', 'catalog')->first();
+        return $page->url . $url;
     }
 }

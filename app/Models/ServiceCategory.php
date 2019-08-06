@@ -36,4 +36,11 @@ class ServiceCategory extends Model
 
         return $fields;
     }
+
+    public function fullUrl()
+    {
+        $url = parent::fullUrl();
+        $page = Page::where('behavior', 'services')->first();
+        return $page->url . $url;
+    }
 }

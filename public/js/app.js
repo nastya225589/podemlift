@@ -16278,18 +16278,16 @@ var Filters = function Filters() {
   $('.filters__btn-close').on('click', function () {
     $('.catalog-menu').removeClass('catalog-menu--open');
   });
+  var input = document.getElementById('range-input');
 
-  var _R = document.getElementById('days-css'),
-      _W = _R.parentNode,
-      _O = _R.nextElementSibling;
-
-  document.documentElement.classList.add('js');
-
-  _R.addEventListener('input', function (e) {
-    _O.value = _R.value;
-
-    _W.style.setProperty('--val', +_R.value);
-  }, false);
+  if (input) {
+    var parent = input.parentNode;
+    var nextEl = input.nextElementSibling;
+    input.addEventListener('input', function (e) {
+      nextEl.value = input.value;
+      parent.style.setProperty('--val', +input.value);
+    }, false);
+  }
 };
 
 

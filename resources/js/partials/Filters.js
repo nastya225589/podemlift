@@ -8,15 +8,15 @@ export default class Filters {
             $('.catalog-menu').removeClass('catalog-menu--open');
         });
 
-        const _R = document.getElementById('days-css'),
-            _W = _R.parentNode,
-            _O = _R.nextElementSibling;
+        const input = document.getElementById('range-input');
+        if (input)  {
+            const parent = input.parentNode;
+            const nextEl = input.nextElementSibling;
 
-        document.documentElement.classList.add('js');
-
-        _R.addEventListener('input', e => {
-            _O.value = _R.value;
-            _W.style.setProperty('--val', +_R.value)
-        }, false);
+            input.addEventListener('input', e => {
+                nextEl.value = input.value;
+                parent.style.setProperty('--val', + input.value)
+            }, false);
+        }
     }
 }

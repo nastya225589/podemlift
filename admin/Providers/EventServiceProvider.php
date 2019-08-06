@@ -3,13 +3,6 @@
 namespace Admin\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Models\Page;
-use App\Models\Settings;
-use App\Models\Form;
-use App\Models\Redirect;
-use App\Models\Log;
-use Admin\Mail\FormSended;
-use Illuminate\Support\Facades\Mail;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -32,40 +25,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-        Page::saving(function($model) {
-            Log::model($model);
-        });
-
-        Settings::updating(function($model) {
-            Log::model($model);
-        });
-
-        Page::saving(function($model) {
-            $newUrl = $model->fullUrl();
-
-            if ($newUrl != $model->url) {
-                if ($model->id)
-                    Redirect::firstOrCreate([
-                        'from' => $model->url,
-                        'model' => 'Page',
-                        'model_id' => $model->id
-                    ]);
-
-                $model->url = $newUrl;
-            }
-        });
-
-        Page::saved(function($model) {
-            if (count($model->childrens))
-                foreach ($model->childrens as $children)
-                    if ($children->url != $children->fullUrl())
-                        $children->save();
-        });
-
-        Form::saved(function($model) {
-            Mail::to(env('MAIL_TO'))
-                ->send(new FormSended($model));
-        });
     }
 }

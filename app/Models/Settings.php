@@ -17,6 +17,15 @@ class Settings extends Model
 
     public $timestamps = false;
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::updating(function($model) {
+            Log::model($model);
+        });
+    }
+
     public function getAttribute($key)
     {
         $return = parent::getAttribute($key);

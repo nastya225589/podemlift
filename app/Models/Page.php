@@ -114,20 +114,6 @@ class Page extends Model
         ];
     }
 
-    public function fullUrl()
-    {
-        $url = '/' . trim($this->slug, '/');
-        $parent = $this->parent;
-        while ($parent) {
-            $slug = trim($parent->slug, '/');
-            if (!empty($slug))
-                $url = '/' . $slug . $url;
-            $parent = $parent->parent;
-        }
-
-        return $url;
-    }
-
     public function image($imageName)
     {
         return Image::findOrNew($this->$imageName);
@@ -148,11 +134,5 @@ class Page extends Model
     {
         $data = json_decode($this->$fieldName);
         return collect($data);
-    }
-
-    public static function getUrl($id)
-    {
-        $model = self::firstOrNew(['id' => $id]);
-        return $model->url ?: '#notFound';
     }
 }
