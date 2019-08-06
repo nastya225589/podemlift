@@ -1,5 +1,5 @@
 <div class="filter-sorter">
-    <h1 class="filter-sorter__title">{{ $page->name }}</h1>
+    <h1 class="filter-sorter__title title-h1">{{ $page->name }}</h1>
     <ul class="filter-sorter__list">
         <li class="filter-sorter__item">
             <p>Одномачтовые</p>

@@ -15,19 +15,11 @@
         @media (max-width: $screen-sm) {
             display: block;
             margin-bottom: 24px;
-            font-size: $font-size--h3 - 3;
-            line-height: 24px;
-            text-transform: uppercase;
         }
     }
 
     &__name {
         margin-bottom: 32px;
-        font-size: $font-size--h2;
-        font-weight: 600;
-        line-height: 34px;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
 
         @media (max-width: $screen-sm) {
             display: none;
