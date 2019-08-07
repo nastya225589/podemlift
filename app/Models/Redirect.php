@@ -29,7 +29,7 @@ class Redirect extends Model
         /** @var $to Model */
         if ($to->model && $to->model_id) {
             /** @var $to Model */
-            $model = ('App\Models\\' . $to->model)::where(['id' => $to->model_id])->first();
+            $model = $to->model::where(['id' => $to->model_id])->first();
             if ($model)
                 $target = [$model->url, $to->type];
         }
