@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
     </head>
-    <body>
+    <body data-page="@yield('data-page')">
         <div class="page__inner">
             @include('blocks.header')
 

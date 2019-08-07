@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('data-page', 'product')
+
 @section('content')
     <div class="line"></div>
     <div class="container">

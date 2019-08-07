@@ -4,9 +4,6 @@ import ExamplesSlider from '../partials/ExamplesSlider';
 import ClientsSlider from '../partials/ClientsSlider';
 import Form from '../partials/Form';
 import ProductCardSlider from '../partials/ProductCardSlider';
-import Tabs from '../partials/Tabs';
-import Filters from '../partials/Filters';
-import SortingView from '../partials/SortingView';
 
 export default class Page {
     constructor() {
@@ -16,8 +13,5 @@ export default class Page {
         new ClientsSlider;
         new Form;
         new ProductCardSlider;
-        new Tabs;
-        new Filters;
-        new SortingView;
     }
 }
