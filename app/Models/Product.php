@@ -6,6 +6,8 @@ class Product extends BaseModel
 {
     public $category_ids = [];
 
+    protected $guarded = ['category_ids', 'created_at', 'updated_at'];
+
     protected $attributes = [
         'images' => '[]'
     ];

@@ -32,9 +32,8 @@
                 @include('blocks.delivery')
             </div>
             <div id="tabs-5">
-                <?php $products = \App\Models\Product::all() ?>
                 <div class="products__wrap">
-                    @foreach($products as $product)
+                    @foreach(\App\Models\Product::limit(8)->get() as $product)
                         @include('blocks.card')
                     @endforeach
                 </div>

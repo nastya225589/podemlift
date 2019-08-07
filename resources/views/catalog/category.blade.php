@@ -23,7 +23,6 @@
                     @include('blocks.sorting-view')
 
                     <div class="catalog__list">
-                        <?php $products = \App\Models\Product::all() ?>
                         <div class="products__wrap">
                             @foreach($products as $product)
                                 @include('blocks.card')
@@ -33,7 +32,7 @@
 
                     <button class="btn btn-dashed catalog__btn-dashed">Показать еще</button>
 
-                    @include('blocks.pagination')
+                    {{ $products->links('blocks.pagination') }}
 
                 </div>
             </div>

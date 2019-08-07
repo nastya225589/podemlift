@@ -41,7 +41,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
             'name' => $this->name,
             'route' => $this->route,
             'action' => $this->action,
-            'models' => $this->model::orderBy('id')->paginate(50)
+            'models' => $this->model::orderBy('id')->paginate(100)
         ]);
     }
 

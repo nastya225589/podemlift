@@ -9,7 +9,8 @@ class CatalogController extends Controller
     public function index()
     {
         return view('catalog.category', [
-            'page' => $this->resource
+            'page' => $this->resource,
+            'products' => Product::paginate(12)
         ]);
     }
 
@@ -25,7 +26,8 @@ class CatalogController extends Controller
             abort(404, 'Страница не найдена');
 
         return view('catalog.category', [
-            'page' => $category
+            'page' => $category,
+            'products' => $category->products()->published()->paginate(12)
         ]);
     }
 

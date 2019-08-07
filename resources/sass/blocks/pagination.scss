@@ -22,10 +22,11 @@
         background: transparent;
         padding: 0;
         font-size: $font-size--xs;
-        line-height: 13px;
-        border: none;
         position: relative;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        color: $text-color;
 
         &:active,
         &:focus {
@@ -35,7 +36,7 @@
         &:before {
             content: "";
             position: absolute;
-            top: 4px;
+            top: 3px;
             width: 16px;
             height: 16px;
         }
