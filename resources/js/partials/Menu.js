@@ -1,31 +1,31 @@
 export default class Menu {
     constructor() {
-        $('.main-nav__toggal').on('click', function() {
-            $('.main-nav, .main-nav__toggal').toggleClass('main-nav__open');
+        this.initBurgerToggle();
+        this.initCatalogSidebar();
+    }
+
+    initBurgerToggle() {
+        $('.main-nav__toggle').on('click', function() {
+            $('.main-nav, .main-nav__toggle').toggleClass('main-nav__open');
         });
+    }
 
-        const touch = $('.catalog-menu__item');
-        const menuWrapper = $('.catalog-menu__list');
+    initCatalogSidebar() {
+        const $catalogMenu = $('.catalog-menu');
+        const $firstLevelLink = $catalogMenu.find('.catalog-menu__item > .main-nav__link');
 
-        $('html').click(function() {
-            menuWrapper.find('.catalog-menu__submenu').slideUp(0);
-        });
-
-        menuWrapper.click(function(e) {
-            e.stopPropagation();
-        });
-
-        $(touch).on('click', function(e) {
+        $firstLevelLink.on('click', function(e) {
             e.preventDefault();
-            const menu = $(this).closest('li').find('.catalog-menu__submenu');
-            const isClosed = menu.is(':hidden'); // закрыто ли подменю, по которому кликнули
 
-            menuWrapper.find('.catalog-menu__submenu').hide(); // закрываем все подменю
+            const $targetSubmenu = $(this).closest('li').find('.catalog-menu__submenu');
+            const $openedSubmenu = $catalogMenu.find('.catalog-menu__submenu:visible').not($targetSubmenu);
 
-            // если меню было закрыто, то открываем его
-            if (isClosed) {
-                menu.slideDown(0);
+            if ($targetSubmenu.length) {
+                $targetSubmenu.slideToggle();
+                $openedSubmenu.slideToggle();
+            } else {
+                location.href = $(this).attr('href');
             }
-        });
+        })
     }
 }

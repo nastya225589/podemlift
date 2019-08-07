@@ -16330,33 +16330,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Menu; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Menu = function Menu() {
-  _classCallCheck(this, Menu);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  $('.main-nav__toggal').on('click', function () {
-    $('.main-nav, .main-nav__toggal').toggleClass('main-nav__open');
-  });
-  var touch = $('.catalog-menu__item');
-  var menuWrapper = $('.catalog-menu__list');
-  $('html').click(function () {
-    menuWrapper.find('.catalog-menu__submenu').slideUp(0);
-  });
-  menuWrapper.click(function (e) {
-    e.stopPropagation();
-  });
-  $(touch).on('click', function (e) {
-    e.preventDefault();
-    var menu = $(this).closest('li').find('.catalog-menu__submenu');
-    var isClosed = menu.is(':hidden'); // закрыто ли подменю, по которому кликнули
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-    menuWrapper.find('.catalog-menu__submenu').hide(); // закрываем все подменю
-    // если меню было закрыто, то открываем его
+var Menu =
+/*#__PURE__*/
+function () {
+  function Menu() {
+    _classCallCheck(this, Menu);
 
-    if (isClosed) {
-      menu.slideDown(0);
+    this.initBurgerToggl();
+    this.initCatalogSidebar();
+  }
+
+  _createClass(Menu, [{
+    key: "initBurgerToggl",
+    value: function initBurgerToggl() {
+      $('.main-nav__toggle').on('click', function () {
+        $('.main-nav, .main-nav__toggle').toggleClass('main-nav__open');
+      });
     }
-  });
-};
+  }, {
+    key: "initCatalogSidebar",
+    value: function initCatalogSidebar() {
+      var $catalogMenu = $('.catalog-menu');
+      var $firstLevelLink = $catalogMenu.find('.catalog-menu__item > .main-nav__link');
+      $firstLevelLink.on('click', function (e) {
+        e.preventDefault();
+        var $targetSubmenu = $(this).closest('li').find('.catalog-menu__submenu');
+        var $openedSubmenu = $catalogMenu.find('.catalog-menu__submenu:visible').not($targetSubmenu);
+
+        if ($targetSubmenu.length) {
+          $targetSubmenu.slideToggle();
+          $openedSubmenu.slideToggle();
+        } else {
+          location.href = $(this).attr('href');
+        }
+      });
+    }
+  }]);
+
+  return Menu;
+}();
 
 
 

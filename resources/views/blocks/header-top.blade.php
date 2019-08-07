@@ -12,7 +12,7 @@
                 </a>
             </div>
 
-            <button class="main-nav__toggal">
+            <button class="main-nav__toggle">
                 <span></span>
             </button>
         </div>

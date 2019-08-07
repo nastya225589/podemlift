@@ -10,7 +10,7 @@
         }
     }
 
-    &__toggal {
+    &__toggle {
         display: none;
         width: 20px;
         height: 13px;
@@ -140,6 +140,7 @@
             &:hover {
                 .submenu {
                     display: block;
+                    z-index: 1;
                 }
 
                 &:before {
