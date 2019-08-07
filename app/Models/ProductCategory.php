@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class ProductCategory extends Model
+class ProductCategory extends BaseModel
 {
     public $logFields = [
         'parent_id',

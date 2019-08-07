@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-
-class Product extends Model
+class Product extends BaseModel
 {
     public $category_ids = [];
 

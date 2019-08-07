@@ -2,10 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-use App\Models\Image;
-
-class Work extends Model
+class Work extends BaseModel
 {
     protected $attributes = [
         'images' => '[]'

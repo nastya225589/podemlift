@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Page extends Model
+class Page extends BaseModel
 {
     protected $attributes = [
         'fields' => '{}'

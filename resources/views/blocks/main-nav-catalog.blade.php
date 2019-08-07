@@ -4,7 +4,7 @@
     $secondProductCategories = $productCategories->slice(5);
 ?>
 
-<li class="main-nav__item">
+<li class="main-nav__item main-nav__item--catalog">
     <a class="main-nav__link main-nav__link--main" href="{{ $menuItem->url }}">
         {{ $menuItem->name_in_menu ?: $menuItem->name }}
     </a>

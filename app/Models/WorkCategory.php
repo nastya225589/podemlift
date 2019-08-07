@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class WorkCategory extends Model
+class WorkCategory extends BaseModel
 {
     public $logFields = [
         'parent_id',

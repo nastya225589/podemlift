@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-
-class ServiceCategory extends Model
+class ServiceCategory extends BaseModel
 {
     public $logFields = [
         'parent_id',

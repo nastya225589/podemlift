@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Model;
-
-class Client extends Model
+class Client extends BaseModel
 {
     public $logFields = [
         'name',
