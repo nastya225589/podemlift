@@ -1,3 +1,6 @@
+<?php
+    $services = \App\Models\Service::where('on_main', true)->published()->orderBy('order_on_main')->limit(4)->get();
+?>
 <section class="services">
     <div class="container">
         <div class="services__title title-h2">Услуги</div>

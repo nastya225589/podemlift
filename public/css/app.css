@@ -4075,6 +4075,7 @@ a {
 
 .filter-sorter__item {
   margin-bottom: 13px;
+  margin-right: 10px;
   padding: 0 18px;
   width: 170px;
   height: 56px;
@@ -4095,18 +4096,15 @@ a {
   background: #00922E;
 }
 
-.filter-sorter__item:active p {
+.filter-sorter__item:hover a {
   text-decoration: none;
 }
 
-.filter-sorter__item p {
+.filter-sorter__item a {
   font-size: 14px;
+  color: #1C1C1C;
   line-height: 16px;
   text-decoration: underline;
-}
-
-.filter-sorter__item p:active {
-  text-decoration: none;
 }
 
 .filter-sorter .breadcrumbs__list {

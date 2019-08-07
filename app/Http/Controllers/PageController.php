@@ -4,44 +4,22 @@ namespace App\Http\Controllers;
 
 use \App\Models\Page;
 use \App\Models\Redirect;
-use \App\Models\Product;
-use \App\Models\Service;
-use \App\Models\Work;
-use \App\Models\Client;
 
 class PageController extends Controller
 {
     public function index()
     {
         $page = Page::where('behavior', 'main')->first();
-        $products = Product::all();
-        $services = Service::where(['published' => true, 'on_main' => true])->orderBy('order_on_main')->limit(4)->get();
-
-        $works = Work::inRandomOrder()->limit(10)->get();
-        while ($works->count() < 5) {
-            $more = Work::inRandomOrder()->limit(10)->get();
-            $works = collect(array_merge($works->all(), $more->all()));
-        }
-
-        $clients = Client::inRandomOrder()->limit(10)->get();
-        while ($clients->count() < 14) {
-            $more = Client::inRandomOrder()->limit(10)->get();
-            $clients = collect(array_merge($clients->all(), $more->all()));
-        }
 
         return view('page.index', [
-            'page' => $page,
-            'products' => $products,
-            'services' => $services,
-            'works' => $works,
-            'clients' => $clients
+            'page' => $page
         ]);
     }
 
     public function show($url)
     {
         $url = '/' . $url;
-        $page = Page::where(['published' => 1, 'url' => $url])->first();
+        $page = Page::where('url', $url)->published()->first();
 
         if (!$page && ($redirect = Redirect::getRedirect($url)))
             return redirect($redirect[0], $redirect[1]);

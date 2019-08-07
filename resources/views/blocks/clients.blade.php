@@ -1,3 +1,10 @@
+<?php
+    $clients = \App\Models\Client::inRandomOrder()->limit(10)->get();
+    while ($clients->count() < 14) {
+        $more = \App\Models\Client::inRandomOrder()->limit(10)->get();
+        $clients = collect(array_merge($clients->all(), $more->all()));
+    }
+?>
 <section class="clients">
     <div class="clients__title title-h2">Заказчики</div>
     <div class="clients__wrap">

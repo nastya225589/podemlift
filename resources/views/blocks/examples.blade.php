@@ -1,3 +1,11 @@
+<?php
+    $works = \App\Models\Work::inRandomOrder()->limit(10)->get();
+    while ($works->count() < 5) {
+        $more = \App\Models\Work::inRandomOrder()->limit(10)->get();
+        $works = collect(array_merge($works->all(), $more->all()));
+    }
+?>
+
 <section class="examples">
     <div class="container">
         <div class="examples__title title-h2">Примеры работ</div>
