@@ -10,34 +10,49 @@ trait Url
 
     public static function bootUrl()
     {
-        static::saving(function($model)
-        {
-            if (array_diff(['url', 'slug', 'parent_id'], $model->columns()))
-                return;
-
-            $newUrl = $model->fullUrl();
-
-            if ($newUrl != $model->url) {
-                if ($model->id && $model->url)
-                    Redirect::firstOrCreate([
-                        'from' => $model->url,
-                        'model' => static::class,
-                        'model_id' => $model->id
-                    ]);
-
-                $model->url = $newUrl;
-            }
+        static::saving(function($model) {
+            $model->updateUrl();
         });
 
         static::saved(function($model) {
-            if (array_diff(['url', 'slug', 'parent_id'], $model->columns()))
-                return;
-
-            if (count($model->childrens))
-                foreach ($model->childrens as $children)
-                    if ($children->url != $children->fullUrl())
-                        $children->save();
+            $model->updateChildrensUrl();
         });
+    }
+
+    public function updateChildrensUrl()
+    {
+        if (array_diff(['url', 'slug', 'parent_id'], $this->columns()))
+            return;
+
+        if (count($this->childrens))
+            foreach ($this->childrens as $children)
+                if ($children->url != $children->fullUrl())
+                    $children->save();
+    }
+
+    public function updateUrl()
+    {
+        $tableIsUrlable = array_diff(['url', 'slug', 'parent_id'], $this->columns());
+
+        if ($tableIsUrlable)
+            return;
+
+        $newUrl = $this->fullUrl();
+
+        if ($newUrl != $this->url)
+            $this->saveRedirect();
+
+        $this->url = $newUrl;
+    }
+
+    public function saveRedirect()
+    {
+        if ($this->id && $this->url)
+            Redirect::firstOrCreate([
+                'from' => $this->url,
+                'model' => static::class,
+                'model_id' => $this->id
+            ]);
     }
 
     public function fullUrl()
