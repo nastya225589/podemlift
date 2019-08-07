@@ -343,6 +343,15 @@
 	rsync -czavP {{ $localDir }}/storage/app/public/ {{ $server }}:{{ $sharedPath }}/storage/app/public/
 @endtask
 
+@story('db:pull')
+    db:dump
+    db:dump-download
+    db:dump-delete-remote
+    db:clear
+    db:import
+    db:dump-delete
+@endstory
+
 @story('app:pull')
 	db:dump
 	db:dump-download
@@ -351,15 +360,6 @@
 	db:import
 	db:dump-delete
 	public:pull
-@endstory
-
-@story('db:pull')
-	db:dump
-	db:dump-download
-	db:dump-delete-remote
-	db:clear
-	db:import
-	db:dump-delete
 @endstory
 
 @story('db:push')
@@ -371,6 +371,16 @@
 	db:dump-delete-remote
 @endstory
 
+@story('app:push')
+    db:dump-create
+    db:dump-load
+    db:dump-delete
+    db:clear-web
+    db:import-web
+    db:dump-delete-remote
+    public:push
+@endstory
+
 @task('db:dump', ['on' => 'web'])
 	echo "db:dump";
 	pg_dump --no-acl --no-owner -U {{ $db_user_remote }} {{ $db_remote }} > {{ $sharedPath }}/db.dump
@@ -380,7 +390,6 @@
 	echo "db:dump-download";
 	scp {{ $server }}:{{ $sharedPath }}/db.dump {{ $localDir }}/storage/db.dump
 @endtask
-
 
 @task('db:clear', ['on' => 'localhost'])
 	echo "db:clear";
@@ -421,7 +430,6 @@
 @task('db:dump-load', ['on' => 'localhost'])
 	scp {{ $localDir }}/storage/db.dump {{ $server }}:{{ $sharedPath }}/db.dump
 @endtask
-
 
 @error
 	if ($task === 'deploy:check') {
