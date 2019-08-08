@@ -6,16 +6,11 @@
     &__wrap {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
         margin-bottom: 70px;
 
-        @media (max-width: 900px) {
-            justify-content: space-between;
-        }
-
-        @media (max-width: $screen-sm) {
+        @media (max-width: 1157px) {
             justify-content: space-around;
-            margin-bottom: 35px;
         }
     }
 

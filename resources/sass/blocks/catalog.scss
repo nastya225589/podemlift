@@ -9,6 +9,11 @@
         margin-bottom: 42px;
     }
 
+    &__wrap {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     &__title {
         display: none;
 
@@ -57,26 +62,6 @@
 
             .card {
                 margin-bottom: 20px;
-
-                &:nth-child(4n+4) {
-                    margin-right: 20px;
-                }
-
-                &:nth-child(3n+3) {
-                    margin-right: 0;
-                }
-
-                @media (max-width: $screen-lg) {
-                    &:nth-child(3n+3) {
-                        margin-right: 20px;
-                    }
-                }
-
-                @media (max-width: 900px) {
-                    &:nth-child(n) {
-                        margin-right: 0;
-                    }
-                }
             }
         }
     }

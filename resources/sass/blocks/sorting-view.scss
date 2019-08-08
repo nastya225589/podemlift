@@ -19,8 +19,9 @@
     }
 
     &__btn {
-        background: transparent;
         padding: 0 2px;
+        vertical-align: middle;
+        background: transparent;
         font-size: $font-size--s;
         line-height: 18px;
         color: $third-color;
@@ -45,7 +46,7 @@
 
             span {
                 position: relative;
-                display: inline-block;
+                display: block;
                 width: 100%;
                 height: 2px;
                 vertical-align: middle;
@@ -81,7 +82,7 @@
 
             span {
                 position: relative;
-                display: inline-block;
+                display: block;
                 width: 100%;
                 height: 2px;
                 vertical-align: middle;

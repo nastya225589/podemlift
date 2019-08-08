@@ -1,31 +1,8 @@
 .card {
-    margin-right: 20px;
     padding: 10px;
     margin-bottom: 40px;
     background: $main-color;
     display: inline-block;
-
-    &:nth-child(4n+4) {
-        margin-right: 0;
-    }
-
-    @media (max-width: $screen-lg) {
-        &:nth-child(4n+4) {
-            margin-right: 20px;
-        }
-    }
-
-    @media (max-width: $screen-md) {
-        &:nth-child(3n+3) {
-            margin-right: 0;
-        }
-    }
-
-    @media (max-width: 900px) {
-        &:nth-child(n) {
-            margin-right: 0;
-        }
-    }
 
     &__name {
         margin: 14px 0 3px;
@@ -100,7 +77,7 @@
         }
 
         @media (max-width: $screen-xs) {
-            width: 260px;
+            width: 280px;
         }
 
         .card {
