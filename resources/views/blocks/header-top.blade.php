@@ -7,8 +7,8 @@
 
             <div class="header-top__buy header-top__buy--request">
                 <a href="" class="header-top__order">
-                    <p>СДЕЛАТЬ ЗАКАЗ</p>
-                    мы рассчитаем ваш заказ по техническому заданию
+                    <span>СДЕЛАТЬ ЗАКАЗ</span>
+                    <p>мы рассчитаем ваш заказ по техническому заданию</p>
                 </a>
             </div>
 

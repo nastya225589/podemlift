@@ -436,11 +436,11 @@ a {
 
 .header-top__order {
   font-size: 11px;
-  line-height: 10px;
+  line-height: 11px;
   color: #fff;
 }
 
-.header-top__order p {
+.header-top__order span {
   margin-bottom: 7px;
   font-size: 16px;
   font-weight: bold;
@@ -448,7 +448,7 @@ a {
 }
 
 @media (max-width: 1000px) {
-  .header-top__order p {
+  .header-top__order span {
     font-size: 14px;
   }
 }
