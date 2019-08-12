@@ -23,31 +23,30 @@ require('tinymce/plugins/code');
 require('tinymce/plugins/help');
 require('tinymce/plugins/wordcount');
 
-function initEditor() {
-    tinymce.init({
-        selector: '.editor',
-        plugins: "image, link, code",
-        toolbar: "link image code",
-        language: 'ru',
-        valid_elements : '+*[*]',
-        // file_browser_callback : elFinderBrowser,
-        // init_instance_callback: function (editor) {
-        //     editor.on('blur', function (e) {
-        //         editor.save();
-        //         multiItemFill($('#' + editor.id).data('target'));
-        //
-        //         var matches;
-        //         if (typeof app != 'undefined' && (matches = /block-(\d+)/ig.exec(editor.id))) {
-        //             app.__vue__.$refs.contentBuilder.blocks[matches[1]].text = editor.getContent();
-        //         }
-        //     });
-        // }
-    });
+function initEditor () {
+  tinymce.init({
+    selector: '.editor',
+    plugins: 'image, link, code',
+    toolbar: 'link image code',
+    language: 'ru',
+    valid_elements: '+*[*]'
+    // file_browser_callback : elFinderBrowser,
+    // init_instance_callback: function (editor) {
+    //     editor.on('blur', function (e) {
+    //         editor.save();
+    //         multiItemFill($('#' + editor.id).data('target'));
+    //
+    //         var matches;
+    //         if (typeof app != 'undefined' && (matches = /block-(\d+)/ig.exec(editor.id))) {
+    //             app.__vue__.$refs.contentBuilder.blocks[matches[1]].text = editor.getContent();
+    //         }
+    //     });
+    // }
+  });
 }
 
-function stopEditor() {
-    tinymce.remove();
+function stopEditor () {
+  tinymce.remove();
 }
 
-if (typeof tinymce !== 'undefined')
-    initEditor();
+if (typeof tinymce !== 'undefined') { initEditor(); }

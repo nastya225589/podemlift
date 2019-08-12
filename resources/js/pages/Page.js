@@ -6,12 +6,12 @@ import Form from '../partials/Form';
 import ProductCardSlider from '../partials/ProductCardSlider';
 
 export default class Page {
-    constructor() {
-        new Menu;
-        new MenuFooter;
-        new ExamplesSlider;
-        new ClientsSlider;
-        new Form;
-        new ProductCardSlider;
-    }
+  constructor () {
+    new Menu();
+    new MenuFooter();
+    new ExamplesSlider();
+    new ClientsSlider();
+    new Form();
+    new ProductCardSlider();
+  }
 }

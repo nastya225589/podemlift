@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 
 export default class DeleteButton extends Component {
-    constructor(props) {
-        super(props);
+  constructor (props) {
+    super(props);
 
-        this.onClick = this.onClick.bind(this);
-    }
+    this.onClick = this.onClick.bind(this);
+  }
 
-    onClick() {
-        this.props.onClick(this.props.index);
-    }
+  onClick () {
+    this.props.onClick(this.props.index);
+  }
 
-    render() {
-        return (
-            <div className="delete">
-                <i className="far fa-trash-alt" onClick={this.onClick}></i>
-            </div>
-        )
-    }
+  render () {
+    return (
+      <div className="delete">
+        <i className="far fa-trash-alt" onClick={this.onClick}></i>
+      </div>
+    );
+  }
 }

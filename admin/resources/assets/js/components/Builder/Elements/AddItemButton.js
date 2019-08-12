@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 
 export default class AddItemButton extends Component {
-    constructor(props) {
-        super(props);
+  constructor (props) {
+    super(props);
 
-        this.onClick = this.onClick.bind(this);
-    }
+    this.onClick = this.onClick.bind(this);
+  }
 
-    onClick(e) {
-        e.preventDefault();
-        this.props.onClick(this.props.index);
-    }
+  onClick (e) {
+    e.preventDefault();
+    this.props.onClick(this.props.index);
+  }
 
-    render() {
-        return (
-            <div className="add-item">
-                <a
-                    href="#"
-                    className="button"
-                    onClick={this.onClick}
-                >+</a>
-            </div>
-        );
-    }
+  render () {
+    return (
+      <div className="add-item">
+        <a
+          href="#"
+          className="button"
+          onClick={this.onClick}
+        >+</a>
+      </div>
+    );
+  }
 }
