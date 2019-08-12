@@ -812,7 +812,7 @@ input[type=submit] {
 
 .main-nav__item--catalog:hover .submenu {
   display: block;
-  z-index: 1;
+  z-index: 10;
 }
 
 .main-nav__item--catalog:hover:before {
@@ -3242,6 +3242,7 @@ input[type=submit] {
 }
 
 .product-card__slider {
+  z-index: 1;
   padding: 10px 10px;
   margin-right: 10px;
   width: 48%;
