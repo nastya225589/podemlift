@@ -21,7 +21,7 @@ class Image extends Model
 
         if ($ext == 'svg') {
             $size = "";
-        } else if ($width || $height) {
+        } elseif ($width || $height) {
             $size = "{$width}x{$height}";
         } else {
             $im = imagecreatefromstring($image);

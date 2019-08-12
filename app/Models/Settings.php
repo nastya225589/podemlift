@@ -21,7 +21,7 @@ class Settings extends Model
     {
         parent::boot();
 
-        static::updating(function($model) {
+        static::updating(function ($model) {
             Log::model($model);
         });
     }

@@ -21,7 +21,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
             $action = app('request')->route()->getAction();
             $controller = class_basename($action['controller']);
             [$controller, $this->action] = explode('@', $controller);
-            $this->name = Str::snake(str_replace('Controller', '' , $controller));
+            $this->name = Str::snake(str_replace('Controller', '', $controller));
         }
 
         if (!$this->model) {

@@ -15,7 +15,7 @@ if (!function_exists('field_value')) {
         $name = is_string($field) ? $field : $field['name'];
         if (preg_match('/\[(\w+)\]\[(\w+)\]/', $name, $m))
             $value = $model->{$m[1]}->{$m[2]} ?? '';
-        else if (preg_match('/\[(\w+)\]/', $name, $m))
+        elseif (preg_match('/\[(\w+)\]/', $name, $m))
             $value = $model->{$m[1]};
         else
             $value = $model->{$name};
@@ -59,9 +59,9 @@ if (! function_exists('resize')) {
 
         if ($width && $height)
             $dir = $width . 'x' .$height;
-        else if ($width && !$height)
+        elseif ($width && !$height)
             $dir = $width . 'x';
-        else if (!$width && $height)
+        elseif (!$width && $height)
             $dir = 'x' .$height;
         else
             throw new ErrorException('Width or height required.');
@@ -73,7 +73,7 @@ if (! function_exists('resize')) {
 
             if (Storage::disk('public')->exists($imagePath))
                 $image = Storage::disk('public')->get($imagePath);
-            else if (Storage::disk('local')->exists($imagePath))
+            elseif (Storage::disk('local')->exists($imagePath))
                 $image = Storage::disk('local')->get($imagePath);
             else
                 return $imageUrl;

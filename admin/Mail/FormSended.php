@@ -27,16 +27,16 @@ class FormSended extends Mailable implements ShouldQueue
     public function build()
     {
         switch ($this->form->name) {
-            case 'header' :
+            case 'header':
                 $subject = 'Заказ обратного звонка';
                 break;
-            case 'order' :
+            case 'order':
                 $subject = 'Заказ с сайта';
                 break;
-            case 'for_designers' :
+            case 'for_designers':
                 $subject = 'Предложение для дизайнеров';
                 break;
-            default :
+            default:
                 $subject = 'Форма на сайте';
         }
 

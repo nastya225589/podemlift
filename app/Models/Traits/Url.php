@@ -10,11 +10,11 @@ trait Url
 
     public static function bootUrl()
     {
-        static::saving(function($model) {
+        static::saving(function ($model) {
             $model->updateUrl();
         });
 
-        static::saved(function($model) {
+        static::saved(function ($model) {
             $model->updateChildrensUrl();
         });
     }

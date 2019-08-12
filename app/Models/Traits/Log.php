@@ -6,7 +6,7 @@ trait Log
 {
     public static function bootLog()
     {
-        static::saving(function($model) {
+        static::saving(function ($model) {
             \App\Models\Log::model($model);
         });
     }

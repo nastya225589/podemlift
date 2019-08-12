@@ -25,7 +25,7 @@ class SettingsController extends \Illuminate\Routing\Controller
 
             return redirect(route('settings.index'));
         } else {
-            $groups = Settings::distinct()->pluck('group')->map(function($group) {
+            $groups = Settings::distinct()->pluck('group')->map(function ($group) {
                 return Settings::where(['group' => $group])->orderBy('sort', 'asc')->get();
             });
 

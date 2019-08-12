@@ -6,7 +6,7 @@ trait Sort
 {
     public static function bootSort()
     {
-        static::creating(function($model) {
+        static::creating(function ($model) {
             $model->setNextSortNumber();
         });
     }

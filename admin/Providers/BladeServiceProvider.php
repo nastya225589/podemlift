@@ -9,7 +9,8 @@ use Illuminate\Support\ServiceProvider;
  * Class BladeServiceProvider
  *
  */
-class BladeServiceProvider extends ServiceProvider {
+class BladeServiceProvider extends ServiceProvider
+{
 
     /**
      * Register the blade directives

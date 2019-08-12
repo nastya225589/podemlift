@@ -24,7 +24,7 @@ class Form extends Model
     {
         parent::boot();
 
-        static::saved(function($model) {
+        static::saved(function ($model) {
             Mail::to(env('MAIL_TO'))
                 ->send(new FormSended($model));
         });

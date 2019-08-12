@@ -2,7 +2,12 @@
 
 namespace App\Models;
 
-use \App\Models\Traits\{Log, Publish, Nested, Sort, Url, Columns};
+use \App\Models\Traits\Log;
+use \App\Models\Traits\Publish;
+use \App\Models\Traits\Nested;
+use \App\Models\Traits\Sort;
+use \App\Models\Traits\Url;
+use \App\Models\Traits\Columns;
 
 class BaseModel extends \Illuminate\Database\Eloquent\Model
 {

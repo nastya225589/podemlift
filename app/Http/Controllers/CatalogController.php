@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{ProductCategory, Product, Redirect};
+use App\Models\ProductCategory;
+use App\Models\Product;
+use App\Models\Redirect;
 
 class CatalogController extends Controller
 {
