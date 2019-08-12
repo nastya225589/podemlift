@@ -90,13 +90,14 @@
 
         &:before {
             background: url(../images/icon/arrow-green.svg);
+            transition: 500ms;
         }
     }
 
     &__name.ui-accordion-header-active.ui-state-active {
         &:before {
             transform: rotate(180deg);
-            transition: 1s;
+            transition: 500ms;
         }
     }
 

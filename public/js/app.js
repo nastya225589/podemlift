@@ -16718,6 +16718,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/Page */ "./resources/js/pages/Page.js");
 /* harmony import */ var _pages_Catalog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Catalog */ "./resources/js/pages/Catalog.js");
 /* harmony import */ var _pages_Product__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Product */ "./resources/js/pages/Product.js");
+
+
+
 window.jQuery = window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 __webpack_require__(/*! slick-carousel/slick/slick.js */ "./node_modules/slick-carousel/slick/slick.js");
@@ -16727,10 +16730,6 @@ __webpack_require__(/*! jquery.maskedinput/src/jquery.maskedinput */ "./node_mod
 __webpack_require__(/*! jquery-ui/ui/widgets/tabs */ "./node_modules/jquery-ui/ui/widgets/tabs.js");
 
 __webpack_require__(/*! jquery-ui/ui/widgets/accordion */ "./node_modules/jquery-ui/ui/widgets/accordion.js");
-
-
-
-
 
 switch (document.body.dataset.page) {
   case 'catalog':
@@ -17056,7 +17055,7 @@ var Form = function Form() {
   _classCallCheck(this, Form);
 
   $(function () {
-    $('input[name="phone"]').mask("8 (999) 999-99-99");
+    $('input[name="phone"]').mask('8 (999) 999-99-99');
   });
 };
 
@@ -17219,15 +17218,15 @@ var Tabs = function Tabs() {
   _classCallCheck(this, Tabs);
 
   $(function () {
-    $("#tabs").tabs({
+    $('#tabs').tabs({
       active: 0
     });
   });
   $(function () {
-    $("#accordion").accordion({
+    $('#accordion').accordion({
       collapsible: true,
       active: false,
-      heightStyle: "content"
+      heightStyle: 'content'
     });
   });
 };

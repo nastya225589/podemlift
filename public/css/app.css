@@ -3560,12 +3560,13 @@ input[type=submit] {
 
 .tabs__name:before {
   background: url(/images/arrow-green.svg?224ba9181f31dcd1b8ba8ceda29cd9cb);
+  transition: 500ms;
 }
 
 .tabs__name.ui-accordion-header-active.ui-state-active:before {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
-  transition: 1s;
+  transition: 500ms;
 }
 
 .tabs .ui-tabs-active.ui-state-active a {
@@ -3794,7 +3795,7 @@ input[type=submit] {
   .warranty__list {
     margin: 0;
     width: 90%;
-    padding: 0 20px;
+    padding: 6px 20px 0;
   }
 }
 
