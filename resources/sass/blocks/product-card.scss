@@ -12,12 +12,12 @@
     }
 
     &__title {
-        margin-bottom: 33px;
-        line-height: 44px;
-
-        @media (max-width: $screen-md) {
-            font-size: $font-size--h2;
-        }
+        //margin-bottom: 33px;
+        //line-height: 44px;
+        //
+        //@media (max-width: $screen-md) {
+        //    font-size: $font-size--h2;
+        //}
 
         @media (max-width: $screen-sm) {
             padding: 25px 19px 16px 19px;

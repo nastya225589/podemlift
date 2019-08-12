@@ -42,33 +42,33 @@
     </div>
 
     <div id="tabs-mobile" class="only-mobile">
-        <div class="tabs__list">
+        <div class="tabs__list" id="accordion">
+            <h3  class="tabs__name">Информация об оборудовании</h3>
             <div class="tabs__item">
-                <a href="#" class="tabs__link">Информация об оборудовании</a>
                 <div class="tabs__block">
                     @include('blocks.product-inform')
                 </div>
             </div>
+            <h3  class="tabs__name">Технические характеристики</h3>
             <div class="tabs__item">
-                <a href="#" class="tabs__link">Технические характеристики</a>
                 <div class="tabs__block">
                     @include('blocks.specifications')
                 </div>
             </div>
+            <h3  class="tabs__name">Гарантия</h3>
             <div class="tabs__item">
-                <a href="#" class="tabs__link">Гарантия</a>
                 <div class="tabs__block">
                     @include('blocks.warranty')
                 </div>
             </div>
+            <h3  class="tabs__name">Доставка и монтаж</h3>
             <div class="tabs__item">
-                <a href="#" class="tabs__link">Доставка и монтаж</a>
                 <div class="tabs__block">
                     @include('blocks.delivery')
                 </div>
             </div>
+            <h3 class="tabs__name">Похожие товары</h3>
             <div class="tabs__item">
-                <a href="#" class="tabs__link">Похожие товары</a>
                 <div class="tabs__block">
                     <div class="container">
                         <?php $products = \App\Models\Product::all() ?>

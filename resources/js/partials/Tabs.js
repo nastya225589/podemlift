@@ -6,5 +6,13 @@ export default class Tabs
                 active: 0
             });
         });
+
+        $(function() {
+            $("#accordion").accordion({
+                collapsible: true,
+                active: false,
+                heightStyle: "content"
+            });
+        });
     }
 };

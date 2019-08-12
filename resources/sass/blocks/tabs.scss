@@ -47,7 +47,31 @@
     &__item {
         @media (max-width: $screen-md) {
             position: relative;
-            margin-bottom: 24px;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__name {
+        position: relative;
+        font-size: $font-size--xs - 1px;
+        line-height: 13px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: $fourth-color;
+        font-weight: 300;
+
+        @media (max-width: $screen-sm) {
+            padding: 0 20px;
+            margin: 0 0 24px;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
         }
 
         &:before {
@@ -67,38 +91,12 @@
         &:before {
             background: url(../images/icon/arrow-green.svg);
         }
-
-        &:hover {
-            .tabs__block {
-                display: block;
-            }
-
-            &:before {
-                transform: rotate(180deg);
-            }
-        }
-
-        &:active,
-        &:focus {
-            outline: none;
-        }
     }
 
-    &__link {
-        position: relative;
-        font-size: $font-size--xs - 1px;
-        line-height: 13px;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        color: $fourth-color;
-
-        @media (max-width: $screen-sm) {
-            padding: 0 20px;
-        }
-
-        &:active,
-        &:focus {
-            outline: none;
+    &__name.ui-accordion-header-active.ui-state-active {
+        &:before {
+            transform: rotate(180deg);
+            transition: 1s;
         }
     }
 
@@ -121,10 +119,6 @@
         }
     }
 
-    &__block {
-        display: none;
-        margin-top: 25px;
-    }
 
     .form {
         @media (max-width: $screen-sm) {
