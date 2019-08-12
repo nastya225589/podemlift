@@ -3,19 +3,19 @@
         <div class="container">
             <ul class="tabs__list">
                 <li class="tabs__item">
-                    <a href="#tabs-1" class="tabs__link">Информация об оборудовании</a>
+                    <a href="#tabs-1" class="tabs__name">Информация об оборудовании</a>
                 </li>
                 <li class="tabs__item">
-                    <a href="#tabs-2" class="tabs__link">Технические характеристики</a>
+                    <a href="#tabs-2" class="tabs__name">Технические характеристики</a>
                 </li>
                 <li class="tabs__item">
-                    <a href="#tabs-3" class="tabs__link">Гарантия</a>
+                    <a href="#tabs-3" class="tabs__name">Гарантия</a>
                 </li>
                 <li class="tabs__item">
-                    <a href="#tabs-4" class="tabs__link">Доставка и монтаж</a>
+                    <a href="#tabs-4" class="tabs__name">Доставка и монтаж</a>
                 </li>
                 <li class="tabs__item">
-                    <a href="#tabs-5" class="tabs__link">Похожие товары</a>
+                    <a href="#tabs-5" class="tabs__name">Похожие товары</a>
                 </li>
             </ul>
 
