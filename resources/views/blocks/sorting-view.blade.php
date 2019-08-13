@@ -8,11 +8,20 @@
 
     <div class="sorting-view__wrap">
         <span class="sorting-view__name">Отображать в виде</span>
-        <button class="sorting-view__btn sorting-view__btn--line">
-            <span></span>
-        </button>
-        <button class="sorting-view__btn sorting-view__btn--grid sorting-view__btn-view--active">
-            <span></span>
-        </button>
+        @if (Cookie::get('shorting_view_type') == 'line')
+            <button class="sorting-view__btn sorting-view__btn--line sorting-view__btn-view--active">
+                <span></span>
+            </button>
+            <button class="sorting-view__btn sorting-view__btn--grid">
+                <span></span>
+            </button>
+        @else
+            <button class="sorting-view__btn sorting-view__btn--line">
+                <span></span>
+            </button>
+            <button class="sorting-view__btn sorting-view__btn--grid sorting-view__btn-view--active">
+                <span></span>
+            </button>
+        @endif
     </div>
 </div>

@@ -21,11 +21,10 @@
 
                 <div class="catalog__inner">
                     <div class="catalog__name title-h2">Все {{ $page->name }}</div>
-
                     @include('blocks.sorting-view')
 
                     <div class="catalog__list">
-                        <div class="products__wrap">
+                        <div class="products__wrap {{ Cookie::get('shorting_view_type') == 'line' ? 'products__sorting-view' : '' }}">
                             @foreach($products as $product)
                                 @include('blocks.card')
                             @endforeach
