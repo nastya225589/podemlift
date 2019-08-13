@@ -8,7 +8,7 @@
 
     <div class="sorting-view__wrap">
         <span class="sorting-view__name">Отображать в виде</span>
-        @if (UserConfig::getCatalogListingType() == 'line')
+        @if (UserConfig::catalogListingInline())
             <button class="sorting-view__btn sorting-view__btn--line sorting-view__btn-view--active">
                 <span></span>
             </button>

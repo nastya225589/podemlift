@@ -16924,6 +16924,54 @@ switch (document.body.dataset.page) {
 
 /***/ }),
 
+/***/ "./resources/js/config/UserConfig.js":
+/*!*******************************************!*\
+  !*** ./resources/js/config/UserConfig.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserConfig; });
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var UserConfig =
+/*#__PURE__*/
+function () {
+  function UserConfig() {
+    _classCallCheck(this, UserConfig);
+
+    this.domain = location.hostname;
+  }
+
+  _createClass(UserConfig, [{
+    key: "setCookie",
+    value: function setCookie(name, value) {
+      js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set(name, value, {
+        expires: 30,
+        domain: this.domain,
+        path: '/'
+      });
+    }
+  }]);
+
+  return UserConfig;
+}();
+
+
+;
+
+/***/ }),
+
 /***/ "./resources/js/pages/Catalog.js":
 /*!***************************************!*\
   !*** ./resources/js/pages/Catalog.js ***!
@@ -17356,37 +17404,32 @@ var ProductCardSlider = function ProductCardSlider() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SortingView; });
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/UserConfig */ "./resources/js/config/UserConfig.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
 
 var SortingView = function SortingView() {
+  var _this = this;
+
   _classCallCheck(this, SortingView);
 
-  var domain = location.hostname;
+  this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
   $('.sorting-view__btn--line').on('click', function () {
     $('.products__wrap').toggleClass('products__sorting-view');
     $('.card').toggleClass('card__sorting-view');
     $('.sorting-view__btn--line').toggleClass('sorting-view__btn-view--active');
     $('.sorting-view__btn--grid').removeClass('sorting-view__btn-view--active');
-    js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('shorting_view_type', 'line', {
-      expires: 30,
-      domain: domain,
-      path: '/'
-    });
+
+    _this.userConfig.setCookie('shorting_view_type', 'line');
   });
   $('.sorting-view__btn--grid').on('click', function () {
     $('.products__wrap').removeClass('products__sorting-view');
     $('.card').removeClass('card__sorting-view');
     $('.sorting-view__btn--grid').toggleClass('sorting-view__btn-view--active');
     $('.sorting-view__btn--line').removeClass('sorting-view__btn-view--active');
-    js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('shorting_view_type', 'grid', {
-      expires: 30,
-      domain: domain,
-      path: '/'
-    });
+
+    _this.userConfig.setCookie('shorting_view_type', 'grid');
   });
 };
 

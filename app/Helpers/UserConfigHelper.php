@@ -6,8 +6,12 @@ use Cookie;
 
 class UserConfigHelper
 {
-    public function getCatalogListingType()
+    public function catalogListingInline()
     {
-        return Cookie::get('shorting_view_type');
+        if (Cookie::get('shorting_view_type') == 'line') {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

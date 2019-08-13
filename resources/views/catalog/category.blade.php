@@ -24,7 +24,7 @@
                     @include('blocks.sorting-view')
 
                     <div class="catalog__list">
-                        <div class="products__wrap {{ UserConfig::getCatalogListingType() == 'line' ? 'products__sorting-view' : '' }}">
+                        <div class="products__wrap {{ UserConfig::catalogListingInline() ? 'products__sorting-view' : '' }}">
                             @foreach($products as $product)
                                 @include('blocks.card')
                             @endforeach
