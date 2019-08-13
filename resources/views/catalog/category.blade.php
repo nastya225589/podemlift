@@ -24,7 +24,7 @@
                     @include('blocks.sorting-view')
 
                     <div class="catalog__list">
-                        <div class="products__wrap {{ Cookie::get('shorting_view_type') == 'line' ? 'products__sorting-view' : '' }}">
+                        <div class="products__wrap {{ UserConfig::getCatalogListingType() == 'line' ? 'products__sorting-view' : '' }}">
                             @foreach($products as $product)
                                 @include('blocks.card')
                             @endforeach

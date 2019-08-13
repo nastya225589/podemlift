@@ -1,6 +1,7 @@
+import Cookies from 'js-cookie';
+
 export default class SortingView {
   constructor () {
-    const Cookies = require('js-cookie');
     const domain = location.hostname;
 
     $('.sorting-view__btn--line').on('click', function () {
@@ -8,7 +9,7 @@ export default class SortingView {
       $('.card').toggleClass('card__sorting-view');
       $('.sorting-view__btn--line').toggleClass('sorting-view__btn-view--active');
       $('.sorting-view__btn--grid').removeClass('sorting-view__btn-view--active');
-      Cookies.set('shorting_view_type', 'line', { expires: 30, domain: domain });
+      Cookies.set('shorting_view_type', 'line', { expires: 30, domain: domain, path: '/' });
     });
 
     $('.sorting-view__btn--grid').on('click', function () {
@@ -16,7 +17,7 @@ export default class SortingView {
       $('.card').removeClass('card__sorting-view');
       $('.sorting-view__btn--grid').toggleClass('sorting-view__btn-view--active');
       $('.sorting-view__btn--line').removeClass('sorting-view__btn-view--active');
-      Cookies.set('shorting_view_type', 'grid', { expires: 30, domain: domain });
+      Cookies.set('shorting_view_type', 'grid', { expires: 30, domain: domain, path: '/' });
     });
   }
 };

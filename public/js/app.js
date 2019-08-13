@@ -17356,12 +17356,14 @@ var ProductCardSlider = function ProductCardSlider() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SortingView; });
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_0__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
 
 var SortingView = function SortingView() {
   _classCallCheck(this, SortingView);
-
-  var Cookies = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
 
   var domain = location.hostname;
   $('.sorting-view__btn--line').on('click', function () {
@@ -17369,9 +17371,10 @@ var SortingView = function SortingView() {
     $('.card').toggleClass('card__sorting-view');
     $('.sorting-view__btn--line').toggleClass('sorting-view__btn-view--active');
     $('.sorting-view__btn--grid').removeClass('sorting-view__btn-view--active');
-    Cookies.set('shorting_view_type', 'line', {
+    js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('shorting_view_type', 'line', {
       expires: 30,
-      domain: domain
+      domain: domain,
+      path: '/'
     });
   });
   $('.sorting-view__btn--grid').on('click', function () {
@@ -17379,9 +17382,10 @@ var SortingView = function SortingView() {
     $('.card').removeClass('card__sorting-view');
     $('.sorting-view__btn--grid').toggleClass('sorting-view__btn-view--active');
     $('.sorting-view__btn--line').removeClass('sorting-view__btn-view--active');
-    Cookies.set('shorting_view_type', 'grid', {
+    js_cookie__WEBPACK_IMPORTED_MODULE_0___default.a.set('shorting_view_type', 'grid', {
       expires: 30,
-      domain: domain
+      domain: domain,
+      path: '/'
     });
   });
 };

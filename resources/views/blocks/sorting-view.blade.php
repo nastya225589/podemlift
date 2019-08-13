@@ -8,7 +8,7 @@
 
     <div class="sorting-view__wrap">
         <span class="sorting-view__name">Отображать в виде</span>
-        @if (Cookie::get('shorting_view_type') == 'line')
+        @if (UserConfig::getCatalogListingType() == 'line')
             <button class="sorting-view__btn sorting-view__btn--line sorting-view__btn-view--active">
                 <span></span>
             </button>
