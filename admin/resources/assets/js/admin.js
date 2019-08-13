@@ -17,4 +17,4 @@ require('./common/select');
 require('./common/tooltip');
 require('./common/modal');
 
-require('./components/Builder');
+require('./components/Builder/Index');
