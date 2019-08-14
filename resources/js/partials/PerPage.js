@@ -6,8 +6,8 @@ export default class PerPage {
 
     $('.sorting-view__wrap:eq(0) button').click(e => {
       if (!$(e.target).hasClass('sorting-view__btn--active')) {
-        let perPage = e.target.getAttribute('data-perpage');
-        let url = this.updateURLParameter(location.href, 'page', 1);
+        const perPage = e.target.getAttribute('data-perpage');
+        const url = this.updateURLParameter(location.href, 'page', 1);
         this.userConfig.setCookie('products_per_page', perPage);
         location.href = url;
       }
