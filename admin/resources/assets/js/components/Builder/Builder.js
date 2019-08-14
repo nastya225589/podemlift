@@ -6,6 +6,7 @@ import TinyMce from './Elements/TinyMce';
 import TwoCols from './Elements/TwoCols';
 import Images from './Elements/Images';
 import Subtitle from './Elements/Subtitle';
+import Header from './Elements/Header';
 
 export default class Builder extends Component {
   constructor (props) {
@@ -16,6 +17,7 @@ export default class Builder extends Component {
       { type: 'tinymce', name: 'Текст' },
       { type: 'two_cols', name: 'Две колонки' },
       { type: 'images', name: 'Галерея' },
+      { type: 'header', name: 'Заголовок' },
       { type: 'subtitle', name: 'Подзаголовок с картинкой' }
     ];
   }
@@ -53,7 +55,15 @@ export default class Builder extends Component {
     });
   }
 
-  subtitleHandler = (index, name, content) => {
+  subtitleHandler = (index, content) => {
+    this.setState(currentState => {
+      const elements = currentState.elements;
+      elements[index].content = content;
+      return { elements: elements };
+    });    
+  }
+
+  headerHandler = (index, content) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       elements[index].content = content;
@@ -112,8 +122,14 @@ export default class Builder extends Component {
       return <Subtitle
         index={index}
         content={element.content}
-        name="subtitle"
         onChange={this.subtitleHandler}
+      />;
+    }
+    if (element.type === 'header') {
+      return <Header
+        index={index}
+        content={element.content}
+        onChange={this.headerHandler}
       />;
     }
   }

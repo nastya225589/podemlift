@@ -12,7 +12,7 @@ export default class Subtitle extends Component {
   }
 
   updateParentState () {
-    this.props.onChange(this.props.index, this.props.name, this.state.element);
+    this.props.onChange(this.props.index, this.state.element);
   }
 
   handleInputChange = (index, name, value) => {
