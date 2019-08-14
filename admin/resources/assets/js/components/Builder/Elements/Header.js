@@ -15,9 +15,7 @@ export default class Header extends Component {
   }
 
   handleInputChange = (index, name, value) => {
-    let element = this.state.element;
-    element = value;
-    this.setState(() => ({ element: element }), () => this.updateParentState());    
+    this.setState(() => ({ element: value }), () => this.updateParentState());    
   }
 
   render () {
