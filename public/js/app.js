@@ -16986,7 +16986,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_SortingView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../partials/SortingView */ "./resources/js/partials/SortingView.js");
 /* harmony import */ var _partials_Filters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../partials/Filters */ "./resources/js/partials/Filters.js");
 /* harmony import */ var _partials_CatalogSidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../partials/CatalogSidebar */ "./resources/js/partials/CatalogSidebar.js");
+/* harmony import */ var _partials_PerPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../partials/PerPage */ "./resources/js/partials/PerPage.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 
 
@@ -17000,6 +17002,7 @@ var Catalog = function Catalog() {
   new _partials_SortingView__WEBPACK_IMPORTED_MODULE_1__["default"]();
   new _partials_Filters__WEBPACK_IMPORTED_MODULE_2__["default"]();
   new _partials_CatalogSidebar__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  new _partials_PerPage__WEBPACK_IMPORTED_MODULE_4__["default"]();
 };
 
 
@@ -17349,6 +17352,79 @@ var MenuFooter = function MenuFooter() {
     $('.footer-nav__wrap').toggleClass('footer-nav__open');
   });
 };
+
+
+
+/***/ }),
+
+/***/ "./resources/js/partials/PerPage.js":
+/*!******************************************!*\
+  !*** ./resources/js/partials/PerPage.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PerPage; });
+/* harmony import */ var _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/UserConfig */ "./resources/js/config/UserConfig.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var PerPage =
+/*#__PURE__*/
+function () {
+  function PerPage() {
+    var _this = this;
+
+    _classCallCheck(this, PerPage);
+
+    this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    $('.sorting-view__wrap:eq(0) button').click(function (e) {
+      if (!$(e.target).hasClass('sorting-view__btn--active')) {
+        var perPage = e.target.getAttribute('data-perpage');
+
+        var url = _this.updateURLParameter(location.href, 'page', 1);
+
+        _this.userConfig.setCookie('products_per_page', perPage);
+
+        location.href = url;
+      }
+    });
+  }
+
+  _createClass(PerPage, [{
+    key: "updateURLParameter",
+    value: function updateURLParameter(url, param, paramVal) {
+      var newAdditionalURL = "";
+      var tempArray = url.split("?");
+      var baseURL = tempArray[0];
+      var additionalURL = tempArray[1];
+      var temp = "";
+
+      if (additionalURL) {
+        tempArray = additionalURL.split("&");
+
+        for (var i = 0; i < tempArray.length; i++) {
+          if (tempArray[i].split('=')[0] != param) {
+            newAdditionalURL += temp + tempArray[i];
+            temp = "&";
+          }
+        }
+      }
+
+      var rows_txt = temp + "" + param + "=" + paramVal;
+      return baseURL + "?" + newAdditionalURL + rows_txt;
+    }
+  }]);
+
+  return PerPage;
+}();
 
 
 

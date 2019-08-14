@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Models\Redirect;
+use UserConfig;
 
 class CatalogController extends Controller
 {
@@ -20,6 +21,10 @@ class CatalogController extends Controller
     {
         $fullUrl = $this->resource->url . $url;
         $category = ProductCategory::where('url', $fullUrl)->published()->first();
+        if (UserConfig::getProductsPerPageCount())
+            $perPage = UserConfig::getProductsPerPageCount();
+        else
+            $perPage = 12;
 
         if (!$category && ($redirect = Redirect::getRedirect($fullUrl)))
             return redirect($redirect[0], $redirect[1]);
@@ -29,7 +34,8 @@ class CatalogController extends Controller
 
         return view('catalog.category', [
             'page' => $category,
-            'products' => $category->products()->published()->paginate(12)
+            'products' => $category->products()->published()->paginate($perPage),
+            'perPage' => $perPage
         ]);
     }
 
