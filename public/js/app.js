@@ -16962,6 +16962,11 @@ function () {
         path: '/'
       });
     }
+  }, {
+    key: "setProductsPerPage",
+    value: function setProductsPerPage(perPage) {
+      this.setCookie('products_per_page', perPage);
+    }
   }]);
 
   return UserConfig;
@@ -17370,61 +17375,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/UserConfig */ "./resources/js/config/UserConfig.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
+var PerPage = function PerPage() {
+  var _this = this;
 
-var PerPage =
-/*#__PURE__*/
-function () {
-  function PerPage() {
-    var _this = this;
+  _classCallCheck(this, PerPage);
 
-    _classCallCheck(this, PerPage);
+  this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  $('.sorting-view__wrap:eq(0) button').click(function (e) {
+    if (!$(e.target).hasClass('sorting-view__btn--active')) {
+      var perPage = e.target.getAttribute('data-perpage');
 
-    this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
-    $('.sorting-view__wrap:eq(0) button').click(function (e) {
-      if (!$(e.target).hasClass('sorting-view__btn--active')) {
-        var perPage = e.target.getAttribute('data-perpage');
+      _this.userConfig.setProductsPerPage(perPage);
 
-        var url = _this.updateURLParameter(location.href, 'page', 1);
-
-        _this.userConfig.setCookie('products_per_page', perPage);
-
-        location.href = url;
-      }
-    });
-  }
-
-  _createClass(PerPage, [{
-    key: "updateURLParameter",
-    value: function updateURLParameter(url, param, paramVal) {
-      var newAdditionalURL = "";
-      var tempArray = url.split("?");
-      var baseURL = tempArray[0];
-      var additionalURL = tempArray[1];
-      var temp = "";
-
-      if (additionalURL) {
-        tempArray = additionalURL.split("&");
-
-        for (var i = 0; i < tempArray.length; i++) {
-          if (tempArray[i].split('=')[0] != param) {
-            newAdditionalURL += temp + tempArray[i];
-            temp = "&";
-          }
-        }
-      }
-
-      var rows_txt = temp + "" + param + "=" + paramVal;
-      return baseURL + "?" + newAdditionalURL + rows_txt;
+      location.href = location.pathname;
     }
-  }]);
-
-  return PerPage;
-}();
+  });
+};
 
 
 
