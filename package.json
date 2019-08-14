@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@tinymce/tinymce-react": "^2.4.0",
     "axios": "^0.18.1",
     "bootstrap": "^4.1.0",
