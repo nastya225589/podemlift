@@ -16,7 +16,6 @@ export default class Builder extends Component {
     this.TwoColsHandler = this.TwoColsHandler.bind(this);
     this.ImagesHandler = this.ImagesHandler.bind(this);
     this.moveHandler = this.moveHandler.bind(this);
-    this.deleteButtonHandler = this.deleteButtonHandler.bind(this);
 
     this.allowedElements = [
       { type: 'tinymce', name: 'Текст' },
@@ -69,13 +68,13 @@ export default class Builder extends Component {
     });
   }
 
-  deleteButtonHandler (index) {
+  deleteButtonHandler = (index) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       elements.splice(index, 1);
       return { elements: elements };
     });
-  }
+  };
 
   element (element, index) {
     if (element.type === 'two_cols') {
