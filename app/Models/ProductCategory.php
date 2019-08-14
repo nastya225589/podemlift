@@ -36,7 +36,7 @@ class ProductCategory extends BaseModel
             ],
             [
                 'name' => 'content',
-                'type' => 'editor',
+                'type' => 'builder',
                 'label' => 'Текст'
             ],
             'meta_title',

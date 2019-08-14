@@ -11,9 +11,11 @@ class CatalogController extends Controller
 {
     public function index()
     {
+        $perPage = UserConfig::getProductsPerPageCount();
         return view('catalog.category', [
             'page' => $this->resource,
-            'products' => Product::paginate(12)
+            'products' => Product::paginate($perPage),
+            'perPage' => $perPage
         ]);
     }
 
@@ -21,10 +23,7 @@ class CatalogController extends Controller
     {
         $fullUrl = $this->resource->url . $url;
         $category = ProductCategory::where('url', $fullUrl)->published()->first();
-        if (UserConfig::getProductsPerPageCount())
-            $perPage = UserConfig::getProductsPerPageCount();
-        else
-            $perPage = 12;
+        $perPage = UserConfig::getProductsPerPageCount();
 
         if (!$category && ($redirect = Redirect::getRedirect($fullUrl)))
             return redirect($redirect[0], $redirect[1]);

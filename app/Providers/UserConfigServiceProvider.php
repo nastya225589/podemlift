@@ -24,7 +24,7 @@ class UserConfigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        App::bind('userconfig', function () {
+        App::bind('user.config', function () {
             return new \App\Helpers\UserConfigHelper;
         });
     }

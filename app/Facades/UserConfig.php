@@ -8,6 +8,6 @@ class UserConfig extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'userconfig';
+        return 'user.config';
     }
 }
