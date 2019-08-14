@@ -5,6 +5,7 @@ import DeleteButton from './Elements/DeleteButton';
 import TinyMce from './Elements/TinyMce';
 import TwoCols from './Elements/TwoCols';
 import Images from './Elements/Images';
+import Subtitle from './Elements/Subtitle';
 
 export default class Builder extends Component {
   constructor (props) {
@@ -20,7 +21,8 @@ export default class Builder extends Component {
     this.allowedElements = [
       { type: 'tinymce', name: 'Текст' },
       { type: 'two_cols', name: 'Две колонки' },
-      { type: 'images', name: 'Галерея' }
+      { type: 'images', name: 'Галерея' },
+      { type: 'subtitle', name: 'Подзаголовок с картинкой' }
     ];
   }
 
@@ -55,6 +57,14 @@ export default class Builder extends Component {
       elements[index].content = content;
       return { elements: elements };
     });
+  }
+
+  subtitleHandler = (index, name, content) => {
+    this.setState(currentState => {
+      const elements = currentState.elements;
+      elements[index].content = content;
+      return { elements: elements };
+    });    
   }
 
   moveHandler (currentIndex, newIndex) {
@@ -102,6 +112,14 @@ export default class Builder extends Component {
         content={element.content}
         cols="5"
         onChange={this.ImagesHandler}
+      />;
+    }
+    if (element.type === 'subtitle') {
+      return <Subtitle
+        index={index}
+        content={element.content}
+        name="subtitle"
+        onChange={this.subtitleHandler}
       />;
     }
   }
