@@ -16876,12 +16876,12 @@ function () {
   _createClass(CatalogSidebar, [{
     key: "initCatalogSidebar",
     value: function initCatalogSidebar() {
-      var $catalogMenu = $('.catalog-menu');
-      var $firstLevelLink = $catalogMenu.find('.catalog-menu__item > .main-nav__link');
-      $firstLevelLink.on('click', function (e) {
+      var $catalogMenu = $('.sidebar');
+      var $firstLevelBtn = $catalogMenu.find('.sidebar__btn');
+      $firstLevelBtn.on('click', function (e) {
         e.preventDefault();
-        var $targetSubmenu = $(this).closest('li').find('.catalog-menu__submenu');
-        var $openedSubmenu = $catalogMenu.find('.catalog-menu__submenu:visible').not($targetSubmenu);
+        var $targetSubmenu = $(this).closest('li').find('.sidebar-submenu');
+        var $openedSubmenu = $catalogMenu.find('.sidebar-submenu:visible').not($targetSubmenu);
 
         if ($targetSubmenu.length) {
           $targetSubmenu.slideToggle();

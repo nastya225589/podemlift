@@ -1,5 +1,5 @@
 .catalog-menu {
-    margin-right: 57px;
+    margin-right: 37px;
     background: $main-color;
     display: inline-table;
 
@@ -11,68 +11,6 @@
     &--open {
         @media (max-width: $screen-sm) {
             display: block;
-        }
-    }
-
-    .main-nav {
-        padding: 23px 20px 0;
-        width: 200px;
-
-        @media (max-width: $screen-sm) {
-            display: none;
-        }
-
-        &__item {
-            margin-bottom: 20px;
-            padding: 0;
-            width: 100%;
-            line-height: 13px;
-
-            .submenu {
-                padding: 10px 0 0;
-                display: none;
-                position: relative;
-                top: 0;
-                width: 100%;
-
-                &__item {
-                    padding: 4px 0;
-                }
-
-                &__link {
-                    padding-left: 10px;
-                    width: 100%;
-                    display: inline-block;
-                    position: relative;
-
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        left: 0;
-                        top: 6px;
-                        width: 3px;
-                        height: 3px;
-                        background: $third-color;
-                        border-radius: 50%;
-                    }
-                }
-
-                .main-nav__link {
-                    color: $third-color;
-
-                }
-            }
-        }
-
-        &__link {
-            font-size: $font-size--xs - 1;
-            line-height: 14px;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-
-            &:hover, &:active {
-                color: $third-color;
-            }
         }
     }
 }

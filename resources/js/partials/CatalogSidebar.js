@@ -4,14 +4,14 @@ export default class CatalogSidebar {
   }
 
   initCatalogSidebar () {
-    const $catalogMenu = $('.catalog-menu');
-    const $firstLevelLink = $catalogMenu.find('.catalog-menu__item > .main-nav__link');
+    const $catalogMenu = $('.sidebar');
+    const $firstLevelBtn = $catalogMenu.find('.sidebar__btn');
 
-    $firstLevelLink.on('click', function (e) {
+    $firstLevelBtn.on('click', function (e) {
       e.preventDefault();
 
-      const $targetSubmenu = $(this).closest('li').find('.catalog-menu__submenu');
-      const $openedSubmenu = $catalogMenu.find('.catalog-menu__submenu:visible').not($targetSubmenu);
+      const $targetSubmenu = $(this).closest('li').find('.sidebar-submenu');
+      const $openedSubmenu = $catalogMenu.find('.sidebar-submenu:visible').not($targetSubmenu);
 
       if ($targetSubmenu.length) {
         $targetSubmenu.slideToggle();

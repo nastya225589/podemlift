@@ -46,10 +46,8 @@
         margin: 0;
         padding: 0 10px;
         border: none;
-
-        @media (max-width: $screen-xs) {
-            width: 92%;
-        }
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .field-weight {
@@ -203,7 +201,7 @@
         flex-wrap: wrap;
         align-items: center;
         position: relative;
-        width: 14.3em;
+        width: 100%;
         height: 2 * 1em;
 
         @media (max-width: $screen-xs) {
@@ -230,7 +228,7 @@
         margin: 0;
         padding: 0;
         height: 3em;
-        width: 19.3em;
+        width: 100%;
         background: transparent;
 
         @media (max-width: $screen-xs) {
@@ -266,12 +264,12 @@
                 position: relative;
                 left: .5 * 1em;
                 bottom: 37px;
-                transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min)) * #{18.3em - 1em} - 50%));
+                transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min)) * #{21em - 1em} - 50%));
                 color: $third-color;
                 font-size: $font-size--xs - 1;
 
-                @media (max-width: $screen-xs) {
-                    left: 2.3*1em;
+                @media (max-width: $screen-sm) {
+                    transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min)) * #{0em} - 50%));
                 }
             }
         }
