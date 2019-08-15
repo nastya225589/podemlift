@@ -3973,7 +3973,7 @@ input[type=submit] {
 }
 
 .filter-sorter__item {
-  margin-right: 14px;
+  margin-right: 11px;
   margin-bottom: 13px;
   width: 210px;
   min-height: 60px;
@@ -4000,7 +4000,7 @@ input[type=submit] {
 
 @media (max-width: 1200px) {
   .filter-sorter__item:nth-child(4n) {
-    margin-right: 14px;
+    margin-right: 11px;
   }
 }
 
