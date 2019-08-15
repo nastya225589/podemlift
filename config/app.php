@@ -181,6 +181,7 @@ return [
 
         App\Providers\UserConfigServiceProvider::class,
         App\Providers\RenderServiceProvider::class,
+        Admin\Providers\ConfigServiceProvider::class,
 
     ],
 
