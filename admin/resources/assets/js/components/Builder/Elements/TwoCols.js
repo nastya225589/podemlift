@@ -13,8 +13,8 @@ export default class TwoCols extends Component {
     ];
 
     const defaultElements = [
-      { type: '', content: '' },
-      { type: '', content: '' }
+      { type: 'tinymce', content: '' },
+      { type: 'images', content: '' }
     ];
 
     this.state = { elements: this.props.content || defaultElements };

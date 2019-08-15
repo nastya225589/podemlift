@@ -179,7 +179,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        App\Providers\UserConfigServiceProvider::class
+        App\Providers\UserConfigServiceProvider::class,
+        App\Providers\RenderServiceProvider::class,
 
     ],
 

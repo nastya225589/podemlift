@@ -38,6 +38,9 @@ class BladeServiceProvider extends ServiceProvider
         $this->registerSaveButtonDirective();
         $this->registerDeleteButtonDirective();
         $this->registerBackButtonDirective();
+        
+        //Services
+        $this->registerBuilderDirective();
     }
 
 
@@ -226,6 +229,17 @@ class BladeServiceProvider extends ServiceProvider
     {
         Blade::directive('backButton', function ($expression) {
             return $this->render('admin::ui.form.button_back', $expression);
+        });
+    }
+
+    
+    /**
+     * Page Builder directive
+     */
+    protected function registerBuilderDirective()
+    {
+        Blade::directive('builder', function ($expression) {
+            return '<?php echo resolve(\'App\Services\Contracts\RenderServiceInterface\')->render('.$expression.'); ?>';
         });
     }
 

@@ -40,8 +40,11 @@
 
         </div>
     </div>
-
-    @include('blocks.features')
+    <section class="features">
+        <div class="container">
+            @builder($page->content)
+        </div>
+    </section>
 
     @include('blocks.examples')
 
