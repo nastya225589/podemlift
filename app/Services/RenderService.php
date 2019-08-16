@@ -23,7 +23,7 @@ class RenderService implements RenderServiceInterface
     {
         $html = '';
         foreach ($content as $item) {
-            if (in_array($item->type, $this->includingTypes) && isset($item->content) && $item->content) {
+            if (in_array($item->type, $this->includingTypes) && !empty($item->content)) {
                 $nested = [];
                 foreach ($item->content as $nestedBlock) {
                     $nested[] = $this->renderBlock($nestedBlock);
@@ -38,8 +38,8 @@ class RenderService implements RenderServiceInterface
 
     protected function renderBlock(object $item, array $nested = null): string
     {
-        if (view()->exists('dynamic.'.$item->type))
-            return view('dynamic.'.$item->type, ['content' => $nested ?? $item->content])->render();
+        if (view()->exists('builder.'.$item->type))
+            return view('builder.'.$item->type, ['content' => $nested ?? $item->content])->render();
         else
             return '';
     }
