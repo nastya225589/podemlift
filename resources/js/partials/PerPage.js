@@ -3,6 +3,7 @@ import UserConfig from '../config/UserConfig';
 export default class PerPage {
   constructor () {
     this.userConfig = new UserConfig();
+    this.attachEvents()
   }
 
   attachEvents () {

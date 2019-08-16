@@ -182,6 +182,7 @@ return [
         App\Providers\UserConfigServiceProvider::class,
         App\Providers\RenderServiceProvider::class,
         Admin\Providers\ConfigServiceProvider::class,
+        App\Providers\ViewGlobalVariablesServiceProvider::class,
 
     ],
 

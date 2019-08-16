@@ -17007,7 +17007,7 @@ var Catalog = function Catalog() {
   new _partials_SortingView__WEBPACK_IMPORTED_MODULE_1__["default"]();
   new _partials_Filters__WEBPACK_IMPORTED_MODULE_2__["default"]();
   new _partials_CatalogSidebar__WEBPACK_IMPORTED_MODULE_3__["default"]();
-  new _partials_PerPage__WEBPACK_IMPORTED_MODULE_4__["default"]().attachEvents();
+  new _partials_PerPage__WEBPACK_IMPORTED_MODULE_4__["default"]();
 };
 
 
@@ -17388,6 +17388,7 @@ function () {
     _classCallCheck(this, PerPage);
 
     this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    this.attachEvents();
   }
 
   _createClass(PerPage, [{

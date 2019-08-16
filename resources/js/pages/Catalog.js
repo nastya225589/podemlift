@@ -10,6 +10,6 @@ export default class Catalog {
     new SortingView();
     new Filters();
     new CatalogSidebar();
-    new PerPage().attachEvents();
+    new PerPage();
   }
 }

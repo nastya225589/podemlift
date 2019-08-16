@@ -8,10 +8,10 @@
 
     <div class="sorting-view__wrap">
         <span class="sorting-view__name">Отображать в виде</span>
-        <button class="sorting-view__btn sorting-view__btn--line {{ UserConfig::catalogListingInline() ? 'sorting-view__btn-view--active' : '' }}">
+        <button class="sorting-view__btn sorting-view__btn--line {{ $catalogListingInline ? 'sorting-view__btn-view--active' : '' }}">
             <span></span>
         </button>
-        <button class="sorting-view__btn sorting-view__btn--grid {{ !UserConfig::catalogListingInline() ? 'sorting-view__btn-view--active' : '' }}">
+        <button class="sorting-view__btn sorting-view__btn--grid {{ !$catalogListingInline ? 'sorting-view__btn-view--active' : '' }}">
             <span></span>
         </button>
     </div>
