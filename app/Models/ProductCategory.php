@@ -36,7 +36,7 @@ class ProductCategory extends BaseModel
             ],
             [
                 'name' => 'content',
-                'type' => 'editor',
+                'type' => 'builder',
                 'label' => 'Текст'
             ],
             'meta_title',
@@ -49,7 +49,11 @@ class ProductCategory extends BaseModel
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_category_product');
+        $childCategoriesIds = ProductCategory::where('parent_id', $this->id)->pluck('id');
+        if (count($childCategoriesIds))
+            return $this->childCategoriesProducts($childCategoriesIds);
+        else
+            return $this->belongsToMany(Product::class, 'product_category_product');
     }
 
     public function fullUrl()
@@ -57,5 +61,11 @@ class ProductCategory extends BaseModel
         $url = parent::fullUrl();
         $page = Page::where('behavior', 'catalog')->first();
         return $page->url . $url;
+    }
+
+    protected function childCategoriesProducts($childCategoriesIds)
+    {
+        return Product::join('product_category_product', 'products.id', 'product_category_product.product_id')
+            ->whereIn('product_category_id', $childCategoriesIds);
     }
 }

@@ -21,11 +21,10 @@
 
                 <div class="catalog__inner">
                     <div class="catalog__name title-h2">Все {{ $page->name }}</div>
-
                     @include('blocks.sorting-view')
 
                     <div class="catalog__list">
-                        <div class="products__wrap">
+                        <div class="products__wrap {{ UserConfig::catalogListingInline() ? 'products__sorting-view' : '' }}">
                             @foreach($products as $product)
                                 @include('blocks.card')
                             @endforeach
@@ -41,8 +40,11 @@
 
         </div>
     </div>
-
-    @include('blocks.features')
+    <section class="features">
+        <div class="container">
+            @builder($page->content)
+        </div>
+    </section>
 
     @include('blocks.examples')
 

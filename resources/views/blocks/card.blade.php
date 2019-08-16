@@ -1,4 +1,4 @@
-<article class="card">
+<article class="card {{ UserConfig::catalogListingInline() ? 'card__sorting-view' : '' }}">
     <a class="card__inner" href="/catalog/child">
         <img class="card__img" src="{{ $product->firstImage()->size(260, 260)->url }}" width="260" height="260" alt="{{ $product->name }}"/>
         <div>

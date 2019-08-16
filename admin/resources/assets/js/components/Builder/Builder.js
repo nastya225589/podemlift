@@ -5,27 +5,24 @@ import DeleteButton from './Elements/DeleteButton';
 import TinyMce from './Elements/TinyMce';
 import TwoCols from './Elements/TwoCols';
 import Images from './Elements/Images';
+import Subtitle from './Elements/Subtitle';
+import Header from './Elements/Header';
 
 export default class Builder extends Component {
   constructor (props) {
     super(props);
     this.state = { elements: JSON.parse(this.props.value) };
 
-    this.AddElementButtonHandler = this.AddElementButtonHandler.bind(this);
-    this.TinyMceHandler = this.TinyMceHandler.bind(this);
-    this.TwoColsHandler = this.TwoColsHandler.bind(this);
-    this.ImagesHandler = this.ImagesHandler.bind(this);
-    this.moveHandler = this.moveHandler.bind(this);
-    this.deleteButtonHandler = this.deleteButtonHandler.bind(this);
-
     this.allowedElements = [
       { type: 'tinymce', name: 'Текст' },
       { type: 'two_cols', name: 'Две колонки' },
-      { type: 'images', name: 'Галерея' }
+      { type: 'images', name: 'Галерея' },
+      { type: 'header', name: 'Заголовок' },
+      { type: 'subtitle', name: 'Подзаголовок с картинкой' }
     ];
   }
 
-  AddElementButtonHandler (index, type) {
+  addElementButtonHandler = (index, type) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       const id = elements.length ? _.maxBy(elements, 'id').id + 1 : 1;
@@ -34,7 +31,7 @@ export default class Builder extends Component {
     });
   }
 
-  TinyMceHandler (index, name, value) {
+  tinyMceHandler = (index, name, value) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       elements[index].content = value;
@@ -42,7 +39,7 @@ export default class Builder extends Component {
     });
   }
 
-  TwoColsHandler (index, content) {
+  twoColsHandler = (index, content) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       elements[index].content = content;
@@ -50,7 +47,7 @@ export default class Builder extends Component {
     });
   }
 
-  ImagesHandler (index, content) {
+  imagesHandler = (index, content) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       elements[index].content = content;
@@ -58,7 +55,23 @@ export default class Builder extends Component {
     });
   }
 
-  moveHandler (currentIndex, newIndex) {
+  subtitleHandler = (index, content) => {
+    this.setState(currentState => {
+      const elements = currentState.elements;
+      elements[index].content = content;
+      return { elements: elements };
+    });    
+  }
+
+  headerHandler = (index, content) => {
+    this.setState(currentState => {
+      const elements = currentState.elements;
+      elements[index].content = content;
+      return { elements: elements };
+    });    
+  }
+
+  moveHandler = (currentIndex, newIndex) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       const element = elements.splice(currentIndex, 1)[0];
@@ -69,20 +82,20 @@ export default class Builder extends Component {
     });
   }
 
-  deleteButtonHandler (index) {
+  deleteButtonHandler = (index) => {
     this.setState(currentState => {
       const elements = currentState.elements;
       elements.splice(index, 1);
       return { elements: elements };
     });
-  }
+  };
 
   element (element, index) {
     if (element.type === 'two_cols') {
       return <TwoCols
         index={index}
         content={element.content}
-        onChange={this.TwoColsHandler}
+        onChange={this.twoColsHandler}
       />;
     }
 
@@ -93,7 +106,7 @@ export default class Builder extends Component {
         value={element.content}
         index={index}
         name="content"
-        onChange={this.TinyMceHandler}
+        onChange={this.tinyMceHandler}
       />;
     }
 
@@ -102,7 +115,21 @@ export default class Builder extends Component {
         index={index}
         content={element.content}
         cols="5"
-        onChange={this.ImagesHandler}
+        onChange={this.imagesHandler}
+      />;
+    }
+    if (element.type === 'subtitle') {
+      return <Subtitle
+        index={index}
+        content={element.content}
+        onChange={this.subtitleHandler}
+      />;
+    }
+    if (element.type === 'header') {
+      return <Header
+        index={index}
+        content={element.content}
+        onChange={this.headerHandler}
       />;
     }
   }
@@ -133,7 +160,7 @@ export default class Builder extends Component {
           </div>
         </div>
 
-        <AddElementButton onClick={this.AddElementButtonHandler} index={index + 1} allowedElements={this.allowedElements}/>
+        <AddElementButton onClick={this.addElementButtonHandler} index={index + 1} allowedElements={this.allowedElements}/>
       </div>
     );
   }
@@ -141,7 +168,7 @@ export default class Builder extends Component {
   render () {
     return (
       <div className="builder">
-        <AddElementButton onClick={this.AddElementButtonHandler} index={0} allowedElements={this.allowedElements}/>
+        <AddElementButton onClick={this.addElementButtonHandler} index={0} allowedElements={this.allowedElements}/>
 
         {this.elements()}
 

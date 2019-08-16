@@ -8,7 +8,7 @@ if (builder) {
   const textarea = builder.getElementsByTagName('textarea')[0];
   const props = {
     name: textarea.getAttribute('name'),
-    value: textarea.value || '[]'
+    value: textarea.value.trim() || '[]'
   };
   ReactDOM.render(<Builder {...props} />, builder);
 }
@@ -18,7 +18,7 @@ if (galleries.length) {
   const textarea = galleries[0].getElementsByTagName('textarea')[0];
   const props = {
     name: textarea.getAttribute('name'),
-    value: textarea.value || '[]'
+    value: textarea.value.trim() || '[]'
   };
   ReactDOM.render(<Gallery {...props} />, galleries[0]);
 }

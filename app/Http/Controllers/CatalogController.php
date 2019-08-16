@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Models\Redirect;
+use UserConfig;
 
 class CatalogController extends Controller
 {
@@ -12,7 +13,7 @@ class CatalogController extends Controller
     {
         return view('catalog.category', [
             'page' => $this->resource,
-            'products' => Product::paginate(12)
+            'products' => Product::paginate(UserConfig::getProductsPerPageCount())
         ]);
     }
 
@@ -29,7 +30,7 @@ class CatalogController extends Controller
 
         return view('catalog.category', [
             'page' => $category,
-            'products' => $category->products()->published()->paginate(12)
+            'products' => $category->products()->published()->paginate(UserConfig::getProductsPerPageCount())
         ]);
     }
 
