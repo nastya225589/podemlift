@@ -90,4 +90,9 @@ class Product extends BaseModel
     {
         return $this->belongsToMany(ProductCategory::class, 'product_category_product');
     }
+
+    public function getUrl()
+    {
+        return '/product/'.$this->slug;
+    }
 }
