@@ -15,7 +15,7 @@
             @endif
         @endif
 
-        <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
     </head>
     <body data-page="@yield('data-page')">
@@ -29,6 +29,6 @@
             @include('blocks.footer')
         </div>
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>

@@ -19,7 +19,7 @@
 
     <!-- Styles -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css" rel="stylesheet">
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="{{ mix('/js/admin.js') }}" defer></script>
 
     @includeIf('admin::block.modals')
 
