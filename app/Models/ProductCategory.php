@@ -65,6 +65,7 @@ class ProductCategory extends BaseModel
 
     protected function childCategoriesProducts($childCategoriesIds)
     {
-        return Product::join('product_category_product', 'products.id', 'product_category_product.product_id')->whereIn('product_category_id', $childCategoriesIds);
+        return Product::join('product_category_product', 'products.id', 'product_category_product.product_id')
+            ->whereIn('product_category_id', $childCategoriesIds);
     }
 }

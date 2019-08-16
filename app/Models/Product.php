@@ -76,14 +76,14 @@ class Product extends BaseModel
     {
         $imagesIds = $this->images ?: [];
         $imageId = array_shift($imagesIds);
-        return \App\Models\Image::find($imageId);
+        return Image::find($imageId);
     }
 
     public function images()
     {
         $imagesIds = $this->images ?: [];
-        $images = \App\Models\Image::find($imagesIds);
-        return $images ?: [(new \App\Models\Image(['url' => '/images/default.png']))];
+        $images = Image::find($imagesIds);
+        return $images ?: [(new Image(['url' => '/images/default.png']))];
     }
 
     public function categories()

@@ -18,14 +18,4 @@ class RenderServiceProvider extends ServiceProvider
             'App\Services\RenderService'
         );
     }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
 }

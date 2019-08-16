@@ -13,10 +13,7 @@ class RenderService implements RenderServiceInterface
     public function render(string $content): string
     {
         $content = json_decode($content);
-        if (is_array($content))
-            return $this->renderAll($content);
-        else
-            return '';
+        return is_array($content) ? $this->renderAll($content) : '';
     }
 
     protected function renderAll(array $content): string
@@ -25,22 +22,21 @@ class RenderService implements RenderServiceInterface
         foreach ($content as $item) {
             if (in_array($item->type, $this->includingTypes) && !empty($item->content)) {
                 $nested = [];
-                foreach ($item->content as $nestedBlock) {
+                foreach ($item->content as $nestedBlock)
                     $nested[] = $this->renderBlock($nestedBlock);
-                }
+
                 $html .= $this->renderBlock($item, $nested);
-            }
-            else
+            } else {
                 $html .= $this->renderBlock($item);
+            }
         }
+
         return $html;
     }
 
     protected function renderBlock(object $item, array $nested = null): string
     {
-        if (view()->exists('builder.'.$item->type))
-            return view('builder.'.$item->type, ['content' => $nested ?? $item->content])->render();
-        else
-            return '';
+        $view = 'builder.' . $item->type;
+        return view()->exists($view) ? view($view, ['content' => $nested ?? $item->content])->render() : '';
     }
 }
