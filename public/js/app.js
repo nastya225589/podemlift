@@ -17007,7 +17007,7 @@ var Catalog = function Catalog() {
   new _partials_SortingView__WEBPACK_IMPORTED_MODULE_1__["default"]();
   new _partials_Filters__WEBPACK_IMPORTED_MODULE_2__["default"]();
   new _partials_CatalogSidebar__WEBPACK_IMPORTED_MODULE_3__["default"]();
-  new _partials_PerPage__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  new _partials_PerPage__WEBPACK_IMPORTED_MODULE_4__["default"]().attachEvents();
 };
 
 
@@ -17375,24 +17375,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/UserConfig */ "./resources/js/config/UserConfig.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
-var PerPage = function PerPage() {
-  var _this = this;
 
-  _classCallCheck(this, PerPage);
+var PerPage =
+/*#__PURE__*/
+function () {
+  function PerPage() {
+    _classCallCheck(this, PerPage);
 
-  this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
-  $('.sorting-view__wrap:eq(0) button').click(function (e) {
-    if (!$(e.target).hasClass('sorting-view__btn--active')) {
-      var perPage = e.target.getAttribute('data-perpage');
+    this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
+  }
 
-      _this.userConfig.setProductsPerPage(perPage);
-
-      location.href = location.pathname;
+  _createClass(PerPage, [{
+    key: "attachEvents",
+    value: function attachEvents() {
+      this.changeProductsOnPage();
     }
-  });
-};
+  }, {
+    key: "changeProductsOnPage",
+    value: function changeProductsOnPage() {
+      var _this = this;
+
+      $('.sorting-view__wrap:eq(0) button').click(function (e) {
+        if (!$(e.target).hasClass('sorting-view__btn--active')) {
+          var perPage = e.target.getAttribute('data-perpage');
+
+          _this.userConfig.setProductsPerPage(perPage);
+
+          location.href = location.pathname;
+        }
+      });
+    }
+  }]);
+
+  return PerPage;
+}();
 
 
 
