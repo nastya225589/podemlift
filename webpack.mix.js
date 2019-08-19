@@ -10,4 +10,4 @@ mix.copy('node_modules/tinymce-i18n/langs/ru.js', 'public/js/langs/ru.js');
 
 mix.react('admin/resources/assets/js/admin.js', 'public/js')
     .sass('admin/resources/assets/sass/admin.scss', 'public/css')
-    .version();;
+    .version();

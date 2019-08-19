@@ -13,7 +13,7 @@ export default class Input extends Component {
   render () {
     return (
       <input
-        type="text"
+        type={this.props.type ? this.props.type : 'text'}
         className="form-control"
         onChange={this.onChange}
         value={this.props.value}

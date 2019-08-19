@@ -64,6 +64,12 @@ class Product extends BaseModel
                 'multi' => true,
                 'label' => 'Изображения'
             ],
+            [
+                'name' => 'properties',
+                'type' => 'properties',
+                'options' => ProductProperty::select('name AS label', 'id AS value', 'type')->get(),
+                'label' => 'Параметры'
+            ],
             'meta_title',
             'meta_description',
             'meta_keywords'
@@ -94,5 +100,10 @@ class Product extends BaseModel
     public function getUrl()
     {
         return '/product/'.$this->slug;
+    }
+
+    public function setPropertiesAttribute ($value)
+    {
+        return;
     }
 }

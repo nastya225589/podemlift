@@ -44,6 +44,17 @@
                 </div>
             </div>
         </div>
+    @elseif($field['type'] == 'properties')
+        <div class="row">
+            <div class="col-md-12">
+                <label>{{ field_label($field) }}</label>
+                <div id="properties">
+                    <textarea options="{{ $field['options'] }}" name="{{ $field['name'] }}">
+                        {{$field['options']}}
+                    </textarea>
+                </div>
+            </div>
+        </div>
     @elseif($field['type'] == 'gallery')
         <div class="row">
             <div class="col-md-12">
