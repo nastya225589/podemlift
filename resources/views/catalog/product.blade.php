@@ -5,7 +5,7 @@
 @section('content')
     <div class="line"></div>
     <div class="container">
-        @include('blocks.breadcrumbs')
+        @include('blocks.breadcrumbs-product')
     </div>
     @include('blocks.product-card')
     @include('blocks.tabs')

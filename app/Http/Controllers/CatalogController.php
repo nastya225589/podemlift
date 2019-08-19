@@ -38,7 +38,7 @@ class CatalogController extends Controller
     {
         $product = Product::where('slug', $slug)->published()->firstOrFail();
         return view('catalog.product', [
-            'page' => $product
+            'product' => $product
         ]);
     }
 }
