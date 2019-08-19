@@ -52,5 +52,7 @@ Route::middleware(['web'])->group(function () {
         });
 
         Route::resource('client', add_controller_ns('ClientController'));
+
+        Route::resource('product-property', add_controller_ns('ProductPropertyController'));
     });
 });

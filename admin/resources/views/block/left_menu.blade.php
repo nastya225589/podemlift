@@ -16,6 +16,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('product-property.index') }}">
+            <i class="fas fa-box-open"></i>
+            Параметры продукции
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('product-category.index') }}">
             <i class="fas fa-box-open"></i>
             Категории продукции
