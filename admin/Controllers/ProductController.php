@@ -23,6 +23,7 @@ class ProductController extends BaseAdminController
     {
         $model = $this->model::create($request->all());
         $model->categories()->sync($request->category_ids);
+        $model->setProperties($request->properties);
         return redirect($this->redirectTo);
     }
 
@@ -31,6 +32,7 @@ class ProductController extends BaseAdminController
         $model = $this->model::findOrFail($id)->fill($request->all());
         $model->save();
         $model->categories()->sync($request->category_ids);
+        $model->setProperties($request->properties);
         return redirect($this->redirectTo);
     }
 }

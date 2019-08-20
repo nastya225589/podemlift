@@ -6,7 +6,7 @@ class Product extends BaseModel
 {
     public $category_ids = [];
 
-    protected $guarded = ['category_ids', 'created_at', 'updated_at'];
+    protected $guarded = ['category_ids', 'properties', 'created_at', 'updated_at'];
 
     protected $attributes = [
         'images' => '[]'
@@ -97,13 +97,30 @@ class Product extends BaseModel
         return $this->belongsToMany(ProductCategory::class, 'product_category_product');
     }
 
+    public function properties()
+    {
+        return $this->hasMany(ProductPropertyValue::class, 'product_id', 'id')
+            ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id');
+    }
+
     public function getUrl()
     {
         return '/product/'.$this->slug;
     }
 
-    public function setPropertiesAttribute ($value)
+    protected function setProperties(string $props)
     {
-        return;
+        $propsArray = [];
+        $props = json_decode($props);
+        foreach ($props as $prop) {
+            $arr = [];
+            $arr['property_id'] = $prop->property->value;
+            $arr['value'] = $prop->value;
+            array_push($propsArray, $arr);
+        }
+        $this->properties()->delete();
+        if ($propsArray) {
+            $this->properties()->createMany($propsArray);
+        }
     }
 }
