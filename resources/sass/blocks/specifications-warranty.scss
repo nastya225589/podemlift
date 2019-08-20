@@ -5,66 +5,43 @@
 
         @media (max-width: $screen-sm) {
             margin: 0;
-            width: 90%;
             padding: 6px 20px 0;
+            width: 100%;
+            box-sizing: border-box;
         }
     }
 
     &__item {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
         margin-bottom: 31px;
-        padding-left: 43px;
+    }
+
+    &__img {
+        width: 30px;
+        margin-right: 10px;
+
+        @media (max-width: $screen-xs) {
+            width: 20px;
+            margin-right: 5px;
+        }
+    }
+
+    &__name {
         font-size: $font-size--s;
         line-height: 160%;
         font-weight: 600;
-        position: relative;
 
-        &:before {
-            content: "";
-            position: absolute;
-            top: -5px;
-            left: 0;
-            width: 36px;
-            height: 36px;
+        @media (max-width: $screen-xs) {
+            font-size: $font-size;
         }
+    }
 
-        &--weight-kg:before {
-            width: 30px;
-            height: 37px;
-            background: url(/images/icon/weight-kg.svg);
-        }
-
-        &--measure:before {
-            background: url(/images/icon/measure.svg);
-        }
-
-        &--stopwatch:before {
-            background: url(/images/icon/stopwatch.svg);
-        }
-
-        &--paint-palette:before {
-            width: 30px;
-            height: 30px;
-            background: url(/images/icon/paint-palette.svg);
-        }
-
-        &--lightning:before {
-            width: 29px;
-            height: 29px;
-            background: url(/images/icon/lightning.svg);
-        }
-
-        &--file:before {
-            width: 30px;
-            background: url(/images/icon/file.svg);
-        }
-
-        &--file2:before {
-            width: 29px;
-            height: 37px;
-            background: url(/images/icon/file2.svg);
-        }
+    &__dots {
+        display: flex;
+        align-items: flex-end;
+        flex-grow: 1;
 
         span {
             font-size: $font-size--xs;
@@ -73,12 +50,6 @@
             font-weight: 400;
             white-space: nowrap;
         }
-    }
-
-    &__dots {
-        display: flex;
-        align-items: flex-end;
-        flex-grow: 1;
     }
 
     &__dot {

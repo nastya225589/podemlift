@@ -3812,8 +3812,9 @@ input[type=submit] {
   .specifications__list,
   .warranty__list {
     margin: 0;
-    width: 90%;
     padding: 6px 20px 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
@@ -3821,75 +3822,36 @@ input[type=submit] {
 .warranty__item {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   margin-bottom: 31px;
-  padding-left: 43px;
+}
+
+.specifications__img,
+.warranty__img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+@media (max-width: 480px) {
+  .specifications__img,
+  .warranty__img {
+    width: 20px;
+    margin-right: 5px;
+  }
+}
+
+.specifications__name,
+.warranty__name {
   font-size: 16px;
   line-height: 160%;
   font-weight: 600;
-  position: relative;
 }
 
-.specifications__item:before,
-.warranty__item:before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: 0;
-  width: 36px;
-  height: 36px;
-}
-
-.specifications__item--weight-kg:before,
-.warranty__item--weight-kg:before {
-  width: 30px;
-  height: 37px;
-  background: url(/images/icon/weight-kg.svg);
-}
-
-.specifications__item--measure:before,
-.warranty__item--measure:before {
-  background: url(/images/icon/measure.svg);
-}
-
-.specifications__item--stopwatch:before,
-.warranty__item--stopwatch:before {
-  background: url(/images/icon/stopwatch.svg);
-}
-
-.specifications__item--paint-palette:before,
-.warranty__item--paint-palette:before {
-  width: 30px;
-  height: 30px;
-  background: url(/images/icon/paint-palette.svg);
-}
-
-.specifications__item--lightning:before,
-.warranty__item--lightning:before {
-  width: 29px;
-  height: 29px;
-  background: url(/images/icon/lightning.svg);
-}
-
-.specifications__item--file:before,
-.warranty__item--file:before {
-  width: 30px;
-  background: url(/images/icon/file.svg);
-}
-
-.specifications__item--file2:before,
-.warranty__item--file2:before {
-  width: 29px;
-  height: 37px;
-  background: url(/images/icon/file2.svg);
-}
-
-.specifications__item span,
-.warranty__item span {
-  font-size: 12px;
-  line-height: 17px;
-  color: #828282;
-  font-weight: 400;
-  white-space: nowrap;
+@media (max-width: 480px) {
+  .specifications__name,
+  .warranty__name {
+    font-size: 14px;
+  }
 }
 
 .specifications__dots,
@@ -3897,6 +3859,15 @@ input[type=submit] {
   display: flex;
   align-items: flex-end;
   flex-grow: 1;
+}
+
+.specifications__dots span,
+.warranty__dots span {
+  font-size: 12px;
+  line-height: 17px;
+  color: #828282;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .specifications__dot,

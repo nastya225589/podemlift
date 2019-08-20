@@ -1,6 +1,7 @@
 <ul class="warranty__list">
-    <li class="warranty__item warranty__item--file">
-        Гарантийный срок (стандартный)
+    <li class="warranty__item">
+        <img class="warranty__img" src="/images/icon/file.svg" alt="">
+        <span class="warranty__name">Гарантийный срок (стандартный)</span>
         <div class="warranty__dots">
             <div class="warranty__dot"></div>
             <span>24 мес</span>
@@ -8,7 +9,8 @@
     </li>
 
     <li class="warranty__item warranty__item--file2">
-        Гарантийный срок (расширенный*)
+        <img class="warranty__img" src="/images/icon/file2.svg" alt="">
+        <span class="warranty__name">Гарантийный срок (расширенный*)</span>
         <div class="warranty__dots">
             <div class="warranty__dot"></div>
             <span>24 мес</span>
