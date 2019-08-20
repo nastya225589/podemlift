@@ -29,7 +29,7 @@ if (properties) {
   const textarea = properties.getElementsByTagName('textarea')[0];
   const props = {
     name: textarea.getAttribute('name'),
-    value: textarea.value.trim() || '[]',
+    value: JSON.parse(textarea.value.trim()) || [],
     options: JSON.parse(textarea.getAttribute('options')),
   };
   ReactDOM.render(<Properties {...props} />, properties);

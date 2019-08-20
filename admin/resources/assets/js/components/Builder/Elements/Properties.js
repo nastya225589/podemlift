@@ -7,14 +7,43 @@ export default class Properties extends Component {
     super(props);
 
     this.state = {
-      properties: [
-        {
-          property: {},
-          value: ''
-        }
-      ],
-      options: this.props.options
+      options: this.initOptionsState(),
+      properties: this.initPropertiesState()
     };
+  }
+
+  initPropertiesState = () => {
+    let properties = [];
+    this.props.value.forEach(element => {
+      const property = {
+        property: {
+          label: element.name,
+          value: element.property_id,
+          type: element.type
+        },
+        value: element.value
+      };
+      properties.push(property);
+    });    
+    return properties;
+  }
+
+  initOptionsState = () => {
+    let options = this.props.options;
+
+    this.props.value.forEach(element => {
+      const option = {
+        label: element.name,
+        value: element.property_id,
+        type: element.type
+      };
+      if (options.length) {
+        options = options.filter(function( obj ) {
+          return obj.value !== option.value;
+        });
+      }
+    });
+    return options;
   }
 
   properties = () => {    
@@ -89,7 +118,7 @@ export default class Properties extends Component {
     return array;
   }
 
-  render () {    
+  render () {
     return (
       <div className="item">
         <div className="content">

@@ -50,7 +50,7 @@
                 <label>{{ field_label($field) }}</label>
                 <div id="properties">
                     <textarea options="{{ $field['options'] }}" name="{{ $field['name'] }}">
-                        {{$field['options']}}
+                        {{ field_value($model, $field) ?? '[]' }}
                     </textarea>
                 </div>
             </div>
