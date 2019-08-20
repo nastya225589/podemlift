@@ -34,7 +34,7 @@ class RenderService implements RenderServiceInterface
         return $html;
     }
 
-    protected function renderBlock(object $item, array $nested = null): string
+    protected function renderBlock($item, array $nested = null): string
     {
         $view = 'builder.' . $item->type;
         return view()->exists($view) ? view($view, ['content' => $nested ?? $item->content])->render() : '';
