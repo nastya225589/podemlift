@@ -18,6 +18,7 @@ class CreateProductPropertiesTable extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('type');
+            $table->string('measure')->nullable();
             $table->integer('sort');
             $table->unsignedBigInteger('image_id')->nullable();
             $table->foreign('image_id')->references('id')->on('images');
