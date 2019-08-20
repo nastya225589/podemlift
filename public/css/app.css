@@ -400,6 +400,33 @@ input[type=submit] {
   background: transparent;
 }
 
+.btn-arrow {
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: relative;
+  width: 12px;
+  height: 7px;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.btn-arrow:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 7px;
+  background: url(/images/arrow-green.svg);
+}
+
+.btn-arrow:active,
+.btn-arrow:focus {
+  outline: none;
+}
+
 .header-top {
   background: #00922E;
 }
@@ -758,7 +785,7 @@ input[type=submit] {
 }
 
 .main-nav__item {
-  padding: 20px 18px;
+  padding: 20px 16px;
   position: relative;
   line-height: 1.3;
 }
@@ -766,23 +793,6 @@ input[type=submit] {
 @media (max-width: 768px) {
   .main-nav__item {
     padding: 10px 0;
-  }
-}
-
-.main-nav__item:before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 46%;
-  right: 0;
-  width: 12px;
-  height: 7px;
-}
-
-@media (max-width: 768px) {
-  .main-nav__item:before {
-    top: 17px;
-    right: 20px;
   }
 }
 
@@ -800,7 +810,7 @@ input[type=submit] {
 
 .main-nav__item--catalog {
   background: #F1F1F1;
-  padding: 20px 35px 20px 18px;
+  padding: 20px 16px;
 }
 
 @media (max-width: 768px) {
@@ -810,34 +820,39 @@ input[type=submit] {
   }
 }
 
-.main-nav__item--catalog:hover .submenu {
-  display: block;
-  z-index: 10;
-}
-
 .main-nav__item--catalog:hover:before {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
-.main-nav__item--catalog:before {
-  right: 18px;
-  background: url(/images/menu-arrow.svg?3ad3882e98a00cf30c179edc85f9849e);
-}
-
-.main-nav__item--submenu {
-  padding: 20px 35px 20px 18px;
+.main-nav__item--submenu .submenu {
+  padding: 0 20px;
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
-  .main-nav__item--submenu {
-    padding: 10px 0;
+  .main-nav__item--submenu .submenu {
+    width: 100%;
+    padding: 0;
   }
 }
 
-.main-nav__item--submenu:before {
-  right: 18px;
-  background: url(/images/menu-arrow.svg?3ad3882e98a00cf30c179edc85f9849e);
+.main-nav__item--submenu .submenu__item {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-nav__item--submenu .submenu__item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-nav__item--submenu .submenu__item {
+    width: 200px;
+  }
 }
 
 .main-nav__item--submenu:hover:after {
@@ -855,37 +870,13 @@ input[type=submit] {
           transform: rotate(180deg);
 }
 
-.main-nav__item--submenu:hover .submenu {
-  padding: 0 20px;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .main-nav__item--submenu:hover .submenu {
-    width: 100%;
-    padding: 0;
-  }
-}
-
-.main-nav__item--submenu:hover .submenu__item {
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .main-nav__item--submenu:hover .submenu__item {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-nav__item--submenu:hover .submenu__item {
-    width: 200px;
-  }
-}
-
 .main-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-nav__link a {
   font-size: 16px;
   line-height: normal;
   font-weight: bold;
@@ -893,9 +884,29 @@ input[type=submit] {
 }
 
 @media (max-width: 768px) {
-  .main-nav__link {
+  .main-nav__link a {
     padding: 0 20px;
   }
+}
+
+.main-nav__btn {
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .main-nav__btn {
+    margin-right: 20px;
+  }
+}
+
+.main-nav__btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 7px;
+  background: url(/images/menu-arrow.svg?3ad3882e98a00cf30c179edc85f9849e);
 }
 
 .submenu {
@@ -955,12 +966,6 @@ input[type=submit] {
   }
 }
 
-@media (max-width: 1000px) {
-  .submenu__list {
-    padding-right: 35px;
-  }
-}
-
 @media (max-width: 768px) {
   .submenu__list {
     padding-left: 30px;
@@ -999,44 +1004,27 @@ input[type=submit] {
   }
 }
 
-.submenu__item--arrow {
-  position: relative;
-}
-
-@media (max-width: 768px) {
-  .submenu__item--arrow:before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 17px;
-    right: -17px;
-    width: 12px;
-    height: 7px;
-  }
-
-  .submenu__item--arrow:before {
-    background: url(/images/menu-arrow.svg?3ad3882e98a00cf30c179edc85f9849e);
-  }
-}
-
 .submenu__item--head:hover:before {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
-@media (max-width: 768px) {
-  .submenu__item--head:hover .submenu-lev2 {
-    display: block;
-  }
-}
-
 .submenu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 12px;
   line-height: 1.3;
   color: #1C1C1C;
 }
 
-.submenu__link:hover {
+.submenu__link a {
+  font-size: 11px;
+  line-height: 1.3;
+  color: #1C1C1C;
+}
+
+.submenu__link a:hover {
   color: #00922E;
 }
 
@@ -1046,6 +1034,28 @@ input[type=submit] {
   line-height: normal;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+
+.submenu__btn {
+  margin-left: 5px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .submenu__btn {
+    margin-right: 20px;
+    display: block;
+  }
+}
+
+.submenu__btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 7px;
+  background: url(/images/menu-arrow.svg?3ad3882e98a00cf30c179edc85f9849e);
 }
 
 .submenu-lev2 {
@@ -1072,6 +1082,16 @@ input[type=submit] {
 
 .submenu-lev2 .submenu__item {
   padding: 5px 0;
+}
+
+.submenu-lev2 .submenu__link {
+  font-size: 12px;
+  line-height: 1.3;
+  color: #1C1C1C;
+}
+
+.submenu-lev2 .submenu__link:hover {
+  color: #00922E;
 }
 
 .promo {
@@ -4250,29 +4270,6 @@ input[type=submit] {
 .sidebar__btn {
   margin-top: 3px;
   padding: 0;
-  border: none;
-  background: transparent;
-  position: relative;
-  width: 16px;
-  height: 7px;
-  cursor: pointer;
-  box-sizing: border-box;
-  display: inline-block;
-}
-
-.sidebar__btn:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 12px;
-  height: 7px;
-  background: url(/images/arrow-green.svg);
-}
-
-.sidebar__btn:active,
-.sidebar__btn:focus {
-  outline: none;
 }
 
 .sidebar-submenu {

@@ -1,7 +1,10 @@
 <li class="main-nav__item {{ $menuItem->childrens->count() ? 'main-nav__item--submenu' : '' }}">
-    <a class="main-nav__link" href="{{ $menuItem->url }}">
-        {{ $menuItem->name_in_menu ?: $menuItem->name }}
-    </a>
+    <div class="main-nav__link">
+        <a href="{{ $menuItem->url }}">
+            {{ $menuItem->name_in_menu ?: $menuItem->name }}
+        </a>
+        <button class="btn-arrow main-nav__btn"></button>
+    </div>
 
     @if($menuItem->childrens->count())
         <div class="submenu">
