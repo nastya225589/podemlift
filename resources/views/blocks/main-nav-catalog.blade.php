@@ -5,17 +5,24 @@
 ?>
 
 <li class="main-nav__item main-nav__item--catalog">
-    <a class="main-nav__link main-nav__link--main" href="{{ $menuItem->url }}">
-        {{ $menuItem->name_in_menu ?: $menuItem->name }}
-    </a>
+    <div class="main-nav__link">
+        <a class="main-nav__link--main" href="{{ $menuItem->url }}">
+            {{ $menuItem->name_in_menu ?: $menuItem->name }}
+        </a>
+        <button class="btn-arrow main-nav__btn"></button>
+    </div>
+
     <div class="submenu">
         <div class="submenu__wrap">
             @foreach($mainProductCategories as $productCategory)
                 <ul class="submenu__list">
                     <li class="submenu__item submenu__item--head submenu__item--arrow">
-                        <a class="submenu__link submenu__link--head" href="{{ $productCategory->url }}">
-                            {{ $productCategory->name }}
-                        </a>
+                        <div class="submenu__link">
+                            <a class="submenu__link--head" href="{{ $productCategory->url }}">
+                                {{ $productCategory->name }}
+                            </a>
+                            <button class="btn-arrow submenu__btn"></button>
+                        </div>
                         <div class="submenu-lev2">
                             <ul class="submenu__list">
                                 @foreach($productCategory->childrens()->sorted()->get() as $productSubCategory)

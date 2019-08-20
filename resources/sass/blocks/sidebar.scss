@@ -36,29 +36,6 @@
     &__btn {
         margin-top: 3px;
         padding: 0;
-        border: none;
-        background: transparent;
-        position: relative;
-        width: 16px;
-        height: 7px;
-        cursor: pointer;
-        box-sizing: border-box;
-        display: inline-block;
-
-        &:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 12px;
-            height: 7px;
-            background: url(/images/arrow-green.svg);
-        }
-
-        &:active,
-        &:focus {
-            outline: none;
-        }
     }
 
     &-submenu {

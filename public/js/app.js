@@ -17025,12 +17025,14 @@ var Catalog = function Catalog() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Page; });
 /* harmony import */ var _partials_Menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../partials/Menu */ "./resources/js/partials/Menu.js");
-/* harmony import */ var _partials_MenuFooter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../partials/MenuFooter */ "./resources/js/partials/MenuFooter.js");
-/* harmony import */ var _partials_ExamplesSlider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../partials/ExamplesSlider */ "./resources/js/partials/ExamplesSlider.js");
-/* harmony import */ var _partials_ClientsSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../partials/ClientsSlider */ "./resources/js/partials/ClientsSlider.js");
-/* harmony import */ var _partials_Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../partials/Form */ "./resources/js/partials/Form.js");
-/* harmony import */ var _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../partials/ProductCardSlider */ "./resources/js/partials/ProductCardSlider.js");
+/* harmony import */ var _partials_Submenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../partials/Submenu */ "./resources/js/partials/Submenu.js");
+/* harmony import */ var _partials_MenuFooter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../partials/MenuFooter */ "./resources/js/partials/MenuFooter.js");
+/* harmony import */ var _partials_ExamplesSlider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../partials/ExamplesSlider */ "./resources/js/partials/ExamplesSlider.js");
+/* harmony import */ var _partials_ClientsSlider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../partials/ClientsSlider */ "./resources/js/partials/ClientsSlider.js");
+/* harmony import */ var _partials_Form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../partials/Form */ "./resources/js/partials/Form.js");
+/* harmony import */ var _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../partials/ProductCardSlider */ "./resources/js/partials/ProductCardSlider.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 
 
@@ -17043,11 +17045,12 @@ var Page = function Page() {
   _classCallCheck(this, Page);
 
   new _partials_Menu__WEBPACK_IMPORTED_MODULE_0__["default"]();
-  new _partials_MenuFooter__WEBPACK_IMPORTED_MODULE_1__["default"]();
-  new _partials_ExamplesSlider__WEBPACK_IMPORTED_MODULE_2__["default"]();
-  new _partials_ClientsSlider__WEBPACK_IMPORTED_MODULE_3__["default"]();
-  new _partials_Form__WEBPACK_IMPORTED_MODULE_4__["default"]();
-  new _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_5__["default"]();
+  new _partials_Submenu__WEBPACK_IMPORTED_MODULE_1__["default"]();
+  new _partials_MenuFooter__WEBPACK_IMPORTED_MODULE_2__["default"]();
+  new _partials_ExamplesSlider__WEBPACK_IMPORTED_MODULE_3__["default"]();
+  new _partials_ClientsSlider__WEBPACK_IMPORTED_MODULE_4__["default"]();
+  new _partials_Form__WEBPACK_IMPORTED_MODULE_5__["default"]();
+  new _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_6__["default"]();
 };
 
 
@@ -17320,6 +17323,7 @@ function () {
     _classCallCheck(this, Menu);
 
     this.initBurgerToggle();
+    this.initMenu();
   }
 
   _createClass(Menu, [{
@@ -17327,6 +17331,24 @@ function () {
     value: function initBurgerToggle() {
       $('.main-nav__toggle').on('click', function () {
         $('.main-nav, .main-nav__toggle').toggleClass('main-nav__open');
+      });
+    }
+  }, {
+    key: "initMenu",
+    value: function initMenu() {
+      var $catalogMenu = $('.main-nav');
+      var $firstLevelBtn = $catalogMenu.find('.main-nav__btn');
+      $firstLevelBtn.on('click', function (e) {
+        e.preventDefault();
+        var $targetSubmenu = $(this).closest('li').find('.submenu');
+        var $openedSubmenu = $catalogMenu.find('.submenu:visible').not($targetSubmenu);
+
+        if ($targetSubmenu.length) {
+          $targetSubmenu.slideToggle();
+          $openedSubmenu.slideToggle();
+        } else {
+          location.href = $(this).attr('href');
+        }
       });
     }
   }]);
@@ -17504,6 +17526,58 @@ var SortingView = function SortingView() {
 
 /***/ }),
 
+/***/ "./resources/js/partials/Submenu.js":
+/*!******************************************!*\
+  !*** ./resources/js/partials/Submenu.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Submenu; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Submenu =
+/*#__PURE__*/
+function () {
+  function Submenu() {
+    _classCallCheck(this, Submenu);
+
+    this.initSubmenu();
+  }
+
+  _createClass(Submenu, [{
+    key: "initSubmenu",
+    value: function initSubmenu() {
+      var $catalogMenu = $('.submenu');
+      var $firstLevelBtn = $catalogMenu.find('.submenu__btn');
+      $firstLevelBtn.on('click', function (e) {
+        e.preventDefault();
+        var $targetSubmenu = $(this).closest('li').find('.submenu-lev2');
+        var $openedSubmenu = $catalogMenu.find('.submenu-lev2:visible').not($targetSubmenu);
+
+        if ($targetSubmenu.length) {
+          $targetSubmenu.slideToggle();
+          $openedSubmenu.slideToggle();
+        } else {
+          location.href = $(this).attr('href');
+        }
+      });
+    }
+  }]);
+
+  return Submenu;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/js/partials/Tabs.js":
 /*!***************************************!*\
   !*** ./resources/js/partials/Tabs.js ***!
@@ -17556,9 +17630,9 @@ var Tabs = function Tabs() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/full/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/full/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/full/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
+__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
 
 
 /***/ })
