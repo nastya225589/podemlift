@@ -33,8 +33,8 @@
             </div>
             <div id="tabs-5">
                 <div class="products__wrap">
-                    @foreach(\App\Models\Product::limit(8)->get() as $product)
-                        @include('blocks.card')
+                    @foreach(\App\Models\Product::limit(8)->get() as $item)
+                        @include('blocks.card-grid')
                     @endforeach
                 </div>
             </div>
@@ -73,8 +73,8 @@
                     <div class="container">
                         <?php $products = \App\Models\Product::all() ?>
                         <div class="products__wrap">
-                            @foreach($products as $product)
-                                @include('blocks.card')
+                            @foreach($products as $similarProduct)
+                                @include('blocks.card-grid')
                             @endforeach
                         </div>
                     </div>
