@@ -36,6 +36,11 @@ class ProductProperty extends BaseModel
                 'name' => 'image_id',
                 'type' => 'image',
                 'label' => 'Картинка'
+            ],
+            [
+                'name' => 'measure',
+                'type' => 'input',
+                'label' => 'Единица измерения'
             ]
         ];
 
@@ -44,9 +49,6 @@ class ProductProperty extends BaseModel
 
     public function setImageIdAttribute($value)
     {
-        if ($value == '')
-            $this->attributes['image_id'] = null;
-        else
-            $this->attributes['image_id'] = $value;
+        $value == '' ? $this->attributes['image_id'] = null : $this->attributes['image_id'] = $value;
     }
 }
