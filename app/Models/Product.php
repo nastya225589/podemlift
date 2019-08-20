@@ -108,7 +108,7 @@ class Product extends BaseModel
         return '/product/'.$this->slug;
     }
 
-    protected function setProperties(string $props)
+    public function setProperties(string $props)
     {
         $propsArray = [];
         $props = json_decode($props);
