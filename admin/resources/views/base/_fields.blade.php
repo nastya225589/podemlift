@@ -38,7 +38,7 @@
             <div class="col-md-12">
                 <label>{{ field_label($field) }}</label>
                 <div id="builder">
-                    <textarea name="{{ $field['name'] }}">
+                    <textarea allowed="{{ isset($field['allowed']) ? json_encode($field['allowed']) : '' }}" name="{{ $field['name'] }}">
                         {{ field_value($model, $field) ?? '[]' }}
                     </textarea>
                 </div>

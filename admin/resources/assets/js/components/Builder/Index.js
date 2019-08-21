@@ -9,7 +9,8 @@ if (builder) {
   const textarea = builder.getElementsByTagName('textarea')[0];
   const props = {
     name: textarea.getAttribute('name'),
-    value: textarea.value.trim() || '[]'
+    value: textarea.value.trim() || '[]',
+    allowed: textarea.getAttribute('allowed')
   };
   ReactDOM.render(<Builder {...props} />, builder);
 }

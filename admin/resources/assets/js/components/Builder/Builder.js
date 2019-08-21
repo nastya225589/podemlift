@@ -7,19 +7,24 @@ import TwoCols from './Elements/TwoCols';
 import Images from './Elements/Images';
 import Subtitle from './Elements/Subtitle';
 import Header from './Elements/Header';
+import ProductFeatures from './Elements/ProductFeatures';
+import ProductEquipment from './Elements/ProductEquipment';
 
 export default class Builder extends Component {
   constructor (props) {
     super(props);
     this.state = { elements: JSON.parse(this.props.value) };
 
-    this.allowedElements = [
-      { type: 'tinymce', name: 'Текст' },
-      { type: 'two_cols', name: 'Две колонки' },
-      { type: 'images', name: 'Галерея' },
-      { type: 'header', name: 'Заголовок' },
-      { type: 'subtitle', name: 'Подзаголовок с картинкой' }
-    ];
+    this.allowedElements = this.initAllowedElementsState(allowedElements, this.props.allowed);
+  }
+
+  initAllowedElementsState = (elements, allowed) => {  
+    if (allowed.length) {
+      elements = elements.filter(function( obj ) {
+        return allowed.includes(obj.type);
+      });
+    }
+    return elements;
   }
 
   addElementButtonHandler = (index, type) => {
@@ -132,6 +137,18 @@ export default class Builder extends Component {
         onChange={this.headerHandler}
       />;
     }
+    if (element.type === 'product_features') {
+      return <ProductFeatures
+        index={index}
+        content={element.content}
+      />;
+    }
+    if (element.type === 'product_equipment') {
+      return <ProductEquipment
+        index={index}
+        content={element.content}
+      />;
+    }
   }
 
   elements () {
@@ -185,3 +202,13 @@ export default class Builder extends Component {
     );
   }
 }
+
+const allowedElements = [
+  { type: 'tinymce', name: 'Текст' },
+  { type: 'two_cols', name: 'Две колонки' },
+  { type: 'images', name: 'Галерея' },
+  { type: 'header', name: 'Заголовок' },
+  { type: 'subtitle', name: 'Подзаголовок с картинкой' },
+  { type: 'product_features', name: 'Преимущества продукта' },
+  { type: 'product_equipment', name: 'Оборудование продукта' },
+];

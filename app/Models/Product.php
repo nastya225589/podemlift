@@ -70,6 +70,17 @@ class Product extends BaseModel
                 'options' => ProductProperty::select('name AS label', 'id AS value', 'type')->get(),
                 'label' => 'Параметры'
             ],
+            [
+                'name' => 'info',
+                'type' => 'builder',
+                'label' => 'Информация об оборудовании',
+                'allowed' => [
+                    'tinymce',
+                    'header',
+                    'product_features',
+                    'product_equipment'
+                ]
+            ],
             'meta_title',
             'meta_description',
             'meta_keywords'
@@ -100,7 +111,8 @@ class Product extends BaseModel
     public function properties()
     {
         return $this->hasMany(ProductPropertyValue::class, 'product_id', 'id')
-            ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id');
+            ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
+            ->orderBy('sort');
     }
 
     public function getUrl()

@@ -37,7 +37,13 @@ class ProductCategory extends BaseModel
             [
                 'name' => 'content',
                 'type' => 'builder',
-                'label' => 'Текст'
+                'label' => 'Текст',
+                'allowed' => [
+                    'tinymce',
+                    'header',
+                    'subtitle',
+                    'two_cols'
+                ]
             ],
             'meta_title',
             'meta_description',
