@@ -16,8 +16,8 @@ export default class TinyMce extends Component {
       <Editor
         initialValue={this.props.value}
         init={{
-          plugins: 'link image code',
-          toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+          plugins: 'link image code lists',
+          toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | numlist bullist | code'
         }}
         onChange={this.handleEditorChange}
       />

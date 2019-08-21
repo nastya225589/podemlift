@@ -17504,6 +17504,7 @@ var SortingView = function SortingView() {
 
   this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
   $('.sorting-view__btn--line').on('click', function () {
+    if ($('.sorting-view__btn--line').hasClass('sorting-view__btn-view--active')) return;
     $('.products__wrap').toggleClass('products__sorting-view');
     $('.card').toggleClass('card__sorting-view');
     $('.sorting-view__btn--line').toggleClass('sorting-view__btn-view--active');
@@ -17512,6 +17513,7 @@ var SortingView = function SortingView() {
     _this.userConfig.setCookie('shorting_view_type', 'line');
   });
   $('.sorting-view__btn--grid').on('click', function () {
+    if ($('.sorting-view__btn--grid').hasClass('sorting-view__btn-view--active')) return;
     $('.products__wrap').removeClass('products__sorting-view');
     $('.card').removeClass('card__sorting-view');
     $('.sorting-view__btn--grid').toggleClass('sorting-view__btn-view--active');
@@ -17630,9 +17632,9 @@ var Tabs = function Tabs() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
+__webpack_require__(/*! /home/full/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/full/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/full/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
 
 
 /***/ })

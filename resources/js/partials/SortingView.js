@@ -5,6 +5,8 @@ export default class SortingView {
     this.userConfig = new UserConfig();
 
     $('.sorting-view__btn--line').on('click', () => {
+      if ($('.sorting-view__btn--line').hasClass('sorting-view__btn-view--active'))
+        return;
       $('.products__wrap').toggleClass('products__sorting-view');
       $('.card').toggleClass('card__sorting-view');
       $('.sorting-view__btn--line').toggleClass('sorting-view__btn-view--active');
@@ -13,6 +15,8 @@ export default class SortingView {
     });
 
     $('.sorting-view__btn--grid').on('click', () => {
+      if ($('.sorting-view__btn--grid').hasClass('sorting-view__btn-view--active'))
+        return;
       $('.products__wrap').removeClass('products__sorting-view');
       $('.card').removeClass('card__sorting-view');
       $('.sorting-view__btn--grid').toggleClass('sorting-view__btn-view--active');

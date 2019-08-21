@@ -34,10 +34,11 @@ class CatalogController extends Controller
         ]);
     }
 
-    public function product()
+    public function product($slug)
     {
+        $product = Product::where('slug', $slug)->published()->firstOrFail();
         return view('catalog.product', [
-            'page' => Product::published()->first()
+            'product' => $product
         ]);
     }
 }

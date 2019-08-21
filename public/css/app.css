@@ -2738,7 +2738,6 @@ input[type=submit] {
 
 .features__wrap {
   margin: 0 0 30px;
-  display: flex;
   align-items: center;
 }
 
