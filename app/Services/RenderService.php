@@ -23,7 +23,7 @@ class RenderService implements RenderServiceInterface
             if (in_array($item->type, $this->includingTypes) && !empty($item->content)) {
                 $nested = [];
                 foreach ($item->content as $nestedBlock)
-                    $nested[] = $this->renderBlock($nestedBlock);
+                    $nested[] = $this->renderBlock($nestedBlock, null, $type);
 
                 $html .= $this->renderBlock($item, $nested, $type);
             } else {
