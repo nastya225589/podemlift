@@ -6,7 +6,9 @@
                     <a href="{{ $productCategory->url }}">
                         {{ $productCategory->name }}
                     </a>
-                    <button class="btn-arrow sidebar__btn"></button>
+                    @if($productCategory->childrens()->count())
+                        <button class="btn-arrow sidebar__btn"></button>
+                    @endif
                 </div>
 
                 @if($productCategory->childrens()->count())
