@@ -42,7 +42,7 @@
     </div>
     <section class="features">
         <div class="container">
-            @builder($page->content)
+            @builder($page->content, 'category')
         </div>
     </section>
 
