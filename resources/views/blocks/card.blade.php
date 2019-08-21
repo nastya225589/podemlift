@@ -4,20 +4,20 @@
         <div>
             <h2 class="card__name">{{ $product->name }}</h2>
             <ul class="card__list">
-                <li class="card__item">
-                    <div>Грузоподъемность</div>
-                    <div class="card__dots">
-                        <div class="card__dot"></div>
-                        <div class="card__value">до 2000 кг</div>
-                    </div>
-                </li>
-                <li class="card__item">
-                    <div>Высота подъема</div>
-                    <div class="card__dots">
-                        <div class="card__dot"></div>
-                        <div class="card__value">до 50 м</div>
-                    </div>
-                </li>
+                @if(count($product->properties) > 5)
+                    @php($loopTo = 5)
+                @else
+                    @php($loopTo = count($product->properties))
+                @endif
+                @for($i = 0; $i < $loopTo; $i++)
+                    <li class="card__item">
+                        <div>{{ $product->properties[$i]->name }}</div>
+                        <div class="card__dots">
+                            <div class="card__dot"></div>
+                            <div class="card__value">{{ $product->properties[$i]->value . ' ' . $product->properties[$i]->measure }}</div>
+                        </div>
+                    </li>
+                @endfor
             </ul>
         </div>
     </a>

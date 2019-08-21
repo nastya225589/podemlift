@@ -73,7 +73,7 @@
                     <div class="container">
                         <?php $products = \App\Models\Product::all() ?>
                         <div class="products__wrap">
-                            @foreach($products as $similarProduct)
+                            @foreach($products as $item)
                                 @include('blocks.card-grid')
                             @endforeach
                         </div>
