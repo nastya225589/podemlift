@@ -6,14 +6,14 @@
                 <div class="product-card__proto">
                     @foreach($product->images() as $image)
                         <div class="product-card__img">
-                            <img src="{{ $image->url }}" alt="">
+                            <img src="{{ $image->size(600)->url }}" alt="">
                         </div>
                     @endforeach
                 </div>
                 <div class="product-card__proto-nav">
                     @foreach($product->images() as $image)
                         <div class="product-card__img">
-                            <img src="{{ $image->url }}" alt="">
+                            <img src="{{ $image->size(120)->url }}" alt="">
                         </div>
                     @endforeach
                 </div>
