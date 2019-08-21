@@ -62,13 +62,15 @@ export default class Properties extends Component {
   }
 
   addProperty = () => {
-    this.state.properties.push(
-        {
-          property: {},
-          value: ''
-        }
-    );    
-    this.setState({ properties: this.state.properties });
+    const properties = [
+      ...this.state.properties,
+      { property: {}, value: '' }
+    ];
+     
+    this.setState({ 
+      ...this.state,
+      properties
+    });
   }
 
   deleteButtonHandler = (index) => {
@@ -86,6 +88,8 @@ export default class Properties extends Component {
   handleInputChange = (index, value) => {
     this.state.properties[index].value = value;
     this.setState(() => ({ properties: this.state.properties }));
+    console.log(this.state);
+    
   }
 
   handleSelectChange = (index, value) => {

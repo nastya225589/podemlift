@@ -3,7 +3,7 @@ import Select from 'react-select'
 import Input from './Input'
 import DeleteButton from './DeleteButton'
 
-export default class Properties extends Component {
+export default class SinglePropery extends Component {
   constructor (props) {
     super(props);
   }

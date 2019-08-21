@@ -49,6 +49,6 @@ class ProductProperty extends BaseModel
 
     public function setImageIdAttribute($value)
     {
-        $value == '' ? $this->attributes['image_id'] = null : $this->attributes['image_id'] = $value;
+        $value == $this->attributes['image_id'] = $value ?: null;
     }
 }
