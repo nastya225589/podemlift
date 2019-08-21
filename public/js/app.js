@@ -17504,6 +17504,7 @@ var SortingView = function SortingView() {
 
   this.userConfig = new _config_UserConfig__WEBPACK_IMPORTED_MODULE_0__["default"]();
   $('.sorting-view__btn--line').on('click', function () {
+    if ($('.sorting-view__btn--line').hasClass('sorting-view__btn-view--active')) return;
     $('.products__wrap').toggleClass('products__sorting-view');
     $('.card').toggleClass('card__sorting-view');
     $('.sorting-view__btn--line').toggleClass('sorting-view__btn-view--active');
@@ -17512,6 +17513,7 @@ var SortingView = function SortingView() {
     _this.userConfig.setCookie('shorting_view_type', 'line');
   });
   $('.sorting-view__btn--grid').on('click', function () {
+    if ($('.sorting-view__btn--grid').hasClass('sorting-view__btn-view--active')) return;
     $('.products__wrap').removeClass('products__sorting-view');
     $('.card').removeClass('card__sorting-view');
     $('.sorting-view__btn--grid').toggleClass('sorting-view__btn-view--active');
