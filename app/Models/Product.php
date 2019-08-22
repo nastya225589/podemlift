@@ -81,6 +81,16 @@ class Product extends BaseModel
                     'product_equipment'
                 ]
             ],
+            [
+                'name' => 'warranty',
+                'type' => 'editor',
+                'label' => 'Информация о гарантии',
+            ],
+            [
+                'name' => 'delivery',
+                'type' => 'editor',
+                'label' => 'Информация о доставке и монтаже',
+            ],
             'meta_title',
             'meta_description',
             'meta_keywords'
@@ -107,6 +117,11 @@ class Product extends BaseModel
     {
         return $this->belongsToMany(ProductCategory::class, 'product_category_product');
     }
+    
+    public function similar()
+    {
+        return $this->belongsToMany(ProductCategory::class, 'product_category_product')->first();
+    }
 
     public function properties()
     {
@@ -128,6 +143,8 @@ class Product extends BaseModel
             $arr = [];
             $arr['property_id'] = $prop->property->value;
             $arr['value'] = $prop->value;
+            if (is_numeric($prop->value))
+                $arr['int_value'] = $prop->value;
             array_push($propsArray, $arr);
         }
         $this->properties()->delete();

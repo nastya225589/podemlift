@@ -1,5 +1,52 @@
 <form class="filters" id="filters-form">
     <button class="filters__btn-close btn"></button>
+    @foreach($filters as $key => $value)
+        @if($filters[$key]["type"] == 'text')
+            <fieldset>
+                <div class='field-checkbox'>
+                    <div class="field-checkbox__name">{{ $key }}</div>
+                    <div class="field-checkbox__checkbox-wrap">
+                        <div class="field-checkbox__checkbox" id="scope-checkbox">
+                            @foreach($value['values'] as $key => $value)
+                            <p>
+                                <input value="{{ $value }}" type="checkbox" id="{{ $value . $key }}" class="field-checkbox__input"
+                                    style="display:none">
+                                <label for="{{ $value . $key }}" class="field-checkbox__check">
+                                    <span>
+                                        <svg width="22px" height="15px">
+                                            <use xlink:href="#check">
+                                                <symbol id="check" viewBox="0 0 12 10">
+                                                    <polyline points="1.5 6 4.5 9 12.5 1"></polyline>
+                                                </symbol>
+                                            </use>
+                                        </svg>
+                                    </span>
+                                    <span>{{ $value }}</span>
+                                </label>
+                            </p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        @elseif($filters[$key]["type"] == 'number')
+            <fieldset>
+                <div class="field-weight">
+                    <div class="field-weight__name">{{ $key }}</div>
+                    <div class="field-weight__range-wrap">
+                        <div class="field-weight__range" id="weight-range">
+                            <div class="slider-item">
+                                <div class="wrap" style="--min: {{ $filters[$key]['values']['min'] }};--max: {{ $filters[$key]['values']['max'] }};--val: {{ $filters[$key]['values']['min'] }};">
+                                    <input min="{{ $filters[$key]['values']['min'] }}" max="{{ $filters[$key]['values']['max'] }}" id="range-input" class="slider" type="range" value="{{ $filters[$key]['values']['min'] }}" />
+                                    <output for="range-input">{{ $filters[$key]['values']['min'] }}</output>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        @endif
+    @endforeach
     <fieldset>
         <div class="field-weight">
             <div class="field-weight__name">Желаемый вес, кг</div>
@@ -7,7 +54,7 @@
                 <div class="field-weight__range" id="weight-range">
                     <div class="slider-item">
                         <div class="wrap" style="--min: 0;--max: 100;--val: 50;">
-                            <input id="range-input" class="slider"  type="range" value="50"/>
+                            <input id="range-input" class="slider" type="range" value="50" />
                             <output for="range-input">53</output>
                         </div>
                     </div>

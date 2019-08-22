@@ -11,9 +11,11 @@ class CatalogController extends Controller
 {
     public function index()
     {
+        $filters = $this->filterService->getFilters();
         return view('catalog.category', [
             'page' => $this->resource,
-            'products' => Product::paginate(UserConfig::getProductsPerPageCount())
+            'products' => Product::paginate(UserConfig::getProductsPerPageCount()),
+            'filters' => $filters
         ]);
     }
 
@@ -27,10 +29,13 @@ class CatalogController extends Controller
 
         if (!$category)
             abort(404, 'Страница не найдена');
+        
+        $filters = $this->filterService->getFilters($category);
 
         return view('catalog.category', [
             'page' => $category,
-            'products' => $category->products()->published()->paginate(UserConfig::getProductsPerPageCount())
+            'products' => $category->products()->published()->paginate(UserConfig::getProductsPerPageCount()),
+            'filters' => $filters
         ]);
     }
 
