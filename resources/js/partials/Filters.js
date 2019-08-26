@@ -10,7 +10,11 @@ export default class Filters {
 
     $('.filters__btn-clear_wrap').click(function(e) {
       e.preventDefault();
-      location = location.pathname;
+      const resetUrl = $('.filters__btn-clear_wrap').attr('reset');
+      if (resetUrl)
+        location = resetUrl;
+      else  
+        location = location.pathname;
     });
 
     const inputs = document.getElementsByClassName('range-input');

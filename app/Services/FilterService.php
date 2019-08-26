@@ -43,16 +43,6 @@ class FilterService implements FilterServiceInterface
         return $filters;
     }
 
-    public function getSinglePropertyRedirect($url, array $params)
-    {
-        if ($this->isSinglePropertyQuery($params)) {
-            if (is_countable($params[array_key_first($params)]))
-                return $url . '/' . array_key_first($params) . '/' . $params[array_key_first($params)][0];
-            else
-                return $url . '/' . array_key_first($params) . '/' . $params[array_key_first($params)];
-        }
-    }
-
     public function filter(array $params, $category = null)
     {
         if ($category)
@@ -120,17 +110,5 @@ class FilterService implements FilterServiceInterface
         $values['max'] = $query->max('int_value');
         $values['min'] = $query->min('int_value');
         return $values['min'] === $values['max'] ? null : $values;
-    }
-
-    protected function isSinglePropertyQuery($params)
-    {
-        if (count($params) === 1 
-            && array_key_first($params) !== 'page' 
-            && is_countable($params[array_key_first($params)]) 
-            && count($params[array_key_first($params)]) === 1)
-            return true;
-        elseif (count($params) === 1
-            && !is_countable($params[array_key_first($params)]))
-            return true;
     }
 }

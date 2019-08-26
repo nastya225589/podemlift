@@ -17262,7 +17262,8 @@ var Filters = function Filters() {
   });
   $('.filters__btn-clear_wrap').click(function (e) {
     e.preventDefault();
-    location = location.pathname;
+    var resetUrl = $('.filters__btn-clear_wrap').attr('reset');
+    if (resetUrl) location = resetUrl;else location = location.pathname;
   });
   var inputs = document.getElementsByClassName('range-input');
 

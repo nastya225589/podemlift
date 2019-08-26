@@ -10,14 +10,31 @@
                             @foreach($filter['values'] as $key => $value)
                             <p>
                                 @if(Request::get($filter['slug']))
-                                    <input {{ in_array($key, Request::get($filter['slug'])) ? 'checked' : '' }} value="{{ $key }}" name="{{ $filter['slug'].'[]' }}" type="checkbox" id="{{ $filter['slug'] . $key }}" class="field-checkbox__input"
-                                    style="display:none">
-                                @elseif(isset($singleValue))
-                                    <input {{ ($key === $singleValue && $filter['slug'] === $singleProperty) ? 'checked' : '' }} value="{{ $key }}" name="{{ $filter['slug'].'[]' }}" type="checkbox" id="{{ $filter['slug'] . $key }}" class="field-checkbox__input"
-                                    style="display:none">
+                                    <input 
+                                        {{ in_array($key, Request::get($filter['slug'])) ? 'checked' : '' }} 
+                                        value="{{ $key }}" 
+                                        name="{{ $filter['slug'].'[]' }}" 
+                                        type="checkbox" 
+                                        id="{{ $filter['slug'] . $key }}" 
+                                        class="field-checkbox__input"
+                                        style="display:none">
+                                @elseif(isset($singleValue) && isset($singleProperty))
+                                    <input 
+                                        {{ ($key === $singleValue && $filter['slug'] === $singleProperty) ? 'checked' : '' }} 
+                                        value="{{ $key }}" 
+                                        name="{{ $filter['slug'].'[]' }}" 
+                                        type="checkbox" 
+                                        id="{{ $filter['slug'] . $key }}" 
+                                        class="field-checkbox__input"
+                                        style="display:none">
                                 @else
-                                    <input value="{{ $key }}" name="{{ $filter['slug'].'[]' }}" type="checkbox" id="{{ $filter['slug'] . $key }}" class="field-checkbox__input"
-                                    style="display:none">
+                                    <input 
+                                        value="{{ $key }}" 
+                                        name="{{ $filter['slug'].'[]' }}" 
+                                        type="checkbox" 
+                                        id="{{ $filter['slug'] . $key }}" 
+                                        class="field-checkbox__input"
+                                        style="display:none">
                                 @endif
                                 <label for="{{ $filter['slug'] . $key }}" class="field-checkbox__check">
                                     <span>
@@ -44,10 +61,47 @@
                     <div class="field-weight__range-wrap">
                         <div class="field-weight__range" id="weight-range">
                             <div class="slider-item">
-                                <div class="wrap" style="--min: {{ $filter['values']['min'] }};--max: {{ $filter['values']['max'] }};--val: {{ Request::get($filter['slug']) ?: $filter['values']['max'] }};">
-                                    <input name="{{ Request::get($filter['slug']) ? $filter['slug'] : '' }}" slug="{{ $filter['slug'] }}" min="{{ $filter['values']['min'] }}" max="{{ $filter['values']['max'] }}" id="range-input" class="slider range-input" type="range" value="{{ Request::get($filter['slug']) ?: $filter['values']['max'] }}" />
-                                    <output for="range-input">{{ Request::get($filter['slug']) ?: $filter['values']['max'] }}</output>
-                                </div>
+                                @if(Request::get($filter['slug']))
+                                    <div class="wrap" style="--min: {{ $filter['values']['min'] }};--max: {{ $filter['values']['max'] }};--val: {{ Request::get($filter['slug']) }};">
+                                        <input 
+                                            value="{{ Request::get($filter['slug']) }}"
+                                            name="{{ Request::get($filter['slug']) ? $filter['slug'] : '' }}" 
+                                            slug="{{ $filter['slug'] }}" 
+                                            min="{{ $filter['values']['min'] }}" 
+                                            max="{{ $filter['values']['max'] }}" 
+                                            id="range-input" class="slider range-input" 
+                                            type="range" 
+                                        />
+                                        <output for="range-input">{{ Request::get($filter['slug']) }}</output>
+                                    </div>
+                                @elseif(isset($singleValue) && isset($singleProperty))
+                                    <div class="wrap" style="--min: {{ $filter['values']['min'] }};--max: {{ $filter['values']['max'] }};--val: {{ $filter['slug'] == $singleProperty ? $singleValue : $filter['values']['max'] }};">
+                                        <input 
+                                            value="{{ $filter['slug'] == $singleProperty ? $singleValue : $filter['values']['max'] }}"
+                                            name="{{ $filter['slug'] == $singleProperty ? $singleProperty : '' }}" 
+                                            slug="{{ $filter['slug'] }}" min="{{ $filter['values']['min'] }}" 
+                                            max="{{ $filter['values']['max'] }}" 
+                                            id="range-input" 
+                                            class="slider range-input" 
+                                            type="range"
+                                        />
+                                        <output for="range-input">{{ $filter['slug'] == $singleProperty ? $singleValue : $filter['values']['max'] }}</output>
+                                    </div>
+                                @else
+                                    <div class="wrap" style="--min: {{ $filter['values']['min'] }};--max: {{ $filter['values']['max'] }};--val: {{ $filter['values']['max'] }};">
+                                        <input 
+                                            name="" 
+                                            slug="{{ $filter['slug'] }}" 
+                                            min="{{ $filter['values']['min'] }}" 
+                                            max="{{ $filter['values']['max'] }}" 
+                                            id="range-input" 
+                                            class="slider range-input" 
+                                            type="range" 
+                                            value="{{ $filter['values']['max'] }}"
+                                        />
+                                        <output for="range-input">{{ $filter['values']['max'] }}</output>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -56,7 +110,7 @@
         @endif
     @endforeach
     <button class="btn filters__btn">Применить</button>
-    <div class="filters__btn-clear_wrap">
+    <div class="filters__btn-clear_wrap" reset="{{ isset($resetFiltersUrl) ? $resetFiltersUrl : '' }}">
         <span class="filters__btn-clear--icon"></span>
         <button class="btn filters__btn-clear">Сбросить фильтры</button>
     </div>
