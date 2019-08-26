@@ -8,15 +8,24 @@ export default class Filters {
       $('.catalog-menu').removeClass('catalog-menu--open');
     });
 
-    const input = document.getElementById('range-input');
-    if (input) {
-      const parent = input.parentNode;
-      const nextEl = input.nextElementSibling;
+    $('.filters__btn-clear_wrap').click(function(e) {
+      e.preventDefault();
+      location = location.pathname;
+    });
 
-      input.addEventListener('input', e => {
-        nextEl.value = input.value;
-        parent.style.setProperty('--val', +input.value);
-      }, false);
+    const inputs = document.getElementsByClassName('range-input');
+    if (inputs) {
+      for (let input of inputs) {
+        const parent = input.parentNode;
+        const nextEl = input.nextElementSibling;
+        const slug = input.getAttribute('slug');
+
+        input.addEventListener('input', e => {
+          nextEl.value = input.value;
+          input.setAttribute('name', slug);
+          parent.style.setProperty('--val', +input.value);
+        }, false);
+      }
     }
   }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
+
 class Product extends BaseModel
 {
     public $category_ids = [];
@@ -140,12 +142,15 @@ class Product extends BaseModel
         $propsArray = [];
         $props = json_decode($props);
         foreach ($props as $prop) {
-            $arr = [];
-            $arr['property_id'] = $prop->property->value;
-            $arr['value'] = $prop->value;
-            if (is_numeric($prop->value))
-                $arr['int_value'] = $prop->value;
-            array_push($propsArray, $arr);
+            if (isset($prop->property->value) && trim($prop->value)) {
+                $arr = [];
+                $arr['property_id'] = $prop->property->value;
+                $arr['value'] = trim($prop->value);
+                $arr['value_slug'] = Str::slug(trim($prop->value));
+                if (is_numeric($prop->value))
+                    $arr['int_value'] = $prop->value;
+                array_push($propsArray, $arr);
+            }
         }
         $this->properties()->delete();
         if ($propsArray) {
