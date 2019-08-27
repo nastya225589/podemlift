@@ -88,8 +88,6 @@ export default class Properties extends Component {
   handleInputChange = (index, value) => {
     this.state.properties[index].value = value;
     this.setState(() => ({ properties: this.state.properties }));
-    console.log(this.state);
-    
   }
 
   handleSelectChange = (index, value) => {

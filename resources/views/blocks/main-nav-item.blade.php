@@ -3,7 +3,9 @@
         <a href="{{ $menuItem->url }}">
             {{ $menuItem->name_in_menu ?: $menuItem->name }}
         </a>
-        <button class="btn-arrow main-nav__btn"></button>
+        @if($menuItem->childrens->count())
+            <button class="btn-arrow main-nav__btn"></button>
+        @endif
     </div>
 
     @if($menuItem->childrens->count())

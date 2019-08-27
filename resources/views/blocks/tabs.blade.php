@@ -2,12 +2,16 @@
     <div id="tabs" class="only-desktop">
         <div class="container">
             <ul class="tabs__list">
-                <li class="tabs__item">
-                    <a href="#tabs-1" class="tabs__name">Информация об оборудовании</a>
-                </li>
-                <li class="tabs__item">
-                    <a href="#tabs-2" class="tabs__name">Технические характеристики</a>
-                </li>
+                @if($product->info)
+                    <li class="tabs__item">
+                        <a href="#tabs-1" class="tabs__name">Информация об оборудовании</a>
+                    </li>
+                @endif
+                @if(count($product->properties))
+                    <li class="tabs__item">
+                        <a href="#tabs-2" class="tabs__name">Технические характеристики</a>
+                    </li>
+                @endif
                 <li class="tabs__item">
                     <a href="#tabs-3" class="tabs__name">Гарантия</a>
                 </li>
@@ -19,12 +23,16 @@
                 </li>
             </ul>
 
-            <div id="tabs-1">
-                @include('blocks.product-inform')
-            </div>
-            <div id="tabs-2">
-                @include('blocks.specifications')
-            </div>
+            @if($product->info)
+                <div id="tabs-1">
+                    @include('blocks.product-inform')
+                </div>
+            @endif
+            @if(count($product->properties))
+                <div id="tabs-2">
+                    @include('blocks.specifications')
+                </div>
+            @endif
             <div id="tabs-3">
                 @include('blocks.warranty')
             </div>
@@ -43,18 +51,22 @@
 
     <div id="tabs-mobile" class="only-mobile">
         <div class="tabs__list" id="accordion">
-            <h3  class="tabs__name">Информация об оборудовании</h3>
-            <div class="tabs__item">
-                <div class="tabs__block">
-                    @include('blocks.product-inform')
+            @if($product->info)
+                <h3  class="tabs__name">Информация об оборудовании</h3>
+                <div class="tabs__item">
+                    <div class="tabs__block">
+                        @include('blocks.product-inform')
+                    </div>
                 </div>
-            </div>
-            <h3  class="tabs__name">Технические характеристики</h3>
-            <div class="tabs__item">
-                <div class="tabs__block">
-                    @include('blocks.specifications')
+            @endif
+            @if(count($product->properties))
+                <h3  class="tabs__name">Технические характеристики</h3>
+                <div class="tabs__item">
+                    <div class="tabs__block">
+                        @include('blocks.specifications')
+                    </div>
                 </div>
-            </div>
+            @endif
             <h3  class="tabs__name">Гарантия</h3>
             <div class="tabs__item">
                 <div class="tabs__block">
