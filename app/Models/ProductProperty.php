@@ -51,4 +51,9 @@ class ProductProperty extends BaseModel
     {
         $value == $this->attributes['image_id'] = $value ?: null;
     }
+
+    public function values()
+    {
+        return $this->hasMany(ProductPropertyValue::class, 'property_id', 'id');
+    }
 }

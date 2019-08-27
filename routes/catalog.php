@@ -9,12 +9,7 @@ Route::get($resource->url, [
     'uses' => 'CatalogController@index'
 ]);
 
-Route::get($resource->url . '{url}/{property}/{value}', [
-    'resource' => $resource,
-    'uses' => 'CatalogController@singleFilterCategory'
-])->where('url', '[A-Za-z0-9/-]+');
-
 Route::get($resource->url . '{url}', [
     'resource' => $resource,
-    'uses' => 'CatalogController@category'
+    'uses' => 'CatalogController2@category'
 ])->where('url', '[A-Za-z0-9/-]+');
