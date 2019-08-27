@@ -17265,6 +17265,21 @@ var Filters = function Filters() {
     var resetUrl = $('.filters__btn-clear_wrap').attr('reset');
     if (resetUrl) location = resetUrl;else location = location.pathname;
   });
+  $('#filters-form').submit(function () {
+    var resetUrl = $('.filters__btn-clear_wrap').attr('reset');
+    var formQuery = '?' + $('#filters-form').serialize();
+
+    if (formQuery.split('&').length === 1) {
+      var propery = formQuery.split('=')[0];
+      var value = formQuery.split('=')[1];
+      if (propery.indexOf('%5B%5D') !== -1) propery = propery.replace('%5B%5D', '');
+      propery = propery.replace('?', '');
+      formQuery = '/' + propery + '/' + value;
+    }
+
+    if (resetUrl) window.location = (resetUrl + formQuery).replace('//', '/');else window.location = window.location.pathname + formQuery;
+    return false;
+  });
   var inputs = document.getElementsByClassName('range-input');
 
   if (inputs) {
@@ -17665,9 +17680,9 @@ var Tabs = function Tabs() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/full/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/full/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/full/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
+__webpack_require__(/*! /home/kirill/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/kirill/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/kirill/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
 
 
 /***/ })
