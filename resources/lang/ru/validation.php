@@ -166,6 +166,7 @@ return [
         'price'                 => 'Цена',
         'images'                => 'Изображения',
         'published'             => 'Опубликован',
-        'slug'                  => 'Url'
+        'slug'                  => 'Url',
+        'phone'                 => 'Номер телефона'
     ],
 ];

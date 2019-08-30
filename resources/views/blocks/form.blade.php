@@ -1,4 +1,5 @@
-<form id="form" class="form">
+<form id="form" class="form" method="post" action="/request-form/send">
+    @csrf
     <fieldset class="form__fieldset">
         <div class="form__title title-h2">Получить проект подъемника бесплатно</div>
         <p class="form__desc">Оставьте заявку и мы перезвоним вам в течение 15 минут</p>
@@ -7,14 +8,24 @@
                 <label class="field-text">
                     <span class="field-text__name">Ваше имя</span>
                     <span class="field-text__input-wrap">
-                      <input class="field-text__input" type="text" name="firstname" id="firstname" placeholder="">
+                      <input required value="{{ old('firstname') ?? null }}" class="field-text__input" type="text" name="firstname" id="firstname" placeholder="">
                     </span>
+                    @if ($errors->has('firstname'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('firstname') }}</strong>
+                        </span>
+                    @endif
                 </label>
                 <label class="field-text">
                     <span class="field-text__name">Номер телефона*</span>
                     <span class="field-text__input-wrap">
-                      <input class="field-text__input" type="tel" name="phone" id="phone" placeholder="">
+                      <input required  value="{{ old('firstname') ?? null }}"class="field-text__input" type="tel" name="phone" id="phone" placeholder="">
                     </span>
+                    @if ($errors->has('phone'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('phone') }}</strong>
+                        </span>
+                    @endif
                 </label>
             </div>
             <p class="form__text">Нажимая на кнопку «Отправить заявку» вы соглашаетесь с обработкой персональных данных</p>
