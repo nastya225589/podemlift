@@ -105,13 +105,10 @@ class Page extends BaseModel
 
     public function validatorRules($data)
     {
-        return [
-            'parent_id' => 'nullable|integer|exists:pages,id',
-            'published' => 'boolean',
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'fields' => 'array',
-        ];
+        $rules = parent::validatorRules($data);
+        return array_merge($rules, [
+            'parent_id' => 'nullable|integer|exists:pages,id'
+        ]);
     }
 
     public function image($imageName)

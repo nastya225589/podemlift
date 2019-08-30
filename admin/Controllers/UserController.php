@@ -24,17 +24,21 @@ class UserController extends BaseAdminController
 
     public function store(Request $request)
     {
+        $model = new $this->model;
+        $request->validate($model->validatorRules($request));
         $post = $request->all();
         $post['password'] = Hash::make($post['password']);
-        $this->model::create($post);
+        $model->create($post);
         return redirect($this->redirectTo);
     }
 
     public function update(Request $request, $id)
     {
+        $model = new $this->model;
+        $request->validate($model->validatorRules($request));
         $post = $request->all();
         $post['password'] = Hash::make($post['password']);
-        $this->model::findOrFail($id)->fill($post)->save();
+        $model->findOrFail($id)->fill($post)->save();
         return redirect($this->redirectTo);
     }
 }

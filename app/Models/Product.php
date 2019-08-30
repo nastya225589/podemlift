@@ -157,4 +157,14 @@ class Product extends BaseModel
             $this->properties()->createMany($propsArray);
         }
     }
+
+    public function validatorRules($data)
+    {
+        $rules = parent::validatorRules($data);
+        return array_merge($rules, [
+            'price' => 'required|float',
+            'category_ids' => 'required|array',
+            'category_ids.*' => 'integer'
+        ]);
+    }
 }

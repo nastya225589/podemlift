@@ -57,4 +57,12 @@ class SeoData extends BaseModel
         else
             $this->attributes['product_category_id'] = $value;
     }
+
+    public function validatorRules($data)
+    {
+        return [
+            'url' => 'required|string|max:255',
+            'meta_title' => 'required|string|max:255',
+        ];
+    }
 }

@@ -21,7 +21,9 @@ class ProductController extends BaseAdminController
 
     public function store(Request $request)
     {
-        $model = $this->model::create($request->all());
+        $model = new $this->model;
+        $request->validate($model->validatorRules($request));
+        $model->create($request->all());
         $model->categories()->sync($request->category_ids);
         $model->setProperties($request->properties);
         return redirect($this->redirectTo);
