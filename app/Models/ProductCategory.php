@@ -83,6 +83,11 @@ class ProductCategory extends BaseModel
         return $page->url . $url;
     }
 
+    public function seoData()
+    {
+        return $this->hasMany(SeoData::class);
+    }
+
     protected function childCategoriesProducts($childCategoriesIds)
     {
         return Product::join('product_category_product', 'products.id', 'product_category_product.product_id')

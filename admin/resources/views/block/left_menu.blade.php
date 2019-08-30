@@ -71,6 +71,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('seo-data.index') }}">
+            <i class="fas fa-users"></i>
+            SEO описания
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('log.index') }}">
             <i class="far fa-eye"></i>
             Лог изменений
