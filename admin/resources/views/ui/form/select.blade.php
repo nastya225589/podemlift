@@ -12,6 +12,10 @@
         {{ isset($required) ? 'required' :  '' }}
     >
 
+        @if (isset($data_placeholder) && $data_placeholder)
+            <option selected value="">{{ $data_placeholder }}</option>
+        @endif
+
         @if (isset($placeholder))
             <option selected value="">{{ $placeholder }}</option>
         @endif
@@ -19,6 +23,12 @@
         @if (!empty($default) && is_array($default))
             <option value="{{ key($default) }}">
                 {{ reset($default) }}
+            </option>
+        @endif
+
+        @if (Request::input($name))
+            <option selected value="{{ Request::input($name) }}">
+                {{ $options[Request::input($name)] }}
             </option>
         @endif
 

@@ -114,4 +114,11 @@
         <span class="filters__btn-clear--icon"></span>
         <button class="btn filters__btn-clear">Сбросить фильтры</button>
     </div>
+    @if(Auth::check() && isset($resetFiltersUrl))
+        @if($seoData)
+            <a href="/admin/seo-data/{{ $seoData->id }}/edit">Изменить мета-информацию</a>
+        @else
+            <a href="/admin/seo-data/create?product_category_id={{ $page instanceof App\Models\ProductCategory ? $page->id : '' }}&url=/{{ $singleProperty . '/' . $singleValue }}">Добавить мета-информацию</a>
+        @endif
+    @endif
 </form>

@@ -75,7 +75,8 @@
             'name'     => multi_name($field['name']),
             'options'  => $field['options'],
             'multiple' => isset($field['multi']) && $field['multi'] === true,
-            'value'    => field_value($model, $field)
+            'value'    => field_value($model, $field),
+            'data_placeholder' => isset($field['data_placeholder']) ? $field['data_placeholder'] : ''
         ])
     @elseif($field['type'] == 'checkbox')
         @checkbox([
