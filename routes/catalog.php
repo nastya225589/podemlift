@@ -11,5 +11,5 @@ Route::get($resource->url, [
 
 Route::get($resource->url . '{url}', [
     'resource' => $resource,
-    'uses' => 'CatalogController2@category'
+    'uses' => 'CatalogController@category'
 ])->where('url', '[A-Za-z0-9/-]+');
