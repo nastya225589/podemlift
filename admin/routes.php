@@ -55,5 +55,6 @@ Route::middleware(['web'])->group(function () {
 
         Route::resource('product-property', add_controller_ns('ProductPropertyController'));
         Route::resource('seo-data', add_controller_ns('SeoDataController'));
+        Route::resource('project-request', add_controller_ns('ProjectRequestController'));
     });
 });
