@@ -11,7 +11,7 @@
 	$environment  = isset($env) ? $env : array_get($deployConfig, 'default');
 	$beginOn      = microtime(true);
 
-	$db_remote = isset($db_remote) ? $db_remote : 'app_' . $environment;
+	$db_remote = isset($db_remote) ? $db_remote : 'pob_staging';
 	$db_user_remote = isset($db_user_remote) ? $db_user_remote : 'app_dbu';
 
 	$db_local = trim(explode('=', `cat .env | grep DB_DATABASE`)[1]);
