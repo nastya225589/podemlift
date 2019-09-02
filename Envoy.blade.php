@@ -403,7 +403,7 @@
 	psql -U {{ $db_user_remote }} -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = '{{ $db_remote }}' AND pid <> pg_backend_pid();" {{ $db_remote }}
 	dropdb -U postgres {{ $db_remote }}
 	createdb -U postgres {{ $db_remote }}
-	psql -U postgres -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO {{ $db_user_remote }};"  {{ $db_remote }}
+	psql -U postgres -d {{ $db_remote }} -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO {{ $db_user_remote }};"
 @endtask
 
 @task('db:import', ['on' => 'localhost'])
