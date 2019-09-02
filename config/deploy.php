@@ -4,7 +4,7 @@ return [
     /**
      * The name of the application.
      */
-    'name' => 'shreder',
+    'name' => 'pob',
 
     /**
      * The environment to use by default.
@@ -19,12 +19,12 @@ return [
             /**
              * SSH url to the server.
              */
-            'server' => 'pob.staging',
+            'server' => 'pob.molinos.dev',
 
             /**
              * The path on the remote server where the application should be deployed.
              */
-            'deploy_to' => '/home/app/staging',
+            'deploy_to' => '/home/app/laravel/pob',
 
             /**
              * URL to the repository.
@@ -65,18 +65,6 @@ return [
              * Temporary directory used during deployments to store data.
              */
             'tmp_dir' => '/tmp',
-        ],
-        'production' => [
-            'server' => 'pob.staging',
-            'deploy_to' => '/home/app/production',
-            'repo_url' => 'git@gitlab.molinos.ru:support/p-ob.ru.git',
-            'repo_branch' => 'master',
-            'commit_hash' => 'HEAD',
-            'repo_tree' => '',
-            'linked_files' => ['.env'],
-            'linked_dirs' => ['storage/logs', 'storage/app/public'],
-            'keep_releases' => 5,
-            'tmp_dir' => '/tmp',
-        ],
+        ]
     ],
 ];
