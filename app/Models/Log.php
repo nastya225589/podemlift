@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 class Log extends Model
 {
-
     protected $table = 'log';
 
     protected $attributes = [
@@ -34,8 +33,9 @@ class Log extends Model
     {
         $class = $this->model;
         $model = $class::where(['id' => $this->model_id])->first();
-        if ($model && $model->name)
+        if ($model && $model->name) {
             return $model->name;
+        }
 
         return "{$this->model}:{$this->model_id}";
     }
@@ -44,8 +44,9 @@ class Log extends Model
     {
         foreach ($data as $attribute => $value) {
             $data[$attribute] = self::tryJson($value);
-            if (is_array($data[$attribute]))
+            if (is_array($data[$attribute])) {
                 $data[$attribute] = self::toArrayRecursive($data[$attribute]);
+            }
         }
 
         return $data;
@@ -56,8 +57,9 @@ class Log extends Model
         if (is_string($data) &&
             ($decoded = json_decode($data)) &&
             json_last_error() === JSON_ERROR_NONE &&
-            (is_array($decoded) || is_object($decoded)))
+            (is_array($decoded) || is_object($decoded))) {
             return (array) $decoded;
+        }
 
         return is_object($data) ? (array) $data : $data;
     }
@@ -67,8 +69,9 @@ class Log extends Model
         $before = $after = [];
 
         foreach ($old as $ko => $vo) {
-            if (isset($new[$ko]) && $new[$ko] == $old[$ko])
+            if (isset($new[$ko]) && $new[$ko] == $old[$ko]) {
                 continue;
+            }
 
             if ($vo) {
                 $before[$ko] = (string) $vo;
@@ -77,8 +80,9 @@ class Log extends Model
         }
 
         foreach ($new as $kn => $vn) {
-            if (isset($old[$kn]) && $old[$kn] == $new[$kn])
+            if (isset($old[$kn]) && $old[$kn] == $new[$kn]) {
                 continue;
+            }
 
             if ($vn) {
                 $after[$kn] = (string) $vn;
@@ -88,19 +92,20 @@ class Log extends Model
 
         $out = [];
         $keys = array_keys($before);
-        foreach ($keys as $key)
+        foreach ($keys as $key) {
             $out[$key] = ['before' => $before[$key], 'after' => $after[$key]];
+        }
 
         return $out;
     }
 
     public static function model($new)
     {
-
         $class = get_class($new);
         $old = $class::where(['id' => $new->id])->first();
-        if (!$old || !Auth::id())
+        if (!$old || !Auth::id()) {
             return;
+        }
 
         $oldAttributes = self::toArrayRecursive($old->getAttributes());
         $oldAttributes = array_dot($oldAttributes);
@@ -109,8 +114,9 @@ class Log extends Model
 
         $data = self::compare($oldAttributes, $newAttributes);
 
-        if (!count($data))
+        if (!count($data)) {
             return;
+        }
 
         $log = new self();
         $log->fill([
@@ -122,5 +128,4 @@ class Log extends Model
 
         $log->save();
     }
-
 }

@@ -147,8 +147,9 @@ class Product extends BaseModel
                 $arr['property_id'] = $prop->property->value;
                 $arr['value'] = trim($prop->value);
                 $arr['value_slug'] = Str::slug(trim($prop->value));
-                if (is_numeric($prop->value))
+                if (is_numeric($prop->value)) {
                     $arr['int_value'] = $prop->value;
+                }
                 array_push($propsArray, $arr);
             }
         }

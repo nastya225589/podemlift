@@ -8,7 +8,6 @@ use App\Models\Image;
 
 class ImageController extends \Illuminate\Routing\Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');

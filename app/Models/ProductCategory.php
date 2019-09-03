@@ -65,10 +65,11 @@ class ProductCategory extends BaseModel
     public function products()
     {
         $childCategoriesIds = ProductCategory::where('parent_id', $this->id)->pluck('id');
-        if (count($childCategoriesIds))
+        if (count($childCategoriesIds)) {
             return $this->childCategoriesProducts($childCategoriesIds);
-        else
+        } else {
             return $this->belongsToMany(Product::class, 'product_category_product');
+        }
     }
 
     public function properties()

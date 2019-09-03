@@ -10,8 +10,9 @@ trait Columns
 
     public function columns()
     {
-        if ($this->columns)
+        if ($this->columns) {
             return $this->columns;
+        }
 
         $this->columns = Schema::getColumnListing($this->getTable());
 

@@ -1,96 +1,109 @@
 <?php
 
 if (!function_exists('add_controller_ns')) {
-    function add_controller_ns($route) {
+    function add_controller_ns($route)
+    {
         $controller = explode('@', $route)[0];
-        if (file_exists(app_path("Http/Controllers/Admin/{$controller}.php")))
+        if (file_exists(app_path("Http/Controllers/Admin/{$controller}.php"))) {
             return '\App\Http\Controllers\Admin\\' . $route;
+        }
 
         return '\Admin\Controllers\\' . $route;
     }
 }
 
 if (!function_exists('field_value')) {
-    function field_value($model, $field) {
+    function field_value($model, $field)
+    {
         $name = is_string($field) ? $field : $field['name'];
-        if (preg_match('/\[(\w+)\]\[(\w+)\]/', $name, $m))
+        if (preg_match('/\[(\w+)\]\[(\w+)\]/', $name, $m)) {
             $value = $model->{$m[1]}->{$m[2]} ?? '';
-        elseif (preg_match('/\[(\w+)\]/', $name, $m))
+        } elseif (preg_match('/\[(\w+)\]/', $name, $m)) {
             $value = $model->{$m[1]};
-        else
+        } else {
             $value = $model->{$name};
+        }
 
         return $value;
     }
 }
 
 if (!function_exists('field_label')) {
-    function field_label($field) {
-        if (is_string($field))
+    function field_label($field)
+    {
+        if (is_string($field)) {
             $label = title_case(str_replace('_', ' ', $field));
-        else
+        } else {
             $label = $field['label'] ?? title_case(str_replace('_', ' ', $field['name']));
+        }
 
         return $label;
     }
 }
 
 if (!function_exists('multi_name')) {
-    function multi_name($field) {
+    function multi_name($field)
+    {
         $name = is_string($field) ? $field : $field['name'];
-        if (preg_match('/\[(\w+)\]/', $name, $m))
+        if (preg_match('/\[(\w+)\]/', $name, $m)) {
             return $m[1];
+        }
 
-        if (preg_match('/(\w+)\[\]/', $name, $m))
+        if (preg_match('/(\w+)\[\]/', $name, $m)) {
             return $m[1];
+        }
 
         return $name;
     }
 }
 
 if (!function_exists('image')) {
-    function image($id) {
+    function image($id)
+    {
         return \App\Models\Image::findOrNew((int)$id);
     }
 }
 
 if (! function_exists('resize')) {
-    function resize($imageUrl, $width = null, $height = null, $byMaxSide = true) {
-
-        if ($width && $height)
+    function resize($imageUrl, $width = null, $height = null, $byMaxSide = true)
+    {
+        if ($width && $height) {
             $dir = $width . 'x' .$height;
-        elseif ($width && !$height)
+        } elseif ($width && !$height) {
             $dir = $width . 'x';
-        elseif (!$width && $height)
+        } elseif (!$width && $height) {
             $dir = 'x' .$height;
-        else
+        } else {
             throw new ErrorException('Width or height required.');
+        }
 
         $imagePath = preg_replace('~^/?storage/~', '', $imageUrl);
         $resizedPath = dirname($imagePath) . "/{$dir}/" . basename($imagePath);
 
         if (!Storage::disk('public')->exists($resizedPath)) {
-
-            if (Storage::disk('public')->exists($imagePath))
+            if (Storage::disk('public')->exists($imagePath)) {
                 $image = Storage::disk('public')->get($imagePath);
-            elseif (Storage::disk('local')->exists($imagePath))
+            } elseif (Storage::disk('local')->exists($imagePath)) {
                 $image = Storage::disk('local')->get($imagePath);
-            else
+            } else {
                 return $imageUrl;
+            }
 
             if ($width && $height) {
                 if ($byMaxSide) {
-                    if (Image::make($image)->width() > Image::make($image)->height())
+                    if (Image::make($image)->width() > Image::make($image)->height()) {
                         $resized = Image::make($image)->widen($width)->encode();
-                    else
+                    } else {
                         $resized = Image::make($image)->heighten($height)->encode();
+                    }
                 } else {
                     $resized = Image::make($image)->fit($width, $height)->encode();
                 }
-            } else
+            } else {
                 $resized = Image::make($image)->resize($width, $height, function ($constraint) {
                     $constraint->aspectRatio();
                 })->encode();
+            }
 
             Storage::disk('public')->put($resizedPath, $resized);
         }
@@ -100,8 +113,8 @@ if (! function_exists('resize')) {
 }
 
 if (! function_exists('heightByWidth')) {
-    function heightByWidth($imageUrl, $width, $default = null) {
-
+    function heightByWidth($imageUrl, $width, $default = null)
+    {
         $imagePath = preg_replace('~^/?storage/~', '', $imageUrl);
 
         $height = $default ?: $width;
@@ -118,8 +131,8 @@ if (! function_exists('heightByWidth')) {
 }
 
 if (! function_exists('imageSize')) {
-    function imageSize($imageUrl) {
-
+    function imageSize($imageUrl)
+    {
         $imagePath = preg_replace('~^/?storage/~', '', $imageUrl);
 
         if (Storage::disk('public')->exists($imagePath)) {
@@ -135,13 +148,15 @@ if (! function_exists('imageSize')) {
 }
 
 if (! function_exists('getParamIs')) {
-    function getParamIs($param, $value) {
+    function getParamIs($param, $value)
+    {
         return request()->get($param) == $value;
     }
 }
 
 if (! function_exists('selected')) {
-    function selected($param, $value) {
+    function selected($param, $value)
+    {
         return getParamIs($param, $value) ? 'selected' : '';
     }
 }

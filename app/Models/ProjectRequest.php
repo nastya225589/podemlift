@@ -18,8 +18,9 @@ class ProjectRequest extends BaseModel
         $googleRecaptchaSecret = Settings::where('name', 'GOOGLE_RECAPTCHA_SECRET')->first();
         $googleRecaptchaKey = Settings::where('name', 'GOOGLE_RECAPTCHA_KEY')->first();
         
-        if ($googleRecaptchaSecret->value && $googleRecaptchaKey->value)
+        if ($googleRecaptchaSecret->value && $googleRecaptchaKey->value) {
             $rules = array_merge($rules, ['g-recaptcha-response' => 'required|recaptcha']);
+        }
 
         return $rules;
     }

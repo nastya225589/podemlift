@@ -7,7 +7,6 @@ use App\Models\Log;
 
 class LogController extends BaseAdminController
 {
-
     public function index()
     {
         $models = Log::orderBy('id', 'desc')->paginate(50);
@@ -15,5 +14,4 @@ class LogController extends BaseAdminController
             'models' => $models
         ]);
     }
-
 }

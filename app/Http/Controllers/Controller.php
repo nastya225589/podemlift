@@ -22,5 +22,4 @@ class Controller extends BaseController
         $this->resource = isset($action['resource']) ? $action['resource'] : '';
         $this->filterService = $filterService;
     }
-
 }

@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 
 class Image extends Model
 {
-
     protected $fillable = [
         'parent_id', 'size', 'path', 'url', 'alt'
     ];
@@ -42,10 +41,11 @@ class Image extends Model
             'alt' => $alt
         ]);
 
-        if ($imageModel->save())
+        if ($imageModel->save()) {
             return $imageModel->getAttributes();
-        else
+        } else {
             return null;
+        }
     }
 
     public static function default()
@@ -59,14 +59,16 @@ class Image extends Model
     {
         $size = "{$width}x{$height}";
         $variant = $this->variants->where('size', $size)->first();
-        if ($variant)
+        if ($variant) {
             return $variant;
+        }
 
         $path = Storage::disk('public')->path('');
         $file = str_replace($path, '', $this->path);
 
-        if (!Storage::disk('public')->exists($file))
+        if (!Storage::disk('public')->exists($file)) {
             return self::default();
+        }
 
         $image = Storage::disk('public')->get($file);
         $image = $this->resize($image, $width, $height);
@@ -81,13 +83,16 @@ class Image extends Model
         return $this->hasMany(self::class, 'parent_id', 'id');
     }
 
-    public function resize($image, $width = null, $height = null) {
+    public function resize($image, $width = null, $height = null)
+    {
         $quality = 90;
-        if ($width < 150 || $height < 150)
+        if ($width < 150 || $height < 150) {
             $quality = 100;
+        }
 
-        if ($width && $height)
+        if ($width && $height) {
             return Resizer::make($image)->fit($width, $height)->encode(null, $quality);
+        }
 
         return Resizer::make($image)->resize($width, $height, function ($constraint) use ($quality) {
             $constraint->aspectRatio(null, $quality);

@@ -52,10 +52,11 @@ class SeoData extends BaseModel
 
     public function setProductCategoryIdAttribute($value)
     {
-        if (!$value)
+        if (!$value) {
             $this->attributes['product_category_id'] = null;
-        else
+        } else {
             $this->attributes['product_category_id'] = $value;
+        }
     }
 
     public function validatorRules($data)

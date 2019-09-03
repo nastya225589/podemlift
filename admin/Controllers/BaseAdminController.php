@@ -31,8 +31,9 @@ class BaseAdminController extends \Illuminate\Routing\Controller
 
         $this->route = Str::slug($this->name);
 
-        if (!$this->redirectTo && !app()->runningInConsole())
+        if (!$this->redirectTo && !app()->runningInConsole()) {
             $this->redirectTo = route("{$this->route}.index");
+        }
     }
 
     public function index()

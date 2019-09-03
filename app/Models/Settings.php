@@ -30,12 +30,14 @@ class Settings extends Model
     {
         $return = parent::getAttribute($key);
         if ($return === null) {
-            if (!$this->settings)
+            if (!$this->settings) {
                 $this->settings = self::all()->mapWithKeys(function ($model) {
                     return [$model->name => $model->value];
                 });
-            if (isset($this->settings[$key]))
+            }
+            if (isset($this->settings[$key])) {
                 $return = $this->settings[$key];
+            }
         }
         return $return;
     }

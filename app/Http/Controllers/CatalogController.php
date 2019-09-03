@@ -19,10 +19,11 @@ class CatalogController extends Controller
     {
         $params = $request->all();
 
-        if (count($params))
+        if (count($params)) {
             $products = $this->filterService->filter($params)->published()->paginate(UserConfig::getProductsPerPageCount());
-        else
+        } else {
             $products = Product::published()->paginate(UserConfig::getProductsPerPageCount());
+        }
 
         $filters = $this->filterService->getFilters();
 
@@ -50,19 +51,19 @@ class CatalogController extends Controller
         if ($this->urlProperty && $this->urlPropertyValue) {
             $products = $this->filterService->filterSingle($this->urlProperty->slug, $this->urlPropertyValue);
             $resetFiltersUrl = $this->resource->url . $this->withoutParametrizedUrl($url);
-            if ($category)
+            if ($category) {
                 $seoData = $category->seoData()->where('url', '/' . $this->urlProperty->slug . '/' . $this->urlPropertyValue)->first();
-            else {
+            } else {
                 $seoData = SeoData::where([
                     ['product_category_id', null],
                     ['url', '/' . $this->urlProperty->slug . '/' . $this->urlPropertyValue]
                 ])->first();
             }
-        }
-        else if (count($params))
+        } elseif (count($params)) {
             $products = $this->filterService->filter($params, $category);
-        else
+        } else {
             $products = $category->products();
+        }
 
         return view('catalog.category', [
             'page' => $category ?? $this->resource,
@@ -79,24 +80,29 @@ class CatalogController extends Controller
     {
         $withoutParametrizedUrl = $this->withoutParametrizedUrl($url);
         $category = ProductCategory::where('url', $url)->published()->first();
-        if (!$category && $this->isParametrizedUrl($url)){
+        if (!$category && $this->isParametrizedUrl($url)) {
             $category = ProductCategory::where('url', $withoutParametrizedUrl)->published()->first();
             
-            if (!$category && count(explode('/', $withoutParametrizedUrl)) <= 2)
+            if (!$category && count(explode('/', $withoutParametrizedUrl)) <= 2) {
                 return null;
+            }
         }
 
-        if (!$category)
+        if (!$category) {
             $this->tryRedirect($url);
+        }
 
-        if (!$category)
+        if (!$category) {
             $this->tryRedirect($withoutParametrizedUrl);
+        }
 
-        if (!$category && $this->isParametrizedUrl($url) && count(explode('/', $withoutParametrizedUrl)) <= 2)
+        if (!$category && $this->isParametrizedUrl($url) && count(explode('/', $withoutParametrizedUrl)) <= 2) {
             return null;
+        }
             
-        if (!$category)
+        if (!$category) {
             abort(404, 'Страница не найдена');
+        }
 
         return $category;
     }
@@ -113,15 +119,17 @@ class CatalogController extends Controller
     {
         $url = explode('/', trim($url, '/'));
         
-        if (count($url) <= 2)
+        if (count($url) <= 2) {
             return false;
+        }
 
         $paramValueSlug = array_pop($url);
         $paramSlug = array_pop($url);
 
         $this->urlProperty = ProductProperty::where('slug', $paramSlug)->first();
-        if (!$this->urlProperty)
+        if (!$this->urlProperty) {
             return false;
+        }
 
         $this->urlPropertyValue = $paramValueSlug;
 

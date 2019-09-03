@@ -14,9 +14,9 @@ class FilterService implements FilterServiceInterface
         if ($category) {
             $productIds = $category->products()->pluck('id');
             $properties = $category->properties;
-        }
-        else
+        } else {
             $productIds = Product::pluck('id');
+        }
 
         if (isset($properties) && count($properties)) {
             $filters = $category
@@ -36,33 +36,36 @@ class FilterService implements FilterServiceInterface
         foreach ($filters as $key => $filter) {
             if ($filter['type'] == 'text') {
                 $filters[$key]['values'] = $this->getCheckboxValues($productIds, $filter['name']);
-            }
-            else
+            } else {
                 $filters[$key]['values'] = $this->getRangeValues($productIds, $filter['name']);
+            }
         }
         return $filters;
     }
 
     public function filter(array $params, $category = null)
     {
-        if ($category)
+        if ($category) {
             $query = $category->products();
-        else
+        } else {
             $query = Product::query();
+        }
 
         foreach ($params as $key => $value) {
-            if ($key !== 'page')
+            if ($key !== 'page') {
                 $this->queryByFilter($key, $value, $query);
+            }
         }
         return $query;
     }
 
     public function filterSingle($property, $value, $category = null)
     {
-        if ($category)
+        if ($category) {
             $query = $category->products();
-        else
+        } else {
             $query = Product::query();
+        }
         
         $values[] = $value;
         $this->queryByFilter($property, $values, $query);
@@ -72,10 +75,11 @@ class FilterService implements FilterServiceInterface
     protected function queryByFilter($filterName, $value, $query)
     {
         $type = ProductProperty::select('type')->where('slug', $filterName)->pluck('type');
-        if (count($type))
+        if (count($type)) {
             $type = $type[0];
-        else
+        } else {
             return;
+        }
 
         if ($type === 'text') {
             $query = $query->whereHas('properties.property', function ($query) use ($filterName, $value) {
