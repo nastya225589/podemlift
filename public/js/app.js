@@ -17267,17 +17267,21 @@ var Filters = function Filters() {
   });
   $('#filters-form').submit(function () {
     var resetUrl = $('.filters__btn-clear_wrap').attr('reset');
-    var formQuery = '?' + $('#filters-form').serialize();
+    var formQuery = '';
 
-    if (formQuery.split('&').length === 1) {
-      var propery = formQuery.split('=')[0];
-      var value = formQuery.split('=')[1];
-      if (propery.indexOf('%5B%5D') !== -1) propery = propery.replace('%5B%5D', '');
-      propery = propery.replace('?', '');
-      formQuery = '/' + propery + '/' + value;
+    if ($('#filters-form').serialize()) {
+      formQuery = '?' + $('#filters-form').serialize();
+
+      if (formQuery.split('&').length === 1) {
+        var propery = formQuery.split('=')[0];
+        var value = formQuery.split('=')[1];
+        if (propery.indexOf('%5B%5D') !== -1) propery = propery.replace('%5B%5D', '');
+        propery = propery.replace('?', '');
+        formQuery = '/' + propery + '/' + value;
+      }
     }
 
-    if (resetUrl) window.location = (resetUrl + formQuery).replace('//', '/');else window.location = window.location.pathname + formQuery;
+    if (resetUrl) window.location = resetUrl + formQuery;else window.location = window.location.pathname + formQuery;
     return false;
   });
   var inputs = document.getElementsByClassName('range-input');
