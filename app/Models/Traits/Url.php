@@ -21,38 +21,45 @@ trait Url
 
     public function updateChildrensUrl()
     {
-        if (array_diff(['url', 'slug', 'parent_id'], $this->columns()))
+        if (array_diff(['url', 'slug', 'parent_id'], $this->columns())) {
             return;
+        }
 
-        if (count($this->childrens))
-            foreach ($this->childrens as $children)
-                if ($children->url != $children->fullUrl())
+        if (count($this->childrens)) {
+            foreach ($this->childrens as $children) {
+                if ($children->url != $children->fullUrl()) {
                     $children->save();
+                }
+            }
+        }
     }
 
     public function updateUrl()
     {
         $tableIsUrlable = array_diff(['url', 'slug', 'parent_id'], $this->columns());
 
-        if ($tableIsUrlable)
+        if ($tableIsUrlable) {
             return;
+        }
 
         $newUrl = $this->fullUrl();
 
-        if ($newUrl != $this->url)
+        if ($newUrl != $this->url) {
             $this->saveRedirect();
+        }
 
         $this->url = $newUrl;
     }
 
     public function saveRedirect()
     {
-        if ($this->id && $this->url)
+        if ($this->id && $this->url) {
             Redirect::firstOrCreate([
                 'from' => $this->url,
                 'model' => static::class,
                 'model_id' => $this->id
             ]);
+        }
     }
 
     public function fullUrl()
@@ -61,8 +68,9 @@ trait Url
         $parent = $this->parent;
         while ($parent) {
             $slug = trim($parent->slug, '/');
-            if (!empty($slug))
+            if (!empty($slug)) {
                 $url = '/' . $slug . $url;
+            }
             $parent = $parent->parent;
         }
 

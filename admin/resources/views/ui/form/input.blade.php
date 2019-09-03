@@ -9,7 +9,7 @@
            class="form-control {{ $class ?? '' }}"
            placeholder="{{ $placeholder ?? '' }}"
            name="{{ $name }}"
-           value="{{ old($name, $value ?? null) }}"
+           value="{{ old($name, $value ?? Request::get($name) ?: null) }}"
             {{ isset($step)&&!empty($step) ? "step=$step" : '' }}
             {{ isset($min)&&!empty($min) ? "min=$min" : '' }}
             {{ isset($required)&&!empty($required) ? "required" :  '' }}

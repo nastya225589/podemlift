@@ -18,4 +18,15 @@ class BaseModel extends \Illuminate\Database\Eloquent\Model
     protected $casts = [
         'published' => 'boolean',
     ];
+
+    public function validatorRules($data)
+    {
+        return [
+            'name' => 'required|string|max:255',
+            'published' => 'boolean',
+            'slug' => 'nullable|string|max:255',
+            'fields' => 'array',
+            'images' => 'array',
+        ];
+    }
 }

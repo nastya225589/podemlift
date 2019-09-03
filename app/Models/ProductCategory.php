@@ -4,6 +4,8 @@ namespace App\Models;
 
 class ProductCategory extends BaseModel
 {
+    protected $guarded = ['property_ids'];
+
     public $logFields = [
         'parent_id',
         'sort',
@@ -35,6 +37,13 @@ class ProductCategory extends BaseModel
                 'label' => 'Url'
             ],
             [
+                'name' => 'property_ids',
+                'type' => 'select',
+                'options' => ProductProperty::pluck('name', 'id'),
+                'multi' => true,
+                'label' => 'Фильтры'
+            ],
+            [
                 'name' => 'content',
                 'type' => 'builder',
                 'label' => 'Текст',
@@ -56,10 +65,16 @@ class ProductCategory extends BaseModel
     public function products()
     {
         $childCategoriesIds = ProductCategory::where('parent_id', $this->id)->pluck('id');
-        if (count($childCategoriesIds))
+        if (count($childCategoriesIds)) {
             return $this->childCategoriesProducts($childCategoriesIds);
-        else
+        } else {
             return $this->belongsToMany(Product::class, 'product_category_product');
+        }
+    }
+
+    public function properties()
+    {
+        return $this->belongsToMany(ProductProperty::class, 'product_category_product_property');
     }
 
     public function fullUrl()
@@ -67,6 +82,11 @@ class ProductCategory extends BaseModel
         $url = parent::fullUrl();
         $page = Page::where('behavior', 'catalog')->first();
         return $page->url . $url;
+    }
+
+    public function seoData()
+    {
+        return $this->hasMany(SeoData::class);
     }
 
     protected function childCategoriesProducts($childCategoriesIds)

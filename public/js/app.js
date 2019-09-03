@@ -17260,15 +17260,67 @@ var Filters = function Filters() {
   $('.filters__btn-close').on('click', function () {
     $('.catalog-menu').removeClass('catalog-menu--open');
   });
-  var input = document.getElementById('range-input');
+  $('.filters__btn-clear_wrap').click(function (e) {
+    e.preventDefault();
+    var resetUrl = $('.filters__btn-clear_wrap').attr('reset');
+    if (resetUrl) location = resetUrl;else location = location.pathname;
+  });
+  $('#filters-form').submit(function () {
+    var resetUrl = $('.filters__btn-clear_wrap').attr('reset');
+    var formQuery = '';
 
-  if (input) {
-    var parent = input.parentNode;
-    var nextEl = input.nextElementSibling;
-    input.addEventListener('input', function (e) {
-      nextEl.value = input.value;
-      parent.style.setProperty('--val', +input.value);
-    }, false);
+    if ($('#filters-form').serialize()) {
+      formQuery = '?' + $('#filters-form').serialize();
+
+      if (formQuery.split('&').length === 1) {
+        var propery = formQuery.split('=')[0];
+        var value = formQuery.split('=')[1];
+        if (propery.indexOf('%5B%5D') !== -1) propery = propery.replace('%5B%5D', '');
+        propery = propery.replace('?', '');
+        formQuery = '/' + propery + '/' + value;
+      }
+    }
+
+    if (resetUrl) window.location = resetUrl + formQuery;else window.location = window.location.pathname + formQuery;
+    return false;
+  });
+  var inputs = document.getElementsByClassName('range-input');
+
+  if (inputs) {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      var _loop = function _loop() {
+        var input = _step.value;
+        var parent = input.parentNode;
+        var nextEl = input.nextElementSibling;
+        var slug = input.getAttribute('slug');
+        input.addEventListener('input', function (e) {
+          nextEl.value = input.value;
+          input.setAttribute('name', slug);
+          parent.style.setProperty('--val', +input.value);
+        }, false);
+      };
+
+      for (var _iterator = inputs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        _loop();
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
   }
 };
 

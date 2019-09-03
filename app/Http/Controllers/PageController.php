@@ -21,11 +21,13 @@ class PageController extends Controller
         $url = '/' . $url;
         $page = Page::where('url', $url)->published()->first();
 
-        if (!$page && ($redirect = Redirect::getRedirect($url)))
+        if (!$page && ($redirect = Redirect::getRedirect($url))) {
             return redirect($redirect[0], $redirect[1]);
+        }
 
-        if (!$page)
+        if (!$page) {
             abort(404, 'Страница не найдена');
+        }
 
         return view('page.show', ['page' => $page]);
     }

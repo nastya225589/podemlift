@@ -56,7 +56,7 @@ class Page extends BaseModel
             ]
         ];
 
-        if ($this->behavior == 'main')
+        if ($this->behavior == 'main') {
             $fields = array_merge($fields, [
                 [
                     'name' => 'fields[main_image]',
@@ -79,6 +79,7 @@ class Page extends BaseModel
                     'label' => 'Заголовок текста'
                 ],
             ]);
+        }
 
         $fields = array_merge($fields, [
             [
@@ -97,21 +98,19 @@ class Page extends BaseModel
     public function getAttribute($key)
     {
         $return = parent::getAttribute($key);
-        if ($return === null && isset($this->fields[$key]))
+        if ($return === null && isset($this->fields[$key])) {
             $return = $this->fields[$key];
+        }
 
         return $return;
     }
 
     public function validatorRules($data)
     {
-        return [
-            'parent_id' => 'nullable|integer|exists:pages,id',
-            'published' => 'boolean',
-            'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'fields' => 'array',
-        ];
+        $rules = parent::validatorRules($data);
+        return array_merge($rules, [
+            'parent_id' => 'nullable|integer|exists:pages,id'
+        ]);
     }
 
     public function image($imageName)
@@ -121,11 +120,13 @@ class Page extends BaseModel
 
     public function firstImage($default = '')
     {
-        if (!empty($this->image))
+        if (!empty($this->image)) {
             return $this->image;
+        }
 
-        if (!empty($this->images) && $this->images->first()->image)
+        if (!empty($this->images) && $this->images->first()->image) {
             return $this->images->first()->image;
+        }
 
         return $default;
     }

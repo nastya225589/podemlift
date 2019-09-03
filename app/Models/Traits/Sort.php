@@ -17,8 +17,9 @@ trait Sort
         $tableHasSort = in_array('sort', $this->columns());
         $tableHasParentId = in_array('parent_id', $this->columns());
 
-        if (!$tableHasSort)
+        if (!$tableHasSort) {
             return;
+        }
 
         $max = static::when($tableHasParentId, function ($q) use ($parentId) {
             return $q->where('parent_id', $parentId);

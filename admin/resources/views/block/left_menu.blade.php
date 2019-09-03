@@ -57,6 +57,12 @@
             Клиенты
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('project-request.index') }}">
+            <i class="fas fa-comment-dots"></i>
+            Заявки на проект
+        </a>
+    </li>
 </ul>
 
 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -68,6 +74,12 @@
         <a class="nav-link" href="{{ route('user.index') }}">
             <i class="fas fa-users"></i>
             Пользователи
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('seo-data.index') }}">
+            <i class="fas fa-users"></i>
+            SEO описания
         </a>
     </li>
     <li class="nav-item">

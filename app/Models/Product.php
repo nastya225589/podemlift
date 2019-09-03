@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
+
 class Product extends BaseModel
 {
     public $category_ids = [];
@@ -81,6 +83,16 @@ class Product extends BaseModel
                     'product_equipment'
                 ]
             ],
+            [
+                'name' => 'warranty',
+                'type' => 'editor',
+                'label' => 'Информация о гарантии',
+            ],
+            [
+                'name' => 'delivery',
+                'type' => 'editor',
+                'label' => 'Информация о доставке и монтаже',
+            ],
             'meta_title',
             'meta_description',
             'meta_keywords'
@@ -107,6 +119,11 @@ class Product extends BaseModel
     {
         return $this->belongsToMany(ProductCategory::class, 'product_category_product');
     }
+    
+    public function similar()
+    {
+        return $this->belongsToMany(ProductCategory::class, 'product_category_product')->first();
+    }
 
     public function properties()
     {
@@ -125,14 +142,30 @@ class Product extends BaseModel
         $propsArray = [];
         $props = json_decode($props);
         foreach ($props as $prop) {
-            $arr = [];
-            $arr['property_id'] = $prop->property->value;
-            $arr['value'] = $prop->value;
-            array_push($propsArray, $arr);
+            if (isset($prop->property->value) && trim($prop->value)) {
+                $arr = [];
+                $arr['property_id'] = $prop->property->value;
+                $arr['value'] = trim($prop->value);
+                $arr['value_slug'] = Str::slug(trim($prop->value));
+                if (is_numeric($prop->value)) {
+                    $arr['int_value'] = $prop->value;
+                }
+                array_push($propsArray, $arr);
+            }
         }
         $this->properties()->delete();
         if ($propsArray) {
             $this->properties()->createMany($propsArray);
         }
+    }
+
+    public function validatorRules($data)
+    {
+        $rules = parent::validatorRules($data);
+        return array_merge($rules, [
+            'price' => 'required|float',
+            'category_ids' => 'required|array',
+            'category_ids.*' => 'integer'
+        ]);
     }
 }

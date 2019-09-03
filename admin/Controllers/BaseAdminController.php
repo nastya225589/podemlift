@@ -31,8 +31,9 @@ class BaseAdminController extends \Illuminate\Routing\Controller
 
         $this->route = Str::slug($this->name);
 
-        if (!$this->redirectTo && !app()->runningInConsole())
+        if (!$this->redirectTo && !app()->runningInConsole()) {
             $this->redirectTo = route("{$this->route}.index");
+        }
     }
 
     public function index()
@@ -57,7 +58,9 @@ class BaseAdminController extends \Illuminate\Routing\Controller
 
     public function store(Request $request)
     {
-        $this->model::create($request->all());
+        $model = new $this->model;
+        $request->validate($model->validatorRules($request));
+        $model->create($request->all());
         return redirect($this->redirectTo);
     }
 
@@ -83,7 +86,9 @@ class BaseAdminController extends \Illuminate\Routing\Controller
 
     public function update(Request $request, $id)
     {
-        $this->model::findOrFail($id)->fill($request->all())->save();
+        $model = new $this->model;
+        $request->validate($model->validatorRules($request));
+        $model->findOrFail($id)->fill($request->all())->save();
         return redirect($this->redirectTo);
     }
 

@@ -5,7 +5,15 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        @if(isset($page))
+        @if(isset($seoData))
+            <title>{{ $seoData->meta_title ?: $page->name }}</title>
+            @if ($seoData->meta_description)
+                <meta content="{{ $seoData->meta_description }}" name="description">
+            @endif
+            @if ($seoData->meta_keywords)
+                <meta content="{{ $seoData->meta_keywords }}" name="keywords">
+            @endif
+        @elseif(isset($page))
             <title>{{ $page->meta_title ?: $page->name }}</title>
             @if ($page->meta_description)
                 <meta content="{{ $page->meta_description }}" name="description">
@@ -28,7 +36,7 @@
 
             @include('blocks.footer')
         </div>
-
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>

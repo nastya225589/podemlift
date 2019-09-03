@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 class NestableController extends \Illuminate\Routing\Controller
 {
-
     private $class;
     private $request;
 
@@ -19,16 +18,19 @@ class NestableController extends \Illuminate\Routing\Controller
 
     public function save()
     {
-        foreach($this->request->data as $index => $item)
+        foreach ($this->request->data as $index => $item) {
             $this->store($item, $index);
+        }
     }
 
     private function store($item, $index, $parent = null)
     {
         $this->class::find($item['id'])->fill(['sort' => $index, 'parent_id' => $parent])->save();
-        if (!empty($item['children']))
-            foreach ($item['children'] as $index => $child)
+        if (!empty($item['children'])) {
+            foreach ($item['children'] as $index => $child) {
                 $this->store($child, $index, $item['id']);
+            }
+        }
     }
 
     private function ns($resource)

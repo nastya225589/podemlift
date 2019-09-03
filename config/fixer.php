@@ -5,7 +5,7 @@ return [
         'psr0' => false,
         '@PSR2' => true,
         'blank_line_after_namespace' => true,
-        'braces' => false,
+        'braces' => true,
         'class_definition' => true,
         'elseif' => true,
         'function_declaration' => true,

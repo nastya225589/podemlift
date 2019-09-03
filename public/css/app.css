@@ -2837,6 +2837,13 @@ input[type=submit] {
           transform: rotate(135deg);
 }
 
+.filters a {
+  text-align: center;
+  padding: 8px 0 0;
+  display: block;
+  color: #00922E;
+}
+
 .filters fieldset {
   margin: 0;
   padding: 0 10px;

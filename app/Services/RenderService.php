@@ -10,7 +10,7 @@ class RenderService implements RenderServiceInterface
         'two_cols'
     ];
 
-    public function render(?string $content, string $type = null ): string
+    public function render(?string $content, string $type = null): string
     {
         $content = json_decode($content);
         return is_array($content) ? $this->renderAll($content, $type) : '';
@@ -22,8 +22,9 @@ class RenderService implements RenderServiceInterface
         foreach ($content as $item) {
             if (in_array($item->type, $this->includingTypes) && !empty($item->content)) {
                 $nested = [];
-                foreach ($item->content as $nestedBlock)
+                foreach ($item->content as $nestedBlock) {
                     $nested[] = $this->renderBlock($nestedBlock, null, $type);
+                }
 
                 $html .= $this->renderBlock($item, $nested, $type);
             } else {

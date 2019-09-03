@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class SettingsController extends \Illuminate\Routing\Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,9 +18,11 @@ class SettingsController extends \Illuminate\Routing\Controller
     public function index(Request $request)
     {
         if ($request->isMethod('post')) {
-            foreach ($request->all() as $name => $value)
-                if ($name != '_token')
+            foreach ($request->all() as $name => $value) {
+                if ($name != '_token') {
                     Settings::where(['name' => $name])->first()->update(['value' => $value]);
+                }
+            }
 
             return redirect(route('settings.index'));
         } else {
