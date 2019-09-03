@@ -1,8 +1,17 @@
 .card {
     padding: 10px;
+    margin-right: 16px;
     margin-bottom: 40px;
     background: $main-color;
     display: inline-block;
+
+    @media (max-width: $screen-lg) {
+        margin-right: 0;
+    }
+
+    &:nth-child(4n) {
+        margin-right: 0;
+    }
 
     &__name {
         margin: 14px 0 3px;
@@ -81,6 +90,7 @@
         }
 
         .card {
+            margin-right: 0;
             &__inner {
                 display: flex;
                 align-items: center;

@@ -6,10 +6,10 @@
     &__wrap {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         margin-bottom: 70px;
 
-        @media (max-width: 1157px) {
+        @media (max-width: $screen-lg) {
             justify-content: space-around;
         }
     }
