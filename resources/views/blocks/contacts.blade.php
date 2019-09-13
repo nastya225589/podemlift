@@ -37,7 +37,7 @@
             <a href="mailto:info@p-ob.ru" class="contacts__link">info@p-ob.ru</a>
         </li>
         <li class="contacts__item contacts__item--contact">
-            <a href="/" class="contacts__link contacts__link--line">Контакты</a>
+            <a href="/contacts" class="contacts__link contacts__link--line">Контакты</a>
         </li>
     </ul>
 </div>

@@ -17031,7 +17031,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_ClientsSlider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../partials/ClientsSlider */ "./resources/js/partials/ClientsSlider.js");
 /* harmony import */ var _partials_Form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../partials/Form */ "./resources/js/partials/Form.js");
 /* harmony import */ var _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../partials/ProductCardSlider */ "./resources/js/partials/ProductCardSlider.js");
+/* harmony import */ var _partials_Map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../partials/Map */ "./resources/js/partials/Map.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 
 
@@ -17051,6 +17053,7 @@ var Page = function Page() {
   new _partials_ClientsSlider__WEBPACK_IMPORTED_MODULE_4__["default"]();
   new _partials_Form__WEBPACK_IMPORTED_MODULE_5__["default"]();
   new _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_6__["default"]();
+  new _partials_Map__WEBPACK_IMPORTED_MODULE_7__["default"]();
 };
 
 
@@ -17219,13 +17222,13 @@ var ExamplesSlider = function ExamplesSlider() {
         slidesToScroll: 3
       }
     }, {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
       }
     }, {
-      breakpoint: 480,
+      breakpoint: 600,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1
@@ -17346,6 +17349,35 @@ var Form = function Form() {
   $(function () {
     $('input[name="phone"]').mask('8 (999) 999-99-99');
   });
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/js/partials/Map.js":
+/*!**************************************!*\
+  !*** ./resources/js/partials/Map.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Map; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Map = function Map() {
+  _classCallCheck(this, Map);
+
+  ymaps.ready(init);
+
+  function init() {
+    var myMap = new ymaps.Map("map", {
+      center: [59.923739, 30.244254],
+      zoom: 15
+    });
+  }
 };
 
 

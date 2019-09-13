@@ -23,7 +23,7 @@
 
     &-dashed {
         margin: 0 auto;
-        padding: 0;
+        padding: 0 18px 0 0;
         font-size: $font-size;
         line-height: 24px;
         color: #000;
@@ -33,6 +33,16 @@
 
         &:hover {
             background: transparent;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 45%;
+            right: 0;
+            width: 12px;
+            height: 7px;
+            background: url(/images/arrow-green.svg);
         }
     }
 
@@ -60,6 +70,27 @@
         &:active,
         &:focus {
             outline: none;
+        }
+    }
+
+    &__long-arrow {
+        font-size: $font-size--s;
+        min-width: 280px;
+
+        span {
+            position: relative;
+            right: 0;
+
+            .arrow {
+                display: inline-block;
+                background: url(../images/icon/btn-arrow.svg);
+                width: 50px;
+                height: 8px;
+            }
+        }
+
+        &:focus {
+            display: none;
         }
     }
 }

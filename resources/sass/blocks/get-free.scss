@@ -1,0 +1,87 @@
+.get-free {
+    margin: 0 0 114px;
+    background-image: url(/images/get-free/get-free__bg.png);
+    background-size: cover;
+    background-position: center;
+
+    @media (max-width: $screen-sm) {
+        margin: 0 0 50px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin: 0 0 30px;
+    }
+
+    &__title {
+        color: $body-bg;
+        padding: 60px 0 0;
+        margin: 0 0 55px;
+
+        @media (max-width: $screen-sm) {
+            padding: 45px 0 0;
+            margin: 0 0 35px;
+        }
+
+        @media (max-width: $screen-xs) {
+            padding: 30px 0 0;
+            margin: 0 0 25px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 70px 79px;
+
+        @media (max-width: $screen-lg) {
+            padding: 0 0 85px;
+            justify-content: space-around;
+        }
+
+        @media (max-width: $screen-sm) {
+            padding: 0 0 40px;
+        }
+
+        @media (max-width: $screen-xs) {
+            padding: 0 0 20px;
+        }
+    }
+
+    &__item {
+        text-align: center;
+        width: 207px;
+
+        @media (max-width: 1060px) {
+            margin: 0 0 30px;
+        }
+
+        @media (max-width: $screen-xs) {
+            width: 100%;
+        }
+
+        &:nth-child(2n) {
+            margin-top: 63px;
+
+            @media (max-width: 1060px) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__img {
+        margin: 0 0 15px;
+        padding: 0 0 15px;
+        position: relative;
+        border-bottom: 3px solid $third-color;
+
+        @media (max-width: $screen-xs) {
+            margin: 0 0 5px;
+        }
+    }
+
+    &__name {
+        font-size: $font-size;
+        line-height: 20px;
+        color: $body-bg;
+    }
+}

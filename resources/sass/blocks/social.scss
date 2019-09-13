@@ -18,76 +18,11 @@
         }
     }
 
+    a svg:hover #vk {
+        fill: #111;
+    }
+
     &__link {
-        position: relative;
-
-        &:before {
-            content: '';
-            display: inline-block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 30px;
-            height: 28px;
-        }
-
-        &--vk {
-            &:before {
-                background: url(/images/icon/vk.svg);
-            }
-
-            &:hover:before {
-                background: url(/images/icon/vk-green.svg);
-            }
-        }
-
-        &--fb {
-            &:before {
-                background: url(/images/icon/facebook.svg);
-            }
-
-            &:hover:before {
-                background: url(/images/icon/facebook-green.svg);
-            }
-        }
-
-        &--inst {
-            &:before {
-                background: url(/images/icon/instagram.svg);
-            }
-
-            &:hover:before {
-                background: url(/images/icon/instagram-green.svg);
-            }
-        }
-
-        &--exclude {
-            &:before {
-                background: url(/images/icon/exclude.svg);
-            }
-
-            &:hover:before {
-                background: url(/images/icon/exclude-green.svg);
-            }
-        }
-
-        &--viber {
-            &:before {
-                background: url(/images/icon/viber.svg);
-            }
-
-            &:hover:before {
-                background: url(/images/icon/viber-green.svg);
-            }
-        }
-
-        &--telegram {
-            &:before {
-                background: url(/images/icon/telegram.svg);
-            }
-            &:hover:before {
-                background: url(/images/icon/telegram-green.svg);
-            }
-        }
+        display: inline-block;
     }
 }

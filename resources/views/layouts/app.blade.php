@@ -25,6 +25,7 @@
 
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=e6985fd9-2ab1-469e-a04a-f5e8a4f661d9&lang=ru_RU" type="text/javascript"></script>
     </head>
     <body data-page="@yield('data-page')">
         <div class="page__inner">

@@ -1,0 +1,150 @@
+.form-question {
+    padding: 51px 98px 80px;
+    background: $main-color;
+    backdrop-filter: blur(20px);
+    margin: 0 0 85px;
+
+    @media (max-width: $screen-md) {
+        padding: 40px 30px;
+        margin: 0 0 50px;
+    }
+
+    @media (max-width: $screen-xs) {
+        padding: 20px;
+        margin: 0 0 35px;
+    }
+
+    &__btn {
+        width: 258px;
+        font-size: $font-size--s;
+        font-weight: bold;
+
+        @media (max-width: $screen-xs) {
+            width: 100%;
+        }
+    }
+
+    &__fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
+
+        @media (max-width: $screen-sm) {
+            margin: 0 0 28px;
+            padding: 0 0 10px;
+        }
+    }
+
+    &__legend {
+        margin: 0 0 12px;
+        font-size: $font-size--h2;
+        line-height: 34px;
+        font-weight: bold;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: $third-color;
+
+        @media (max-width: $screen-sm) {
+            font-size: $font-size--h3;
+            line-height: 28px;
+        }
+
+        @media (max-width: $screen-xs) {
+            font-size: $font-size--m;
+            line-height: 24px;
+        }
+    }
+
+    &__text {
+        margin: 0 0 2px;
+        font-size: $font-size--s;
+        line-height: 18px;
+        color: $text-color;
+
+        @media (max-width: $screen-xs) {
+            font-size: $font-size;
+            line-height: 16px;
+        }
+
+        &-wrap {
+            margin: 0 0 25px;
+        }
+    }
+
+    .checkout__user {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (max-width: $screen-sm) {
+            flex-direction: column;
+        }
+    }
+
+    .field-text {
+        margin: 0 25px 25px 0;
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: $screen-sm) {
+            margin: 0 0 25px;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &-textarea {
+            margin: 0 0 10px;
+        }
+
+        &__name {
+            margin: 0 0 4px;
+            font-size: $font-size--xs;
+            line-height: 14px;
+            color: $text-color;
+        }
+
+        &__input {
+            padding: 13px;
+            font-size: $font-size--xs;
+            line-height: 14px;
+            width: 285px;
+            border: none;
+            background: $body-bg;
+
+            @media (max-width: $screen-sm) {
+                width: 100%;
+            }
+
+            &:active,
+            &:focus {
+                outline: none;
+            }
+
+            &-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-start;
+            }
+
+            &-textarea {
+                width: 100%;
+                min-height: 160px;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    .field-actions {
+        &__conditions {
+            margin: 0 0 16px;
+            font-size: $font-size--xs;
+            line-height: 14px;
+            color: $text-color;
+
+            a {
+                color: $text-color;
+            }
+        }
+    }
+}

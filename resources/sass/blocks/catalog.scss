@@ -5,7 +5,7 @@
 
     @media (max-width: $screen-sm) {
        flex-direction: column;
-        padding-top: 26px;
+        padding-top: 0;
         margin-bottom: 42px;
     }
 
@@ -82,21 +82,10 @@
     }
 
     &__btn-dashed {
-        padding: 0 18px 0 0;
         display: none;
 
         @media (max-width: $screen-sm) {
             display: block;
-        }
-
-        &:before {
-            content: "";
-            position: absolute;
-            top: 45%;
-            right: 0;
-            width: 12px;
-            height: 7px;
-            background: url(/images/arrow-green.svg);
         }
 
         &_filter {

@@ -29,6 +29,10 @@ class PageController extends Controller
             abort(404, 'Страница не найдена');
         }
 
-        return view('page.show', ['page' => $page]);
+        $view = 'page.show';
+        if ($page->behavior)
+            $view = 'page.' . $page->behavior;
+
+        return view($view, ['page' => $page]);
     }
 }

@@ -48,7 +48,7 @@
         }
 
         @media (max-width: $screen-sm) {
-            margin-left: 50px;
+            margin-left: 0;
             flex-direction: row;
             max-width: 100%;
             margin-bottom: 30px;
@@ -70,7 +70,7 @@
             border-bottom: 2px dotted #636b6f;
             position: absolute;
             top: 17px;
-            right: -82px;
+            right: -70px;
             width: 72px;
 
             @media (max-width: $screen-lg) {
@@ -101,73 +101,17 @@
         line-height: normal;
         letter-spacing: 0.03em;
         color: $third-color;
-        position: relative;
-        right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        @media (max-width: $screen-md) {
-            right: 30px;
+        svg {
+            padding-left: 10px;
         }
 
         @media (max-width: $screen-sm) {
-            right: auto;
-            left: 0;
             padding: 0 10px;
             margin-bottom: 0;
-        }
-
-        &:before {
-            content: '';
-            display: inline-block;
-            position: absolute;
-            top: -5px;
-            right: 0;
-            width: 50px;
-            height: 50px;
-
-            @media (max-width: $screen-sm) {
-                right: auto;
-                left: -50px;
-            }
-        }
-
-        &--request:before {
-            background: url(../images/icon/request.svg);
-        }
-
-        &--project:before {
-            right: 30px;
-            background: url(../images/icon/project.svg);
-
-            @media (max-width: $screen-md) {
-                right: 0;
-            }
-        }
-
-        &--contract:before {
-            right: 25px;
-            background: url(../images/icon/contract.svg);
-
-            @media (max-width: $screen-md) {
-                right: 0;
-            }
-        }
-
-        &--production:before {
-            right: 35px;
-            background: url(../images/icon/production.svg);
-
-            @media (max-width: $screen-md) {
-                right: 0;
-            }
-        }
-
-        &--install:before {
-            right: 30px;
-            background: url(../images/icon/install.svg);
-
-            @media (max-width: $screen-md) {
-                right: 0;
-            }
         }
     }
 }

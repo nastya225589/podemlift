@@ -1,7 +1,17 @@
 .services {
+    margin: 0 0 105px;
     background-image: url(../images/bg/services-bg.jpg);
     background-size: cover;
     background-position: center;
+
+
+    @media (max-width: $screen-sm) {
+        margin: 0 0 70px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin: 0 0 50px;
+    }
 
     p {
         color: $second-text-color;
@@ -138,27 +148,6 @@
             &:before {
                 display: none;
             }
-        }
-    }
-
-    &__btn {
-        font-size: $font-size--s;
-        min-width: 280px;
-
-        span {
-            position: relative;
-            right: 0;
-
-            .arrow {
-                display: inline-block;
-                background: url(../images/icon/btn-arrow.svg);
-                width: 50px;
-                height: 8px;
-            }
-        }
-
-        &:focus {
-            display: none;
         }
     }
 }

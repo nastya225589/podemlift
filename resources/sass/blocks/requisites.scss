@@ -1,0 +1,34 @@
+.requisites {
+    margin: 0 0 90px;
+
+    @media (max-width: $screen-md) {
+        margin: 0 0 50px;
+    }
+
+    @media (max-width: $screen-sm) {
+        margin: 0 0 35px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin: 0 0 25px;
+    }
+
+    &__list {
+        border-left: 3px solid $third-color;
+        padding-left: 23px;
+    }
+
+    &__item {
+        font-size: $font-size;
+        line-height: 18px;
+
+        @media (max-width: $screen-xs) {
+            margin: 0 0 10px;
+        }
+
+        span {
+            color: $third-color;
+            font-weight: bold;
+        }
+    }
+}

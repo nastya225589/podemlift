@@ -56,6 +56,16 @@ class Page extends BaseModel
             ]
         ];
 
+        if (isset($_GET['admin'])) {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'behavior',
+                    'type' => 'input',
+                    'label' => 'Behavior'
+                ]
+            ]);
+        }
+
         if ($this->behavior == 'main') {
             $fields = array_merge($fields, [
                 [

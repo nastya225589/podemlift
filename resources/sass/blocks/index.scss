@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .title-h1 {
+    margin: 0 0 45px;
     font-family: $font-family;
     font-size: $font-size--h1;
     line-height: 57px;
@@ -53,8 +54,13 @@ h1, h2, h3, h4, h5, h6 {
     color: $text-color;
 
     @media (max-width: $screen-sm) {
+        margin: 40px 0;
         font-size: $font-size--h3 - 3;
         line-height: 24px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin: 30px 0;
     }
 }
 
@@ -66,13 +72,16 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: $text-color;
+    margin: 0 0 35px;
 
     @media (max-width: $screen-sm) {
+        margin: 0 0 27px;
         font-size: $font-size--h3;
         line-height: 21px;
     }
 
     @media (max-width: $screen-xs) {
+        margin: 0 0 20px;
         font-size: $font-size--s;
         line-height: 18px;
     }
@@ -96,6 +105,14 @@ h1, h2, h3, h4, h5, h6 {
         font-size: $font-size;
         line-height: 16px;
     }
+}
+
+.text {
+    margin: 0 0 30px;
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: 24px;
+    color: $text-color;
 }
 
 ul, li {

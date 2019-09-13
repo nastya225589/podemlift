@@ -22,7 +22,7 @@
                         <p>{{ $texts[0] }}</p>
                     @endif
 
-                    <a href="#" class="btn service__btn">
+                    <a href="#" class="btn btn__long-arrow">
                         <span>Смотреть примеры работ <span class="arrow"></span></span>
                     </a>
                 </div>

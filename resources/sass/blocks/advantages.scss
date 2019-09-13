@@ -1,0 +1,72 @@
+.advantages {
+    margin: 0 0 121px;
+
+    @media (max-width: $screen-sm) {
+        margin: 0 0 70px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin: 0 0 50px;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (max-width: $screen-lg) {
+            justify-content: center;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 205px;
+        min-height: 120px;
+        margin: 0px -5px -10px;
+        padding: 47px 40px;
+        text-align: center;
+        border: 10px solid $main-color;
+
+        @media (max-width: $screen-md) {
+            padding: 20px 13px;
+            min-height: 100px;
+        }
+
+        @media (max-width: $screen-sm) {
+            padding: 15px 13px;
+            min-height: 70px;
+        }
+    }
+
+    &__number {
+        margin: 0 0 12px;
+        padding: 0 0 8px;
+        font-size: $font-size--h2;
+        line-height: 34px;
+        font-weight: bold;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: $third-color;
+        border-bottom: 3px solid $third-color;
+
+        @media (max-width: $screen-md) {
+            font-size: $font-size--h3;
+            padding: 0;
+        }
+    }
+
+    &__name {
+        font-size: $font-size--m;
+        font-weight: bold;
+        line-height: 21px;
+        text-align: center;
+        color: $text-color;
+
+        @media (max-width: $screen-md) {
+            font-size: $font-size;
+            line-height: 18px;
+        }
+    }
+}
