@@ -9,7 +9,7 @@
             </svg>
             <div class="map-contacts__wrap">
                 <h3>Адрес:</h3>
-                <span>199106, Россия, Санкт-Петербург, Кожевенная линия, д. 34</span>
+                <span>199106, Россия, Санкт-Петербург,  Кожевенная линия, д. 34</span>
             </div>
         </div>
         <div class="map-contacts__item">

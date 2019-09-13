@@ -2,7 +2,32 @@
     width: 380px;
     position: absolute;
     top: 30px;
-    right: 250px;
+    right: 50px;
+    z-index: 999;
+
+    @media (max-width: $screen-lg) {
+        width: 320px;
+    }
+
+    @media (max-width: $screen-md) {
+        position: relative;
+        width: 100%;
+        top: auto;
+        right: auto;
+    }
+
+    .logo {
+        img {
+            @media (max-width: $screen-sm) {
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        strong {
+            display: block;
+        }
+    }
 
     &__item {
         display: flex;
@@ -13,20 +38,44 @@
         min-height: 136px;
         border-bottom: 1px solid $body-bg;
 
+        @media (max-width: $screen-lg) {
+            padding: 0 15px 0 15px;
+        }
+
+        @media (max-width: $screen-sm) {
+            min-height: 102px;
+        }
+
         &:first-child {
             border-bottom: none;
             padding: 0 26px;
             background: $fifth-color;
+
+            @media (max-width: $screen-sm) {
+                padding: 0px 20px;
+            }
         }
 
         &:last-child {
             border-bottom: none;
+        }
+
+        svg {
+            @media (max-width: $screen-sm) {
+                width: 12%;
+            }
         }
     }
 
     &__wrap {
         padding-left: 22px;
         width: 250px;
+
+        @media (max-width: $screen-sm) {
+            padding: 20px 0 20px 20px;
+            width: 100%;
+        }
+
 
         h3 {
             margin: 0 0 5px;
@@ -35,11 +84,17 @@
             letter-spacing: 0.03em;
             text-transform: uppercase;
             color: $body-bg;
+
+            @media (max-width: $screen-sm) {
+                font-size: $font-size--s;
+                line-height: 20px;
+            }
         }
 
         span {
+            display: block;
             font-size: $font-size;
-            line-height: 16px;
+            line-height: 20px;
             color: $body-bg;
         }
 

@@ -5916,7 +5916,34 @@ input[type=submit] {
   width: 380px;
   position: absolute;
   top: 30px;
-  right: 250px;
+  right: 50px;
+  z-index: 999;
+}
+
+@media (max-width: 1200px) {
+  .map-contacts {
+    width: 320px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .map-contacts {
+    position: relative;
+    width: 100%;
+    top: auto;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-contacts .logo img {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.map-contacts .logo strong {
+  display: block;
 }
 
 .map-contacts__item {
@@ -5929,19 +5956,50 @@ input[type=submit] {
   border-bottom: 1px solid #fff;
 }
 
+@media (max-width: 1200px) {
+  .map-contacts__item {
+    padding: 0 15px 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-contacts__item {
+    min-height: 102px;
+  }
+}
+
 .map-contacts__item:first-child {
   border-bottom: none;
   padding: 0 26px;
   background: #114B21;
 }
 
+@media (max-width: 768px) {
+  .map-contacts__item:first-child {
+    padding: 0px 20px;
+  }
+}
+
 .map-contacts__item:last-child {
   border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .map-contacts__item svg {
+    width: 12%;
+  }
 }
 
 .map-contacts__wrap {
   padding-left: 22px;
   width: 250px;
+}
+
+@media (max-width: 768px) {
+  .map-contacts__wrap {
+    padding: 20px 0 20px 20px;
+    width: 100%;
+  }
 }
 
 .map-contacts__wrap h3 {
@@ -5953,9 +6011,17 @@ input[type=submit] {
   color: #fff;
 }
 
+@media (max-width: 768px) {
+  .map-contacts__wrap h3 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
 .map-contacts__wrap span {
+  display: block;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 20px;
   color: #fff;
 }
 
@@ -5966,6 +6032,51 @@ input[type=submit] {
 .map {
   margin: 0 0 104px;
   position: relative;
+}
+
+@media (max-width: 1200px) {
+  .map {
+    margin: 0 0 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map {
+    margin: 0 0 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map {
+    margin: 0 0 35px;
+    padding: 0 20px;
+  }
+}
+
+.map__map {
+  width: 100%;
+  height: 600px;
+}
+
+@media (max-width: 480px) {
+  .map__map {
+    height: 294px;
+  }
+}
+
+.map .ymaps-2-1-74-ground-pane {
+  -webkit-filter: grayscale(100%);
+}
+
+@media (max-width: 480px) {
+  .map ymaps.ymaps-2-1-74-image {
+    width: 41px !important;
+    height: 57px !important;
+    left: -20px !important;
+    top: -60px !important;
+    background-size: cover;
+    background-repeat: round;
+  }
 }
 
 .nowrap {
