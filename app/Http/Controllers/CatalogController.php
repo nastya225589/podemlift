@@ -68,7 +68,7 @@ class CatalogController extends Controller
         return view('catalog.category', [
             'page' => $category ?? $this->resource,
             'products' => $products->published()->paginate(UserConfig::getProductsPerPageCount()),
-            'filters' => $this->filterService->getFilters(),
+            'filters' => $this->filterService->getFilters($category),
             'singleProperty' => $this->urlProperty->slug ?? null,
             'singleValue' => $this->urlPropertyValue ?? null,
             'resetFiltersUrl' => $resetFiltersUrl ?? null,
