@@ -8,6 +8,8 @@ class Product extends BaseModel
 {
     public $category_ids = [];
 
+    public $prefix = '/product';
+
     protected $guarded = ['category_ids', 'properties', 'created_at', 'updated_at'];
 
     protected $attributes = [
@@ -132,9 +134,10 @@ class Product extends BaseModel
             ->orderBy('sort');
     }
 
-    public function getUrl()
+    public function fullUrl()
     {
-        return '/product/'.$this->slug;
+        $url = parent::fullUrl();
+        return $this->prefix . $url;
     }
 
     public function setProperties(string $props)

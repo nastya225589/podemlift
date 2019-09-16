@@ -34,9 +34,18 @@ class CatalogController extends Controller
         ]);
     }
 
-    public function product($slug)
+    public function product($url)
     {
-        $product = Product::where('slug', $slug)->published()->firstOrFail();
+        $fullUrl = $this->resource->prefix . '/' . $url;
+        $product = Product::where('url', $fullUrl)->published()->first();
+        if (!$product && ($redirect = Redirect::getRedirect($fullUrl))) {
+            return redirect($redirect[0], $redirect[1]);
+        }
+
+        if (!$product) {
+            abort(404, 'Страница не найдена');
+        }
+
         return view('catalog.product', [
             'product' => $product
         ]);

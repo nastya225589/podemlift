@@ -36,14 +36,13 @@ trait Url
 
     public function updateUrl()
     {
-        $tableIsUrlable = array_diff(['url', 'slug', 'parent_id'], $this->columns());
+        $tableIsUrlable = array_diff(['url', 'slug'], $this->columns());
 
         if ($tableIsUrlable) {
             return;
         }
 
         $newUrl = $this->fullUrl();
-
         if ($newUrl != $this->url) {
             $this->saveRedirect();
         }
