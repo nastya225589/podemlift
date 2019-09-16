@@ -55,6 +55,17 @@
                 </div>
             </div>
         </div>
+    @elseif($field['type'] == 'redirects')
+        <div class="row">
+            <div class="col-md-12">
+                <label>{{ field_label($field) }}</label>
+                <div id="redirects">
+                    <textarea name="{{ $field['name'] }}">
+                        {{ $model->redirects()->pluck('from') ?? '[]' }}
+                    </textarea>
+                </div>
+            </div>
+        </div>
     @elseif($field['type'] == 'gallery')
         <div class="row">
             <div class="col-md-12">

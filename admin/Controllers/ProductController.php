@@ -31,10 +31,12 @@ class ProductController extends BaseAdminController
 
     public function update(Request $request, $id)
     {
+        $redirects = json_decode($request->redirects, true);
         $model = $this->model::findOrFail($id)->fill($request->all());
         $model->save();
         $model->categories()->sync($request->category_ids);
         $model->setProperties($request->properties);
+        $model->setRedirects($redirects);
         return redirect($this->redirectTo);
     }
 }
