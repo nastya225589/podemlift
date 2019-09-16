@@ -21,8 +21,10 @@ class ProductController extends BaseAdminController
 
     public function store(Request $request)
     {
+        $redirects = json_decode($request->redirects, true);
         $model = new $this->model;
         $request->validate($model->validatorRules($request));
+        $model->setRedirects($redirects);
         $model->create($request->all());
         $model->categories()->sync($request->category_ids);
         $model->setProperties($request->properties);
@@ -33,10 +35,10 @@ class ProductController extends BaseAdminController
     {
         $redirects = json_decode($request->redirects, true);
         $model = $this->model::findOrFail($id)->fill($request->all());
+        $model->setRedirects($redirects);
         $model->save();
         $model->categories()->sync($request->category_ids);
         $model->setProperties($request->properties);
-        $model->setRedirects($redirects);
         return redirect($this->redirectTo);
     }
 }
