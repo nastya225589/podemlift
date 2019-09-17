@@ -61,9 +61,14 @@
                 <label>{{ field_label($field) }}</label>
                 <div id="redirects">
                     <textarea name="{{ $field['name'] }}">
-                        {{ $model->redirects()->pluck('from') ?? '[]' }}
+                        {{ old($field['name']) ? json_encode(old($field['name'])) : $model->redirects()->pluck('from') ?? '[]' }}
                     </textarea>
                 </div>
+                @if ($errors->has($field['name']))
+                    <span class="help-block">
+                        <strong>{{ $errors->first($field['name']) }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
     @elseif($field['type'] == 'gallery')
