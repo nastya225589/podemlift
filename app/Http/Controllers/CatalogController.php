@@ -34,9 +34,18 @@ class CatalogController extends Controller
         ]);
     }
 
-    public function product($slug)
+    public function product($url)
     {
-        $product = Product::where('slug', $slug)->published()->firstOrFail();
+        $fullUrl = \App\Models\Product::$prefix . '/' . $url;
+        $product = Product::where('url', $fullUrl)->published()->first();
+        if (!$product && ($redirect = Redirect::getRedirect($fullUrl))) {
+            return redirect($redirect[0], $redirect[1]);
+        }
+
+        if (!$product) {
+            abort(404, 'Страница не найдена');
+        }
+
         return view('catalog.product', [
             'product' => $product
         ]);
@@ -47,6 +56,9 @@ class CatalogController extends Controller
         $params = $request->all();
         $fullUrl = $this->resource->url . $url;
         $category = $this->getCategory($fullUrl);
+        
+        if (get_class($category) === 'Illuminate\Http\RedirectResponse')
+            return $category;
 
         if ($this->urlProperty && $this->urlPropertyValue) {
             $products = $this->filterService->filterSingle($this->urlProperty->slug, $this->urlPropertyValue);
@@ -89,11 +101,15 @@ class CatalogController extends Controller
         }
 
         if (!$category) {
-            $this->tryRedirect($url);
+            $redirect = $this->tryRedirect($url);
+            if ($redirect)
+                return $redirect;
         }
 
         if (!$category) {
-            $this->tryRedirect($withoutParametrizedUrl);
+            $redirect = $this->tryRedirect($withoutParametrizedUrl);
+            if ($redirect)
+                return $redirect;
         }
 
         if (!$category && $this->isParametrizedUrl($url) && count(explode('/', $withoutParametrizedUrl)) <= 2) {
@@ -110,8 +126,7 @@ class CatalogController extends Controller
     protected function tryRedirect($url)
     {
         if ($redirect = Redirect::getRedirect($url)) {
-            redirect($redirect[0], $redirect[1]);
-            die();
+            return redirect($redirect[0], $redirect[1]);
         }
     }
 

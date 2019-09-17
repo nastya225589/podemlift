@@ -1,5 +1,5 @@
 <article class="card">
-    <a class="card__inner" href="{{ $item->getUrl() }}">
+    <a class="card__inner" href="{{ $item->url }}">
         <img class="card__img" src="{{ $item->firstImage()->size(260, 260)->url }}" width="260" height="260" alt="{{ $item->name }}"/>
         <div>
             <h2 class="card__name">{{ $item->name }}</h2>
@@ -23,7 +23,7 @@
     </a>
     <div class="card__wrap">
         <p class="card__buy">От <span>{{ $item->price }}</span> руб.</p>
-        <a class="btn card__btn" href="{{ $item->getUrl() }}">
+        <a class="btn card__btn" href="{{ $item->url }}">
             <span>Подробнее</span>
         </a>
     </div>

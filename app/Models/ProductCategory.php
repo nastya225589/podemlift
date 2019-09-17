@@ -4,7 +4,7 @@ namespace App\Models;
 
 class ProductCategory extends BaseModel
 {
-    protected $guarded = ['property_ids'];
+    protected $guarded = ['property_ids', 'redirects'];
 
     public $logFields = [
         'parent_id',
@@ -42,6 +42,11 @@ class ProductCategory extends BaseModel
                 'options' => ProductProperty::pluck('name', 'id'),
                 'multi' => true,
                 'label' => 'Фильтры'
+            ],
+            [
+                'name' => 'redirects',
+                'type' => 'redirects',
+                'label' => 'Редиректы'
             ],
             [
                 'name' => 'content',

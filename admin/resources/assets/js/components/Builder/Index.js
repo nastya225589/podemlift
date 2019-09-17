@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Builder from './Builder';
 import Properties from './Elements/Properties';
+import Redirects from './Elements/Redirects';
 import Gallery from './Elements/Gallery';
 
 const builder = document.getElementById('builder');
@@ -34,4 +35,14 @@ if (properties) {
     options: JSON.parse(textarea.getAttribute('options')),
   };
   ReactDOM.render(<Properties {...props} />, properties);
+}
+
+const redirects = document.getElementById('redirects');
+if (redirects) {
+  const textarea = redirects.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<Redirects {...props} />, redirects);
 }

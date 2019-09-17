@@ -58,9 +58,18 @@ class BaseAdminController extends \Illuminate\Routing\Controller
 
     public function store(Request $request)
     {
+        if ($request->redirects) {
+            $redirects = json_decode($request->redirects, true);   
+        }
+
         $model = new $this->model;
         $request->validate($model->validatorRules($request));
-        $model->create($request->all());
+        $model = $model->create($request->all());
+
+        if (isset($redirects)) {
+            $model->setRedirects($redirects);
+        }
+
         return redirect($this->redirectTo);
     }
 
@@ -86,9 +95,18 @@ class BaseAdminController extends \Illuminate\Routing\Controller
 
     public function update(Request $request, $id)
     {
+        if ($request->redirects) {
+            $redirects = json_decode($request->redirects, true);   
+        }
+
         $model = new $this->model;
         $request->validate($model->validatorRules($request));
-        $model->findOrFail($id)->fill($request->all())->save();
+        $model = $model->findOrFail($id);
+        if (isset($redirects)) {
+            $model->setRedirects($redirects);
+        }
+
+        $model->fill($request->all())->save();
         return redirect($this->redirectTo);
     }
 

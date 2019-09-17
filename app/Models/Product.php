@@ -8,7 +8,9 @@ class Product extends BaseModel
 {
     public $category_ids = [];
 
-    protected $guarded = ['category_ids', 'properties', 'created_at', 'updated_at'];
+    public static $prefix = '/product';
+
+    protected $guarded = ['category_ids', 'properties', 'redirects', 'created_at', 'updated_at'];
 
     protected $attributes = [
         'images' => '[]'
@@ -73,6 +75,11 @@ class Product extends BaseModel
                 'label' => 'Параметры'
             ],
             [
+                'name' => 'redirects',
+                'type' => 'redirects',
+                'label' => 'Редиректы'
+            ],
+            [
                 'name' => 'info',
                 'type' => 'builder',
                 'label' => 'Информация об оборудовании',
@@ -132,9 +139,10 @@ class Product extends BaseModel
             ->orderBy('sort');
     }
 
-    public function getUrl()
+    public function fullUrl()
     {
-        return '/product/'.$this->slug;
+        $url = parent::fullUrl();
+        return $this->prefix . $url;
     }
 
     public function setProperties(string $props)
