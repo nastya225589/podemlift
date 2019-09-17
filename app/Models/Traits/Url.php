@@ -61,6 +61,31 @@ trait Url
         }
     }
 
+    public function redirects()
+    {
+        return \App\Models\Redirect::where([
+            ['model', get_class($this)],
+            ['model_id', $this->id]
+        ]);
+    }
+
+    public function setRedirects($redirects)
+    {
+        $this->redirects()->delete();
+        foreach ($redirects as $redirect) {
+            $url = parse_url($redirect);
+            $url = (isset($url['path']) && $url['path'] !== '/' ) ? $url['path'] : null;
+            $url = $url[0] === '/' ? $url : '/' . $url;
+            if ($url) {
+                Redirect::create([
+                    'from' => urldecode($url),
+                    'model' => static::class,
+                    'model_id' => $this->id
+                ]);
+            }
+        }
+    }
+
     public function fullUrl()
     {
         $url = '/' . trim($this->slug, '/');
