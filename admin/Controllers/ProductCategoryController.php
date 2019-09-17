@@ -31,14 +31,22 @@ class ProductCategoryController extends BaseAdminController
 
     public function store(Request $request)
     {
-        $model = $this->model::create($request->all());
+        $redirects = json_decode($request->redirects, true);
+        $model = new $this->model;
+        $request->validate($model->validatorRules($request));
+        $model = $model->create($request->all());
+        $model->setRedirects($redirects);
         $model->properties()->sync($request->property_ids);
         return redirect($this->redirectTo);
     }
 
     public function update(Request $request, $id)
     {
-        $model = $this->model::findOrFail($id)->fill($request->all());
+        $redirects = json_decode($request->redirects, true);
+        $model = $this->model::findOrFail($id);
+        $request->validate($model->validatorRules($request));
+        $model = $model->fill($request->all());
+        $model->setRedirects($redirects);
         $model->save();
         $model->properties()->sync($request->property_ids);
         return redirect($this->redirectTo);
