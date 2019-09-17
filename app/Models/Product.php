@@ -8,7 +8,7 @@ class Product extends BaseModel
 {
     public $category_ids = [];
 
-    public $prefix = '/product';
+    public static $prefix = '/product';
 
     protected $guarded = ['category_ids', 'properties', 'redirects', 'created_at', 'updated_at'];
 

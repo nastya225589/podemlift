@@ -36,7 +36,7 @@ class CatalogController extends Controller
 
     public function product($url)
     {
-        $fullUrl = $this->resource->prefix . '/' . $url;
+        $fullUrl = \App\Models\Product::$prefix . '/' . $url;
         $product = Product::where('url', $fullUrl)->published()->first();
         if (!$product && ($redirect = Redirect::getRedirect($fullUrl))) {
             return redirect($redirect[0], $redirect[1]);

@@ -42,8 +42,7 @@ export default class Redirects extends Component {
   deleteButtonHandler = (index) => {
     const redirects = this.state.redirects;
     redirects.splice(index, 1); 
-    this.setState({ redirects: redirects });
-    console.log(this.state);
+    this.setState({ redirects });
   }
 
   handleInputChange = (index, name, value) => {
