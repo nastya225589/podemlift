@@ -12,7 +12,7 @@
 	$beginOn      = microtime(true);
 
 	$db_remote = isset($db_remote) ? $db_remote : 'pob_staging';
-	$db_user_remote = isset($db_user_remote) ? $db_user_remote : 'app_dbu';
+	$db_user_remote = isset($db_user_remote) ? $db_user_remote : 'pob_dbu';
 
 	$db_local = trim(explode('=', `cat .env | grep DB_DATABASE`)[1]);
 	$db_user_local = trim(explode('=', `cat .env | grep DB_USERNAME`)[1]);
