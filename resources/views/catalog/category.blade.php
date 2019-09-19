@@ -15,7 +15,7 @@
 
             <div class="catalog__wrap">
 
-                @include('blocks.breadcrumbs')
+                @include('blocks.breadcrumbs-catalog')
 
                 @include('blocks.filter-sorter')
 
