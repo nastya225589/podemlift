@@ -142,7 +142,7 @@ class Product extends BaseModel
     public function fullUrl()
     {
         $url = parent::fullUrl();
-        return $this->prefix . $url;
+        return $this::$prefix . $url;
     }
 
     public function setProperties(string $props)
