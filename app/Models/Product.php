@@ -171,7 +171,7 @@ class Product extends BaseModel
     {
         $rules = parent::validatorRules($data);
         return array_merge($rules, [
-            'price' => 'required|float',
+            'price' => 'required|numeric',
             'category_ids' => 'required|array',
             'category_ids.*' => 'integer'
         ]);
