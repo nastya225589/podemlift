@@ -1,3 +1,31 @@
+@font-face {
+  font-family: RussoOne;
+  src: url(/fonts/RussoOne-Regular.ttf?d14e8736a4d3b27eab214ee40c3e15e8) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FuturaPT;
+  src: url(/fonts/FuturaPTMedium.otf?bd99f124d37cfd9caecec4fe24094334) format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FuturaPT;
+  src: url(/fonts/FuturaPTLight.otf?a15258a71bcff8eb791ad54f27144d48) format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FuturaPT;
+  src: url(/fonts/FuturaPTBold.otf?f3483f64fe4f53928cfe2786e7ec82cc) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Slider */
 
 .slick-slider {
@@ -260,7 +288,7 @@ h6 {
 
 .title-h1 {
   margin: 0 0 45px;
-  font-family: "Arial", sans-serif;
+  font-family: RussoOne;
   font-size: 38px;
   line-height: 57px;
   font-weight: 600;
@@ -284,7 +312,7 @@ h6 {
 }
 
 .title-h2 {
-  font-family: "Arial", sans-serif;
+  font-family: RussoOne;
   font-size: 30px;
   font-weight: 600;
   line-height: normal;
@@ -311,7 +339,7 @@ h6 {
 }
 
 .title-h3 {
-  font-family: "Arial", sans-serif;
+  font-family: RussoOne;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.03em;
@@ -495,8 +523,7 @@ input[type=submit] {
 }
 
 .header-top__buy {
-  padding-left: 48px;
-  max-width: 135px;
+  display: flex;
   position: relative;
 }
 
@@ -506,27 +533,16 @@ input[type=submit] {
   }
 }
 
-.header-top__buy:before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 38px;
-  height: 38px;
-}
-
-.header-top__buy--request:before {
-  background: url(/images/header-request.svg?70c3eca77b7fe13ffe37e34f1ae95703);
-}
-
 .header-top__order {
+  padding-left: 10px;
+  max-width: 135px;
   font-size: 11px;
-  line-height: 11px;
+  line-height: 12px;
   color: #fff;
 }
 
 .header-top__order span {
+  display: block;
   margin-bottom: 7px;
   font-size: 16px;
   font-weight: bold;
@@ -1160,6 +1176,7 @@ input[type=submit] {
 
 .promo__title {
   max-width: 796px;
+  font-family: RussoOne;
   font-size: 38px;
   line-height: 57px;
   letter-spacing: 0.03em;
@@ -1324,6 +1341,12 @@ input[type=submit] {
   margin-bottom: 60px;
   max-width: 350px;
   position: relative;
+  font-family: FuturaPT;
+  font-weight: normal;
+}
+
+.about__item:first-child {
+  font-weight: 300;
 }
 
 .about__name {
@@ -1332,6 +1355,7 @@ input[type=submit] {
   height: 54px;
   background-size: 54px !important;
   background-position-y: center !important;
+  font-family: RussoOne;
   font-size: 18px;
   line-height: 19px;
   display: flex;
@@ -1625,17 +1649,8 @@ input[type=submit] {
   }
 }
 
-.service__item--big .service__title {
-  margin-bottom: 32px;
-}
-
-@media (max-width: 768px) {
-  .service__item--big .service__title {
-    margin-bottom: 20px;
-  }
-}
-
 .service__item--big .service__title--big a {
+  font-family: RussoOne;
   font-size: 24px;
   line-height: normal;
   position: relative;
@@ -1662,6 +1677,7 @@ input[type=submit] {
 }
 
 .service__title a {
+  font-family: RussoOne;
   color: #fff;
   position: relative;
 }
@@ -1690,6 +1706,8 @@ input[type=submit] {
 }
 
 .service__item {
+  font-family: FuturaPT;
+  font-weight: normal;
   position: relative;
   padding-left: 20px;
   font-size: 14px;
@@ -1768,6 +1786,7 @@ input[type=submit] {
   max-width: 205px;
   position: relative;
   font-size: 18px;
+  font-family: RussoOne;
   line-height: normal;
   font-weight: 600;
   text-align: center;
@@ -2059,6 +2078,8 @@ input[type=submit] {
 }
 
 .examples__item:hover .examples__desc {
+  font-family: FuturaPT;
+  font-weight: normal;
   margin: 0 auto;
   display: block;
   height: 100%;
@@ -2069,7 +2090,6 @@ input[type=submit] {
   right: 0;
   padding: 10px;
   font-size: 16px;
-  font-weight: bold;
   line-height: normal;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
@@ -2214,6 +2234,8 @@ input[type=submit] {
 }
 
 .seo-text__desc {
+  font-family: FuturaPT;
+  font-weight: normal;
   margin-right: 120px;
 }
 
@@ -2578,12 +2600,13 @@ input[type=submit] {
   }
 }
 
-.social a svg:hover #vk {
-  fill: #111;
-}
-
 .social__link {
   display: inline-block;
+  fill: #fff;
+}
+
+.social__link:hover {
+  fill: #88A590;
 }
 
 .breadcrumbs__list {
@@ -6076,6 +6099,224 @@ input[type=submit] {
     top: -60px !important;
     background-size: cover;
     background-repeat: round;
+  }
+}
+
+.form-popup {
+  visibility: hidden;
+  opacity: 0;
+  width: 380px;
+  transition: all 200ms;
+  margin: auto;
+  position: fixed;
+  left: 0;
+  top: 15%;
+  right: 0;
+  padding: 38px 30px 45px 30px;
+  color: #1C1C1C;
+  background: #F1F1F1;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.form-popup:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.form-popup__open {
+  display: block;
+}
+
+.form-popup__btn-close {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 480px) {
+  .form-popup__btn-close {
+    right: 25px;
+  }
+}
+
+.form-popup__btn-close:active,
+.form-popup__btn-close:focus {
+  outline: none;
+}
+
+.form-popup__btn-close span:before,
+.form-popup__btn-close span:after {
+  content: "";
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 100%;
+  height: 2px;
+  background: #00922E;
+}
+
+.form-popup__btn-close span:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.form-popup__btn-close span:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.form-popup fieldset {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+@media (max-width: 1000px) {
+  .form-popup fieldset {
+    flex-direction: row;
+  }
+}
+
+.form-popup__legend {
+  margin: 0 0 18px;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #00922E;
+}
+
+.form-popup__text {
+  margin: 0 0 39px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #1C1C1C;
+}
+
+.form-popup .field-text {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  .form-popup .field-text {
+    width: 100%;
+  }
+}
+
+.form-popup .field-text__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-popup .field-text__name {
+  margin: 0 0 5px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #A9A9A9;
+}
+
+.form-popup .field-text__input-wrap {
+  margin-bottom: 29px;
+  position: relative;
+}
+
+.form-popup .field-text__input {
+  box-sizing: border-box;
+  padding: 9px 10px;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 300;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  width: 100%;
+}
+
+.form-popup .field-text__input::-webkit-input-placeholder {
+  color: #A9A9A9;
+}
+
+.form-popup .field-text__input::-moz-placeholder {
+  color: #A9A9A9;
+}
+
+.form-popup .field-text__input:-ms-input-placeholder {
+  color: #A9A9A9;
+}
+
+.form-popup .field-text__input::-ms-input-placeholder {
+  color: #A9A9A9;
+}
+
+.form-popup .field-text__input::placeholder {
+  color: #A9A9A9;
+}
+
+.form-popup .field-text__input:active,
+.form-popup .field-text__input:focus {
+  outline: none;
+}
+
+.form-popup .field-text__input-error {
+  border: 1px solid #ED1C24;
+}
+
+.form-popup .field-text__error {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+  font-size: 11px;
+  color: #ED1C24;
+  line-height: 146.28%;
+}
+
+@media (max-width: 1000px) {
+  .form-popup .field-text__error {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
+
+.form-popup .field-text__error-active {
+  display: block;
+}
+
+.form-popup .field-actions__conditions {
+  margin: 0 0 37px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.form-popup .field-actions__conditions a {
+  color: #1C1C1C;
+  text-decoration: underline;
+}
+
+.form-popup__btn {
+  margin: 0 auto;
+  display: block;
+  width: 220px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .form-popup__btn {
+    width: 100%;
   }
 }
 

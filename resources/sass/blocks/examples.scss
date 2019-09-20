@@ -32,6 +32,8 @@
 
         &:hover {
             .examples__desc {
+                font-family: FuturaPT;
+                font-weight: normal;
                 margin: 0 auto;
                 display: block;
                 height: 100%;
@@ -42,7 +44,7 @@
                 right: 0;
                 padding: 10px;
                 font-size: $font-size--s;
-                font-weight: bold;
+                //font-weight: bold;
                 line-height: normal;
                 color: #fff;
                 background: rgba(0, 0, 0, 0.5);

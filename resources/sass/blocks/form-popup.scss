@@ -1,0 +1,195 @@
+.form-popup {
+    visibility: hidden;
+    opacity: 0;
+    width: 380px;
+    transition: all 200ms;
+    margin: auto;
+    position: fixed;
+    left: 0;
+    top: 15%;
+    right: 0;
+    padding: 38px 30px 45px 30px;
+    color: $text-color;
+    background: $main-color;
+    backdrop-filter: blur(20px);
+    box-sizing: border-box;
+    z-index: 1000;
+
+    &:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__open {
+        display: block;
+    }
+
+    &__btn-close {
+        border: none;
+        background: none;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 18px;
+        height: 18px;
+
+        @media (max-width: $screen-xs) {
+            right: 25px;
+        }
+
+        &:active,
+        &:focus {
+            outline: none;
+        }
+
+        span {
+            &:before, &:after {
+                content: "";
+                padding: 0;
+                position: absolute;
+                left: 0;
+                top: 8px;
+                width: 100%;
+                height: 2px;
+                background: $third-color;
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    fieldset {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: none;
+
+        @media (max-width: $screen-md) {
+            flex-direction: row;
+        }
+    }
+
+    &__legend {
+        margin: 0 0 18px;
+        font-size: $font-size--h3 + 2;
+        line-height: 30px;
+        font-weight: bold;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color:$third-color;
+    }
+
+    &__text {
+        margin: 0 0 39px;
+        font-size: $font-size--s;
+        line-height: 18px;
+        color: $text-color;
+    }
+
+    .field-text {
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: $screen-xs) {
+            width: 100%;
+        }
+
+        &__wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        &__name {
+            margin: 0 0 5px;
+            font-size: $font-size--xs;
+            line-height: 14px;
+            color: $third-text-color;
+        }
+
+        &__input-wrap {
+            margin-bottom: 29px;
+            position: relative;
+        }
+
+        &__input {
+            box-sizing: border-box;
+            padding: 9px 10px;
+            font-size: $font-size - 1;
+            line-height: 20px;
+            font-weight: 300;
+            background: #FFFFFF;
+            border: 1px solid #C4C4C4;
+            width: 100%;
+
+            @media (max-width: $screen-xs) {
+
+            }
+
+            &::placeholder {
+                color: $third-text-color;
+            }
+
+            &:active,
+            &:focus {
+                outline: none;
+            }
+
+            &-error {
+                border: 1px solid $error-color;
+            }
+        }
+
+        &__error {
+            display: none;
+            position: absolute;
+            left: 0;
+            bottom: -16px;
+            font-size: $font-size--xs - 1;
+            color: $error-color;
+            line-height: 146.28%;
+
+            @media (max-width: $screen-md) {
+                font-size: $font-size--xs - 2;
+                line-height: 10px;
+            }
+
+            &-active {
+                display: block;
+            }
+        }
+    }
+
+    .field-actions {
+        &__conditions {
+            margin: 0 0 37px;
+            font-size: $font-size--xs;
+            line-height: 14px;
+
+            a {
+                color: $text-color;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__btn {
+        margin: 0 auto;
+        display: block;
+        width: 220px;
+        height: 50px;
+        font-size: $font-size--s;
+        line-height: 18px;
+        font-weight: bold;
+
+        @media (max-width: $screen-xs) {
+            width: 100%;
+        }
+    }
+}

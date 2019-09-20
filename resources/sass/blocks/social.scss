@@ -18,11 +18,14 @@
         }
     }
 
-    a svg:hover #vk {
-        fill: #111;
-    }
+
 
     &__link {
         display: inline-block;
+        fill: #fff;
+
+        &:hover  {
+            fill: #88A590;
+        }
     }
 }

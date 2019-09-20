@@ -67,15 +67,17 @@
 }
 
 .service {
-    &__item--big &__title  {
-        margin-bottom: 32px;
-
-        @media (max-width: $screen-sm) {
-            margin-bottom: 20px;
-        }
-    }
+    //&__item--big &__title  {
+    //    margin-bottom: 32px;
+    //
+    //    @media (max-width: $screen-sm) {
+    //        margin-bottom: 20px;
+    //    }
+    //}
 
     &__item--big &__title--big a {
+
+        font-family: RussoOne;
         font-size: $font-size--h3;
         line-height: normal;
         position: relative;
@@ -98,6 +100,8 @@
     }
 
     &__title a {
+
+        font-family: RussoOne;
         color: #fff;
         position: relative;
 
@@ -124,6 +128,8 @@
     }
 
     &__item {
+        font-family: FuturaPT;
+        font-weight: normal;
         position: relative;
         padding-left: 20px;
         font-size: $font-size;
