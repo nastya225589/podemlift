@@ -2,7 +2,9 @@
 
 $resource = \App\Models\Page::where('behavior', 'catalog')->first();
 
-Route::get('/product/{slug}', 'CatalogController@product');
+Route::get(\App\Models\Product::$prefix . '/{url}', [
+    'uses' => 'CatalogController@product'
+]);
 
 Route::get($resource->url, [
     'resource' => $resource,

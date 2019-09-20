@@ -168,6 +168,8 @@ return [
         'published'             => 'Опубликован',
         'slug'                  => 'Url',
         'phone'                 => 'Номер телефона',
-        'firstname'             => 'Имя'
+        'firstname'             => 'Имя',
+        'redirects'             => 'Редиректы',
+        'redirects.*'           => 'Редиректы'
     ],
 ];

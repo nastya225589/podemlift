@@ -4,6 +4,8 @@ namespace App\Models;
 
 class Page extends BaseModel
 {
+    protected $guarded = ['redirects'];
+
     protected $attributes = [
         'fields' => '{}'
     ];
@@ -53,6 +55,11 @@ class Page extends BaseModel
                 'name' => 'name_in_menu',
                 'type' => 'input',
                 'label' => 'Название в меню (если не пусто, то соответствует названию)'
+            ],
+            [
+                'name' => 'redirects',
+                'type' => 'redirects',
+                'label' => 'Редиректы'
             ]
         ];
 

@@ -2,6 +2,9 @@
 
 <div class="breadcrumbs">
     <ul class="breadcrumbs__list">
+        <li class="breadcrumbs__link">
+            <a href="/">Главная</a>&nbsp;
+        </li>
         @php($parent = $page->parent)
 
         @while ($parent)

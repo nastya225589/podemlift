@@ -36,14 +36,13 @@ trait Url
 
     public function updateUrl()
     {
-        $tableIsUrlable = array_diff(['url', 'slug', 'parent_id'], $this->columns());
+        $tableIsUrlable = array_diff(['url', 'slug'], $this->columns());
 
         if ($tableIsUrlable) {
             return;
         }
 
         $newUrl = $this->fullUrl();
-
         if ($newUrl != $this->url) {
             $this->saveRedirect();
         }
@@ -59,6 +58,31 @@ trait Url
                 'model' => static::class,
                 'model_id' => $this->id
             ]);
+        }
+    }
+
+    public function redirects()
+    {
+        return \App\Models\Redirect::where([
+            ['model', get_class($this)],
+            ['model_id', $this->id]
+        ]);
+    }
+
+    public function setRedirects($redirects)
+    {
+        $this->redirects()->delete();
+        foreach ($redirects as $redirect) {
+            $url = parse_url($redirect);
+            $url = (isset($url['path']) && $url['path'] !== '/' ) ? $url['path'] : null;
+            $url = $url[0] === '/' ? $url : '/' . $url;
+            if ($url) {
+                Redirect::create([
+                    'from' => urldecode($url),
+                    'model' => static::class,
+                    'model_id' => $this->id
+                ]);
+            }
         }
     }
 
