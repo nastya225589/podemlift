@@ -1,6 +1,6 @@
 <?php
 
-$menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id', null)->get();
+$menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id', null)->orderBy('sort')->get();
 
 ?>
 <nav class="main-nav" id="nav">
