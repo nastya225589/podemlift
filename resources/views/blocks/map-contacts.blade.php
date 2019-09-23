@@ -42,10 +42,10 @@
             <div class="map-contacts__wrap">
                 <h3>Почта:</h3>
                 @if ($emailClients)
-                    <span><a href="mailto:{{ $emailClients }}">{{ $emailClients }}</a> — для заказчиков</span>
+                    <span><a href="mailto:{{ $emailClients->value }}">{{ $emailClients->value }}</a> — для заказчиков</span>
                 @endif
                 @if ($emailClients)
-                    <span><a href="mailto:{{ $emailSuppliers }}">{{ $emailSuppliers }}</a> — для поставщиков</span>
+                    <span><a href="mailto:{{ $emailSuppliers->value }}">{{ $emailSuppliers->value }}</a> — для поставщиков</span>
                 @endif
             </div>
         </div>
