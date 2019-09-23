@@ -151,6 +151,22 @@
                 @endif
             </div>
         </div>
+    @elseif($field['type'] == 'imageBlock')
+        <div class="row">
+            <div class="col-md-12">
+                <label>{{ field_label($field) }}</label>
+                <div id="imageBlock">
+                    <textarea name="{{ $field['name'] }}">
+                        {{ field_value($model, $field) ?? '[]' }}
+                    </textarea>
+                </div>
+                @if ($errors->has($field['name']))
+                    <span class="help-block">
+                        <strong>{{ $errors->first($field['name']) }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
     @elseif($field['type'] == 'gallery')
         <div class="row">
             <div class="col-md-12">

@@ -9,6 +9,7 @@ import Addresses from './Elements/Addresses';
 import Icons from './Elements/Icons';
 import IconsInline from './Elements/IconsInline';
 import Gallery from './Elements/Gallery';
+import ImageBlock from './Elements/ImageBlock'
 
 const builder = document.getElementById('builder');
 if (builder) {
@@ -100,4 +101,14 @@ if (advantages) {
     value: JSON.parse(textarea.value.trim()) || []
   };
   ReactDOM.render(<Advantages {...props} />, advantages);
+}
+
+const imageBlocks = document.getElementById('imageBlock');
+if (imageBlocks) {
+  const textarea = imageBlocks.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<ImageBlock {...props} />, imageBlocks);
 }

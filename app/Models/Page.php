@@ -113,6 +113,16 @@ class Page extends BaseModel
             ]);
         }
 
+        if ($this->behavior == 'about' || $this->behavior == 'production') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[imageBlock]',
+                    'type' => 'imageBlock',
+                    'label' => 'Блоки с картинками'
+                ]
+            ]);
+        }
+
         if ($this->behavior == 'about') {
             $fields = array_merge($fields, [
                 [
