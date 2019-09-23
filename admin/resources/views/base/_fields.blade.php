@@ -103,6 +103,38 @@
                 @endif
             </div>
         </div>
+    @elseif($field['type'] == 'icons')
+        <div class="row">
+            <div class="col-md-12">
+                <label>{{ field_label($field) }}</label>
+                <div id="icons">
+                    <textarea name="{{ $field['name'] }}">
+                        {{ field_value($model, $field) ?? '[]' }}
+                    </textarea>
+                </div>
+                @if ($errors->has($field['name']))
+                    <span class="help-block">
+                        <strong>{{ $errors->first($field['name']) }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+    @elseif($field['type'] == 'iconsInline')
+        <div class="row">
+            <div class="col-md-12">
+                <label>{{ field_label($field) }}</label>
+                <div id="iconsInline">
+                    <textarea name="{{ $field['name'] }}">
+                        {{ field_value($model, $field) ?? '[]' }}
+                    </textarea>
+                </div>
+                @if ($errors->has($field['name']))
+                    <span class="help-block">
+                        <strong>{{ $errors->first($field['name']) }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
     @elseif($field['type'] == 'gallery')
         <div class="row">
             <div class="col-md-12">

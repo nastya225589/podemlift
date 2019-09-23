@@ -113,6 +113,21 @@ class Page extends BaseModel
             ]);
         }
 
+        if ($this->behavior == 'about') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[icons]',
+                    'type' => 'icons',
+                    'label' => 'Основные направления'
+                ],
+                [
+                    'name' => 'fields[iconsInline]',
+                    'type' => 'iconsInline',
+                    'label' => 'Преимущества при обращении'
+                ]
+            ]);
+        }
+
         $fields = array_merge($fields, [
             [
                 'name' => 'content',

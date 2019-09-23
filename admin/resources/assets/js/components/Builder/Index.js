@@ -5,6 +5,8 @@ import Properties from './Elements/Properties';
 import Redirects from './Elements/Redirects';
 import Requisites from './Elements/Requisites';
 import Addresses from './Elements/Addresses';
+import Icons from './Elements/Icons';
+import IconsInline from './Elements/IconsInline';
 import Gallery from './Elements/Gallery';
 
 const builder = document.getElementById('builder');
@@ -67,4 +69,24 @@ if (addresses) {
     value: JSON.parse(textarea.value.trim()) || []
   };
   ReactDOM.render(<Addresses {...props} />, addresses);
+}
+
+const icons = document.getElementById('icons');
+if (icons) {
+  const textarea = icons.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<Icons {...props} />, icons);
+}
+
+const iconsInline = document.getElementById('iconsInline');
+if (iconsInline) {
+  const textarea = iconsInline.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<IconsInline {...props} />, iconsInline);
 }
