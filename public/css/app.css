@@ -5464,6 +5464,7 @@ input[type=submit] {
   max-width: 317px;
   font-size: 12px;
   line-height: 14px;
+  width: 343px;
 }
 
 @media (max-width: 852px) {
