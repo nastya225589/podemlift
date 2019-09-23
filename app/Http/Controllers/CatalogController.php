@@ -57,7 +57,7 @@ class CatalogController extends Controller
         $fullUrl = $this->resource->url . $url;
         $category = $this->getCategory($fullUrl);
         
-        if (get_class($category) === 'Illuminate\Http\RedirectResponse')
+        if ($category && get_class($category) === 'Illuminate\Http\RedirectResponse')
             return $category;
 
         if ($this->urlProperty && $this->urlPropertyValue) {
@@ -155,6 +155,6 @@ class CatalogController extends Controller
     {
         $url = explode('/', trim($url, '/'));
         array_splice($url, -2);
-        return '/' . join('/', $url);
+        return count($url) ? '/' . join('/', $url) : '';
     }
 }
