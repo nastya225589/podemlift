@@ -4,6 +4,7 @@ import Builder from './Builder';
 import Properties from './Elements/Properties';
 import Redirects from './Elements/Redirects';
 import Requisites from './Elements/Requisites';
+import Addresses from './Elements/Addresses';
 import Gallery from './Elements/Gallery';
 
 const builder = document.getElementById('builder');
@@ -56,4 +57,14 @@ if (requisites) {
     value: JSON.parse(textarea.value.trim()) || []
   };
   ReactDOM.render(<Requisites {...props} />, requisites);
+}
+
+const addresses = document.getElementById('addresses');
+if (addresses) {
+  const textarea = addresses.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<Addresses {...props} />, addresses);
 }

@@ -105,6 +105,11 @@ class Page extends BaseModel
                     'type' => 'requisites',
                     'label' => 'Реквизиты'
                 ],
+                [
+                    'name' => 'fields[addresses]',
+                    'type' => 'addresses',
+                    'label' => 'Адреса региональных офисов'
+                ]
             ]);
         }
 
