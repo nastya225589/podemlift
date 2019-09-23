@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Builder from './Builder';
 import Properties from './Elements/Properties';
 import Redirects from './Elements/Redirects';
+import Requisites from './Elements/Requisites';
 import Gallery from './Elements/Gallery';
 
 const builder = document.getElementById('builder');
@@ -45,4 +46,14 @@ if (redirects) {
     value: JSON.parse(textarea.value.trim()) || []
   };
   ReactDOM.render(<Redirects {...props} />, redirects);
+}
+
+const requisites = document.getElementById('requisites');
+if (requisites) {
+  const textarea = requisites.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<Requisites {...props} />, requisites);
 }

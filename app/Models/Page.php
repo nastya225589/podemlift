@@ -98,6 +98,16 @@ class Page extends BaseModel
             ]);
         }
 
+        if ($this->behavior == 'contacts') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[requisites]',
+                    'type' => 'requisites',
+                    'label' => 'Реквизиты'
+                ],
+            ]);
+        }
+
         $fields = array_merge($fields, [
             [
                 'name' => 'content',
