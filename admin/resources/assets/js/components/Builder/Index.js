@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Builder from './Builder';
 import Properties from './Elements/Properties';
 import Redirects from './Elements/Redirects';
+import Advantages from './Elements/Advantages';
 import Requisites from './Elements/Requisites';
 import Addresses from './Elements/Addresses';
 import Icons from './Elements/Icons';
@@ -89,4 +90,14 @@ if (iconsInline) {
     value: JSON.parse(textarea.value.trim()) || []
   };
   ReactDOM.render(<IconsInline {...props} />, iconsInline);
+}
+
+const advantages = document.getElementById('advantages');
+if (advantages) {
+  const textarea = advantages.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<Advantages {...props} />, advantages);
 }

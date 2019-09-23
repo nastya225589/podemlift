@@ -123,7 +123,12 @@ class Page extends BaseModel
                 [
                     'name' => 'fields[iconsInline]',
                     'type' => 'iconsInline',
-                    'label' => 'Преимущества при обращении'
+                    'label' => 'При обращении вы получаете бесплатно'
+                ],
+                [
+                    'name' => 'fields[advantages]',
+                    'type' => 'advantages',
+                    'label' => 'Наши преимущества'
                 ]
             ]);
         }
