@@ -45,4 +45,9 @@ class Questionnaire extends BaseModel
 
         return $rules;
     }
+
+    public function getLoadMethodAttribute($value)
+    {
+        return json_decode($value);
+    }
 }
