@@ -1,6 +1,7 @@
 export default class Map {
     constructor () {
-        ymaps.ready(function () {
+        if (document.getElementById('map')) {
+          ymaps.ready(function () {
             var myMap = new ymaps.Map('map', {
                     center: [59.923739, 30.244254],
                     zoom: 16,
@@ -19,7 +20,7 @@ export default class Map {
 
             myMap.geoObjects
                 .add(myPlacemark)
-        });
-
+          });
+        }
     }
 }
