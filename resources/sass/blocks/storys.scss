@@ -1,0 +1,98 @@
+.storys {
+    .story {
+        &__item {
+            margin: 0 0 40px;
+            padding: 30px 0;
+            display: flex;
+            position: relative;
+
+            @media (max-width: $screen-xs) {
+                margin: 0 0 35px;
+                padding: 33px 0;
+                flex-direction: column;
+            }
+
+            &:before,
+            &:after {
+                content: "";
+                width: 100%;
+                height: 3px;
+                background: $fifth-color;
+                position: absolute;
+                left: 0;
+            }
+
+            &:before {
+                top: 0;
+            }
+
+            &:after {
+                bottom: 0;
+            }
+        }
+
+        &__title {
+            margin: 0 0 31px;
+
+            @media (max-width: $screen-sm) {
+                margin: 0 0 26px;
+            }
+
+            @media (max-width: $screen-xs) {
+                margin: 0 0 20px;
+            }
+        }
+
+        &__photo {
+            width: 203px;
+            margin-right: 36px;
+
+            @media (max-width: $screen-xs) {
+                width: 100%;
+                margin: 0 0 34px;
+            }
+        }
+
+        &__img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        &__desc {
+            width: 72%;
+
+            @media (max-width: $screen-xs) {
+                width: 100%;
+            }
+        }
+
+        &__name {
+            margin: 0 0 15px;
+            display: block;
+            font-style: normal;
+            font-weight: bold;
+            font-size: $font-size--s;
+            line-height: 16px;
+            color: $third-color;
+
+            @media (max-width: $screen-xs) {
+                margin: 0 0 5px;
+                font-size: $font-size--xs + 1;
+                line-height: 134.09%;
+            }
+
+            &:hover {
+                color: $fifth-color;
+            }
+        }
+
+        &__text {
+            margin: 0;
+            line-height: 20px;
+
+            @media (max-width: $screen-xs) {
+                line-height: 19px;
+            }
+        }
+    }
+}

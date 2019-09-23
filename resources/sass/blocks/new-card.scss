@@ -1,0 +1,45 @@
+.new-card {
+    margin: 0 0 60px;
+
+    @media (max-width: $screen-sm) {
+        margin: 0 0 35px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin: 0 0 20px;
+    }
+
+    &__name {
+        margin: 0 0 20px;
+        color: $third-color;
+    }
+
+    &__data {
+        margin: 0 0 18px;
+        display: inline-block;
+        font-weight: normal;
+        font-size: $font-size - 1;
+        line-height: 17px;
+        color: $fourth-color;
+
+        @media (max-width: $screen-xs) {
+            margin: 0 0 16px;
+            font-size: $font-size--xs + 1;
+            line-height: 16px;
+        }
+    }
+
+    &__desc {
+        margin: 0 0 30px;
+    }
+
+    &__photo {
+        text-align: center;
+    }
+
+    &__img {
+        @media (max-width: $screen-sm) {
+            width: 100%;
+        }
+    }
+}

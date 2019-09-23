@@ -6,6 +6,7 @@ import ClientsSlider from '../partials/ClientsSlider';
 import Form from '../partials/Form';
 import ProductCardSlider from '../partials/ProductCardSlider';
 import Map from '../partials/Map';
+import QuestionAnswer from '../partials/QuestionAnswer';
 
 export default class Page {
   constructor () {
@@ -17,5 +18,6 @@ export default class Page {
     new Form();
     new ProductCardSlider();
     new Map();
+    new QuestionAnswer();
   }
 }

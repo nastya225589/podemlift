@@ -17032,7 +17032,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_Form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../partials/Form */ "./resources/js/partials/Form.js");
 /* harmony import */ var _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../partials/ProductCardSlider */ "./resources/js/partials/ProductCardSlider.js");
 /* harmony import */ var _partials_Map__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../partials/Map */ "./resources/js/partials/Map.js");
+/* harmony import */ var _partials_QuestionAnswer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../partials/QuestionAnswer */ "./resources/js/partials/QuestionAnswer.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 
 
@@ -17054,6 +17056,7 @@ var Page = function Page() {
   new _partials_Form__WEBPACK_IMPORTED_MODULE_5__["default"]();
   new _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_6__["default"]();
   new _partials_Map__WEBPACK_IMPORTED_MODULE_7__["default"]();
+  new _partials_QuestionAnswer__WEBPACK_IMPORTED_MODULE_8__["default"]();
 };
 
 
@@ -17315,8 +17318,8 @@ var Filters = function Filters() {
       _iteratorError = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion && _iterator.return != null) {
-          _iterator.return();
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
         }
       } finally {
         if (_didIteratorError) {
@@ -17573,6 +17576,36 @@ var ProductCardSlider = function ProductCardSlider() {
 
 /***/ }),
 
+/***/ "./resources/js/partials/QuestionAnswer.js":
+/*!*************************************************!*\
+  !*** ./resources/js/partials/QuestionAnswer.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return QuestionAnswer; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var QuestionAnswer = function QuestionAnswer() {
+  _classCallCheck(this, QuestionAnswer);
+
+  $(document).ready(function () {
+    function accordion() {
+      $(this).toggleClass('active');
+      $('.question').not(this).removeClass('active');
+    }
+
+    $('.question').on('click', accordion);
+  });
+};
+
+
+;
+
+/***/ }),
+
 /***/ "./resources/js/partials/SortingView.js":
 /*!**********************************************!*\
   !*** ./resources/js/partials/SortingView.js ***!
@@ -17723,9 +17756,9 @@ var Tabs = function Tabs() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/full/Projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/full/Projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/full/Projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
+__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
 
 
 /***/ })
