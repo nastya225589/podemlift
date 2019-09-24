@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import Input from './Input'
-import DeleteButton from './DeleteButton'
-import AddItemButton from './AddItemButton'
-import UploadButton from './UploadButton'
+import React, { Component } from 'react';
+import Input from './Input';
+import DeleteButton from './DeleteButton';
+import AddItemButton from './AddItemButton';
+import UploadButton from './UploadButton';
+import MoveButton from './MoveButton';
 
 export default class iconsInlineInline extends Component {
   constructor (props) {
@@ -34,7 +35,23 @@ export default class iconsInlineInline extends Component {
                 onChange={this.handleInputChange}
             />
         </div>
-        <DeleteButton onClick={this.deleteButtonHandler} index={index} />
+        <div className="controls">
+          <div className="col">
+            <MoveButton
+              onClick={this.moveHandler}
+              currentIndex={index}
+              newIndex={index - 1}
+              total={this.state.iconsInline.length}
+            />
+            <DeleteButton onClick={this.deleteButtonHandler} index={index} />
+            <MoveButton
+              onClick={this.moveHandler}
+              currentIndex={index}
+              newIndex={index + 1}
+              total={this.state.iconsInline.length}
+            />
+          </div>
+        </div>
       </div>);
     });
   }
@@ -72,6 +89,16 @@ export default class iconsInlineInline extends Component {
   handleInputChange = (index, name, value) => {
     this.state.iconsInline[index].title = value;
     this.setState(() => ({ iconsInline: this.state.iconsInline }));
+  }
+
+  moveHandler = (currentIndex, newIndex) => {
+    this.setState(currentState => {
+      const iconsInline = currentState.iconsInline;
+      const icon = iconsInline.splice(currentIndex, 1)[0];
+      iconsInline.splice(newIndex, 0, icon);
+
+      return { iconsInline: iconsInline };
+    });
   }
 
   render () {

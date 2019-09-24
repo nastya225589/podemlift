@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import Input from './Input'
-import DeleteButton from './DeleteButton'
-import AddItemButton from './AddItemButton'
-import UploadButton from './UploadButton'
-import TinyMce from './TinyMce'
+import React, { Component } from 'react';
+import Input from './Input';
+import DeleteButton from './DeleteButton';
+import AddItemButton from './AddItemButton';
+import UploadButton from './UploadButton';
+import TinyMce from './TinyMce';
+import MoveButton from './MoveButton';
 
 export default class ImageBlock extends Component {
   constructor (props) {
@@ -60,7 +61,23 @@ export default class ImageBlock extends Component {
             onClick={this.uploadHandler}
           />
         </div>
-        <DeleteButton onClick={this.deleteButtonHandler} index={index} />
+        <div className="controls">
+          <div className="col">
+            <MoveButton
+              onClick={this.moveHandler}
+              currentIndex={index}
+              newIndex={index - 1}
+              total={this.state.imageBlocks.length}
+            />
+            <DeleteButton onClick={this.deleteButtonHandler} index={index} />
+            <MoveButton
+              onClick={this.moveHandler}
+              currentIndex={index}
+              newIndex={index + 1}
+              total={this.state.imageBlocks.length}
+            />
+          </div>
+        </div>
       </div>);
     });
   }
@@ -117,6 +134,16 @@ export default class ImageBlock extends Component {
   handleDescriptionChange = (index, name, value) => {
     this.state.imageBlocks[index].description = value;
     this.setState(() => ({ imageBlocks: this.state.imageBlocks }));
+  }
+
+  moveHandler = (currentIndex, newIndex) => {
+    this.setState(currentState => {
+      const imageBlocks = currentState.imageBlocks;
+      const imageBlock = imageBlocks.splice(currentIndex, 1)[0];
+      imageBlocks.splice(newIndex, 0, imageBlock);
+
+      return { imageBlocks: imageBlocks };
+    });
   }
 
   render () {

@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import Input from './Input'
-import DeleteButton from './DeleteButton'
-import AddItemButton from './AddItemButton'
-import UploadButton from './UploadButton'
+import React, { Component } from 'react';
+import Input from './Input';
+import DeleteButton from './DeleteButton';
+import AddItemButton from './AddItemButton';
+import UploadButton from './UploadButton';
+import MoveButton from './MoveButton';
 
 export default class Icons extends Component {
   constructor (props) {
@@ -18,22 +19,38 @@ export default class Icons extends Component {
       return (
       <div className="two-cols" key={index}>
         <div className="images cols-5">
-            <div className="images-image">
-                <img src={element.imgUrl} />
-            </div>
-            <div className="images-image">
-                <UploadButton 
-                    index={index}
-                    onClick={this.uploadHandler}
-                />
-            </div>
-            <Input
-                index={index}
-                value={element.title || ''}
-                onChange={this.handleInputChange}
+          <div className="images-image">
+              <img src={element.imgUrl} />
+          </div>
+          <div className="images-image">
+            <UploadButton 
+              index={index}
+              onClick={this.uploadHandler}
             />
+          </div>
+          <Input
+            index={index}
+            value={element.title || ''}
+            onChange={this.handleInputChange}
+          />
         </div>
-        <DeleteButton onClick={this.deleteButtonHandler} index={index} />
+        <div className="controls">
+          <div className="col">
+            <MoveButton
+              onClick={this.moveHandler}
+              currentIndex={index}
+              newIndex={index - 1}
+              total={this.state.icons.length}
+            />
+            <DeleteButton onClick={this.deleteButtonHandler} index={index} />
+            <MoveButton
+              onClick={this.moveHandler}
+              currentIndex={index}
+              newIndex={index + 1}
+              total={this.state.icons.length}
+            />
+          </div>
+        </div>
       </div>);
     });
   }
@@ -49,6 +66,16 @@ export default class Icons extends Component {
     this.setState({ 
       ...this.state,
       icons
+    });
+  }
+
+  moveHandler = (currentIndex, newIndex) => {
+    this.setState(currentState => {
+      const icons = currentState.icons;
+      const icon = icons.splice(currentIndex, 1)[0];
+      icons.splice(newIndex, 0, icon);
+
+      return { icons: icons };
     });
   }
 
