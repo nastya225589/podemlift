@@ -37,7 +37,7 @@ export default class Requisites extends Component {
     });
   }
 
-  addRedirect = () => {
+  addItem = () => {
     const requisites = [
       ...this.state.requisites, {
         title: '',
@@ -72,7 +72,7 @@ export default class Requisites extends Component {
       <div className="item">
         <div className="content">
           {this.requisites()}
-          <AddItemButton onClick={this.addRedirect} />
+          <AddItemButton onClick={this.addItem} />
           <input name={this.props.name} type="hidden" value={JSON.stringify(this.state.requisites)}></input>
         </div>
       </div>

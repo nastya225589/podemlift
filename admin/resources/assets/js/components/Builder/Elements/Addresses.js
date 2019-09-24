@@ -45,7 +45,7 @@ export default class Addresses extends Component {
     });
   }
 
-  addRedirect = () => {
+  addItem = () => {
     const addresses = [
       ...this.state.addresses, {
         region: '',
@@ -86,7 +86,7 @@ export default class Addresses extends Component {
       <div className="item">
         <div className="content">
           {this.addresses()}
-          <AddItemButton onClick={this.addRedirect} />
+          <AddItemButton onClick={this.addItem} />
           <input name={this.props.name} type="hidden" value={JSON.stringify(this.state.addresses)}></input>
         </div>
       </div>

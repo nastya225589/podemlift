@@ -18852,7 +18852,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_FormPopup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../partials/FormPopup */ "./resources/js/partials/FormPopup.js");
 /* harmony import */ var _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../partials/ProductCardSlider */ "./resources/js/partials/ProductCardSlider.js");
 /* harmony import */ var _partials_Map__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../partials/Map */ "./resources/js/partials/Map.js");
+/* harmony import */ var _partials_QuestionAnswer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../partials/QuestionAnswer */ "./resources/js/partials/QuestionAnswer.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 
 
 
@@ -18876,6 +18878,7 @@ var Page = function Page() {
   new _partials_FormPopup__WEBPACK_IMPORTED_MODULE_6__["default"]();
   new _partials_ProductCardSlider__WEBPACK_IMPORTED_MODULE_7__["default"]();
   new _partials_Map__WEBPACK_IMPORTED_MODULE_8__["default"]();
+  new _partials_QuestionAnswer__WEBPACK_IMPORTED_MODULE_9__["default"]();
 };
 
 
@@ -19137,8 +19140,8 @@ var Filters = function Filters() {
       _iteratorError = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-          _iterator["return"]();
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
         }
       } finally {
         if (_didIteratorError) {
@@ -19654,9 +19657,9 @@ var Tabs = function Tabs() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
+__webpack_require__(/*! /home/full/Projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/full/Projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/full/Projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
 
 
 /***/ })
