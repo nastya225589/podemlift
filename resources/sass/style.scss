@@ -1,4 +1,5 @@
 @import './blocks/index';
+@import './blocks/list';
 @import './blocks/btn';
 @import './blocks/header';
 @import './blocks/header-top';
@@ -44,6 +45,7 @@
 @import 'blocks/get-free';
 @import 'blocks/about-card';
 @import 'blocks/table';
+@import 'blocks/table-main';
 @import 'blocks/link-file';
 @import 'blocks/banner';
 @import 'blocks/form-poll';
@@ -57,6 +59,8 @@
 @import 'blocks/storys';
 @import 'blocks/story-card';
 @import 'blocks/question-answer';
+@import 'blocks/services-page';
+@import 'blocks/info';
 
 .nowrap {
     white-space: nowrap;

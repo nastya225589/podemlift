@@ -1,0 +1,39 @@
+.list {
+    padding-left: 20px;
+    margin: 0 0 30px;
+
+    @media (max-width: $screen-xs) {
+        padding-left: 0;
+        margin: 0 0 20px;
+    }
+
+    .item {
+        margin: 0 0 10px;
+        font-weight: normal;
+        position: relative;
+        padding-left: 20px;
+        font-size: $font-size;
+        line-height: 18px;
+        color: $text-color;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 8px;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            background: $third-color;
+            border-radius: 5px;
+        }
+
+        .link {
+            color: $text-color;
+
+            &:hover {
+                color: $third-color;
+            }
+        }
+    }
+}

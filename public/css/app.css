@@ -408,6 +408,48 @@ input[type=submit] {
   border-radius: 0;
 }
 
+.list {
+  padding-left: 20px;
+  margin: 0 0 30px;
+}
+
+@media (max-width: 480px) {
+  .list {
+    padding-left: 0;
+    margin: 0 0 20px;
+  }
+}
+
+.list .item {
+  margin: 0 0 10px;
+  font-weight: normal;
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #1C1C1C;
+}
+
+.list .item:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: #00922E;
+  border-radius: 5px;
+}
+
+.list .item .link {
+  color: #1C1C1C;
+}
+
+.list .item .link:hover {
+  color: #00922E;
+}
+
 .btn {
   box-sizing: border-box;
   display: inline-block;
@@ -1183,7 +1225,7 @@ input[type=submit] {
 
 .promo__title {
   max-width: 796px;
-  font-family: RussoOne;
+  font-family: "Play", sans-serif;
   font-size: 38px;
   line-height: 57px;
   letter-spacing: 0.03em;
@@ -5100,6 +5142,63 @@ input[type=submit] {
   border-bottom: 1px solid #00922E;
 }
 
+.table-main {
+  font-size: 15px;
+  line-height: 21px;
+  color: #1C1C1C;
+  margin: 0 0 70px;
+}
+
+@media (max-width: 768px) {
+  .table-main {
+    margin: 0 0 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  .table-main {
+    max-width: 633px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin: 0 auto 30px;
+  }
+}
+
+.table-main table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.table-main thead {
+  color: #fff;
+  font-weight: bold;
+  background: #00922E;
+}
+
+.table-main tbody tr:nth-child(2n+1) {
+  background: #F1F1F1;
+}
+
+.table-main td {
+  padding: 15px 20px;
+}
+
+@media (max-width: 768px) {
+  .table-main td {
+    padding: 15px 15px;
+  }
+}
+
+.table-main td a {
+  color: #1C1C1C;
+  text-decoration: underline;
+}
+
+.table-main td a:hover {
+  color: #00922E;
+}
+
 .link-file {
   margin: 20px 0;
   display: inline-block;
@@ -6768,6 +6867,161 @@ input[type=submit] {
 
 .question-answer .active:before {
   content: "-";
+}
+
+.services-page {
+  margin: 0 0 70px;
+}
+
+@media (max-width: 768px) {
+  .services-page {
+    margin: 0 0 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-page {
+    margin: 0 0 27px;
+  }
+}
+
+.services-page__wrap {
+  margin: 0 0 40px;
+  padding: 0 0 30px;
+  border-bottom: 5px solid #00922E;
+}
+
+@media (max-width: 480px) {
+  .services-page__wrap {
+    margin: 0 0 27px;
+    padding: 0;
+  }
+}
+
+.services-page__inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1000px) {
+  .services-page__inner {
+    justify-content: space-around;
+  }
+}
+
+.services-page__link {
+  width: 350px;
+  margin: 0 20px 20px;
+}
+
+@media (max-width: 1000px) {
+  .services-page__link {
+    width: 300px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-page__link {
+    width: 100%;
+  }
+}
+
+.services-page__link:hover span {
+  color: #00922E;
+}
+
+.services-page__link:hover p {
+  color: #114B21;
+}
+
+@media (max-width: 480px) {
+  .services-page__link p {
+    margin: 0 0 20px;
+  }
+}
+
+.info {
+  margin: 0 0 70px;
+}
+
+@media (max-width: 768px) {
+  .info {
+    margin: 0 0 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .info {
+    margin: 0 0 20px;
+  }
+}
+
+.info__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1000px) {
+  .info__list {
+    justify-content: space-around;
+  }
+}
+
+.info__item {
+  margin: 0 20px 20px 0;
+  width: 220px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 10px solid #F1F1F1;
+}
+
+@media (max-width: 1000px) {
+  .info__item {
+    margin: 0 0 20px;
+  }
+}
+
+.info__item:nth-child(4n) {
+  margin: 0 0 20px;
+}
+
+@media (max-width: 1200px) {
+  .info__item:nth-child(4n) {
+    margin: 0 20px 20px 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .info__item:nth-child(4n) {
+    margin: 0 0 20px;
+  }
+}
+
+.info__item:hover span {
+  color: #00922E;
+}
+
+.info__item span {
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  color: #1C1C1C;
+}
+
+@media (max-width: 480px) {
+  .info__item span {
+    font-size: 14px;
+  }
+}
+
+.info__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
 }
 
 .nowrap {

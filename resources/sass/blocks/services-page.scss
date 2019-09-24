@@ -1,0 +1,61 @@
+.services-page {
+    margin: 0 0 70px;
+
+    @media (max-width: $screen-sm) {
+        margin: 0 0 40px;
+    }
+
+    @media (max-width: $screen-xs) {
+        margin: 0 0 27px;
+    }
+
+    &__wrap {
+        margin: 0 0 40px;
+        padding: 0 0 30px;
+        border-bottom: 5px solid $third-color;
+
+        @media (max-width: $screen-xs) {
+            margin: 0 0 27px;
+            padding: 0;
+        }
+    }
+
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+
+        @media (max-width: $screen-md) {
+            justify-content: space-around;
+        }
+    }
+
+    &__link {
+        width: 350px;
+        margin: 0 20px 20px;
+
+        @media (max-width: $screen-md) {
+            width: 300px;
+            margin: 0;
+        }
+
+        @media (max-width: $screen-sm) {
+            width: 100%;
+        }
+
+        &:hover {
+            span {
+                color: $third-color;
+            }
+
+            p {
+                color: $fifth-color;
+            }
+        }
+
+        p {
+            @media (max-width: $screen-xs) {
+                margin: 0 0 20px;
+            }
+        }
+    }
+}

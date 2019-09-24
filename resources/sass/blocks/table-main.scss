@@ -1,0 +1,54 @@
+.table-main {
+    font-size: $font-size + 1;
+    line-height: 21px;
+    color: $text-color;
+    margin: 0 0 70px;
+
+    @media (max-width: $screen-sm) {
+        margin: 0 0 40px;
+    }
+
+    @media (max-width: 650px) {
+        max-width: 633px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin: 0 auto 30px;
+    }
+
+    table {
+        width: 100%;
+        border-spacing: 0;
+    }
+
+    thead {
+        color: $body-bg;
+        font-weight: bold;
+        background: $third-color;
+    }
+
+    tbody {
+        tr {
+            &:nth-child(2n+1) {
+                background: $main-color;
+            }
+        }
+    }
+
+    td {
+        padding: 15px 20px;
+
+        @media (max-width: $screen-sm) {
+            padding: 15px 15px;
+        }
+
+        a {
+            color: $text-color;
+            text-decoration: underline;
+
+            &:hover {
+                color: $third-color;
+            }
+        }
+    }
+}
