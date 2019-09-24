@@ -19217,12 +19217,15 @@ function () {
   _createClass(FormPopup, [{
     key: "send",
     value: function send() {
+      $('#form-popup .form-popup__btn').text('Отправка...');
       var data = this.serialize();
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/back-call/send', data).then(function (response) {
         $('#form-popup .checkout__user').fadeOut();
         $('#form-popup .field-actions').fadeOut();
         $('#form-popup .form-popup__text-wrap').text(response.data.message);
       }).catch(function (error) {
+        $('#form-popup .form-popup__btn').text('Отправить');
+
         if (error.response.status == 422) {
           $.each(error.response.data.errors, function (i, error) {
             var el = $('#form-popup').find('[name="' + i + '"]');

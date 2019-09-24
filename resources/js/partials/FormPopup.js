@@ -11,8 +11,8 @@ export default class FormPopup {
   }
 
   send () {
+    $('#form-popup .form-popup__btn').text('Отправка...');
     const data = this.serialize();
-    
     axios.post('/back-call/send', data)
     .then( (response) => {
       $('#form-popup .checkout__user').fadeOut();
@@ -20,6 +20,7 @@ export default class FormPopup {
       $('#form-popup .form-popup__text-wrap').text(response.data.message)
     })
     .catch( error => {
+      $('#form-popup .form-popup__btn').text('Отправить');
       if (error.response.status == 422) {							
 				$.each(error.response.data.errors, function (i, error) {
           let el = $('#form-popup').find('[name="' + i + '"]');
