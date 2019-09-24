@@ -18,22 +18,22 @@ class Questionnaire extends BaseModel
             'firstname' => 'required|string|max:255',
             'organization' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
-            'email' => 'required|regex:/^.+@.+$/i',
-            'mailing_address' => 'string|max:255',
-            'delivery_at' => 'date|date_format:"d.m.Y"',
-            'delivery' => 'string|max:255',
-            'carrying' => 'integer',
-            'lift' => 'integer',
-            'type_of_lift' => 'string|max:255',
-            'place' => 'string|max:255',
-            'number_of_stops' => 'string|max:255',
+            'email' => 'nullable|regex:/^.+@.+$/i',
+            'mailing_address' => 'nullable|string|max:255',
+            'delivery_at' => 'nullable|date|date_format:"d.m.Y"',
+            'delivery' => 'nullable|string|max:255',
+            'carrying' => 'nullable|integer',
+            'lift' => 'nullable|integer',
+            'type_of_lift' => 'nullable|string|max:255',
+            'place' => 'nullable|string|max:255',
+            'number_of_stops' => 'nullable|string|max:255',
             'load_method' => 'array',
-            'load_method.*' => 'string|max:255',
-            'type_of_platform' => 'string|max:255',
+            'load_method.*' => 'nullable|string|max:255',
+            'type_of_platform' => 'nullable|string|max:255',
             'tailgate' => 'boolean',
             'swing_doors' => 'boolean',
             'signaling' => 'boolean',
-            'additionally' => 'string'
+            'additionally' => 'nullable|string'
         ];
 
         $googleRecaptchaSecret = Settings::where('name', 'GOOGLE_RECAPTCHA_SECRET')->first();
@@ -44,6 +44,11 @@ class Questionnaire extends BaseModel
         }
 
         return $rules;
+    }
+
+    public function setDeliveryAtAttribute($value)
+    {
+        $this->attributes['delivery_at'] = $value ? $value : null;
     }
 
     public function getLoadMethodAttribute($value)

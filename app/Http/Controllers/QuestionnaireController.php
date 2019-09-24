@@ -12,6 +12,6 @@ class QuestionnaireController extends Controller
         $questionnaire = new Questionnaire;
         $request->validate($questionnaire->validatorRules($request));
         $questionnaire->create($request->all());
-        return back();
+        return back()->with('sended', true);
     }
 }
