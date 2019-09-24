@@ -13,14 +13,16 @@
                     <div class="about-card__text text">
                         {!! $item->text !!}
                     </div>
-                    <div class="about-card__value">
-                        @if ($item->value)
-                            <span class="about-card__value-number">{{ $item->value }}</span>
-                        @endif
-                        @if ($item->description)
-                            <span class="about-card__value-text">{{ $item->description }}</span>
-                        @endif
-                    </div>
+                    @if ($item->value || $item->description)
+                        <div class="about-card__value">
+                            @if ($item->value)
+                                <span class="about-card__value-number">{{ $item->value }}</span>
+                            @endif
+                            @if ($item->description)
+                                <span class="about-card__value-text">{{ $item->description }}</span>
+                            @endif
+                        </div>
+                    @endif
                 </div>
     
                 <div class="about-card__photo">
