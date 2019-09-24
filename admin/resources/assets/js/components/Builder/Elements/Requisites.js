@@ -58,13 +58,15 @@ export default class Requisites extends Component {
   }
 
   handleTitleChange = (index, name, value) => {
-    this.state.requisites[index].title = value;
-    this.setState(() => ({ requisites: this.state.requisites }));
+    const requisites = this.state.requisites;
+    requisites[index].title = value;
+    this.setState(() => ({ requisites: requisites }));
   }
 
   handleValueChange = (index, name, value) => {
-    this.state.requisites[index].value = value;
-    this.setState(() => ({ requisites: this.state.requisites }));
+    const requisites = this.state.requisites;
+    requisites[index].value = value;
+    this.setState(() => ({ requisites: requisites }));
   }
 
   render () {

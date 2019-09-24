@@ -74,7 +74,7 @@ trait Url
         $this->redirects()->delete();
         foreach ($redirects as $redirect) {
             $url = parse_url($redirect);
-            $url = (isset($url['path']) && $url['path'] !== '/' ) ? $url['path'] : null;
+            $url = (isset($url['path']) && $url['path'] !== '/') ? $url['path'] : null;
             $url = $url[0] === '/' ? $url : '/' . $url;
             if ($url) {
                 Redirect::create([

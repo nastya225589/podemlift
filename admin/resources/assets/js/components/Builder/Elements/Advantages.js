@@ -63,8 +63,9 @@ export default class Advantages extends Component {
   }
 
   handleInputChange = (index, name, value) => {
-    this.state.advantages[index] = value;
-    this.setState(() => ({ advantages: this.state.advantages }));
+    const advantages = [...this.state.advantages];
+    advantages[index] = value;
+    this.setState(() => ({ advantages: advantages }));
   }
 
   moveHandler = (currentIndex, newIndex) => {

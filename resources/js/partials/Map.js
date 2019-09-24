@@ -1,26 +1,29 @@
 export default class Map {
-    constructor () {
-        if (document.getElementById('map')) {
-          ymaps.ready(function () {
-            var myMap = new ymaps.Map('map', {
-                    center: [59.923739, 30.244254],
-                    zoom: 16,
-                    controls: [],
-                // options.coordSystem: true
-                }),
+  constructor () {
+    this.init();
+  }
 
-                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+  init () {
+    if (document.getElementById('map')) {
+      ymaps.ready(function () {
+        var myMap = new ymaps.Map('map', {
+          center: [59.923739, 30.244254],
+          zoom: 16,
+          controls: []
+        });
 
-                }, {
-                    iconLayout: 'default#image',
-                    iconImageHref: 'images/icon/logo-map.svg',
-                    iconImageSize: [68, 94],
-                    iconImageOffset: [-45, -100]
-                });
+        var myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
 
-            myMap.geoObjects
-                .add(myPlacemark)
-          });
-        }
+        }, {
+          iconLayout: 'default#image',
+          iconImageHref: 'images/icon/logo-map.svg',
+          iconImageSize: [68, 94],
+          iconImageOffset: [-45, -100]
+        });
+
+        myMap.geoObjects
+          .add(myPlacemark);
+      });
     }
+  }
 }

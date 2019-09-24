@@ -19204,20 +19204,28 @@ var FormPopup =
 /*#__PURE__*/
 function () {
   function FormPopup() {
-    var _this = this;
-
     _classCallCheck(this, FormPopup);
 
-    $(function () {
+    this.attachEvents();
+  }
+
+  _createClass(FormPopup, [{
+    key: "attachEvents",
+    value: function attachEvents() {
+      this.onSend();
+    }
+  }, {
+    key: "onSend",
+    value: function onSend() {
+      var _this = this;
+
       $('#form-popup .form-popup__btn').on('click', function (e) {
         e.preventDefault();
 
         _this.send();
       });
-    });
-  }
-
-  _createClass(FormPopup, [{
+    }
+  }, {
     key: "send",
     value: function send() {
       $('#form-popup .form-popup__btn').text('Отправка...');
@@ -19269,27 +19277,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Map; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Map = function Map() {
-  _classCallCheck(this, Map);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  if (document.getElementById('map')) {
-    ymaps.ready(function () {
-      var myMap = new ymaps.Map('map', {
-        center: [59.923739, 30.244254],
-        zoom: 16,
-        controls: [] // options.coordSystem: true
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-      }),
-          myPlacemark = new ymaps.Placemark(myMap.getCenter(), {}, {
-        iconLayout: 'default#image',
-        iconImageHref: 'images/icon/logo-map.svg',
-        iconImageSize: [68, 94],
-        iconImageOffset: [-45, -100]
-      });
-      myMap.geoObjects.add(myPlacemark);
-    });
+var Map =
+/*#__PURE__*/
+function () {
+  function Map() {
+    _classCallCheck(this, Map);
+
+    this.init();
   }
-};
+
+  _createClass(Map, [{
+    key: "init",
+    value: function init() {
+      if (document.getElementById('map')) {
+        ymaps.ready(function () {
+          var myMap = new ymaps.Map('map', {
+            center: [59.923739, 30.244254],
+            zoom: 16,
+            controls: []
+          }),
+              myPlacemark = new ymaps.Placemark(myMap.getCenter(), {}, {
+            iconLayout: 'default#image',
+            iconImageHref: 'images/icon/logo-map.svg',
+            iconImageSize: [68, 94],
+            iconImageOffset: [-45, -100]
+          });
+          myMap.geoObjects.add(myPlacemark);
+        });
+      }
+    }
+  }]);
+
+  return Map;
+}();
 
 
 

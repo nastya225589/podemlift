@@ -86,13 +86,15 @@ export default class Icons extends Component {
   }
 
   uploadHandler = (index, url) => {
-    this.state.icons[index].imgUrl = url;
-    this.setState(() => ({ icons: this.state.icons }));
+    const icons = [...this.state.icons];
+    icons[index].imgUrl = url;
+    this.setState(() => ({ icons: icons }));
   }
 
   handleInputChange = (index, name, value) => {
-    this.state.icons[index].title = value;
-    this.setState(() => ({ icons: this.state.icons }));
+    const icons = [...this.state.icons];
+    icons[index].title = value;
+    this.setState(() => ({ icons: icons }));
   }
 
   render () {

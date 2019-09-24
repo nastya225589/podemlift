@@ -107,33 +107,39 @@ export default class ImageBlock extends Component {
   }
 
   uploadHandler = (index, url) => {
-    this.state.imageBlocks[index].imgUrl = url;
-    this.setState(() => ({ imageBlocks: this.state.imageBlocks }));
+    const imageBlocks = [...this.state.imageBlocks];
+    imageBlocks[index].imgUrl = url;
+    this.setState(() => ({ imageBlocks: imageBlocks }));
   }
 
   uploadIconHandler = (index, url) => {
-    this.state.imageBlocks[index].iconUrl = url;
-    this.setState(() => ({ imageBlocks: this.state.imageBlocks }));
+    const imageBlocks = [...this.state.imageBlocks];
+    imageBlocks[index].iconUrl = url;
+    this.setState(() => ({ imageBlocks: imageBlocks }));
   }
 
   handleTextareaChange = (index, name, value) => {
-    this.state.imageBlocks[index].text = value;
-    this.setState(() => ({ imageBlocks: this.state.imageBlocks }));
+    const imageBlocks = [...this.state.imageBlocks];
+    imageBlocks[index].text = value;
+    this.setState(() => ({ imageBlocks: imageBlocks }));
   }
 
   handleInputChange = (index, name, value) => {
-    this.state.imageBlocks[index].title = value;
-    this.setState(() => ({ imageBlocks: this.state.imageBlocks }));
+    const imageBlocks = [...this.state.imageBlocks];
+    imageBlocks[index].title = value;
+    this.setState(() => ({ imageBlocks: imageBlocks }));
   }
 
   handleValueChange = (index, name, value) => {
-    this.state.imageBlocks[index].value = value;
-    this.setState(() => ({ imageBlocks: this.state.imageBlocks }));
+    const imageBlocks = [...this.state.imageBlocks];
+    imageBlocks[index].value = value;
+    this.setState(() => ({ imageBlocks: imageBlocks }));
   }
 
   handleDescriptionChange = (index, name, value) => {
-    this.state.imageBlocks[index].description = value;
-    this.setState(() => ({ imageBlocks: this.state.imageBlocks }));
+    const imageBlocks = [...this.state.imageBlocks];
+    imageBlocks[index].description = value;
+    this.setState(() => ({ imageBlocks: imageBlocks }));
   }
 
   moveHandler = (currentIndex, newIndex) => {

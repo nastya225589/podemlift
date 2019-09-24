@@ -77,18 +77,19 @@ export default class iconsInlineInline extends Component {
   }
 
   uploadHandler = (index, url) => {
-    this.state.iconsInline[index].imgUrl = url;
-    this.setState(() => ({ iconsInline: this.state.iconsInline }));
+    const iconsInline = [...this.state.iconsInline];
+    iconsInline[index].imgUrl = url;
+    this.setState(() => ({ iconsInline: iconsInline }));
   }
 
   uploadBackgroundHandler = (index, url) => {
-    this.state.imgUrl = url;
-    this.setState(() => ({ imgUrl: this.state.imgUrl }));
+    this.setState(() => ({ imgUrl: url }));
   }
 
   handleInputChange = (index, name, value) => {
-    this.state.iconsInline[index].title = value;
-    this.setState(() => ({ iconsInline: this.state.iconsInline }));
+    const iconsInline = [...this.state.iconsInline];
+    iconsInline[index].title = value;
+    this.setState(() => ({ iconsInline: iconsInline }));
   }
 
   moveHandler = (currentIndex, newIndex) => {

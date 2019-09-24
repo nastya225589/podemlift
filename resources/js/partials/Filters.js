@@ -11,10 +11,7 @@ export default class Filters {
     $('.filters__btn-clear_wrap').click(function (e) {
       e.preventDefault();
       const resetUrl = $('.filters__btn-clear_wrap').attr('reset');
-      if (resetUrl)
-        location = resetUrl;
-      else  
-        location = location.pathname;
+      if (resetUrl) { location = resetUrl; } else { location = location.pathname; }
     });
 
     $('#filters-form').submit(function () {
@@ -24,26 +21,22 @@ export default class Filters {
         formQuery = '?' + $('#filters-form').serialize();
         if (formQuery.split('&').length === 1) {
           let propery = formQuery.split('=')[0];
-          let value = formQuery.split('=')[1];
+          const value = formQuery.split('=')[1];
 
-          if (propery.indexOf('%5B%5D') !== -1)
-            propery = propery.replace('%5B%5D', '');
+          if (propery.indexOf('%5B%5D') !== -1) { propery = propery.replace('%5B%5D', ''); }
 
           propery = propery.replace('?', '');
           formQuery = '/' + propery + '/' + value;
         }
       }
 
-      if (resetUrl)
-        window.location = (resetUrl + formQuery);
-      else
-        window.location = window.location.pathname + formQuery;
+      if (resetUrl) { window.location = (resetUrl + formQuery); } else { window.location = window.location.pathname + formQuery; }
       return false;
     });
 
     const inputs = document.getElementsByClassName('range-input');
     if (inputs) {
-      for (let input of inputs) {
+      for (const input of inputs) {
         const parent = input.parentNode;
         const nextEl = input.nextElementSibling;
         const slug = input.getAttribute('slug');

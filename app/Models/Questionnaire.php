@@ -35,20 +35,15 @@ class Questionnaire extends BaseModel
             'signaling' => 'boolean',
             'additionally' => 'nullable|string'
         ];
-
-        $googleRecaptchaSecret = Settings::where('name', 'GOOGLE_RECAPTCHA_SECRET')->first();
-        $googleRecaptchaKey = Settings::where('name', 'GOOGLE_RECAPTCHA_KEY')->first();
         
-        if ($googleRecaptchaSecret->value && $googleRecaptchaKey->value) {
+        $googleRecaptchaSecret = config('settings')->GOOGLE_RECAPTCHA_SECRET;
+        $googleRecaptchaKey = config('settings')->GOOGLE_RECAPTCHA_KEY;
+        
+        if ($googleRecaptchaSecret && $googleRecaptchaKey) {
             $rules = array_merge($rules, ['g-recaptcha-response' => 'required|recaptcha']);
         }
 
         return $rules;
-    }
-
-    public function setDeliveryAtAttribute($value)
-    {
-        $this->attributes['delivery_at'] = $value ? $value : null;
     }
 
     public function getLoadMethodAttribute($value)

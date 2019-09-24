@@ -1,8 +1,7 @@
-@php ($settings = '\App\Models\Settings')
-@php ($address = $settings::where('name', 'address')->first())
-@php ($phone = $settings::where('name', 'phone')->first())
-@php ($emailClients = $settings::where('name', 'email_clients')->first())
-@php ($emailSuppliers = $settings::where('name', 'email_suppliers')->first())
+@php ($address = config('settings')->address)
+@php ($phone = config('settings')->phone)
+@php ($emailClients = config('settings')->email_clients)
+@php ($emailSuppliers = config('settings')->email_suppliers)
 <section class="map-contacts">
     <div class="map-contacts__list">
         <div class="map-contacts__item">
@@ -20,7 +19,7 @@
             @if ($address)
                 <div class="map-contacts__wrap">
                     <h3>Адрес:</h3>
-                    <span>{{ $address->value }}</span>
+                    <span>{{ $address }}</span>
                 </div>
             @endif
         </div>
@@ -31,7 +30,7 @@
             @if ($phone)
                 <div class="map-contacts__wrap">
                     <h3>Телефон:</h3>
-                <span><a href="tel:{{ $phone->value }}">{{ $phone->value }}</a></span>
+                <span><a href="tel:{{ $phone }}">{{ $phone }}</a></span>
                 </div>
             @endif
         </div>
@@ -42,10 +41,10 @@
             <div class="map-contacts__wrap">
                 <h3>Почта:</h3>
                 @if ($emailClients)
-                    <span><a href="mailto:{{ $emailClients->value }}">{{ $emailClients->value }}</a> — для заказчиков</span>
+                    <span><a href="mailto:{{ $emailClients }}">{{ $emailClients }}</a> — для заказчиков</span>
                 @endif
                 @if ($emailClients)
-                    <span><a href="mailto:{{ $emailSuppliers->value }}">{{ $emailSuppliers->value }}</a> — для поставщиков</span>
+                    <span><a href="mailto:{{ $emailSuppliers }}">{{ $emailSuppliers }}</a> — для поставщиков</span>
                 @endif
             </div>
         </div>
