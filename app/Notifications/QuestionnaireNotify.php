@@ -46,7 +46,7 @@ class QuestionnaireNotify extends Notification
         }
 
         if ($this->questionnaire->carrying) {
-            $message = $message->line('Грузоподъемность, ru: ' . $this->questionnaire->carrying);
+            $message = $message->line('Грузоподъемность, кг: ' . $this->questionnaire->carrying);
         }
 
         if ($this->questionnaire->lift) {
