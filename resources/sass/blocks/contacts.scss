@@ -1,4 +1,8 @@
 .contacts {
+    @media (max-width: $screen-xs) {
+        display: none;
+    }
+
     &__list {
         margin-left: 70px;
         display: flex;

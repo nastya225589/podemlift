@@ -7,6 +7,7 @@ import Form from '../partials/Form';
 import FormPopup from '../partials/FormPopup';
 import ProductCardSlider from '../partials/ProductCardSlider';
 import Map from '../partials/Map';
+import QuestionAnswer from '../partials/QuestionAnswer';
 
 export default class Page {
   constructor () {
@@ -19,5 +20,6 @@ export default class Page {
     new FormPopup();
     new ProductCardSlider();
     new Map();
+    new QuestionAnswer();
   }
 }

@@ -23,12 +23,6 @@
         margin-bottom: 60px;
         max-width: 350px;
         position: relative;
-        font-family: FuturaPT;
-        font-weight: normal;
-
-        &:first-child {
-            font-weight: 300;
-        }
     }
 
     &__name {
@@ -37,7 +31,7 @@
         height: 54px;
         background-size: 54px !important;
         background-position-y: center !important;
-        font-family: RussoOne;
+        font-family: $font-family-title;
         font-size: $font-size--m;
         line-height: 19px;
         display: flex;

@@ -1,0 +1,53 @@
+.question-answer {
+    box-sizing: border-box;
+
+    .question {
+        width: 100%;
+        font-size: $font-size--m;
+        margin: 0 0 20px;
+        padding: 15px 40px 15px 15px;
+        border: 10px solid $main-color;
+        cursor: pointer;
+        position: relative;
+
+        @media (max-width: $screen-xs) {
+            margin: 0 0 15px;
+            border: 5px solid $main-color;
+            padding: 10px 15px;
+            font-size: $font-size;
+        }
+
+        &:before {
+            position: absolute;
+            right: 15px;
+            top: 0;
+            font-size: $font-size--h3;
+            font-weight: bold;
+            content: "+";
+            color: $third-color;
+
+            @media (max-width: $screen-xs) {
+                right: 5px;
+                font-size: $font-size--m;
+            }
+        }
+    }
+
+    .answer {
+        padding: 10px 0 10px 24px;
+        color: $fourth-color;
+        display: none;
+
+        @media (max-width: $screen-xs) {
+            padding: 10px 0 10px 15px;
+        }
+    }
+
+    .active > .answer {
+        display: block;
+    }
+
+    .active:before {
+        content: "-";
+    }
+}

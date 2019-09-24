@@ -76,8 +76,7 @@
     //}
 
     &__item--big &__title--big a {
-
-        font-family: RussoOne;
+        font-family: $font-family-title;
         font-size: $font-size--h3;
         line-height: normal;
         position: relative;
@@ -100,8 +99,7 @@
     }
 
     &__title a {
-
-        font-family: RussoOne;
+        font-family: $font-family-title;
         color: #fff;
         position: relative;
 
@@ -128,7 +126,6 @@
     }
 
     &__item {
-        font-family: FuturaPT;
         font-weight: normal;
         position: relative;
         padding-left: 20px;
