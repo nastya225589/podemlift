@@ -4,6 +4,7 @@ import MenuFooter from '../partials/MenuFooter';
 import ExamplesSlider from '../partials/ExamplesSlider';
 import ClientsSlider from '../partials/ClientsSlider';
 import Form from '../partials/Form';
+import FormPopup from '../partials/FormPopup';
 import ProductCardSlider from '../partials/ProductCardSlider';
 import Map from '../partials/Map';
 import QuestionAnswer from '../partials/QuestionAnswer';
@@ -16,6 +17,7 @@ export default class Page {
     new ExamplesSlider();
     new ClientsSlider();
     new Form();
+    new FormPopup();
     new ProductCardSlider();
     new Map();
     new QuestionAnswer();

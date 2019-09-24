@@ -5563,6 +5563,7 @@ input[type=submit] {
   max-width: 317px;
   font-size: 12px;
   line-height: 14px;
+  width: 343px;
 }
 
 @media (max-width: 852px) {
@@ -6343,10 +6344,6 @@ input[type=submit] {
 }
 
 .form-popup .field-text__input::-webkit-input-placeholder {
-  color: #A9A9A9;
-}
-
-.form-popup .field-text__input::-moz-placeholder {
   color: #A9A9A9;
 }
 

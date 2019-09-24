@@ -98,6 +98,51 @@ class Page extends BaseModel
             ]);
         }
 
+        if ($this->behavior == 'contacts') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[requisites]',
+                    'type' => 'requisites',
+                    'label' => 'Реквизиты'
+                ],
+                [
+                    'name' => 'fields[addresses]',
+                    'type' => 'addresses',
+                    'label' => 'Адреса региональных офисов'
+                ]
+            ]);
+        }
+
+        if ($this->behavior == 'about' || $this->behavior == 'production') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[imageBlock]',
+                    'type' => 'imageBlock',
+                    'label' => 'Блоки с картинками'
+                ]
+            ]);
+        }
+
+        if ($this->behavior == 'about') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[icons]',
+                    'type' => 'icons',
+                    'label' => 'Основные направления'
+                ],
+                [
+                    'name' => 'fields[iconsInline]',
+                    'type' => 'iconsInline',
+                    'label' => 'При обращении вы получаете бесплатно'
+                ],
+                [
+                    'name' => 'fields[advantages]',
+                    'type' => 'advantages',
+                    'label' => 'Наши преимущества'
+                ]
+            ]);
+        }
+
         $fields = array_merge($fields, [
             [
                 'name' => 'content',

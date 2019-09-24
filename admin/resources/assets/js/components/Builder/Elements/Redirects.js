@@ -46,8 +46,9 @@ export default class Redirects extends Component {
   }
 
   handleInputChange = (index, name, value) => {
-    this.state.redirects[index] = value;
-    this.setState(() => ({ redirects: this.state.redirects }));
+    const redirects = this.state.redirects;
+    redirects[index] = value;
+    this.setState(() => ({ redirects: redirects }));
   }
 
   render () {

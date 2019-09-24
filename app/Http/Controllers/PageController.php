@@ -29,8 +29,9 @@ class PageController extends Controller
         }
 
         $view = 'page.show';
-        if ($page->behavior)
+        if ($page->behavior) {
             $view = 'page.' . $page->behavior;
+        }
 
         return view($view, ['page' => $page]);
     }

@@ -15,10 +15,10 @@ class ProjectRequest extends BaseModel
             'phone' => 'required|string|max:255'
         ];
 
-        $googleRecaptchaSecret = Settings::where('name', 'GOOGLE_RECAPTCHA_SECRET')->first();
-        $googleRecaptchaKey = Settings::where('name', 'GOOGLE_RECAPTCHA_KEY')->first();
+        $googleRecaptchaSecret = config('settings')->GOOGLE_RECAPTCHA_SECRET;
+        $googleRecaptchaKey = config('settings')->GOOGLE_RECAPTCHA_KEY;
         
-        if ($googleRecaptchaSecret->value && $googleRecaptchaKey->value) {
+        if ($googleRecaptchaSecret && $googleRecaptchaKey) {
             $rules = array_merge($rules, ['g-recaptcha-response' => 'required|recaptcha']);
         }
 
