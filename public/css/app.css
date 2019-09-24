@@ -5201,7 +5201,7 @@ input[type=submit] {
 
 .link-file {
   margin: 20px 0;
-  display: inline-block;
+  display: block;
   padding-left: 33px;
   font-size: 15px;
   line-height: 146.28%;
