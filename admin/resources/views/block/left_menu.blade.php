@@ -63,6 +63,18 @@
             Заявки на проект
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('questionnaire.index') }}">
+            <i class="fas fa-comment-dots"></i>
+            Опросные листы
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('back-call.index') }}">
+            <i class="fas fa-comment-dots"></i>
+            Обратный звонок
+        </a>
+    </li>
 </ul>
 
 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">

@@ -57,8 +57,9 @@ class CatalogController extends Controller
         $fullUrl = $this->resource->url . $url;
         $category = $this->getCategory($fullUrl);
         
-        if (get_class($category) === 'Illuminate\Http\RedirectResponse')
+        if ($category && get_class($category) === 'Illuminate\Http\RedirectResponse') {
             return $category;
+        }
 
         if ($this->urlProperty && $this->urlPropertyValue) {
             $products = $this->filterService->filterSingle($this->urlProperty->slug, $this->urlPropertyValue);
@@ -102,14 +103,16 @@ class CatalogController extends Controller
 
         if (!$category) {
             $redirect = $this->tryRedirect($url);
-            if ($redirect)
+            if ($redirect) {
                 return $redirect;
+            }
         }
 
         if (!$category) {
             $redirect = $this->tryRedirect($withoutParametrizedUrl);
-            if ($redirect)
+            if ($redirect) {
                 return $redirect;
+            }
         }
 
         if (!$category && $this->isParametrizedUrl($url) && count(explode('/', $withoutParametrizedUrl)) <= 2) {
@@ -155,6 +158,6 @@ class CatalogController extends Controller
     {
         $url = explode('/', trim($url, '/'));
         array_splice($url, -2);
-        return '/' . join('/', $url);
+        return count($url) ? '/' . join('/', $url) : '';
     }
 }

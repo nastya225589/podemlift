@@ -59,7 +59,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
     public function store(Request $request)
     {
         if ($request->redirects) {
-            $redirects = json_decode($request->redirects, true);   
+            $redirects = json_decode($request->redirects, true);
         }
 
         $model = new $this->model;
@@ -96,7 +96,7 @@ class BaseAdminController extends \Illuminate\Routing\Controller
     public function update(Request $request, $id)
     {
         if ($request->redirects) {
-            $redirects = json_decode($request->redirects, true);   
+            $redirects = json_decode($request->redirects, true);
         }
 
         $model = new $this->model;

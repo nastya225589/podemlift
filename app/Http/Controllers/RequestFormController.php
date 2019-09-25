@@ -12,6 +12,6 @@ class RequestFormController extends Controller
         $projectRequest = new ProjectRequest;
         $request->validate($projectRequest->validatorRules($request));
         $projectRequest->create($request->all());
-        return back();
+        return back()->with('sended', true);
     }
 }
