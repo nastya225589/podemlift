@@ -58,5 +58,6 @@ Route::middleware(['web'])->group(function () {
         Route::resource('project-request', add_controller_ns('ProjectRequestController'));
         Route::resource('questionnaire', add_controller_ns('QuestionnaireController'));
         Route::resource('back-call', add_controller_ns('BackCallController'));
+        Route::resource('news', add_controller_ns('NewsController'));
     });
 });

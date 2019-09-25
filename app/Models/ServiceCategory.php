@@ -41,4 +41,9 @@ class ServiceCategory extends BaseModel
         $page = Page::where('behavior', 'services')->first();
         return $page->url . $url;
     }
+
+    public function services()
+    {
+        return $this->hasMany('App\Models\Service', 'category_id');
+    }
 }

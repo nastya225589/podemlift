@@ -2,6 +2,10 @@
 
 Route::get('/', 'PageController@index');
 
+Route::get('/news', 'NewsController@all');
+
+Route::get('/services-item/{slug}', 'ServiceController@getService');
+
 Route::post('/request-form/send', 'RequestFormController@store');
 
 Route::post('/questionnaire/send', 'QuestionnaireController@store');

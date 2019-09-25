@@ -1,11 +1,11 @@
 <li class="news__item">
     <div class="news__photo">
-        <img class="news__img" src="/images/about-card/about-card-1.png" alt="">
+        <img class="news__img" src="{{ $item->image->path }}" alt="">
     </div>
     <div class="news__desc">
-        <a href="/new-card" class="news__name">Петровский Пасхальный фестиваль народного творчества</a>
-        <span class="news__data">28 апреля 2019</span>
+        <a href="/new-card" class="news__name">{{ $item->name }}</a>
+        <span class="news__data">{{ $item->created_at }}</span>
 
-        <p class="news__text text">28 апреля 2019 года на улице Петровка состоялся ежегодный Петровский Пасхальный фестиваль народного творчества. Наша компания совместно с Московской торгово-промышленной палатой и Творческим Союзом Художников России приняла участие в организации выставки.</p>
+        <p class="news__text text">{!! Str::limit(strip_tags($item->text), 300, '...') !!}</p>
     </div>
 </li>

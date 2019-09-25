@@ -10,6 +10,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('news.index') }}">
+            <i class="far fa-list-alt"></i>
+            Новости
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('product.index') }}">
             <i class="fas fa-box-open"></i>
             Продукция

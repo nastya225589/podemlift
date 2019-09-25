@@ -32,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        setlocale(LC_ALL, 'ru_RU.utf8');
+        \Carbon\Carbon::setLocale(config('app.locale'));
         Product::observe(ProductObserver::class);
         ProjectRequest::observe(ProjectRequestObserver::class);
         Questionnaire::observe(QuestionnaireObserver::class);

@@ -10,6 +10,7 @@
         {!! $page->content !!}
 
         @include('blocks.news')
+        {{ $news->links('blocks.pagination') }}
     </div>
 
 @endsection

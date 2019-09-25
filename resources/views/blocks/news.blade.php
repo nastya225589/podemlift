@@ -1,8 +1,7 @@
 <section class="news">
     <ul class="new__list">
-        @include('blocks.new')
-        @include('blocks.new')
-        @include('blocks.new')
-        @include('blocks.new')
+        @foreach ($news as $item)
+            @include('blocks.new')    
+        @endforeach
     </ul>
 </section>
