@@ -77,6 +77,17 @@ class ProductCategory extends BaseModel
         }
     }
 
+    public function image()
+    {
+        if ($this->products()->first())
+            return $this->products()->first()->firstImage()->url;
+    }
+
+    public function price()
+    {
+        return $this->products()->min('price');
+    }
+
     public function properties()
     {
         return $this->belongsToMany(ProductProperty::class, 'product_category_product_property');

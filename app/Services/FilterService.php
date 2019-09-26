@@ -43,6 +43,33 @@ class FilterService implements FilterServiceInterface
         return $filters;
     }
 
+    public function getValues($category)
+    {
+        $productIds = $category->products()->pluck('id');
+        $properties = $category->properties;
+        if (count($properties)) {
+            $filters = $category
+                ->properties()
+                ->where('type', 'number')
+                ->select('name')
+                ->orderBy('sort')
+                ->get()->toArray();
+        } else {
+            $filters = ProductPropertyValue::whereIn('product_id', $productIds)
+                ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
+                ->where('type', 'number')
+                ->select('name')
+                ->orderBy('sort')
+                ->groupBy('name', 'sort')
+                ->get()->toArray();
+        }
+
+        foreach ($filters as $key => $filter) {
+            $filters[$key]['values'] = $this->getRangeValues($productIds, $filter['name']);
+        }
+        return $filters;
+    }
+
     public function filter(array $params, $category = null)
     {
         if ($category) {
@@ -113,6 +140,7 @@ class FilterService implements FilterServiceInterface
             ->where('name', $name);
         $values['max'] = $query->max('int_value');
         $values['min'] = $query->min('int_value');
-        return $values['min'] === $values['max'] ? null : $values;
+        $values['measure'] = $query->pluck('measure')[0];
+        return $values;
     }
 }

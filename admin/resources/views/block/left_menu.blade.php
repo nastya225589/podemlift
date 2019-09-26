@@ -40,6 +40,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('application-sphere.index') }}">
+            <i class="fas fa-dolly"></i>
+            Сферы применения
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('service.index') }}">
             <i class="fas fa-dolly"></i>
             Услуги

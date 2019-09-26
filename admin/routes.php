@@ -60,5 +60,6 @@ Route::middleware(['web'])->group(function () {
         Route::resource('back-call', add_controller_ns('BackCallController'));
         Route::resource('news', add_controller_ns('NewsController'));
         Route::resource('story', add_controller_ns('StoryController'));
+        Route::resource('application-sphere', add_controller_ns('ApplicationSphereController'));
     });
 });

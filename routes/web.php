@@ -6,7 +6,9 @@ Route::get('/story-card/{id}', 'StoryController@one');
 
 Route::get('/new-card/{id}', 'NewsController@one');
 
-Route::get('/services-item/{slug}', 'ServiceController@getService');
+Route::get('/services-item/{slug}', 'ServiceController@one');
+
+Route::get('/sphere-item/{slug}', 'SphereController@one');
 
 Route::post('/request-form/send', 'RequestFormController@store');
 
