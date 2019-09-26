@@ -7,7 +7,7 @@
 
             <div class="header-top__buy">
                 <svg width="38" height="38">
-                    <use xlink:href="images/icon/sprite.svg#header-request"></use>
+                    <use xlink:href="/images/icon/sprite.svg#header-request"></use>
                 </svg>
                 <a href="#form-popup" class="header-top__order">
                     <span>СДЕЛАТЬ ЗАКАЗ</span>
