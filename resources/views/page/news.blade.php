@@ -2,6 +2,7 @@
 
 @section('content')
 
+@php ($news = \App\Models\News::published()->paginate(12))
     <div class="container">
         @include('blocks.breadcrumbs')
 
