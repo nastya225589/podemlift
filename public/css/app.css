@@ -1445,7 +1445,7 @@ input[type=submit] {
   padding: 10px;
   margin-right: 16px;
   margin-bottom: 40px;
-  width: 280px;
+  max-width: 280px;
   background: #F1F1F1;
   display: inline-block;
 }
@@ -1462,7 +1462,7 @@ input[type=submit] {
 
 .card__name {
   margin: 14px 0 3px;
-  max-width: 300px;
+  max-width: 260px;
   font-family: "Play", sans-serif;
   font-size: 18px;
   line-height: normal;
@@ -1526,7 +1526,7 @@ input[type=submit] {
 }
 
 .card__sorting-view {
-  width: 100%;
+  max-width: 100%;
   margin-right: 0;
   display: flex;
   justify-content: space-between;
