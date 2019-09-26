@@ -1,0 +1,77 @@
+.portfolio {
+
+    &__item {
+        margin: 0 0 50px;
+
+        h2 {
+            &:hover {
+               color: $third-color;
+            }
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 30px;
+        position: relative;
+
+        @media (max-width: $screen-sm) {
+            justify-content: space-around;
+        }
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: $seventh-color;
+        }
+
+        &:before {
+            top: 0;
+        }
+
+        &:after {
+            bottom: 0;
+        }
+    }
+
+    .card {
+        margin-bottom: 30px;
+        margin-right: 16px;
+
+        &:nth-child(4n) {
+            margin-right: 0;
+
+            @media (max-width: $screen-lg) {
+                margin-right: 16px;
+            }
+
+            @media (max-width: $screen-sm) {
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: $screen-sm) {
+            margin-right: 0;
+        }
+
+        h3 {
+            margin: 14px 0 3px;
+            font-family: $font-family-title;
+            font-size: $font-size--m;
+            line-height: normal;
+            color: $text-color;
+            text-transform: inherit;
+        }
+
+        p {
+            margin: 0 0 20px;
+            width: 260px;
+            line-height: 16px;
+        }
+    }
+}
