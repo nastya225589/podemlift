@@ -2,7 +2,7 @@
 
 Route::get('/', 'PageController@index');
 
-Route::get('/news', 'NewsController@all');
+Route::get('/story-card/{id}', 'StoryController@one');
 
 Route::get('/new-card/{id}', 'NewsController@one');
 

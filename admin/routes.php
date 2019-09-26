@@ -59,5 +59,6 @@ Route::middleware(['web'])->group(function () {
         Route::resource('questionnaire', add_controller_ns('QuestionnaireController'));
         Route::resource('back-call', add_controller_ns('BackCallController'));
         Route::resource('news', add_controller_ns('NewsController'));
+        Route::resource('story', add_controller_ns('StoryController'));
     });
 });

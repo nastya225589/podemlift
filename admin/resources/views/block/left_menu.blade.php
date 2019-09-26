@@ -16,6 +16,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('story.index') }}">
+            <i class="far fa-list-alt"></i>
+            История
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('product.index') }}">
             <i class="fas fa-box-open"></i>
             Продукция
