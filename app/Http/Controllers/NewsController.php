@@ -11,7 +11,14 @@ class NewsController extends Controller
     {
         return view('page.news', [
             'page' => Page::where('behavior', 'news')->firstOrFail(),
-            'news' => News::published()->paginate(1)
+            'news' => News::published()->paginate(12)
+        ]);
+    }
+
+    public function one($slug)
+    {
+        return view('page.new-card', [
+            'page' => News::where('slug', $slug)->published()->firstOrFail(),
         ]);
     }
 }
