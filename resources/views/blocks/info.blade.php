@@ -1,60 +1,18 @@
 <section class="info">
     <div class="info__list">
-        <a href="#" class="info__item">
-            <div class="info__icon">
-                <svg width="50" height="50" >
-                    <use xlink:href="images/icon/sprite.svg#production"></use>
-                </svg>
-            </div>
-            <span>Импортозамещение подъёмного оборудования</span>
-        </a>
-        <a href="#" class="info__item">
-            <div class="info__icon">
-                <svg width="50" height="50" >
-                    <use xlink:href="images/icon/sprite.svg#production"></use>
-                </svg>
-            </div>
-            <span>Часто  задаваемые вопросы</span>
-        </a>
-        <a href="#" class="info__item">
-            <div class="info__icon">
-                <svg width="50" height="50" >
-                    <use xlink:href="images/icon/sprite.svg#production"></use>
-                </svg>
-            </div>
-            <span>Сравнительные характеристики</span>
-        </a>
-        <a href="#" class="info__item">
-            <div class="info__icon">
-                <svg width="50" height="50" >
-                    <use xlink:href="images/icon/sprite.svg#production"></use>
-                </svg>
-            </div>
-            <span>Скачайте опросные листы</span>
-        </a>
-        <a href="/poleznye-stranitsy/question-answer" class="info__item">
-            <div class="info__icon">
-                <svg width="50" height="50" >
-                    <use xlink:href="images/icon/sprite.svg#production"></use>
-                </svg>
-            </div>
-            <span>вопрос-ответ</span>
-        </a>
-        <a href="#" class="info__item">
-            <div class="info__icon">
-                <svg width="50" height="50" >
-                    <use xlink:href="images/icon/sprite.svg#production"></use>
-                </svg>
-            </div>
-            <span>История подъемного оборудования</span>
-        </a>
-        <a href="#" class="info__item">
-            <div class="info__icon">
-                <svg width="50" height="50" >
-                    <use xlink:href="images/icon/sprite.svg#production"></use>
-                </svg>
-            </div>
-            <span>Стоимость подъемного оборудования</span>
-        </a>
+        @foreach ($page->childrens as $item)
+            <a href="{{ $item->url }}" class="info__item">
+                <div class="info__icon">
+                    @if ($item->image('icon')->url)
+                        <img src="{{ $item->image('icon')->url }}" alt="">
+                    @else
+                        <svg width="50" height="50" >
+                            <use xlink:href="images/icon/sprite.svg#production"></use>
+                        </svg>
+                    @endif
+                </div>
+                <span>{{ $item->name }}</span>
+            </a>   
+        @endforeach
     </div>
 </section>
