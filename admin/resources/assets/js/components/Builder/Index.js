@@ -5,6 +5,7 @@ import Properties from './Elements/Properties';
 import Redirects from './Elements/Redirects';
 import Advantages from './Elements/Advantages';
 import Requisites from './Elements/Requisites';
+import QA from './Elements/QA';
 import Addresses from './Elements/Addresses';
 import Icons from './Elements/Icons';
 import IconsInline from './Elements/IconsInline';
@@ -111,4 +112,14 @@ if (imageBlocks) {
     value: JSON.parse(textarea.value.trim()) || []
   };
   ReactDOM.render(<ImageBlock {...props} />, imageBlocks);
+}
+
+const questions = document.getElementById('QA');
+if (questions) {
+  const textarea = questions.getElementsByTagName('textarea')[0];
+  const props = {
+    name: textarea.getAttribute('name'),
+    value: JSON.parse(textarea.value.trim()) || []
+  };
+  ReactDOM.render(<QA {...props} />, questions);
 }

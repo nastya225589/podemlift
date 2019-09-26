@@ -113,6 +113,16 @@ class Page extends BaseModel
             ]);
         }
 
+        if ($this->behavior == 'question-answer') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[QA]',
+                    'type' => 'QA',
+                    'label' => 'Блоки с вопросами'
+                ]
+            ]);
+        }
+
         if ($this->behavior == 'about' || $this->behavior == 'production') {
             $fields = array_merge($fields, [
                 [
