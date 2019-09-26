@@ -6,7 +6,7 @@ use App\Models\Service;
 
 class ServiceController extends Controller
 {
-    public function getService($slug)
+    public function one($slug)
     {
         return view('page.services-item', [
             'page' => Service::where('slug', $slug)->first()
