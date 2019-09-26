@@ -2,6 +2,7 @@
     padding: 10px;
     margin-right: 16px;
     margin-bottom: 40px;
+    width: 280px;
     background: $main-color;
     display: inline-block;
 
@@ -15,7 +16,8 @@
 
     &__name {
         margin: 14px 0 3px;
-        font-family: "Play", sans-serif;
+        max-width: 300px;
+        font-family: $font-family-title;
         font-size: $font-size--m;
         line-height: normal;
         color: $text-color;
@@ -78,6 +80,7 @@
     }
 
     &__sorting-view  {
+        width: 100%;
         margin-right: 0;
         display: flex;
         justify-content: space-between;
