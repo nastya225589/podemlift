@@ -1,6 +1,6 @@
 <li class="news__item">
     <div class="news__photo">
-        <img class="news__img" src="{{ $item->image->path }}" alt="">
+        <img class="news__img" src="{{ $item->image->url }}" alt="">
     </div>
     <div class="news__desc">
         <a href="/new-card/{{ $item->slug }}" class="news__name">{{ $item->name }}</a>
