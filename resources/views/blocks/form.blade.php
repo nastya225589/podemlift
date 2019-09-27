@@ -1,11 +1,13 @@
-@if (Session::get('sended'))
-    <p class="form__desc">Заявка отправлена, мы перезвоним вам в течение 15 минут</p>
-@else
+
     <form id="form" class="form" method="post" action="/request-form/send">
         @csrf
         <fieldset class="form__fieldset">
             <div class="form__title title-h2">Получить проект подъемника бесплатно</div>
-            <p class="form__desc">Оставьте заявку и мы перезвоним вам в течение 15 минут</p>
+            @if (Session::get('sended'))
+                <p class="form__desc">Заявка отправлена, мы перезвоним вам в течение 15 минут</p>
+            @else
+                <p class="form__desc">Оставьте заявку и мы перезвоним вам в течение 15 минут</p>
+            @endif
             <div class="form__user-data">
                 <div class="field-text__wrap">
                     <label class="field-text">
@@ -46,5 +48,5 @@
             @endif
         </fieldset>
     </form>
-@endif
+
 
