@@ -7207,3 +7207,34 @@ input[type=submit] {
   white-space: nowrap;
 }
 
+.text ul {
+  padding-left: 20px !important;
+  margin: 0 0 30px !important;
+}
+
+.text li {
+  margin: 0 0 10px !important;
+  font-weight: normal;
+  position: relative;
+  padding-left: 20px !important;
+  font-size: 14px;
+  line-height: 18px;
+  color: #1C1C1C;
+}
+
+.text li:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: #00922E;
+  border-radius: 5px;
+}
+
+.text li > a {
+  color: #00922E !important;
+}
+

@@ -26,8 +26,8 @@ require('tinymce/plugins/wordcount');
 function initEditor () {
   tinymce.init({
     selector: '.editor',
-    plugins: 'image, link, code',
-    toolbar: 'link image code',
+    plugins: 'image, link, code, lists',
+    toolbar: 'link image code numlist bullist',
     language: 'ru',
     valid_elements: '+*[*]'
     // file_browser_callback : elFinderBrowser,
