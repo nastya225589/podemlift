@@ -31,9 +31,9 @@
                         @endif
                     </label>
                 </div>
-                
-                <button class="btn form__btn">Отправить заявку</button>
+
                 <p class="form__text">Нажимая на кнопку «Отправить заявку» вы соглашаетесь с обработкой персональных данных</p>
+                <button class="btn form__btn">Отправить заявку</button>
             </div>
             @php($GOOGLE_RECAPTCHA_KEY = config('settings')->GOOGLE_RECAPTCHA_KEY)
             @if($GOOGLE_RECAPTCHA_KEY)

@@ -35,7 +35,7 @@
 
     .form {
         max-width: 380px;
-        margin: 35px 0 45px;
+        margin: 42px 0 45px;
         background: inherit;
         position: relative;
         top: 0;
@@ -68,7 +68,7 @@
 
         &__fieldset {
             position: relative;
-            padding: 30px 29px 45px 29px;
+            padding: 30px 32px 45px 26px;
             background: transparent;
 
             @media (max-width: $screen-md) {
@@ -81,6 +81,7 @@
         }
 
         &__title {
+            margin: 0 0 13px;
             font-size: $font-size--m;
             line-height: normal;
             letter-spacing: 0.03em;
@@ -89,7 +90,7 @@
         }
 
         &__desc {
-            margin: 10px 0 39px;
+            margin: 10px 0 35px;
             font-size: $font-size--s;
             line-height: normal;
             color: #FFFFFF;
@@ -102,7 +103,7 @@
 
         &__text {
             order: 0;
-            margin: 5px 0 35px;
+            margin: 6px 0 42px;
             color: #fff;
         }
 
@@ -125,8 +126,9 @@
             }
 
             &__input {
-                width: 93.7%;
-                margin-bottom: 29px;
+                margin: 0 0 27px;
+                width: 100%;
+                box-sizing: border-box;
                 background: rgba(255, 255, 255, 0.2);
             }
         }

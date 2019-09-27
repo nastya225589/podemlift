@@ -29,13 +29,14 @@
     }
 
     &__desc {
-        margin: 12px 0 42px;
+        margin: 10px 0 38px;
         font-size: $font-size--s;
         line-height: normal;
         color: $text-color;
     }
 
     &__title  {
+        margin: 0 0 10px;
         color: $third-color;
     }
 
@@ -56,8 +57,7 @@
     }
 
     &__btn {
-        margin-left: 20px;
-        margin-top: 18px;
+        margin-top: 11px;
         min-width: 220px;
         height: 50px;
         font-size: $font-size--s;
@@ -75,7 +75,7 @@
     .field-text {
         display: flex;
         flex-direction: column;
-        padding-right: 20px;
+        padding-right: 51px;
 
         @media (max-width: 1100px) {
             padding-right: 20px;
@@ -87,6 +87,7 @@
 
         &__wrap {
             display: flex;
+            flex-grow: 1;
 
             @media (max-width: $screen-sm) {
                 flex-direction: column;
