@@ -1,6 +1,7 @@
 <?php
 
 Route::middleware(['web'])->group(function () {
+    Route::get('/download', add_controller_ns('FileController@download'));
     Route::prefix('admin/user')->group(function () {
         // user auth
         Route::post('login', add_controller_ns('LoginController@login'));
@@ -21,6 +22,7 @@ Route::middleware(['web'])->group(function () {
         Route::get('settings', add_controller_ns('SettingsController@index'))->name('settings.index');
         Route::post('settings', add_controller_ns('SettingsController@index'));
         Route::post('image/upload', add_controller_ns('ImageController@upload'));
+        Route::post('file/upload', add_controller_ns('FileController@upload'));
 
         Route::resource('user', add_controller_ns('UserController'));
 
