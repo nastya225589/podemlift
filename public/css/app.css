@@ -1,31 +1,3 @@
-@font-face {
-  font-family: RussoOne;
-  src: url(/fonts/RussoOne-Regular.ttf?d14e8736a4d3b27eab214ee40c3e15e8) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: FuturaPT;
-  src: url(/fonts/FuturaPTMedium.otf?bd99f124d37cfd9caecec4fe24094334) format("opentype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: FuturaPT;
-  src: url(/fonts/FuturaPTLight.otf?a15258a71bcff8eb791ad54f27144d48) format("opentype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: FuturaPT;
-  src: url(/fonts/FuturaPTBold.otf?f3483f64fe4f53928cfe2786e7ec82cc) format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-
 /* Slider */
 
 .slick-slider {
@@ -1261,7 +1233,7 @@ input[type=submit] {
 
 .promo .form {
   max-width: 380px;
-  margin: 35px 0 45px;
+  margin: 42px 0 45px;
   background: inherit;
   position: relative;
   top: 0;
@@ -1302,7 +1274,7 @@ input[type=submit] {
 
 .promo .form__fieldset {
   position: relative;
-  padding: 30px 29px 45px 29px;
+  padding: 30px 32px 45px 26px;
   background: transparent;
 }
 
@@ -1319,6 +1291,7 @@ input[type=submit] {
 }
 
 .promo .form__title {
+  margin: 0 0 13px;
   font-size: 18px;
   line-height: normal;
   letter-spacing: 0.03em;
@@ -1327,7 +1300,7 @@ input[type=submit] {
 }
 
 .promo .form__desc {
-  margin: 10px 0 39px;
+  margin: 10px 0 35px;
   font-size: 16px;
   line-height: normal;
   color: #FFFFFF;
@@ -1340,7 +1313,7 @@ input[type=submit] {
 
 .promo .form__text {
   order: 0;
-  margin: 5px 0 35px;
+  margin: 6px 0 42px;
   color: #fff;
 }
 
@@ -1364,23 +1337,20 @@ input[type=submit] {
 }
 
 .promo .form .field-text__input {
-  width: 93.7%;
-  margin-bottom: 29px;
+  margin: 0 0 27px;
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.2);
 }
 
 .about {
-  margin-top: 125px;
+  margin-top: 116px;
 }
 
 @media (max-width: 1200px) {
   .about {
     margin-top: 50px;
   }
-}
-
-.about__title {
-  margin-bottom: 63px;
 }
 
 .about__list {
@@ -1405,10 +1375,11 @@ input[type=submit] {
   margin-bottom: 8px;
   padding-left: 68px;
   height: 54px;
-  background-size: 54px !important;
+  background-size: 50px !important;
   background-position-y: center !important;
   font-family: "Play", sans-serif;
   font-size: 18px;
+  text-transform: inherit;
   line-height: 19px;
   display: flex;
   align-items: center;
@@ -1693,7 +1664,7 @@ input[type=submit] {
   margin-bottom: 20px;
   padding: 10px 19px 3px;
   width: 342px;
-  min-height: 137px;
+  min-height: 150px;
   z-index: 1;
   background: rgba(0, 0, 0, 0.4);
 }
@@ -1708,6 +1679,7 @@ input[type=submit] {
 .service__item--big .service__title--big a {
   font-family: "Play", sans-serif;
   font-size: 24px;
+  text-transform: initial;
   line-height: normal;
   position: relative;
 }
@@ -1734,6 +1706,7 @@ input[type=submit] {
 
 .service__title a {
   font-family: "Play", sans-serif;
+  text-transform: initial;
   color: #fff;
   position: relative;
 }
@@ -1973,13 +1946,14 @@ input[type=submit] {
 }
 
 .form__desc {
-  margin: 12px 0 42px;
+  margin: 10px 0 38px;
   font-size: 16px;
   line-height: normal;
   color: #1C1C1C;
 }
 
 .form__title {
+  margin: 0 0 10px;
   color: #00922E;
 }
 
@@ -2004,8 +1978,7 @@ input[type=submit] {
 }
 
 .form__btn {
-  margin-left: 20px;
-  margin-top: 18px;
+  margin-top: 11px;
   min-width: 220px;
   height: 50px;
   font-size: 16px;
@@ -2027,7 +2000,7 @@ input[type=submit] {
 .form .field-text {
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
+  padding-right: 51px;
 }
 
 @media (max-width: 1100px) {
@@ -2044,6 +2017,7 @@ input[type=submit] {
 
 .form .field-text__wrap {
   display: flex;
+  flex-grow: 1;
 }
 
 @media (max-width: 768px) {
@@ -2133,7 +2107,7 @@ input[type=submit] {
 }
 
 .examples__item:hover .examples__desc {
-  font-family: FuturaPT;
+  font-family: "Play", sans-serif;
   font-weight: normal;
   margin: 0 auto;
   display: block;
@@ -2145,6 +2119,7 @@ input[type=submit] {
   right: 0;
   padding: 10px;
   font-size: 16px;
+  font-weight: bold;
   line-height: normal;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
@@ -2475,7 +2450,6 @@ input[type=submit] {
 }
 
 .footer-nav__list--main .footer-nav__link {
-  font-family: "Arial", sans-serif;
   font-size: 16px;
 }
 
@@ -2520,7 +2494,6 @@ input[type=submit] {
 }
 
 .footer-nav__link {
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   line-height: normal;
   color: #fff;
@@ -2574,6 +2547,7 @@ input[type=submit] {
   margin: 12px 0 16px;
   font-size: 16px;
   line-height: normal;
+  text-transform: inherit;
   color: #fff;
   font-weight: 400;
 }
