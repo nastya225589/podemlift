@@ -8,7 +8,7 @@
             <div class="services__list">
                 <div class="services__item service__item--big">
                     <h3 class="service__title service__title--big">
-                        <a href="/" >{!! last_word_with_arrow($services->first()->name) !!}</a>
+                        <a href="/services-item/{{ $services->first()->slug }}" >{!! last_word_with_arrow($services->first()->name) !!}</a>
                     </h3>
 
                     <?php $texts = explode(PHP_EOL, $services->first()->text_on_main) ?>
@@ -22,9 +22,11 @@
                         <p>{{ $texts[0] }}</p>
                     @endif
 
-                    <a href="#" class="btn btn__long-arrow">
-                        <span>Смотреть примеры работ <span class="arrow"></span></span>
-                    </a>
+                    @if ($portfolio = \App\Models\Page::where('behavior', 'portfolio')->first())
+                        <a href="{{ $portfolio->url }}" class="btn btn__long-arrow">
+                            <span>Смотреть примеры работ <span class="arrow"></span></span>
+                        </a>
+                    @endif
                 </div>
 
                 @foreach($services->splice(1)->chunk(2) as $chunk)
@@ -32,7 +34,7 @@
                         @foreach($chunk as $service)
                             <div class="services__item">
                                 <h3 class="service__title">
-                                    <a href="/" >{!! last_word_with_arrow($service->name) !!}</a>
+                                    <a href="/services-item/{{ $service->slug }}" >{!! last_word_with_arrow($service->name) !!}</a>
                                 </h3>
 
                                 <?php $texts = explode(PHP_EOL, $service->text_on_main) ?>
