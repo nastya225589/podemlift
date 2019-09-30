@@ -10,6 +10,10 @@ Route::get('/services-item/{slug}', 'ServiceController@one');
 
 Route::get('/sphere-item/{slug}', 'SphereController@one');
 
+Route::get('/portfolio-item/{slug}', 'PortfolioController@one');
+
+Route::get('/portfolio-card/{slug}', 'WorkController@one');
+
 Route::post('/request-form/send', 'RequestFormController@store');
 
 Route::post('/questionnaire/send', 'QuestionnaireController@store');

@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container">
-        @include('blocks.breadcrumbs')
+        @include('blocks.breadcrumbs-sphere')
 
         <h1 class="title-h1">{{ $page->name }}</h1>
 

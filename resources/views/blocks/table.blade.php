@@ -10,8 +10,8 @@
         <tfoot class="table__foot">
             <tr>
                 <td></td>
-                <td>@include('blocks.link-file')</td>
-                <td>@include('blocks.link-file')</td>
+                <td></td>
+                <td></td>
             </tr>
         </tfoot>
         <tbody class="table__body">

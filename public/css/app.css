@@ -7096,6 +7096,10 @@ input[type=submit] {
   color: #00922E;
 }
 
+.portfolio .slick-list {
+  min-width: 100%;
+}
+
 .portfolio__item {
   margin: 0 0 50px;
 }

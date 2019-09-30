@@ -41,4 +41,9 @@ class WorkCategory extends BaseModel
         $page = Page::where('behavior', 'works')->first();
         return $page->url . $url;
     }
+
+    public function works()
+    {
+        return $this->hasMany('App\Models\Work', 'category_id')->published();
+    }
 }
