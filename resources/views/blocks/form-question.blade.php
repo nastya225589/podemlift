@@ -40,7 +40,7 @@
 
         <div class="field-actions">
             <p class="field-actions__conditions">Нажимая кнопку «Отправить» вы соглашаетесь с установленной <a href="#">Политикой конфиденциальности</a></p>
-            <button class="btn  form-question__btn">Оплатить</button>
+            <button class="btn  form-question__btn">Отправить</button>
         </div>
 
     </fieldset>
