@@ -16,6 +16,8 @@ Route::get('/portfolio-card/{slug}', 'WorkController@one');
 
 Route::post('/request-form/send', 'RequestFormController@store');
 
+Route::post('/form-question/send', 'FormQuestionController@store');
+
 Route::post('/questionnaire/send', 'QuestionnaireController@store');
 
 Route::post('/back-call/send', 'BackCallController@store');

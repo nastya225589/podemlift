@@ -82,6 +82,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('form-question.index') }}">
+            <i class="fas fa-comment-dots"></i>
+            Вопросы
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('questionnaire.index') }}">
             <i class="fas fa-comment-dots"></i>
             Опросные листы
