@@ -7,7 +7,7 @@
                     <h2 class="title-h2">{{ $item->name }}</h2>
                 </a>
                 <div class="portfolio__wrap">
-                    @foreach ($item->works as $card)
+                    @foreach ($item->works()->take(4)->get() as $card)
                         <article class="card">
                             <a class="card__inner" href="/portfolio-card/{{ $card->slug }}">
                                 <img src="{{ $card->firstImage()->url }}" width="260" height="260" alt="Грузовые лифты">
