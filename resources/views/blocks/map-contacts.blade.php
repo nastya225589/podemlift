@@ -3,6 +3,7 @@
 @php ($emailClients = config('settings')->email_clients)
 @php ($emailSuppliers = config('settings')->email_suppliers)
 <section class="map-contacts">
+    <h2 class="hide">Контанты</h2>
     <div class="map-contacts__list">
         <div class="map-contacts__item">
             {{--@include('blocks.logo')--}}

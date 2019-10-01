@@ -2,7 +2,7 @@
     padding: 10px;
     margin-right: 16px;
     margin-bottom: 40px;
-    max-width: 280px;
+    width: 260px;
     background: $main-color;
     display: inline-block;
 
@@ -80,6 +80,7 @@
     }
 
     &__sorting-view  {
+        width: 100%;
         max-width: 100%;
         margin-right: 0;
         display: flex;
@@ -95,6 +96,7 @@
 
         .card {
             margin-right: 0;
+
             &__inner {
                 display: flex;
                 align-items: center;

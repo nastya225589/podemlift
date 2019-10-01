@@ -3,7 +3,6 @@
 @section('data-page', 'catalog')
 
 @section('content')
-    <div class="line"></div>
     <div class="container">
         <div class="catalog">
 

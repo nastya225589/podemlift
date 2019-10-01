@@ -453,6 +453,12 @@ input[type=submit] {
   border-radius: 0;
 }
 
+.hide {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 .list {
   padding-left: 20px;
   margin: 0 0 30px;
@@ -623,7 +629,7 @@ input[type=submit] {
 
 .header-top__order {
   padding-left: 10px;
-  max-width: 135px;
+  max-width: 140px;
   font-size: 11px;
   line-height: 12px;
   color: #fff;
@@ -808,7 +814,7 @@ input[type=submit] {
   top: 18px;
   left: -9px;
   background: #F1F1F1;
-  padding: 0px 9px;
+  padding: 0 9px;
   z-index: 1;
 }
 
@@ -1480,7 +1486,7 @@ input[type=submit] {
   padding: 10px;
   margin-right: 16px;
   margin-bottom: 40px;
-  max-width: 280px;
+  width: 260px;
   background: #F1F1F1;
   display: inline-block;
 }
@@ -1561,6 +1567,7 @@ input[type=submit] {
 }
 
 .card__sorting-view {
+  width: 100%;
   max-width: 100%;
   margin-right: 0;
   display: flex;
@@ -4212,6 +4219,7 @@ input[type=submit] {
 }
 
 .catalog__list .products__wrap .card {
+  box-sizing: content-box;
   margin-bottom: 20px;
   margin-right: 16px;
 }
@@ -4228,6 +4236,7 @@ input[type=submit] {
 
 .catalog__list .products__sorting-view .card {
   margin-right: 0;
+  box-sizing: border-box;
 }
 
 .catalog__btn-dashed {
