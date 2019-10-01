@@ -112,7 +112,7 @@ class Product extends BaseModel
     {
         $imagesIds = $this->images ?: [];
         $imageId = array_shift($imagesIds);
-        return Image::find($imageId);
+        return Image::find($imageId) ?: [(new Image(['url' => '/images/default.png']))];
     }
 
     public function images()

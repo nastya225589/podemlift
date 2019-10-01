@@ -1,7 +1,5 @@
 <section class="storys">
     <ul class="story__list">
-        @foreach ($stories as $item)
-            @include('blocks.story')    
-        @endforeach
+        @each('blocks.story', $stories, 'item')
     </ul>
 </section>

@@ -9,7 +9,7 @@ class ServiceController extends Controller
     public function one($slug)
     {
         return view('page.services-item', [
-            'page' => Service::where('slug', $slug)->first()
+            'page' => Service::where('slug', $slug)->published()->firstOrFail()
         ]);
     }
 }

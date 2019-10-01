@@ -12,8 +12,8 @@ class FormQuestion extends BaseModel
             'phone' => 'required|string|max:255'
         ];
 
-        $googleRecaptchaSecret = config('settings')->GOOGLE_RECAPTCHA_SECRET;
-        $googleRecaptchaKey = config('settings')->GOOGLE_RECAPTCHA_KEY;
+        $googleRecaptchaSecret = config('settings')->google_recaptcha_secret;
+        $googleRecaptchaKey = config('settings')->google_recaptcha_key;
         
         if ($googleRecaptchaSecret && $googleRecaptchaKey) {
             $rules = array_merge($rules, ['g-recaptcha-response' => 'required|recaptcha']);

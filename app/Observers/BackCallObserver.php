@@ -11,8 +11,8 @@ class BackCallObserver
 {
     public function created(BackCall $backCall)
     {
-        $toMail = Settings::where('name', 'email')->first();
-        Notification::route('mail', $toMail->value)
+        $toMail = config('settings')->email;
+        Notification::route('mail', $toMail)
                     ->notify(new BackCallNotify($backCall));
     }
 }

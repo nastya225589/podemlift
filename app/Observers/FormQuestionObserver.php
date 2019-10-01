@@ -11,8 +11,8 @@ class FormQuestionObserver
 {
     public function created(FormQuestion $formQuestion)
     {
-        $toMail = Settings::where('name', 'email')->first();
-        Notification::route('mail', $toMail->value)
+        $toMail = config('settings')->email;
+        Notification::route('mail', $toMail)
                     ->notify(new FormQuestionNotify($formQuestion));
     }
 }

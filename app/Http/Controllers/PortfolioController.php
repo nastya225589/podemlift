@@ -9,7 +9,7 @@ class PortfolioController extends Controller
     public function one($slug)
     {
         return view('page.portfolio-item', [
-            'page' => WorkCategory::where('slug', $slug)->first()
+            'page' => WorkCategory::where('slug', $slug)->published()->firstOrFail()
         ]);
     }
 }

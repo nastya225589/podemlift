@@ -11,8 +11,8 @@ class ProjectRequestObserver
 {
     public function created(ProjectRequest $projectRequest)
     {
-        $toMail = Settings::where('name', 'email')->first();
-        Notification::route('mail', $toMail->value)
+        $toMail = config('settings')->email;
+        Notification::route('mail', $toMail)
                     ->notify(new ProjectRequestNotify($projectRequest));
     }
 }
