@@ -22,7 +22,7 @@
                     <label class="field-text">
                         <span class="field-text__name">Номер телефона*</span>
                         <span class="field-text__input-wrap">
-                        <input required  value="{{ old('phone') ?? null }}"class="field-text__input" type="tel" name="phone" id="phone" placeholder="">
+                        <input required  value="{{ old('phone') ?? null }}" class="field-text__input" type="tel" name="phone" id="phone" placeholder="">
                         </span>
                         @if ($errors->has('phone'))
                             <span class="help-block">

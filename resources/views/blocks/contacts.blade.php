@@ -12,7 +12,7 @@
                     <li class="contacts__city-item">
                         <a href="" class="contacts__city-link">Москва</a>
                     </li>
-                    <li class=contacts__city-item">
+                    <li class="contacts__city-item">
                         <a href="" class="contacts__city-link contacts__city-link--active">Санкт-Петербург</a>
                     </li>
                     <li class="contacts__city-item">

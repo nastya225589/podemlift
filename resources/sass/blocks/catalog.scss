@@ -61,6 +61,7 @@
             margin-bottom: 0;
 
             .card {
+                box-sizing: content-box;
                 margin-bottom: 20px;
                 margin-right: 16px;
 
@@ -77,6 +78,7 @@
         .products__sorting-view {
             .card {
                 margin-right: 0;
+                box-sizing: border-box;
             }
         }
     }
