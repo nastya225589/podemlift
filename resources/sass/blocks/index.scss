@@ -106,6 +106,9 @@ h3, .title-h3 {
         line-height: 16px;
     }
 }
+.nowrap {
+    white-space: nowrap;
+}
 
 .text {
     margin: 0 0 30px;
@@ -113,6 +116,65 @@ h3, .title-h3 {
     font-size: $font-size;
     line-height: 24px;
     color: $text-color;
+    
+    li>a {
+        color: #00922E!important;
+    }
+
+    li {
+        margin: 0 0 10px!important;
+        font-weight: normal;
+        position: relative;
+        padding-left: 20px!important;
+        font-size: 14px;
+        line-height: 18px;
+        color: #1C1C1C;
+    }
+
+    li:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        background: #00922E;
+        border-radius: 5px;
+    }
+
+    ul {
+        padding-left: 20px!important;
+        margin: 0 0 30px!important;
+    }
+
+    table {
+        width: 100%;
+        border-spacing: 0;
+    }
+
+    tbody tr:nth-child(2n+1) {
+        background: #F1F1F1;
+    }
+
+    td {
+        padding: 15px 20px;
+    }
+
+    td, table {
+        border: none;
+    }
+
+    td a {
+        color: #1C1C1C;
+        text-decoration: underline;
+    }
+
+    tbody tr:nth-child(1) {
+        color: #fff;
+        font-weight: bold;
+        background: #00922E;
+    }
 }
 
 ul, li {

@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Models\BackCall;
+use App\Models\FormQuestion;
 use App\Models\Product;
 use App\Models\ProjectRequest;
 use App\Models\Questionnaire;
 use App\Observers\BackCallObserver;
+use App\Observers\FormQuestionObserver;
 use App\Observers\ProductObserver;
 use App\Observers\ProjectRequestObserver;
 use App\Observers\QuestionnaireObserver;
@@ -32,10 +34,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        setlocale(LC_ALL, 'ru_RU.utf8');
+        \Carbon\Carbon::setLocale(config('app.locale'));
         Product::observe(ProductObserver::class);
         ProjectRequest::observe(ProjectRequestObserver::class);
         Questionnaire::observe(QuestionnaireObserver::class);
         BackCall::observe(BackCallObserver::class);
+        FormQuestion::observe(FormQuestionObserver::class);
         Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
     }
 }

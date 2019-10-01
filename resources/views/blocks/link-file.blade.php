@@ -1,1 +1,1 @@
-<a href="#" class="link-file" target="_blank">Скачать опросный лист</a>
+<a href="/download?path={{ $item->path }}" class="link-file">{{ $item->title }}</a>

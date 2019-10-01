@@ -73,6 +73,26 @@ class Page extends BaseModel
             ]);
         }
 
+        if ($this->behavior == 'files') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[files]',
+                    'type' => 'files',
+                    'label' => 'Файлы'
+                ]
+            ]);
+        }
+
+        if ($this->parent && $this->parent->behavior == 'info') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[icon]',
+                    'type' => 'image',
+                    'label' => 'Иконка'
+                ]
+            ]);
+        }
+
         if ($this->behavior == 'main') {
             $fields = array_merge($fields, [
                 [
@@ -109,6 +129,16 @@ class Page extends BaseModel
                     'name' => 'fields[addresses]',
                     'type' => 'addresses',
                     'label' => 'Адреса региональных офисов'
+                ]
+            ]);
+        }
+
+        if ($this->behavior == 'question-answer') {
+            $fields = array_merge($fields, [
+                [
+                    'name' => 'fields[QA]',
+                    'type' => 'QA',
+                    'label' => 'Блоки с вопросами'
                 ]
             ]);
         }

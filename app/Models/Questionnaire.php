@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Settings;
-
 class Questionnaire extends BaseModel
 {
     protected $guarded = ['created_at', 'updated_at', 'g-recaptcha-response'];
@@ -36,8 +34,8 @@ class Questionnaire extends BaseModel
             'additionally' => 'nullable|string'
         ];
         
-        $googleRecaptchaSecret = config('settings')->GOOGLE_RECAPTCHA_SECRET;
-        $googleRecaptchaKey = config('settings')->GOOGLE_RECAPTCHA_KEY;
+        $googleRecaptchaSecret = config('settings')->google_recaptcha_secret;
+        $googleRecaptchaKey = config('settings')->google_recaptcha_key;
         
         if ($googleRecaptchaSecret && $googleRecaptchaKey) {
             $rules = array_merge($rules, ['g-recaptcha-response' => 'required|recaptcha']);

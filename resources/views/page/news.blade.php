@@ -2,6 +2,7 @@
 
 @section('content')
 
+@php ($news = \App\Models\News::published()->paginate(12))
     <div class="container">
         @include('blocks.breadcrumbs')
 
@@ -10,6 +11,7 @@
         {!! $page->content !!}
 
         @include('blocks.news')
+        {{ $news->links('blocks.pagination') }}
     </div>
 
 @endsection

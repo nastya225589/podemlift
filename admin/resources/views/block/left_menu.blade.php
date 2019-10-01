@@ -10,6 +10,18 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('news.index') }}">
+            <i class="far fa-list-alt"></i>
+            Новости
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('story.index') }}">
+            <i class="far fa-list-alt"></i>
+            История
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('product.index') }}">
             <i class="fas fa-box-open"></i>
             Продукция
@@ -25,6 +37,12 @@
         <a class="nav-link" href="{{ route('product-category.index') }}">
             <i class="fas fa-box-open"></i>
             Категории продукции
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('application-sphere.index') }}">
+            <i class="fas fa-dolly"></i>
+            Сферы применения
         </a>
     </li>
     <li class="nav-item">
@@ -61,6 +79,12 @@
         <a class="nav-link" href="{{ route('project-request.index') }}">
             <i class="fas fa-comment-dots"></i>
             Заявки на проект
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('form-question.index') }}">
+            <i class="fas fa-comment-dots"></i>
+            Вопросы
         </a>
     </li>
     <li class="nav-item">

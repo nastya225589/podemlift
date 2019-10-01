@@ -16,8 +16,9 @@ export default class TinyMce extends Component {
       <Editor
         initialValue={this.props.value}
         init={{
-          plugins: 'link image code lists',
-          toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | numlist bullist | code'
+          plugins: 'link image code lists table',
+          toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | numlist bullist | code',
+          table_toolbar: 'tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol'
         }}
         onChange={this.handleEditorChange}
       />

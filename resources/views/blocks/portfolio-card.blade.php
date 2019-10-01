@@ -1,6 +1,19 @@
 <section class="portfolio portfolio-card">
-    @include('blocks.examples')
-    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae error est fugit necessitatibus officia quaerat vero? Consectetur deleniti dignissimos dolor excepturi expedita maxime minima nihil nisi omnis praesentium. Cupiditate exercitationem incidunt perferendis praesentium qui sapiente. A consequuntur in quidem tenetur?</p>
-    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid consequuntur dolorem dolores fuga mollitia nam nemo quibusdam quo sint sunt, unde vero. Aspernatur doloremque dolores esse voluptate. At culpa dolorum ducimus eligendi laboriosam maxime nihil nisi numquam obcaecati, reiciendis reprehenderit.</p>
-    <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum esse, et ipsum numquam pariatur rem voluptatem. Aliquam, dolor eaque earum eum labore laudantium necessitatibus quas repellat? Accusantium ipsa tempore ut voluptate. Amet aspernatur blanditiis ducimus officiis pariatur possimus, quis sit.</p>
+    <section class="examples">
+        <div class="container">
+            <div class="examples__list">
+                @foreach ($page->images() as $item)
+                    <div class="examples__item">
+                        <img style="min-width: 180px" src="{{ $item->size(180, 300)->url }}" alt="photo" class="examples__photo" width="180" height="300">
+                        <p class="examples__desc">
+                            {{ $page->introtext ?: $page->name }}
+                        </p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <div class="text">
+        {!! $page->text !!}
+    </div>
 </section>

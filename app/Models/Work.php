@@ -80,4 +80,16 @@ class Work extends BaseModel
         $image = array_shift($images);
         return Image::findOrNew($image);
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\WorkCategory', 'category_id');
+    }
+
+    public function images()
+    {
+        $imagesIds = $this->images ?: [];
+        $images = Image::find($imagesIds);
+        return $images ?: [(new Image(['url' => '/images/default.png']))];
+    }
 }

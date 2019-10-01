@@ -2,6 +2,7 @@
 
 @section('content')
 
+@php ($stories = \App\Models\Story::published()->paginate(12))
     <div class="container">
         @include('blocks.breadcrumbs')
 
@@ -9,7 +10,8 @@
 
         {!! $page->content !!}
 
-        @include('blocks.storys')
+        @include('blocks.stories')
+        {{ $stories->links('blocks.pagination') }}
     </div>
 
 @endsection

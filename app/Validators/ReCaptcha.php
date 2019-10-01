@@ -2,7 +2,6 @@
 
 namespace App\Validators;
 
-use App\Models\Settings;
 use GuzzleHttp\Client;
 
 class ReCaptcha
@@ -10,13 +9,13 @@ class ReCaptcha
     public function validate($attribute, $value, $parameters, $validator)
     {
         $client = new Client;
-        $googleRecaptchaSecret = Settings::where('name', 'GOOGLE_RECAPTCHA_SECRET')->first();
+        $googleRecaptchaSecret = config('settings')->google_recaptcha_secret;;
         $response = $client->post(
             'https://www.google.com/recaptcha/api/siteverify',
             [
                 'form_params' =>
                     [
-                        'secret' => $googleRecaptchaSecret->value,
+                        'secret' => $googleRecaptchaSecret,
                         'response' => $value
                     ]
             ]

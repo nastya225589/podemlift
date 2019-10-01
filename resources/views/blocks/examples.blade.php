@@ -1,6 +1,6 @@
 <?php
     $works = \App\Models\Work::inRandomOrder()->limit(10)->get();
-    while ($works->count() < 5) {
+    while ($works->count() < 6) {
         $more = \App\Models\Work::inRandomOrder()->limit(10)->get();
         $works = collect(array_merge($works->all(), $more->all()));
     }

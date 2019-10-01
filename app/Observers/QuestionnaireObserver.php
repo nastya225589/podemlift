@@ -11,8 +11,8 @@ class QuestionnaireObserver
 {
     public function created(Questionnaire $questionnaire)
     {
-        $toMail = Settings::where('name', 'email')->first();
-        Notification::route('mail', $toMail->value)
+        $toMail = config('settings')->email;
+        Notification::route('mail', $toMail)
                     ->notify(new QuestionnaireNotify($questionnaire));
     }
 }

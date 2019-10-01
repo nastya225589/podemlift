@@ -1,6 +1,7 @@
 <?php
 
 Route::middleware(['web'])->group(function () {
+    Route::get('/download', add_controller_ns('FileController@download'));
     Route::prefix('admin/user')->group(function () {
         // user auth
         Route::post('login', add_controller_ns('LoginController@login'));
@@ -21,6 +22,7 @@ Route::middleware(['web'])->group(function () {
         Route::get('settings', add_controller_ns('SettingsController@index'))->name('settings.index');
         Route::post('settings', add_controller_ns('SettingsController@index'));
         Route::post('image/upload', add_controller_ns('ImageController@upload'));
+        Route::post('file/upload', add_controller_ns('FileController@upload'));
 
         Route::resource('user', add_controller_ns('UserController'));
 
@@ -58,5 +60,9 @@ Route::middleware(['web'])->group(function () {
         Route::resource('project-request', add_controller_ns('ProjectRequestController'));
         Route::resource('questionnaire', add_controller_ns('QuestionnaireController'));
         Route::resource('back-call', add_controller_ns('BackCallController'));
+        Route::resource('form-question', add_controller_ns('FormQuestionController'));
+        Route::resource('news', add_controller_ns('NewsController'));
+        Route::resource('story', add_controller_ns('StoryController'));
+        Route::resource('application-sphere', add_controller_ns('ApplicationSphereController'));
     });
 });
