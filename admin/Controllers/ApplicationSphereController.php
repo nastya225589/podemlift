@@ -25,6 +25,7 @@ class ApplicationSphereController extends BaseAdminController
         $request->validate($model->validatorRules($request));
         $model = $model->create($request->all());
         $model->categories()->sync($request->category_ids);
+        $model->properties()->sync($request->property_ids);
         return redirect($this->redirectTo);
     }
 
@@ -35,6 +36,7 @@ class ApplicationSphereController extends BaseAdminController
         $model = $model->fill($request->all());
         $model->save();
         $model->categories()->sync($request->category_ids);
+        $model->properties()->sync($request->property_ids);
         return redirect($this->redirectTo);
     }
 }

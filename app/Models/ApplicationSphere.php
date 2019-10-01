@@ -6,7 +6,7 @@ class ApplicationSphere extends BaseModel
 {
     public $category_ids = [];
 
-    protected $guarded = ['category_ids', 'created_at', 'updated_at'];
+    protected $guarded = ['category_ids', 'property_ids', 'created_at', 'updated_at'];
 
     public $logFields = [
         'name',
@@ -44,6 +44,13 @@ class ApplicationSphere extends BaseModel
                 'options' => ProductCategory::pluck('name', 'id')
             ],
             [
+                'name' => 'property_ids',
+                'type' => 'select',
+                'label' => 'Параметры для вывода в сравнительной таблице',
+                'multi' => true,
+                'options' => ProductProperty::pluck('name', 'id')
+            ],
+            [
                 'name' => 'text',
                 'type' => 'editor',
                 'label' => 'Текст'
@@ -59,5 +66,10 @@ class ApplicationSphere extends BaseModel
     public function categories()
     {
         return $this->belongsToMany(ProductCategory::class, 'application_sphere_product_category', 'sphere_id', 'category_id');
+    }
+
+    public function properties()
+    {
+        return $this->belongsToMany(ProductProperty::class, 'application_sphere_product_property', 'sphere_id', 'property_id');
     }
 }

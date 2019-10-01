@@ -3,8 +3,9 @@
         <thead class="table__head">
             <tr>
                 <td></td>
-                <td class="table__head-name">Малые грузовые лифты</td>
-                <td class="table__head-name">Шахтные подъемники</td>
+                @foreach ($page->properties as $item)
+                    <td class="table__head-name">{{ $item->name }}</td>
+                @endforeach
             </tr>
         </thead>
         <tfoot class="table__foot">
@@ -15,45 +16,29 @@
             </tr>
         </tfoot>
         <tbody class="table__body">
-            <tr>
-                <td class="table__body-name">Высота подъема лифта для банка</td>
-                <td>до 30 м</td>
-                <td>Текст наполнения</td>
-            </tr>
-            <tr>
-                <td class="table__body-name">Габариты кабины (ширина/глубина/высота)</td>
-                <td>до 300 кг</td>
-                <td>Текст наполнения</td>
-            </tr>
-            <tr>
-                <td class="table__body-name">Грузоподъемность лифта для банка</td>
-                <td>таль/лебедка</td>
-                <td>Текст наполнения</td>
-            </tr>
-            <tr>
-                <td class="table__body-name">Механизм подъема Расположение механизма подъема</td>
-                <td>верхнее/нижнее</td>
-                <td>Текст наполнения</td>
-            </tr>
-            <tr>
-                <td class="table__body-name">Цена лифта для банка</td>
-                <td class="table__body-border">от 250 000 р.</td>
-                <td class="table__body-border">Текст наполнения</td>
-            </tr>
+            @foreach ($page->categories as $item)
+                <tr>
+                    <td class="table__body-name">{{ $item->name }} {{ $item->measure }}</td>
+                    @foreach ($page->properties as $prop)
+                        @php ($value = $item->property($prop))
+                        @if ($value)
+                            @if ($prop->type === 'number')
+                                <td>
+                                    до {{ $item->property($prop) . ' ' . $prop->measure }}
+                                </td>
+                            @else
+                                <td>
+                                    {{ $value }}
+                                </td>
+                            @endif
+                        @else
+                            <td>
+                                -
+                            </td>   
+                        @endif
+                    @endforeach
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

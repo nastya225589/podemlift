@@ -48,14 +48,14 @@ class FilterService implements FilterServiceInterface
         $productIds = $category->products()->pluck('id');
         $properties = $category->properties;
         if (count($properties)) {
-            $filters = $category
+            $values = $category
                 ->properties()
                 ->where('type', 'number')
                 ->select('name')
                 ->orderBy('sort')
                 ->get()->toArray();
         } else {
-            $filters = ProductPropertyValue::whereIn('product_id', $productIds)
+            $values = ProductPropertyValue::whereIn('product_id', $productIds)
                 ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
                 ->where('type', 'number')
                 ->select('name')
@@ -64,10 +64,10 @@ class FilterService implements FilterServiceInterface
                 ->get()->toArray();
         }
 
-        foreach ($filters as $key => $filter) {
-            $filters[$key]['values'] = $this->getRangeValues($productIds, $filter['name']);
+        foreach ($values as $key => $filter) {
+            $values[$key]['values'] = $this->getRangeValues($productIds, $filter['name']);
         }
-        return $filters;
+        return $values;
     }
 
     public function filter(array $params, $category = null)

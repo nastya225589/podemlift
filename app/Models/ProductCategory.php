@@ -77,6 +77,23 @@ class ProductCategory extends BaseModel
         }
     }
 
+    public function property($property)
+    {
+        $productIds = $this->products()->pluck('id');
+        if ($property->type == 'text') {
+            $value = ProductPropertyValue::whereIn('product_id', $productIds)
+                ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
+                ->where('name', $property->name)->first()->value;
+        } else {
+            $query = ProductPropertyValue::whereIn('product_id', $productIds)
+                ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
+                ->where('name', $property->name);
+            $value = $query->max('int_value');
+        }
+        
+        return $value;
+    }
+
     public function image()
     {
         if ($this->products()->first())
