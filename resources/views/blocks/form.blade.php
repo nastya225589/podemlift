@@ -37,9 +37,9 @@
                 <p class="form__text">Нажимая на кнопку «Отправить заявку» вы соглашаетесь с обработкой персональных данных</p>
                 <button class="btn form__btn">Отправить заявку</button>
             </div>
-            @php($GOOGLE_RECAPTCHA_KEY = config('settings')->GOOGLE_RECAPTCHA_KEY)
-            @if($GOOGLE_RECAPTCHA_KEY)
-                <div class="g-recaptcha" data-sitekey="{{$GOOGLE_RECAPTCHA_KEY}}"></div>
+            @php($google_recaptcha_key = config('settings')->google_recaptcha_key)
+            @if($google_recaptcha_key)
+                <div class="g-recaptcha" data-sitekey="{{$google_recaptcha_key}}"></div>
                 @if ($errors->has('g-recaptcha-response'))
                     <span class="alert">
                         <strong>Выполните проверку</strong>
