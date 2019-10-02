@@ -5,7 +5,7 @@
         @foreach ($clients as $item)
             <div class="clients-page__item">
                 <div class="clients-page__photo">
-                    <img src="{{ $item->image->path }}" alt="" class="clients-page__img">
+                    <img src="{{ $item->image->url }}" alt="" class="clients-page__img">
                 </div>
                 <span class="clients-page__name">{{ $item->name }}</span>
             </div>
