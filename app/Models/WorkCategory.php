@@ -29,7 +29,10 @@ class WorkCategory extends BaseModel
                 'name' => 'slug',
                 'type' => 'input',
                 'label' => 'Url'
-            ]
+            ],
+            'meta_title',
+            'meta_description',
+            'meta_keywords'
         ];
 
         return $fields;
@@ -38,7 +41,7 @@ class WorkCategory extends BaseModel
     public function fullUrl()
     {
         $url = parent::fullUrl();
-        $page = Page::where('behavior', 'works')->first();
+        $page = Page::where('behavior', 'portfolio')->first();
         return $page->url . $url;
     }
 
