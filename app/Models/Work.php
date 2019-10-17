@@ -97,8 +97,7 @@ class Work extends BaseModel
     {
         $rules = parent::validatorRules($data);
         return array_merge($rules, [
-            'introtext' => 'required',
-            'text' => 'required',
+            'introtext' => 'required'
         ]);
     }
 }
