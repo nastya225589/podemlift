@@ -92,12 +92,4 @@ class Work extends BaseModel
         $images = Image::find($imagesIds);
         return $images ?: [(new Image(['url' => '/images/default.png']))];
     }
-
-    public function validatorRules($data)
-    {
-        $rules = parent::validatorRules($data);
-        return array_merge($rules, [
-            'introtext' => 'required'
-        ]);
-    }
 }
