@@ -138,8 +138,8 @@ class FilterService implements FilterServiceInterface
         $query = ProductPropertyValue::whereIn('product_id', $productIds)
             ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
             ->where('name', $name);
-        $values['max'] = $query->max('int_value');
-        $values['min'] = $query->min('int_value');
+        $values['max'] = ceil($query->max('int_value'));
+        $values['min'] = ceil($query->min('int_value'));
         $values['measure'] = $query->pluck('measure')[0];
         return $values;
     }
