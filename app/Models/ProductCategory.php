@@ -69,7 +69,8 @@ class ProductCategory extends BaseModel
 
     public function products()
     {
-        $childCategoriesIds = ProductCategory::where('parent_id', $this->id)->pluck('id');
+        $childCategoriesIds = ProductCategory::where('parent_id', $this->id)->pluck('id')->toArray();
+        $childCategoriesIds = array_merge($childCategoriesIds, ProductCategory::whereIn('parent_id', $childCategoriesIds)->pluck('id')->toArray());
         if (count($childCategoriesIds)) {
             return $this->childCategoriesProducts($childCategoriesIds);
         } else {
