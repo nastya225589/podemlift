@@ -1,6 +1,7 @@
 <article class="card {{ UserConfig::catalogListingInline() ? 'card__sorting-view' : '' }}">
     <a class="card__inner" href="{{ $product->url }}">
-        <img class="card__img" src="{{ $product->firstImage()->size(260, 260)->url }}" width="260" height="260" alt="{{ $product->name }}"/>
+        @php ($firstImage = $product->firstImage())
+        <img class="card__img" src="{{ is_object($firstImage) ? $firstImage->size(260, 260)->url : '/images/default.png' }}" width="260" height="260" alt="{{ $product->name }}"/>
         <div>
             <h2 class="card__name">{{ $product->name }}</h2>
             <ul class="card__list">
