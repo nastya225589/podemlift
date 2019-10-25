@@ -4,6 +4,14 @@ namespace App\Models;
 
 class ProductCategory extends BaseModel
 {
+    protected $attributes = [
+        'images' => '[]'
+    ];
+
+    protected $casts = [
+        'images' => 'array',
+    ];
+
     protected $guarded = ['property_ids', 'redirects'];
 
     public $logFields = [
@@ -47,6 +55,12 @@ class ProductCategory extends BaseModel
                 'name' => 'redirects',
                 'type' => 'redirects',
                 'label' => 'Редиректы'
+            ],
+            [
+                'name' => 'images[]',
+                'type' => 'image',
+                'multi' => true,
+                'label' => 'Слайдер'
             ],
             [
                 'name' => 'content',
@@ -99,6 +113,13 @@ class ProductCategory extends BaseModel
     {
         if ($this->products()->first())
             return $this->products()->first()->firstImage()->url;
+    }
+
+    public function images()
+    {
+        $imagesIds = $this->images ?: [];
+        $images = Image::find($imagesIds);
+        return $images ?: [(new Image(['url' => '/images/default.png']))];
     }
 
     public function price()
