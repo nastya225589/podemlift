@@ -1,7 +1,7 @@
 <form class="filters" id="filters-form">
     <button class="filters__btn-close btn"></button>
     @foreach($filters as $filter)
-        @if($filter['type'] == 'text' && $filter['values'] !== null)
+        @if($filter['type'] == 'text' && $filter['values'] !== null && count($filter['values']) > 1)
             <fieldset>
                 <div class='field-checkbox'>
                     <div class="field-checkbox__name">{{ $filter['name'] }}</div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </fieldset>
-        @elseif($filter['type'] == 'number' && $filter['values'] !== null)
+        @elseif($filter['type'] == 'number' && $filter['values'] !== null && $filter['values']['min'] !== $filter['values']['max'])
             <fieldset>
                 <div class="field-weight">
                     <div class="field-weight__name">{{ $filter['name'] . ', до' }}</div>
