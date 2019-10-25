@@ -459,6 +459,10 @@ input[type=submit] {
   left: -9999px;
 }
 
+.answer a {
+  color: #00922E;
+}
+
 .list {
   padding-left: 20px;
   margin: 0 0 30px;

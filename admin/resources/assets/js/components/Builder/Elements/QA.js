@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Input from './Input'
 import TextArea from './TextArea'
+import TinyMce from './TinyMce'
 import DeleteButton from './DeleteButton'
 import AddItemButton from './AddItemButton'
 import MoveButton from './MoveButton';
@@ -28,7 +29,7 @@ export default class QA extends Component {
         </div>
         <div className="col">
           <label>Ответ</label>
-          <TextArea
+          <TinyMce
             index={index}
             value={element.answer}
             onChange={this.handleAnswerChange}
