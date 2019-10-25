@@ -24,6 +24,11 @@ class ProductProperty extends BaseModel
                 'label' => 'Url'
             ],
             [
+                'name' => 'is_additional',
+                'type' => 'checkbox',
+                'label' => 'Дополнительный параметр'
+            ],
+            [
                 'name' => 'type',
                 'type' => 'select',
                 'label' => 'Тип',

@@ -205,6 +205,11 @@ class Page extends BaseModel
         ]);
     }
 
+    public function images()
+    {
+        return [];
+    }
+
     public function image($imageName)
     {
         return Image::findOrNew($this->$imageName);
