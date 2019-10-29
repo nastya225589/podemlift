@@ -1,5 +1,6 @@
 .catalog {
     display: flex;
+    align-items: flex-start;
     padding-top: 35px;
     margin-bottom: 100px;
 
@@ -63,7 +64,7 @@
             .card {
                 box-sizing: content-box;
                 margin-bottom: 20px;
-                margin-right: 16px;
+                margin-right: 20px;
 
                 @media (max-width: $screen-lg) {
                     margin-right: 0;
@@ -94,6 +95,7 @@
             display: none;
             margin-left: 28px;
             margin-bottom: 25px;
+            padding: 0;
 
             @media (max-width: $screen-sm) {
                 display: block;

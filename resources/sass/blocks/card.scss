@@ -4,7 +4,8 @@
     margin-bottom: 40px;
     width: 260px;
     background: $main-color;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
 
     @media (max-width: $screen-lg) {
         margin-right: 0;
@@ -12,6 +13,10 @@
 
     &:nth-child(4n) {
         margin-right: 0;
+    }
+
+    &__inner {
+        flex-grow: 1;
     }
 
     &__name {
@@ -84,6 +89,7 @@
         max-width: 100%;
         margin-right: 0;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
 
         @media (max-width: $screen-md) {

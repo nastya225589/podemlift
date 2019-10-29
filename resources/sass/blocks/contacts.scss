@@ -53,8 +53,12 @@
         }
 
         span {
-            font-size: $font-size--xs - 1;
+            font-size: $font-size;
             color: #fff;
+
+            @media (max-width: $screen-md) {
+                font-size: $font-size - 2px;
+            }
 
             &:hover {
                 .contacts__city-list {
@@ -69,6 +73,10 @@
         line-height: 16px;
         font-weight: bold;
         color: #fff;
+
+        @media (max-width: 1024px) {
+            font-size: $font-size;
+        }
 
         @media (max-width: $screen-xs) {
             font-size: $font-size--xs;

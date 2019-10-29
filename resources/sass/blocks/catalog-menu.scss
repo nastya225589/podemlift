@@ -1,11 +1,12 @@
 .catalog-menu {
-    margin-right: 37px;
+    margin-right: 58px;
+    width: 240px;
     background: $main-color;
-    display: inline-table;
 
     @media (max-width: $screen-sm) {
         margin-right: 0;
         display: none;
+        width: 100%;
     }
 
     &--open {

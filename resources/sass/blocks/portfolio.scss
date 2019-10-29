@@ -44,6 +44,8 @@
     }
 
     .card {
+        display: flex;
+        flex-direction: column;
         margin-bottom: 30px;
         margin-right: 16px;
 
@@ -63,6 +65,10 @@
             margin-right: 0;
         }
 
+        &__inner {
+            flex-grow: 1;
+        }
+
         h3 {
             margin: 14px 0 3px;
             font-family: $font-family-title;
@@ -76,6 +82,10 @@
             margin: 0 0 20px;
             width: 260px;
             line-height: 16px;
+        }
+
+        &__btn {
+            width: 114px;
         }
     }
 }

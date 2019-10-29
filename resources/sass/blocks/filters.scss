@@ -93,7 +93,7 @@
 
             p {
                 display: flex;
-                padding-bottom: 10px;
+                padding-bottom: 11px;
                 font-size: $font-size--xs;
                 line-height: 18px;
             }
@@ -109,6 +109,7 @@
             user-select: none;
             cursor: pointer;
             transition: all 0.2s ease;
+            display: flex;
 
             &:not(:last-child) {
                 margin-right: 6px;
@@ -146,7 +147,7 @@
 
                 &:last-child {
                     padding-left: 8px;
-                    line-height: 18px;
+                    width: 100%;
                 }
             }
 
@@ -271,12 +272,13 @@
                 position: relative;
                 left: .5 * 1em;
                 bottom: 37px;
-                transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min)) * #{21em - 1em} - 50%));
+                transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min)) * #{18em - 1em} - 50%));
                 color: $third-color;
                 font-size: $font-size--xs - 1;
 
                 @media (max-width: $screen-sm) {
-                    transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min)) * #{0em} - 50%));
+                    left: 0 * 1em;
+                    transform: translate(calc((var(--val) - var(--min))/(var(--max) - var(--min)) * #{0em} - 0%));
                 }
             }
         }

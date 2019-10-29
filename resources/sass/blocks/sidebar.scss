@@ -1,6 +1,5 @@
 .sidebar {
     padding: 23px 20px 0;
-    width: 230px;
 
     @media (max-width: $screen-sm) {
         display: none;
@@ -8,6 +7,7 @@
 
     &__item {
         margin: 0 0 19px;
+        width: 200px;
     }
 
     &__link {
@@ -16,6 +16,7 @@
         justify-content: space-between;
 
         a {
+            width: 185px;
             font-weight: bold;
             color: $text-color;
             font-size: $font-size--xs - 1;
