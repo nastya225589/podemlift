@@ -3003,6 +3003,7 @@ input[type=submit] {
   position: relative;
   width: 15px;
   height: 15px;
+  min-width: 15px;
   -webkit-transform: scale(1);
           transform: scale(1);
   border: 1px solid #D3D3D3;
