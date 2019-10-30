@@ -11,8 +11,10 @@
 
     &__wrap {
         margin: 0 0 40px;
-        padding: 0 0 30px;
-        border-bottom: 5px solid $third-color;
+        padding: 30px 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 6px;
 
         @media (max-width: $screen-xs) {
             margin: 0 0 27px;
@@ -30,7 +32,7 @@
     }
 
     &__link {
-        width: 350px;
+        width: 340px;
         margin: 0 20px 20px;
 
         @media (max-width: $screen-md) {
@@ -44,7 +46,8 @@
 
         &:hover {
             span {
-                color: $third-color;
+                color: #fff;
+                transition: color 0.5s 1s linear;
             }
 
             p {

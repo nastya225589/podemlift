@@ -6958,8 +6958,10 @@ input[type=submit] {
 
 .services-page__wrap {
   margin: 0 0 40px;
-  padding: 0 0 30px;
-  border-bottom: 5px solid #00922E;
+  padding: 30px 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 6px;
 }
 
 @media (max-width: 480px) {
@@ -6981,7 +6983,7 @@ input[type=submit] {
 }
 
 .services-page__link {
-  width: 350px;
+  width: 340px;
   margin: 0 20px 20px;
 }
 
@@ -6999,7 +7001,8 @@ input[type=submit] {
 }
 
 .services-page__link:hover span {
-  color: #00922E;
+  color: #fff;
+  transition: color 0.5s 1s linear;
 }
 
 .services-page__link:hover p {

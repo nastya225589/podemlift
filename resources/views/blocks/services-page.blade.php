@@ -2,7 +2,7 @@
 
 <section class="services-page">
     @foreach ($serviceCategories as $category)
-        <div class="services-page__wrap">
+        <div class="services-page__wrap" style="background-image: url(/images/bg/service_bg_1.jpg);">
             <div class="services-page__title title-h2">{{ $category->name }}</div>
             <div class="services-page__inner">
                 @foreach ($category->services as $item)
@@ -12,6 +12,6 @@
                     </a>
                 @endforeach
             </div>
-        </div>        
+        </div>
     @endforeach
 </section>
