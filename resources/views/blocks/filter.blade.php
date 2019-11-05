@@ -20,7 +20,7 @@
                                         style="display:none">
                                 @elseif(isset($singleValue) && isset($singleProperty))
                                     <input 
-                                        {{ ($key === $singleValue && $filter['slug'] === $singleProperty) ? 'checked' : '' }} 
+                                        {{ ($key == $singleValue && $filter['slug'] == $singleProperty) ? 'checked' : '' }} 
                                         value="{{ $key }}" 
                                         name="{{ $filter['slug'].'[]' }}" 
                                         type="checkbox" 
@@ -54,7 +54,8 @@
                     </div>
                 </div>
             </fieldset>
-        @elseif($filter['type'] == 'number' && $filter['values'] !== null && $filter['values']['min'] !== $filter['values']['max'])
+        @elseif(($filter['type'] == 'number' || $filter['type'] == 'range') 
+            && $filter['values'] !== null && $filter['values']['min'] !== $filter['values']['max'])
             <fieldset>
                 <div class="field-weight">
                     <div class="field-weight__name">{{ $filter['name'] . ', до' }}</div>

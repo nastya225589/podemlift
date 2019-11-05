@@ -6417,10 +6417,6 @@ input[type=submit] {
   color: #A9A9A9;
 }
 
-.form-popup .field-text__input::-moz-placeholder {
-  color: #A9A9A9;
-}
-
 .form-popup .field-text__input:-ms-input-placeholder {
   color: #A9A9A9;
 }

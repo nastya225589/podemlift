@@ -21,7 +21,9 @@ export default class Properties extends Component {
           value: element.property_id,
           type: element.type
         },
-        value: element.value
+        value: element.value,
+        valueFrom: element.type === 'range' ? element.value.split('-')[0] : null,
+        valueTo: element.type === 'range' ? element.value.split('-')[1] : null
       };
       properties.push(property);
     });    
@@ -56,6 +58,8 @@ export default class Properties extends Component {
         selectValue={element.property}
         deleteButtonHandler={this.deleteButtonHandler}
         onInputChangeHandler={this.handleInputChange}
+        onInputFromChangeHandler={this.handleInputFromChange}
+        onInputToChangeHandler={this.handleInputToChange}
         onSelectHandler={this.handleSelectChange}
       />
     });
@@ -87,6 +91,18 @@ export default class Properties extends Component {
 
   handleInputChange = (index, value) => {
     this.state.properties[index].value = value;
+    this.setState(() => ({ properties: this.state.properties }));
+  }
+
+  handleInputFromChange = (index, value) => {
+    this.state.properties[index].valueFrom = value;
+    this.state.properties[index].value = value + '-' + this.state.properties[index].valueTo;
+    this.setState(() => ({ properties: this.state.properties }));
+  }
+
+  handleInputToChange = (index, value) => {
+    this.state.properties[index].valueTo = value;
+    this.state.properties[index].value = this.state.properties[index].valueFrom + '-' + value;
     this.setState(() => ({ properties: this.state.properties }));
   }
 

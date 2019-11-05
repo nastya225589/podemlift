@@ -158,6 +158,11 @@ class Product extends BaseModel
                 if (is_numeric($prop->value)) {
                     $arr['int_value'] = $prop->value;
                 }
+                if (isset($prop->valueFrom) && isset($prop->valueTo)) {
+                    $arr['value_from'] = $prop->valueFrom;
+                    $arr['value_to'] = $prop->valueTo;
+                    $arr['int_value'] = $prop->valueFrom;
+                }
                 array_push($propsArray, $arr);
             }
         }

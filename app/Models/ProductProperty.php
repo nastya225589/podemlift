@@ -34,8 +34,9 @@ class ProductProperty extends BaseModel
                 'label' => 'Тип',
                 'options' => [
                     'text' => 'Текст',
-                    'number' => 'Число'
-                    ]
+                    'number' => 'Число',
+                    'range' => 'Диапозон'
+                ]
             ],
             [
                 'name' => 'image_id',

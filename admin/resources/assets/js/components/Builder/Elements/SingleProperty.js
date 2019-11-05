@@ -12,6 +12,14 @@ export default class SinglePropery extends Component {
     this.props.onInputChangeHandler(this.props.index, value);
   }
 
+  onInputFromChange = (index, name, value) => {
+    this.props.onInputFromChangeHandler(this.props.index, value);
+  }
+
+  onInputToChange = (index, name, value) => {
+    this.props.onInputToChangeHandler(this.props.index, value);
+  }
+
   onSelect = (value, actionMeta) => {
     this.props.onSelectHandler(this.props.index, value);
   }
@@ -32,12 +40,37 @@ export default class SinglePropery extends Component {
           />
         </div>
         <div className="col">
-          <Input
-            name={this.props.name}
-            type={this.props.selectValue.type}
-            value={this.props.inputValue}
-            onChange={this.onInputChange}
-          />
+          {
+            this.props.selectValue.type === 'range' ?
+            <div className="two-cols">
+              <div className="col">
+              От:
+              <Input
+                name={`${this.props.name}from`}
+                type='number'
+                value={this.props.inputValue.split('-')[0]}
+                onChange={this.onInputFromChange}
+              />
+              </div>
+              -
+              <div className="col">
+              До:
+              <Input
+                name={`${this.props.name}to`}
+                type='number'
+                value={this.props.inputValue.split('-')[1]}
+                onChange={this.onInputToChange}
+              />
+              </div>
+            </div>
+            :
+            <Input
+              name={this.props.name}
+              type={this.props.selectValue.type}
+              value={this.props.inputValue}
+              onChange={this.onInputChange}
+            />
+          }
         </div>
         <DeleteButton onClick={this.deleteButtonHandler} index={this.props.index} />
       </div>

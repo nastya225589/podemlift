@@ -112,7 +112,7 @@ class FilterService implements FilterServiceInterface
             $query = $query->whereHas('properties.property', function ($query) use ($filterName, $value) {
                 $query->where('slug', $filterName)->whereIn('value_slug', $value);
             });
-        } elseif ($type === 'number') {
+        } else {
             $query = $query->whereHas('properties.property', function ($query) use ($filterName, $value) {
                 $query->where([
                     ['slug', $filterName],
