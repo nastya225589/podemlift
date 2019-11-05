@@ -9,6 +9,8 @@ $menu = \App\Models\Page::published()->where('in_menu', true)->where('parent_id'
             @foreach($menu as $menuItem)
                 @if($menuItem->behavior == 'catalog')
                     @include('blocks.main-nav-catalog')
+                @elseif($menuItem->behavior == 'sphere')
+                    @include('blocks.main-nav-spheres')
                 @else
                     @include('blocks.main-nav-item')
                 @endif
