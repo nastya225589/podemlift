@@ -94,8 +94,8 @@ class ProductCategory extends BaseModel
     protected function getChildCategoriesIds()
     {
         $loop = true;
-        $childCategoriesIds = [];
-        $childs = ProductCategory::where('parent_id', $this->id)->pluck('id')->toArray();
+        $childCategoriesIds = ProductCategory::where('parent_id', $this->id)->pluck('id')->toArray();;
+        $childs = $childCategoriesIds;
         while ($loop) {
             $childs = ProductCategory::whereIn('parent_id', $childs)->pluck('id')->toArray();
             if (count($childs)) {
