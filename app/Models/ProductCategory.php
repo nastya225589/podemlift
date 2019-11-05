@@ -83,13 +83,28 @@ class ProductCategory extends BaseModel
 
     public function products()
     {
-        $childCategoriesIds = ProductCategory::where('parent_id', $this->id)->pluck('id')->toArray();
-        $childCategoriesIds = array_merge($childCategoriesIds, ProductCategory::whereIn('parent_id', $childCategoriesIds)->pluck('id')->toArray());
+        $childCategoriesIds = $this->getChildCategoriesIds();
         if (count($childCategoriesIds)) {
             return $this->childCategoriesProducts($childCategoriesIds);
         } else {
             return $this->belongsToMany(Product::class, 'product_category_product');
         }
+    }
+
+    protected function getChildCategoriesIds()
+    {
+        $loop = true;
+        $childCategoriesIds = [];
+        $childs = ProductCategory::where('parent_id', $this->id)->pluck('id')->toArray();
+        while ($loop) {
+            $childs = ProductCategory::whereIn('parent_id', $childs)->pluck('id')->toArray();
+            if (count($childs)) {
+                $childCategoriesIds = array_merge($childCategoriesIds, $childs);
+            } else {
+                $loop = false;
+            }            
+        }
+        return $childCategoriesIds;
     }
 
     public function property($property)
