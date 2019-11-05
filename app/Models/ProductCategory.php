@@ -98,7 +98,12 @@ class ProductCategory extends BaseModel
         if ($property->type == 'text') {
             $value = ProductPropertyValue::whereIn('product_id', $productIds)
                 ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
-                ->where('name', $property->name)->first()->value;
+                ->where('name', $property->name)->first();
+            if ($value) {
+                $value = $value->value;
+            } else {
+                $value = null;
+            }
         } else {
             $query = ProductPropertyValue::whereIn('product_id', $productIds)
                 ->join('product_properties', 'product_properties.id', 'product_properties_values.property_id')
