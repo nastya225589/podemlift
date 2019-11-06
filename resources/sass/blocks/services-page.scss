@@ -11,7 +11,7 @@
 
     &__wrap {
         margin: 0 0 40px;
-        padding: 30px 20px;
+        padding: 20px;
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 6px;
@@ -25,6 +25,7 @@
     &__inner {
         display: flex;
         flex-wrap: wrap;
+        align-items: flex-start;
 
         @media (max-width: $screen-md) {
             justify-content: space-around;
@@ -33,7 +34,7 @@
 
     &__link {
         width: 340px;
-        margin: 0 20px 20px;
+        padding: 20px;
 
         @media (max-width: $screen-md) {
             width: 300px;
@@ -45,17 +46,22 @@
         }
 
         &:hover {
+            border-radius: 5px;
+            background: #fff;
+
             span {
-                color: #fff;
-                transition: color 0.5s 1s linear;
+                color: $third-color;
+                transition: color 0.3s 0.3s linear;
             }
 
             p {
-                color: $fifth-color;
+                color: #000;
             }
         }
 
         p {
+            margin: 0;
+
             @media (max-width: $screen-xs) {
                 margin: 0 0 20px;
             }
