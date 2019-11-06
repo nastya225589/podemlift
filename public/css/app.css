@@ -347,7 +347,8 @@ h3,
   white-space: nowrap;
 }
 
-.text {
+.text,
+.features {
   margin: 0 0 30px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -355,11 +356,13 @@ h3,
   color: #1C1C1C;
 }
 
-.text li > a {
+.text li > a,
+.features li > a {
   color: #00922E !important;
 }
 
-.text li {
+.text li,
+.features li {
   margin: 0 0 10px !important;
   font-weight: normal;
   position: relative;
@@ -369,7 +372,8 @@ h3,
   color: #1C1C1C;
 }
 
-.text li:before {
+.text li:before,
+.features li:before {
   content: "";
   display: inline-block;
   position: absolute;
@@ -381,35 +385,43 @@ h3,
   border-radius: 5px;
 }
 
-.text ul {
+.text ul,
+.features ul {
   padding-left: 20px !important;
   margin: 0 0 30px !important;
 }
 
-.text table {
+.text table,
+.features table {
   width: 100%;
   border-spacing: 0;
 }
 
-.text tbody tr:nth-child(2n+1) {
+.text tbody tr:nth-child(2n+1),
+.features tbody tr:nth-child(2n+1) {
   background: #F1F1F1;
 }
 
-.text td {
+.text td,
+.features td {
   padding: 15px 20px;
 }
 
 .text td,
-.text table {
+.text table,
+.features td,
+.features table {
   border: none;
 }
 
-.text td a {
+.text td a,
+.features td a {
   color: #1C1C1C;
   text-decoration: underline;
 }
 
-.text tbody tr:nth-child(1) {
+.text tbody tr:nth-child(1),
+.features tbody tr:nth-child(1) {
   color: #fff;
   font-weight: bold;
   background: #00922E;
@@ -461,6 +473,10 @@ input[type=submit] {
 
 .answer a {
   color: #00922E;
+}
+
+.features h2 {
+  margin: 35px 0 10px;
 }
 
 .list {

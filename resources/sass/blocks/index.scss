@@ -110,7 +110,7 @@ h3, .title-h3 {
     white-space: nowrap;
 }
 
-.text {
+.text, .features {
     margin: 0 0 30px;
     font-family: $font-family;
     font-size: $font-size;
@@ -220,4 +220,8 @@ input[type="submit"] {
 
 .answer a {
     color: #00922E;
+}
+
+.features h2 {
+    margin: 35px 0 10px;
 }
