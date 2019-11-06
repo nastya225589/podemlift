@@ -982,6 +982,20 @@ input[type=submit] {
   }
 }
 
+.main-nav__list .active {
+  position: relative;
+}
+
+.main-nav__list .active:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-bottom: solid 5px #00922E;
+}
+
 .main-nav__item {
   padding: 20px 16px;
   position: relative;
@@ -6430,6 +6444,10 @@ input[type=submit] {
 }
 
 .form-popup .field-text__input::-webkit-input-placeholder {
+  color: #A9A9A9;
+}
+
+.form-popup .field-text__input::-moz-placeholder {
   color: #A9A9A9;
 }
 
