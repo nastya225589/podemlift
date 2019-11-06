@@ -1,6 +1,7 @@
 export default class Menu {
   constructor () {
     this.initBurgerToggle();
+
     this.initMenu();
     this.activeMenu();
   }
@@ -25,36 +26,24 @@ export default class Menu {
   }
 
   initMenu () {
-    const $catalogMenu = $('.main-nav');
-    const $firstLevelBtn = $catalogMenu.find('.main-nav__btn');
-    const $firstLevelBtnHover = $catalogMenu.find('.main-nav__item--catalog, .main-nav__item--submenu');
+      if($(window).width()<='768'){
+          const $catalogMenu = $('.main-nav');
+          const $firstLevelBtn = $catalogMenu.find('.main-nav__btn');
+          // const $firstLevelBtnHover = $catalogMenu.find('.main-nav__item--catalog, .main-nav__item--submenu');
 
-    $firstLevelBtn.on('click', function (e) {
-      e.preventDefault();
+          $firstLevelBtn.on('click', function (e) {
+              e.preventDefault();
 
-      const $targetSubmenu = $(this).closest('li').find('.submenu');
-      const $openedSubmenu = $catalogMenu.find('.submenu:visible').not($targetSubmenu);
+              const $targetSubmenu = $(this).closest('li').find('.submenu');
+              const $openedSubmenu = $catalogMenu.find('.submenu:visible').not($targetSubmenu);
 
-      if ($targetSubmenu.length) {
-        $targetSubmenu.slideToggle();
-        $openedSubmenu.slideToggle();
-      } else {
-        location.href = $(this).attr('href');
+              if ($targetSubmenu.length) {
+                  $targetSubmenu.slideToggle();
+                  $openedSubmenu.slideToggle();
+              } else {
+                  location.href = $(this).attr('href');
+              }
+          });
       }
-    });
-
-    $firstLevelBtnHover.on('mouseenter', function (e) {
-      e.preventDefault();
-
-      const $targetSubmenu = $(this).closest('li').find('.submenu');
-      const $openedSubmenu = $catalogMenu.find('.submenu:visible').not($targetSubmenu);
-
-      if ($targetSubmenu.length) {
-          $targetSubmenu.slideToggle();
-          $openedSubmenu.slideToggle();
-      } else {
-          location.href = $(this).attr('href');
-      }
-    });
   }
 }

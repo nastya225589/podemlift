@@ -103,6 +103,10 @@
                 right: 0;
                 width: 100%;
                 border-bottom: solid 5px $third-color;
+
+                @media (max-width: $screen-sm) {
+                    display: none;
+                }
             }
         }
     }
@@ -116,21 +120,6 @@
             padding:  10px 0;
         }
 
-        //&:before {
-        //    content: "";
-        //    display: inline-block;
-        //    position: absolute;
-        //    top: 46%;
-        //    right: 0;
-        //    width: 12px;
-        //    height: 7px;
-        //
-        //    @media (max-width: $screen-sm) {
-        //        top: 17px;
-        //        right: 20px;
-        //    }
-        //}
-
         &:after {
             content: none;
             display: inline-block;
@@ -143,7 +132,13 @@
             height: 100%;
         }
 
+        &:hover {
+            background: $main-color;
 
+            @media (max-width: $screen-sm) {
+                background: transparent;
+            }
+        }
 
         &--catalog {
             background: $main-color;
@@ -155,39 +150,32 @@
             }
 
             &:hover {
-                //.submenu {
-                //    display: block;
-                //    z-index: 10;
-                //}
+                .submenu {
+                    display: block;
+                    z-index: 10;
+
+                    @media (max-width: $screen-sm) {
+                        display: none;
+                    }
+                }
 
                 &:before {
                     transform: rotate(180deg);
                 }
             }
-
-            //&:before {
-            //    right: 18px;
-            //    background: url(../images/icon/menu-arrow.svg);
-            //}
         }
 
         &--submenu {
-            //padding: 20px 35px 20px 18px;
-            //
-            //@media (max-width: $screen-sm) {
-            //    padding: 10px 0;
-            //}
+            &:hover {
+                .submenu {
+                    display: block;
+                    z-index: 10;
 
-            //&:before {
-            //    right: 18px;
-            //    background: url(../images/icon/menu-arrow.svg);
-            //}
-
-            //&:hover {
-            //    .submenu {
-            //        display: block;
-            //    }
-            //}
+                    @media (max-width: $screen-sm) {
+                        display: none;
+                    }
+                }
+            }
 
             .submenu {
                 padding: 0 20px;
