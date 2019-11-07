@@ -19154,8 +19154,8 @@ var Filters = function Filters() {
       _iteratorError = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion && _iterator.return != null) {
-          _iterator.return();
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
         }
       } finally {
         if (_didIteratorError) {
@@ -19248,7 +19248,7 @@ function () {
         $('#form-popup .checkout__user').fadeOut();
         $('#form-popup .field-actions').fadeOut();
         $('#form-popup .form-popup__text-wrap').text(response.data.message);
-      }).catch(function (error) {
+      })["catch"](function (error) {
         $('#form-popup .form-popup__btn').text('Отправить');
 
         if (error.response.status == 422) {
@@ -19357,6 +19357,7 @@ function () {
 
     this.initBurgerToggle();
     this.initMenu();
+    this.activeMenu();
   }
 
   _createClass(Menu, [{
@@ -19367,22 +19368,38 @@ function () {
       });
     }
   }, {
-    key: "initMenu",
-    value: function initMenu() {
-      var $catalogMenu = $('.main-nav');
-      var $firstLevelBtn = $catalogMenu.find('.main-nav__btn');
-      $firstLevelBtn.on('click', function (e) {
-        e.preventDefault();
-        var $targetSubmenu = $(this).closest('li').find('.submenu');
-        var $openedSubmenu = $catalogMenu.find('.submenu:visible').not($targetSubmenu);
+    key: "activeMenu",
+    value: function activeMenu() {
+      var location = window.location.href;
+      var cur_url = '/' + location.split('/').pop();
+      $('.main-nav__item').each(function () {
+        var link = $(this).find('a').attr('href');
 
-        if ($targetSubmenu.length) {
-          $targetSubmenu.slideToggle();
-          $openedSubmenu.slideToggle();
-        } else {
-          location.href = $(this).attr('href');
+        if (cur_url == link) {
+          $(this).addClass('active');
         }
       });
+    }
+  }, {
+    key: "initMenu",
+    value: function initMenu() {
+      if ($(window).width() <= '768') {
+        var $catalogMenu = $('.main-nav');
+        var $firstLevelBtn = $catalogMenu.find('.main-nav__btn'); // const $firstLevelBtnHover = $catalogMenu.find('.main-nav__item--catalog, .main-nav__item--submenu');
+
+        $firstLevelBtn.on('click', function (e) {
+          e.preventDefault();
+          var $targetSubmenu = $(this).closest('li').find('.submenu');
+          var $openedSubmenu = $catalogMenu.find('.submenu:visible').not($targetSubmenu);
+
+          if ($targetSubmenu.length) {
+            $targetSubmenu.slideToggle();
+            $openedSubmenu.slideToggle();
+          } else {
+            location.href = $(this).attr('href');
+          }
+        });
+      }
     }
   }]);
 
@@ -19701,9 +19718,9 @@ var Tabs = function Tabs() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/full/Projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/full/Projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/full/Projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
+__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /Users/anastasiapolakova/projects/p-ob.ru/admin/resources/assets/sass/admin.scss */"./admin/resources/assets/sass/admin.scss");
 
 
 /***/ })

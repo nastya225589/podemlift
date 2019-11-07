@@ -982,6 +982,26 @@ input[type=submit] {
   }
 }
 
+.main-nav__list .active {
+  position: relative;
+}
+
+.main-nav__list .active:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-bottom: solid 5px #00922E;
+}
+
+@media (max-width: 768px) {
+  .main-nav__list .active:before {
+    display: none;
+  }
+}
+
 .main-nav__item {
   padding: 20px 16px;
   position: relative;
@@ -1006,6 +1026,16 @@ input[type=submit] {
   height: 100%;
 }
 
+.main-nav__item:hover {
+  background: #F1F1F1;
+}
+
+@media (max-width: 768px) {
+  .main-nav__item:hover {
+    background: transparent;
+  }
+}
+
 .main-nav__item--catalog {
   background: #F1F1F1;
   padding: 20px 16px;
@@ -1018,9 +1048,31 @@ input[type=submit] {
   }
 }
 
+.main-nav__item--catalog:hover .submenu {
+  display: block;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .main-nav__item--catalog:hover .submenu {
+    display: none;
+  }
+}
+
 .main-nav__item--catalog:hover:before {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+
+.main-nav__item--submenu:hover .submenu {
+  display: block;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .main-nav__item--submenu:hover .submenu {
+    display: none;
+  }
 }
 
 .main-nav__item--submenu .submenu {
@@ -2564,7 +2616,7 @@ input[type=submit] {
 
 .footer-nav__list {
   margin-bottom: 30px;
-  max-width: 225px;
+  max-width: 300px;
 }
 
 @media (max-width: 768px) {
@@ -6433,6 +6485,10 @@ input[type=submit] {
   color: #A9A9A9;
 }
 
+.form-popup .field-text__input::-moz-placeholder {
+  color: #A9A9A9;
+}
+
 .form-popup .field-text__input:-ms-input-placeholder {
   color: #A9A9A9;
 }
@@ -6970,7 +7026,7 @@ input[type=submit] {
 
 .services-page__wrap {
   margin: 0 0 40px;
-  padding: 30px 20px;
+  padding: 20px;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 6px;
@@ -6986,6 +7042,7 @@ input[type=submit] {
 .services-page__inner {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 @media (max-width: 1000px) {
@@ -6996,7 +7053,7 @@ input[type=submit] {
 
 .services-page__link {
   width: 340px;
-  margin: 0 20px 20px;
+  padding: 20px;
 }
 
 @media (max-width: 1000px) {
@@ -7012,13 +7069,22 @@ input[type=submit] {
   }
 }
 
+.services-page__link:hover {
+  border-radius: 5px;
+  background: #fff;
+}
+
 .services-page__link:hover span {
-  color: #fff;
-  transition: color 0.5s 1s linear;
+  color: #00922E;
+  transition: color 0.3s 0.3s linear;
 }
 
 .services-page__link:hover p {
-  color: #114B21;
+  color: #000;
+}
+
+.services-page__link p {
+  margin: 0;
 }
 
 @media (max-width: 480px) {
