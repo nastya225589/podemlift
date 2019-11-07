@@ -1,8 +1,10 @@
 .footer-nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     position: relative;
+
+    @media (max-width: $screen-md) {
+        flex-wrap: wrap;
+    }
 
     @media (max-width: $screen-xs) {
         flex-direction: column;
@@ -21,24 +23,17 @@
         }
     }
 
-    &__wrap {
-        @media (max-width: $screen-xs) {
-            padding-left: 25px;
+    &__wrapper {
+        @media (max-width: $screen-sm) {
             display: none;
         }
     }
 
-    &__list--main &__item {
-        margin-bottom: 34px;
-
-        @media (max-width: $screen-sm) {
-            margin-bottom: 10px;
-        }
-
+    &__wrap {
+        display: flex;
         @media (max-width: $screen-xs) {
-           &:last-child {
-               margin-bottom: 0;
-           }
+            padding-left: 25px;
+            display: none;
         }
     }
 
@@ -48,16 +43,19 @@
 
     &__list {
         margin-bottom: 30px;
-        max-width: 300px;
+        flex: 1;
 
-        @media (max-width: $screen-sm) {
-            width: 170px;
+        @media (max-width: $screen-lg) {
             margin-bottom: 20px;
         }
 
-        @media (max-width: $screen-xs) {
-            width: 100%;
-            max-width: 100%;
+        &--main {
+            width: 210px;
+            flex: inherit;
+
+            @media (max-width: $screen-xs) {
+                width: 100%;
+            }
         }
 
     }
@@ -66,7 +64,7 @@
         margin-bottom: 10px;
 
         @media (max-width: $screen-sm) {
-            margin-bottom: 5px;
+            margin-bottom: 7px;
             position: relative;
         }
 

@@ -1,4 +1,10 @@
 .footer-contacts {
+    margin-top: 20px;
+
+    @media (max-width: $screen-xs) {
+        margin-top: 10px;
+    }
+
     &__title {
         margin: 12px 0 16px;
         font-size: $font-size--s;

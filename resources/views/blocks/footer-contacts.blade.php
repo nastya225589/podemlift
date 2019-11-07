@@ -1,5 +1,4 @@
 <div class="footer-contacts">
-    <h3 class="footer-contacts__title">Контакты</h3>
     <ul class="footer-contacts__list">
         <li class="footer-contacts__item">
             <span>бесплатный звонок по России</span>
