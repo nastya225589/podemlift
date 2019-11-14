@@ -29,9 +29,9 @@
             </a>
         </li>
         <li class="social__item">
-            <a href="/" class="social__link" target="_blank">
-                <svg width="40" height="39">
-                    <use xlink:href="images/icon/sprite.svg#viber"></use>
+            <a href="https://www.youtube.com/channel/UCdg_VQ5iHhYsjDlMIBY7yLw" class="social__link" target="_blank">
+                <svg width="30" height="29">
+                    <use xlink:href="images/icon/sprite.svg#youtube"></use>
                 </svg>
             </a>
         </li>
