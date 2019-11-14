@@ -9,7 +9,7 @@
             {{--@include('blocks.logo')--}}
             <a class="logo" href="/">
                 <svg width="398" height="85">
-                    <use xlink:href="images/icon/sprite.svg#logo-green"></use>
+                    <use xlink:href="images/icon/sprite.svg#logo-pob-green"></use>
                 </svg>
             </a>
         </div>
